@@ -53,7 +53,16 @@ router.post("/register", (req,res)=>{
             // Save the new user
             newUser.pwdDigest = hash;
             newUser.save()
-              .then(user => res.json(user))
+              .then(user => {
+                const payload = { id: user.id, fName: user.fName, lName: user.lName };
+
+                jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                  res.json({
+                    success: true,
+                    token: "Bearer " + token
+                  });
+                });
+              })
               .catch(err => console.log(err)); 
           });
         });
