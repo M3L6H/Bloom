@@ -9,4 +9,4 @@ dist
 coverage/
 .nyc_output/
 yarn.lock
-/config/keys.js
+/config/keys_dev.js
