@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Input, Message } from 'semantic-ui-react';
+import { Modal, Button, Form, Input, Grid, Message, Header } from 'semantic-ui-react';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -38,28 +38,33 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div> 
-                I DON'T KNOW HOW TO USE THIS LIBRARY!!!!!;-;
-                <FORM size='large'>
-                    <FORM.Input 
+
+            <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+                <Grid.Column style={{ maxWidth: 450 }}>
+                    <Header as='h2' color='blue' textAlign='center'>Log In </Header>
+                <Form class='user-input-form' >
+                    <Form.Input 
                         fulid icon='user' 
                         iconPosition='left' 
-                        placeholder='Email' />
-                    <FORM.Input 
+                        placeholder='Email' 
+                        onChange={this.update('email')} />
+                    <Form.Input 
                         fluid icon='lock'
                         iconPosition='left'
                         placeholder='Password'
                         type='password'
-                    />
-                    <Button color='skyblue' fluid size='large'>
+                        onChange={this.update('password')} />
+                    <Button color='red' fluid size='large'>
                         Login
                     </Button>
-                </FORM>
+                </Form>
                 
                 <Message>
                     Not a member? <a href="#">Sign Up</a>
                 </Message>
-            </div>
+                </Grid.Column>
+            </Grid>
+
 
 
         );

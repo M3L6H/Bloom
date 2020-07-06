@@ -1,5 +1,5 @@
 import React from 'react';
-import App from '../app';
+import { Button, Form, Input, Message, Grid, Header } from 'semantic-ui-react';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -43,36 +43,42 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div className='user-modal-input'>
-                        <input type="text"
-                            value={this.state.first_name}
-                            onChange={this.update('first_name')}
-                            placeholder='First Name'/>
-                        <input type="text"
-                            value={this.state.first_name}
-                            onChange={this.update('last_name')}
-                            placeholder='Last Name' />
-                        <input type='text'
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder='Email Address' />
-                        <input type='password'
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder='Password' />
-                    </div>
-                    <br />
-                    <input type='submit' value='Register' />
-                    {this.renderErrors()}
-                    <br />
-                    <div>
-                        Already have an account?
-                        <input type='submit' value='Log In' />
-                    </div>
-                </form>
-            </div>
+            <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+                <Grid.Column style={{ maxWidth: 450 }}>
+                    <Header as='h2' color='blue' textAlign='center'>Sign Up</Header>
+                <Form class='user-input-form' size='medium'>
+                    <Form.Input
+                        fulid icon='user'
+                        iconPosition='left'
+                        placeholder='Email' 
+                        onChange={this.update('email')} />
+                    <Form.Input
+                        placeholder='First Name'
+                        onChange={this.update('first_name')}
+                    />
+                    <Form.Input
+                        placeholder='Last Name'
+                        onChange={this.update('last_name')}
+                    />
+                    <Form.Input
+                        fluid icon='lock'
+                        iconPosition='left'
+                        placeholder='Password'
+                        type='password'
+                        onChange={this.update('password')}
+                    />
+                    <Button class='ui test button' fluid size='large'>
+                        Register
+                    </Button>
+                </Form>
+
+                <Message>
+                    Already have an account? <a href="#"> Log In</a>
+                </Message>
+                </Grid.Column>
+            </Grid>
+
+
         );
     }
 }
