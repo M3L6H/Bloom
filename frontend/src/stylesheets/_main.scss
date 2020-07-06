@@ -30,14 +30,18 @@
 }
 
 .main-buttons {
-    width: 250px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 12px;
-    // background-color: #79AECD;
-    background-color: rgba($color: white, $alpha: 0.4);
-    border: 1px solid lightgray;
-    // margin: 65vh auto 0 auto;
+  $width: 250px;
+  width: $width;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 12px;
+  // background-color: #79AECD;
+  background-color: rgba($color: white, $alpha: 0.4);
+  border: 1px solid lightgray;
+  // margin: 67vh auto 0 auto;
+  position: fixed;
+  bottom: 50px;
+  left: calc(50% - #{ $width / 2 });
 }
