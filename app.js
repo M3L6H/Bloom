@@ -5,6 +5,9 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 
+
+// Routes
+const users = require("./routes/api/users"); 
 // Grab the mongo uri
 const db = require("./config/keys").mongoURI;
 
@@ -19,6 +22,10 @@ app.get("/", (req, res) => res.send("Hello World!"));
 // Set up middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
+// Initialize routes
+app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
