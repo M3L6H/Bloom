@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 // Express server
 const express = require("express");
 const app = express();
+
+// Middleware
 const bodyParser = require("body-parser");
+const passport = require("passport");
 
 // Grab the mongo uri
 const db = require("./config/keys").mongoURI;
@@ -17,6 +20,8 @@ mongoose
 app.get("/", (req, res) => res.send("Hello World!"));
 
 // Set up middleware
+app.use(passport.initialize());
+require("./config/passport")(passport);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
