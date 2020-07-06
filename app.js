@@ -20,10 +20,6 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-<<<<<<< HEAD
-app.get("/", (req, res) => res.send("Hello World!"));
-=======
->>>>>>> e7392fa0f16064f166cc8d9e526431dd9c1b2851
 // Set up middleware
 app.use(passport.initialize());
 require("./config/passport")(passport);
