@@ -1,3 +1,14 @@
 #test {
   color: red;
 }
+
+main {
+  background: url(https://i.ibb.co/YQ8P138/001.jpg);
+  width: 100vw;
+  height: 100vh;
+  transition: background 4s;
+}
+
+main:hover {
+  background: url(https://i.ibb.co/5xQ1msq/007.jpg);
+}
