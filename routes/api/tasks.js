@@ -1,13 +1,14 @@
 // Express
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
 
 // Models
 const Task = require("../../models/Task");
 
 // Create new task
 router.post("/", 
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { 
       habit,
