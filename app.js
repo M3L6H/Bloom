@@ -27,16 +27,6 @@ require("./config/passport")(passport);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(function(req, res, next) {
-  console.log(req.method + ' ' + req.url + ' HTTP/' + req.httpVersion);
-  Object.keys(req.headers).forEach(function(field) {
-    console.log(field + ': ' + req.headers[field])
-  });
-  console.dir(req.body);
-
-  next();
-});
-
 // Initialize routes
 app.use("/api/tasks", tasks);
 app.use("/api/users", users);
