@@ -7,9 +7,9 @@ class Main extends React.Component {
 
     render(){
         return(
-            <main>
+            <div className="hydrangea">
                 <h1>Bloom</h1>
-            </main>
+            </div>
         )
     }
 }
