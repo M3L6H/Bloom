@@ -8,9 +8,10 @@ const app = express();
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
-
 // Routes
+const tasks = require("./routes/api/tasks");
 const users = require("./routes/api/users"); 
+
 // Grab the mongo uri
 const db = require("./config/keys").mongoURI;
 
@@ -26,8 +27,8 @@ require("./config/passport")(passport);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
 // Initialize routes
+app.use("/api/tasks", tasks);
 app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;

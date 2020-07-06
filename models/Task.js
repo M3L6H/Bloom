@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const taskSchema = new Schema({
   habit: {
     type: Schema.Types.ObjectId,
+    required: true,
     ref: "habits"
   },
   title: { type: String, required: true },
