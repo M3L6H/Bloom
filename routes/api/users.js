@@ -14,6 +14,7 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require('../../validation/login');
 /// Models
 const User = require("../../models/User");
+const Habit = require("../../models/Habit");
     
 ////////////// Main
 
@@ -105,6 +106,13 @@ router.post("/login", (req,res)=>{
   });
 })
 
+//Get all a user's habits
+router.get("/:userId/habits",(req,res)=>{
 
+    // Find all the User's habits, return null if none
+    Habit.find({user: req.params.userId})
+        .then((habits)=>res.json(habits))
+        .catch((err)=> res.json(null));
+})
 
 module.exports = router;
