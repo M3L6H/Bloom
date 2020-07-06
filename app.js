@@ -8,6 +8,9 @@ const app = express();
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
+
+// Routes
+const users = require("./routes/api/users"); 
 // Grab the mongo uri
 const db = require("./config/keys").mongoURI;
 
@@ -17,13 +20,15 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-app.get("/", (req, res) => res.send("Hello World!"));
-
 // Set up middleware
 app.use(passport.initialize());
 require("./config/passport")(passport);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
+// Initialize routes
+app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
