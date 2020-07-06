@@ -1,0 +1,43 @@
+
+@keyframes hydrangea {
+  0% {background: url(https://i.ibb.co/Dr84CQJ/a01.jpg); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  12% {background: url(https://i.ibb.co/vXyWhvw/a02.jpg); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  24% {background: url(https://i.ibb.co/Y09nTv8/a03.jpg); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  36% {background: url(https://i.ibb.co/TqP9CdF/a04.jpg); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  48% {background: url(https://i.ibb.co/rvqs7nK/a05.jpg); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  60% {background: url(https://i.ibb.co/cNYDctZ/a06.jpg); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  100% {background: url(https://i.ibb.co/jM1ZDSV/a07.jpg); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+}
+
+.hydrangea {
+  // background: url(https://i.ibb.co/YQ8P138/001.jpg);
+  width: auto;
+  height: 100vh;
+  animation-name: hydrangea;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  text-align: center;
+  padding-top: 20px;
+  background-size: cover;
+  // transition: background 4s;
+}
+
+.hydrangea h1 {
+  font-size: 32px;
+  font-weight: 100;
+  font-family: 'Concert One', cursive;
+}
+
+.main-buttons {
+    width: 250px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 12px;
+    // background-color: #79AECD;
+    background-color: rgba($color: white, $alpha: 0.4);
+    border: 1px solid lightgray;
+    margin: 67vh auto 0 auto;
+}
