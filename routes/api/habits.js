@@ -15,3 +15,8 @@
     const Habit = require("../../models/habit");
 
 ////////////// Main
+
+router.get("/test",(req,res) => {res.json({msg:"habits"})});
+
+
+module.exports = router; 
