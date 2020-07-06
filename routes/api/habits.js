@@ -41,6 +41,11 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
 
 });
 
-
+//View Habit
+router.get("/:id",(req,res)=>{
+    Habit.findById(req.params.id)
+        .then((habit)=> res.json(habit))
+        .catch(()=>res.json(null)); 
+})
 
 module.exports = router; 
