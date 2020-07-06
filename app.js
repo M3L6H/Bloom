@@ -1,3 +1,5 @@
+import LoginFormContainer from './frontend/src/components/session_forms';
+import LoginForm from './frontend/src/components/session_forms/login_form';
 const mongoose = require("mongoose");
 
 // Express server
@@ -18,7 +20,7 @@ mongoose
   .catch(err => console.log(err));
 
 app.get("/", (req, res) => res.send("Hello World!"));
-
+<LoginFormContainer />
 // Set up middleware
 app.use(passport.initialize());
 require("./config/passport")(passport);
