@@ -2,20 +2,6 @@
 // Model found in models/User.js
 
 /////////////// Imports
-<<<<<<< HEAD
-  /// Utilities
-    const express = require("express");
-    const router = express.Router();
-    const bcrypt = require('bcryptjs');
-    const jwt = require('jsonwebtoken');
-  /// Keys
-    const keys = require('../../config/keys');
-  /// Validations
-    const validateRegisterInput = require("../../validation/register");
-    const validateLoginInput = require('../../validation/login');
-  /// Models
-    const User = require("../../models/user");
-=======
 /// Utilities
 const express = require("express");
 const router = express.Router();
@@ -28,7 +14,6 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require('../../validation/login');
 /// Models
 const User = require("../../models/User");
->>>>>>> e7392fa0f16064f166cc8d9e526431dd9c1b2851
     
 ////////////// Main
 
