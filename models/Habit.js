@@ -4,6 +4,7 @@
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const { TaskSchema } = require("./Task");
 
 ////// Main
 
@@ -24,7 +25,8 @@ const HabitSchema = new Schema({
     completed: {
         type: Boolean,
         required: true 
-    }
+    },
+    tasks: [TaskSchema]
 },{
     timestamps:true
 })

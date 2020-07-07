@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const taskSchema = new Schema({
+const TaskSchema = new Schema({
   habit: {
     type: Schema.Types.ObjectId,
     required: true,
@@ -16,4 +16,5 @@ const taskSchema = new Schema({
   timestamps: true
 });
 
-module.exports = Task = mongoose.model("Task", taskSchema);
+module.exports = Task = mongoose.model("Task", TaskSchema);
+module.exports.TaskSchema = TaskSchema;
