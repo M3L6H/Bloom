@@ -31,9 +31,10 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
 
   let newHabit = new Habit({
     completed: false,
-    title: req.body.title ,
+    title: req.body.title,
     description: req.body.description || "",
-    user: req.user 
+    user: req.user,
+    tasks: req.tasks
   });
 
   newHabit.save()
@@ -104,7 +105,7 @@ router.patch("/:id", passport.authenticate("jwt", { session: false }), async (re
   if (!isValid) {
     return res.status(422).json(errors);
   }
-  
+
   let myHabit;
 
   try {
