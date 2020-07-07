@@ -20,17 +20,22 @@
 }
 
 .hydrangea {
-  // background: url(https://i.ibb.co/YQ8P138/001.jpg);
+  background: url("../images/a01.jpg");
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center bottom;
   width: auto;
   height: 100vh;
+  text-align: center;
+  padding-top: 20px;
+  // transition: background 4s;
+}
+
+.animated {
   animation-name: hydrangea;
   animation-duration: 8s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  text-align: center;
-  padding-top: 20px;
-  background-size: cover;
-  // transition: background 4s;
 }
 
 .hydrangea h1 {
