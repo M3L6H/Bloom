@@ -173,7 +173,6 @@ router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), asyn
 
   const newTask = new Task({
     habit: myHabit,
-    user: req.user,
     title,
     periodNum,
     periodUnit,

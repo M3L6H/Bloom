@@ -30,13 +30,13 @@ router.patch("/:id", passport.authenticate("jwt", { session: false }), async (re
     return res.status(422).json({ ...err, message: "Bad request." });
   }
   
-  // Check the habit exists
+  // Check the task exists
   if (!myTask) {
     return res.status(404).json(`Could not find task with id ${ req.params.id }`);
   }
 
   // Check that we are the author
-  if (req.user.id != myTask.user) {
+  if (req.user.id != myHabit.user) {
     return res.status(403).json("Cannot edit another user's tasks!");
   }
   
@@ -54,6 +54,31 @@ router.patch("/:id", passport.authenticate("jwt", { session: false }), async (re
   myTask.numTimesDone = numTimesDone || myTask.numTimesDone;
   myTask.numPetals = numPetals || myTask.numPetals;
 
+  myHabit.save()
+    .then(obj=>res.json(obj)) 
+    .catch(err => res.status(422).json(err));
+});
+
+// Delete a task
+router.delete("/:id", passport.authenticate("jwt", { session: false }), async (req, res) => {
+  let myHabit;
+
+  try {
+    myHabit = await Habit.findOne({ tasks: { $elemMatch: { _id: req.params.id } } });
+    if (!myHabit) {
+      return res.status(404).json(`Could not find task with id ${ req.params.id }`);
+    }
+  } catch(err) {
+    return res.status(422).json({ ...err, message: "Bad request." });
+  }
+  
+  // Check that we are the author
+  if (req.user.id != myHabit.user) {
+    return res.status(403).json("Cannot delete another user's tasks!");
+  }
+
+  myHabit.tasks = myHabit.tasks.filter(({ _id }) => _id != req.params.id);
+  
   myHabit.save()
     .then(obj=>res.json(obj)) 
     .catch(err => res.status(422).json(err));
