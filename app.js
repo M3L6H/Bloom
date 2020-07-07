@@ -11,11 +11,7 @@ const passport = require("passport");
 // Routes
 const tasks = require("./routes/api/tasks");
 const users = require("./routes/api/users"); 
-<<<<<<< HEAD
-
-=======
 const habits = require("./routes/api/habits")
->>>>>>> 2bb3026ef9b1015574d3c1361b0136c7c90b1e55
 // Grab the mongo uri
 const db = require("./config/keys").mongoURI;
 
