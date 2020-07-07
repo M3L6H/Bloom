@@ -22,7 +22,7 @@
     router.get("/test",(req,res) => {res.json({msg:"habits"})});
 
 // Create Habit 
-// expects req body to have keys title, description, and user(id)
+// expects req body to have keys title, description,
     router.post("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
         
         const {errors,isValid} = validateNewHabitInput(req.body);
@@ -35,7 +35,7 @@
             completed: false,
             title: req.body.title ,
             description: req.body.description || "",
-            user: req.body.user 
+            user: req.user.id 
         });
 
         newHabit.save().then((habit)=> res.json(habit)); 
@@ -44,6 +44,13 @@
 
 //View Habit
     router.get("/:id", passport.authenticate("jwt", { session: false }), (req,res)=>{
+
+        // Prevent the user from accessing another's habits!
+        if (req.user.id !== req.params.userId) {
+            res.json("Unauthorized!");
+            return null;
+        } 
+
         Habit.findById(req.params.id)
             .then((habit)=> res.json(habit))
             .catch(()=>res.json(null)); 
@@ -52,6 +59,14 @@
 // Delete Habit
 // Returns deleted habit id or "failed"
     router.delete("/:id", passport.authenticate("jwt", { session: false }), (req,res) => {
+
+        // Prevent the user from accessing another's habits!
+        if (req.user.id !== req.params.userId) {
+            res.json("Unauthorized!");
+            return null;
+        } 
+
+
         Habit.deleteOne({_id: req.params.id})
             .then((msg) => {
                 if(msg && msg.deletedCount > 0) {
@@ -66,6 +81,12 @@
 // Returns JSON of updated Habit or old habit if no updates are passed in body
 // Expects body to contain ONLY new key:value pairs
     router.patch("/:id", passport.authenticate("jwt", { session: false }),(req,res)=>{
+        // Prevent the user from accessing another's habits!
+        if (req.user.id !== req.params.userId) {
+            res.json("Unauthorized!");
+            return null;
+        } 
+
         Habit.findOneAndUpdate({_id:req.params.id}, req.body,{new:true, lean:true})
             .then(obj=>res.json(obj)); 
     })

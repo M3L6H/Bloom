@@ -10,7 +10,8 @@ const Schema = mongoose.Schema;
 const HabitSchema = new Schema({
     user:{
         type: Schema.Types.ObjectId,
-        ref: "users"
+        ref: "users",
+        required: true 
     },
 
     title: {
