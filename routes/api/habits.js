@@ -15,6 +15,7 @@
     const validateNewHabitInput = require("../../validation/new_habit");
 /// Models
     const Habit = require("../../models/Habit");
+    const Task = require("../../models/Task");
 
 ////////////// Main
 
@@ -87,5 +88,39 @@
         Habit.findOneAndUpdate({_id:req.params.id}, req.body,{new:true, lean:true})
             .then(obj=>res.json(obj)); 
     })
+
+router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), async (req, res) => {
+  const myHabit = await Habit.findOne({ _id: req.params.id });
+
+  if (!myHabit) {
+    return res.status(404).json(`Could not find habit with id ${ req.params.id }`);
+  }
+
+  if (req.user.id != myHabit.user) {
+    return res.status(401).json("Cannot edit another user's habits!");
+  }
+
+  const { 
+    habit,
+    title, 
+    periodNum, 
+    periodUnit, 
+    numTimesToDo, 
+    numPetals 
+  } = req.body;
+
+  const newTask = new Task({
+    habit,
+    title,
+    periodNum,
+    periodUnit,
+    numTimesToDo,
+    numPetals
+  });
+
+  myHabit.tasks.push(newTask);
+  myHabit.save()
+    .then(obj => res.json(obj.tasks[obj.tasks.length - 1]));
+});
 
 module.exports = router; 
