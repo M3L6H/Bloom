@@ -26,14 +26,15 @@ const parseUser = ({ token }) => {
   return jwt_decode(token);
 };
 
-export const signup = user => dispatch => (
-  APIUtil.signup(user).then(res => {
+export const signup = user => dispatch => {
+  return APIUtil.signup(user).then(res => {
+    debugger
     dispatch(receiveCurrentUser(parseUser(res.data)));
   })
   .catch(err => {
     dispatch(receiveSessionErrors(err.response.data));
   })
-);
+};
 
 export const login = user => dispatch => (
   APIUtil.login(user).then(res => {

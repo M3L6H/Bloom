@@ -1,15 +1,17 @@
 import React from 'react';
-import { Button, Form, Input, Message, Grid, Header } from 'semantic-ui-react';
+import { Button, Form, Grid } from 'semantic-ui-react';
 
 class SignupForm extends React.Component {
+
     constructor(props) {
         super(props);
 
         this.state = {
             email: '',
-            first_name: '',
-            last_name: '',
-            password: ''
+            fName: '',
+            lName: '',
+            password: '',
+            password2: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,16 +22,8 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(e) {
-        e.prevnetDefault();
-
-        let user = {
-            email: this.state.email,
-            password: this.state.password,
-            first_name: this.state.first_name,
-            last_name: this.state.last_name
-        };
-
-        this.props.signup(user);
+        e.preventDefault();
+        this.props.signup(this.state);
     }
 
     renderErrors() {
@@ -54,11 +48,11 @@ class SignupForm extends React.Component {
                         onChange={this.update('email')} />
                     <Form.Input
                         placeholder='First Name'
-                        onChange={this.update('first_name')}
+                        onChange={this.update('fName')}
                     />
                     <Form.Input
                         placeholder='Last Name'
-                        onChange={this.update('last_name')}
+                        onChange={this.update('lName')}
                     />
                     <Form.Input
                         fluid icon='lock'
@@ -67,18 +61,20 @@ class SignupForm extends React.Component {
                         type='password'
                         onChange={this.update('password')}
                     />
-                    <Button class='ui test button' fluid size='large'>
+                    <Form.Input
+                        fluid icon='lock'
+                        iconPosition='left'
+                        placeholder='Confirm Password'
+                        type='password'
+                        onChange={this.update('password2')}
+                    />
+                    <Button className='ui test button' fluid size='large'>
                         Register
                     </Button>
                 </Form>
 
-                <Message>
-                    Already have an account? <a href="#"> Log In</a>
-                </Message>
                 </Grid.Column>
             </Grid>
-
-
         );
     }
 }

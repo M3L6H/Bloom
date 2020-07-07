@@ -1,15 +1,14 @@
 import React from 'react';
-import { Modal, Button, Form, Input, Grid, Message, Header } from 'semantic-ui-react';
+import { Button, Form, Grid} from 'semantic-ui-react';
 
 class LoginForm extends React.Component {
+
     constructor(props) {
         super(props);
-
         this.state = {
             email: '',
             password: ''
         };
-
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -18,14 +17,8 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit(e) {
-        e.prevnetDefault();
-
-        let user = {
-            email: this.state.email,
-            password: this.state.password
-        };
-
-        this.props.login(user);
+        e.preventDefault();
+        this.props.login(this.state);
     }
 
     renderErrors() {
@@ -37,12 +30,12 @@ class LoginForm extends React.Component {
     }
 
     render() {
+
         return (
 
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-                <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' color='blue' textAlign='center'>Log In </Header>
-                <Form class='user-input-form' >
+                <Grid.Column style={{ width: 250 }}>
+                <Form className='user-input-form' onSubmit={this.handleSubmit}>
                     <Form.Input 
                         fluid icon='user' 
                         iconPosition='left' 
@@ -54,44 +47,14 @@ class LoginForm extends React.Component {
                         placeholder='Password'
                         type='password'
                         onChange={this.update('password')} />
-                    <Button color='red' fluid size='large'>
-                        Login
+                    <Button className='ui test button' fluid size='large'>
+                            Log In
                     </Button>
                 </Form>
-                
-                <Message>
-                    Not a member? <a href="#">Sign Up</a>
-                </Message>
                 </Grid.Column>
             </Grid>
-
-
-
         );
     }
 }
 
 export default LoginForm;
-{/* 
-    <div className='login-container'>
-                <form onSubmit={this.handleSubmit}>
-                    <div className='login-input'>
-                        <input type='text'
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder='Email' />
-                        <input type='password'
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder='Password' />
-                    </div>
-                    <br />
-                    <Button class="ui button">Login</Button>
-                    {this.renderErrors()}
-                    <br />
-                    <div>
-                        Not a member?
-                        <input type='submit' value='Sign Up' />
-                    </div>
-                </form>
-            </div> */}
