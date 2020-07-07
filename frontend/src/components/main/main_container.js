@@ -1,12 +1,9 @@
 import { connect } from 'react-redux';
 import Main from './main';
-
-const mSTP = state => ({
-
-});
+import { openModal } from '../../actions/modal_actions';
 
 const mDTP = dispatch => ({
-
+    openModal: modal => dispatch(openModal(modal))
 });
 
-export default connect(mSTP, mDTP)(Main);
+export default connect(null, mDTP)(Main);

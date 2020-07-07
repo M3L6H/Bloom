@@ -11,6 +11,7 @@ const passport = require("passport");
 
 // Routes
 const users = require("./routes/api/users"); 
+const habits = require("./routes/api/habits")
 // Grab the mongo uri
 const db = require("./config/keys").mongoURI;
 
@@ -29,6 +30,7 @@ app.use(bodyParser.json());
 
 // Initialize routes
 app.use("/api/users", users);
+app.use("/api/habits", habits);
 
 const port = process.env.PORT || 5000;
 
