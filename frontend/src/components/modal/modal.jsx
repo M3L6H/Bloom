@@ -3,7 +3,9 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session_forms/login_form_container';
 import SignupFormContainer from '../session_forms/signup_form_container';
-import EditTaskContainer from '..'
+import EditTaskContainer from '../task/edit_task_container'
+import CreateTaskContainer from '../task/create_task_container';
+
 function Modal({ modal, closeModal }) {
     if (!modal) return null;
 
@@ -19,6 +21,8 @@ function Modal({ modal, closeModal }) {
         case 'editTask':
             component = <EditTaskContainer />;
             break;  
+        case 'createTask':
+            component = <CreateTaskContainer />;
         default:
             return null;
     }

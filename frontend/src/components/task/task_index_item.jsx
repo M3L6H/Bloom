@@ -1,5 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux'
+import { openModal } from '../../actions/modal_actions';
 
 
 class TaksIndexItem extends React.Component {
@@ -14,22 +15,19 @@ class TaksIndexItem extends React.Component {
     }
     
     render() {
-        return {
+        return null;
 
-        }
     }
 }
 
-const mapStateToProps = (state) = {
-    return ({
+const mapStateToProps = (state) => {
+    
+}
 
+const mapDispatchToProps = (dispatch) => {
+    return ({
+        openModal: (modal) => dispatch(openModal(modal))
     })
 }
 
-const mapDispatchToProps = (dispatch) = {
-    return ({
-
-    })
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TaksIndexItem);
+export default connect(null, mapDispatchToProps)(TaksIndexItem);

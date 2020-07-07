@@ -1,10 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { closeModal } from '../../actions'
 
-class EditTaskContainer extends React.Component {
-
+class TaskForm extends React.Component {
     constructor(props) {
+        super(props)
         this.state = {
             title: "task-title",
             periodNum: 0,
@@ -12,36 +10,36 @@ class EditTaskContainer extends React.Component {
             numTimesDone: 0,
             numPetals: 0
         }
-
     }
 
-    render(){ 
+    render() {
 
         const freqDropDown = (
             <select name="topic-select" id="slct">
                 <option>Category</option>
                 <option value="1">Day</option>
                 <option value="2">Week</option>
-                <option value="3">Month</option>   
-                <option value="4">Year</option>   
+                <option value="3">Month</option>
+                <option value="4">Year</option>
             </select>
         )
-        
+
         return (
-            <div className='task-edit-modal'>
+            <div className='task-modal'>
                 <form className='task-form' >
                     <div className='task-form-top'>
                         {this.state.title}
-                        <i class="fa fa-times" 
-                            aria-hidden="true" 
-                            onClick={()=> this.props.closeModal()}></i>
+                        <i class="fa fa-times"
+                            aria-hidden="true"
+                            onClick={() => this.props.closeModal()}></i>
                     </div>
                     <input type="number" /> {freqDropDown}
                     {this.state.numPetals} petals
-                    <button>update</button>
+                    <button>update/create</button>
                 </form>
             </div>
 
         )
     }
 }
+export default TaskForm;
