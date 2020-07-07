@@ -1,5 +1,5 @@
 const Validator = require("validator");
-const validText = require("./valid-text");
+const validText = require("./valid_text");
 const positiveInt = require("./positive_int");
 const validPeriodUnit = require("./valid_period_unit");
 const { periodUnits } = require("./valid_period_unit");
