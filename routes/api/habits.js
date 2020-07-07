@@ -50,6 +50,7 @@
     })
 
 // Delete Habit
+// Returns deleted habit id or "failed"
     router.delete("/:id", (req,res) => {
         Habit.deleteOne({_id: req.params.id})
             .then((msg) => {
@@ -59,6 +60,13 @@
                     res.json("Failed");
                 }
             })
+    })
+
+// Update Habit
+
+    router.patch("/:id",(req,res)=>{
+        Habit.findOneAndUpdate({_id:req.params.id}, req.body,{new:true, lean:true})
+            .then(obj=>res.json(obj)); 
     })
 
 module.exports = router; 
