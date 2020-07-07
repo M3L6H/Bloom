@@ -111,8 +111,7 @@ router.post("/login", (req,res)=>{
   router.get("/:userId/habits", passport.authenticate("jwt", { session: false }), (req,res)=>{
       // Prevent the user from accessing another's habits!
       if (req.user.id !== req.params.userId){
-        res.json("Unauthorized!");
-        return null; 
+        return res.status(401).json("Unauthorized!"); 
       } 
       // Find all the User's habits, return null if none
       Habit.find({user: req.params.userId})

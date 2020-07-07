@@ -47,8 +47,7 @@
 
         // Prevent the user from accessing another's habits!
         if (req.user.id !== req.params.userId) {
-            res.json("Unauthorized!");
-            return null;
+            return res.status(401).json("Unauthorized!");
         } 
 
         Habit.findById(req.params.id)
@@ -62,8 +61,7 @@
 
         // Prevent the user from accessing another's habits!
         if (req.user.id !== req.params.userId) {
-            res.json("Unauthorized!");
-            return null;
+            return res.status(401).json("Unauthorized!");
         } 
 
 
@@ -83,8 +81,7 @@
     router.patch("/:id", passport.authenticate("jwt", { session: false }),(req,res)=>{
         // Prevent the user from accessing another's habits!
         if (req.user.id !== req.params.userId) {
-            res.json("Unauthorized!");
-            return null;
+            return res.status(401).json("Unauthorized!");
         } 
 
         Habit.findOneAndUpdate({_id:req.params.id}, req.body,{new:true, lean:true})
