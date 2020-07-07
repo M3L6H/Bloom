@@ -1,12 +1,12 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
-import LoginFormContainer from './session_forms/login_form_container';
-import SignupFormContainer from './session_forms/signup_form_container';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Main from './main';
+import Modal from './modal/modal'
 
 const App = () => (
   <div className='test'>
-    <LoginFormContainer />
-    <SignupFormContainer />
+    <Modal />
+    <AuthRoute path="/" component={Main}/>
   </div>
 );
 
