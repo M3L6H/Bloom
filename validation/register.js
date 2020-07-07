@@ -1,7 +1,7 @@
 //////////////////// Registration Validations ////////////////////////
 
 const Validator = require('validator');
-const validText = require('./valid-text');
+const validText = require('./valid_text');
 
 module.exports = function validateRegisterInput(input){
   // Initialize an empty errors object

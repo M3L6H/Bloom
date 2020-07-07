@@ -1,7 +1,7 @@
 //////////////////// New Habit Validations ////////////////////////
 
 const Validator = require('validator');
-const validText = require('./valid-text');
+const validText = require('./valid_text');
 
 module.exports = function validateNewHabitInput(input) {
     // Initialize an empty errors object
