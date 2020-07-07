@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-don';
+import TaksIndexItem from '../task/task_index_item';
 
 class HabitIndexItem extends React.Component {
     constructor(props) {
@@ -26,11 +27,9 @@ class HabitIndexItem extends React.Component {
                         {description}
                     </div>
                     <div className='habit-show-bottom'>
-                        {tasks.map(task) => this.renderTask(task)}
-
-                    </div>
-
-                    
+                        { tasks.map(
+                            (task) => < HabitIndexItem task={task} />) }
+                    </div> 
                 </div>
 
             </div>
