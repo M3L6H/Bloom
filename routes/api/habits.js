@@ -20,6 +20,14 @@ const Task = require("../../models/Task");
 //Test route
 router.get("/test",(req,res) => {res.json({msg:"habits"})});
 
+//Get all a user's habits
+router.get("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
+  // Find all the User's habits, return null if none
+  Habit.find({user: req.user.id})
+      .then((habits)=>res.json(habits))
+      .catch((err)=> res.json(err));
+});
+
 // Create Habit 
 // expects req body to have keys title, description,
 router.post("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
