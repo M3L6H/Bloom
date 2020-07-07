@@ -3,22 +3,20 @@
 
 /////////////// Imports
   /// Utilities
-    const express = require("express");
-    const router = express.Router();
-    const bcrypt = require('bcryptjs');
-    const jwt = require('jsonwebtoken');
-    const passport = require("passport");
+const express = require("express");
+const router = express.Router();
+const passport = require("passport");
 
 /// Validations
-    const validateNewHabitInput = require("../../validation/new_habit");
+const validateNewHabitInput = require("../../validation/new_habit");
 /// Models
-    const Habit = require("../../models/Habit");
-    const Task = require("../../models/Task");
+const Habit = require("../../models/Habit");
+const Task = require("../../models/Task");
 
 ////////////// Main
 
 //Test route
-    router.get("/test",(req,res) => {res.json({msg:"habits"})});
+router.get("/test",(req,res) => {res.json({msg:"habits"})});
 
 // Create Habit 
 // expects req body to have keys title, description,
@@ -36,7 +34,9 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
     user: req.user 
   });
 
-  newHabit.save().then((habit)=> res.json(habit)); 
+  newHabit.save()
+    .then((habit)=> res.json(habit))
+    .catch(err => res.status(422).json(err));
 });
 
 //View Habit
@@ -126,7 +126,8 @@ router.patch("/:id", passport.authenticate("jwt", { session: false }), async (re
   myHabit.completed = completed || myHabit.completed;
 
   myHabit.save()
-    .then(obj=>res.json(obj)); 
+    .then(obj=>res.json(obj)) 
+    .catch(err => res.status(422).json(err));
 });
 
 router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), async (req, res) => {
@@ -161,13 +162,13 @@ router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), asyn
     title,
     periodNum,
     periodUnit,
-    numTimesToDo,
     numPetals
   });
 
   myHabit.tasks.push(newTask);
   myHabit.save()
-    .then(obj => res.json(obj.tasks[obj.tasks.length - 1]));
+    .then(obj => res.json(obj.tasks[obj.tasks.length - 1]))
+    .catch(err => res.status(422).json(err));
 });
 
 module.exports = router; 
