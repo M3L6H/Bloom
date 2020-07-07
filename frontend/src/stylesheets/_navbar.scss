@@ -1,11 +1,32 @@
-// .ui.tabular.menu {
-//     background: lightgray;
-// }
-
-// a .active {
-//     background: green;
-// }
-.fa-bars {
-    margin: 5% 0 0 30%;
-    font-size: 18px;
+.ui.tabular.menu {
+    border: green 2px solid;
+    display: flex;
+    justify-content: space-between;
 }
+.fa-bars {
+    border: 1px red solid;
+    //float: right;
+    //padding-right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+i:hover .dropdown{
+    display: block;
+    //position: absolute;
+}
+
+.dropdown {
+    background: red;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    background: white;
+    border: 0.5px solid lightgray;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 3px;
+    z-index: 1;
+}
+
+

@@ -7,8 +7,6 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 const App = () => (
   <div className='test'>
     <NavBarContainer />
-    <LoginFormContainer />
-    <SignupFormContainer />
   </div>
 );
 
