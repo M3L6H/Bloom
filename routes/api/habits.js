@@ -21,9 +21,9 @@
 //Test route
     router.get("/test",(req,res) => {res.json({msg:"habits"})});
 
-// Create Habit 
+// Create Habit passport.authenticate("jwt", { session: false }),
 // expects req body to have keys title, description, and user(id)
-    router.post("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
+    router.post("/",  (req,res)=>{
         
         const {errors,isValid} = validateNewHabitInput(req.body);
 
@@ -49,6 +49,16 @@
             .catch(()=>res.json(null)); 
     })
 
-
+// Delete Habit
+    router.delete("/:id", (req,res) => {
+        Habit.deleteOne({_id: req.params.id})
+            .then((msg) => {
+                if(msg && msg.deletedCount > 0) {
+                    res.json({id: req.params.id});
+                } else {
+                    res.json("Failed");
+                }
+            })
+    })
 
 module.exports = router; 
