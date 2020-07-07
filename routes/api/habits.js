@@ -99,6 +99,12 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), async (r
 // Returns JSON of updated Habit or old habit if no updates are passed in body
 // Expects body to contain ONLY new key:value pairs
 router.patch("/:id", passport.authenticate("jwt", { session: false }), async (req,res)=>{
+  const {errors,isValid} = validateNewHabitInput(req.body);
+
+  if (!isValid) {
+    return res.status(422).json(errors);
+  }
+  
   let myHabit;
 
   try {
