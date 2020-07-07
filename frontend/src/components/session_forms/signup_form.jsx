@@ -44,8 +44,7 @@ class SignupForm extends React.Component {
     render() {
         return (
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-                <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' color='blue' textAlign='center'>Sign Up</Header>
+                <Grid.Column style={{ width: 250 }}>
                 <Form class='user-input-form' size='medium'>
                     <Form.Input
                         fulid icon='user'
@@ -72,9 +71,6 @@ class SignupForm extends React.Component {
                     </Button>
                 </Form>
 
-                <Message>
-                    Already have an account? <a href="#"> Log In</a>
-                </Message>
                 </Grid.Column>
             </Grid>
 

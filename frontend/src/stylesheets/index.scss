@@ -1,7 +1,8 @@
 @import './main';
+@import './login';
+@import './modal';
+@import './session';
 
 #test {
   color: red;
 }
-
-@import "login";

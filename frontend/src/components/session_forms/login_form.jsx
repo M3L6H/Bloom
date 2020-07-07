@@ -40,8 +40,7 @@ class LoginForm extends React.Component {
         return (
 
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-                <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' color='blue' textAlign='center'>Log In </Header>
+                <Grid.Column style={{ width: 250 }}>
                 <Form className='user-input-form' >
                     <Form.Input 
                         fulid icon='user' 
@@ -54,14 +53,14 @@ class LoginForm extends React.Component {
                         placeholder='Password'
                         type='password'
                         onChange={this.update('password')} />
-                    <Button color='red' fluid size='large'>
-                        Login
+                    <Button class='ui test button' fluid size='large'>
+                            Log In
                     </Button>
                 </Form>
                 
-                <Message>
+                {/* <Message>
                     Not a member? <a href="#">Sign Up</a>
-                </Message>
+                </Message> */}
                 </Grid.Column>
             </Grid>
 
