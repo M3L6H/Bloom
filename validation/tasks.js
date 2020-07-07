@@ -15,24 +15,21 @@ module.exports = (data) => {
   let errors = {};
 
   title = validText(title) ? title : "";
-  periodUnit = validText(periodUnit) ? periodUnit : "";
-  periodNum = periodNum ? periodNum : "1";
-  numPetals = numPetals ? numPetals : "1";
 
   // Validations
   if (Validator.isEmpty(title)) {
     errors.title = "Title is required";
   }
 
-  if (!validPeriodUnit(periodUnit)) {
+  if (periodUnit && !validPeriodUnit(periodUnit)) {
     errors.periodUnit = `Period unit should be one of: ${ periodUnits.join(", ") }`;
   }
 
-  if (!positiveInt(periodNum)) {
+  if (periodNum && !positiveInt(periodNum)) {
     errors.periodNum = "periodNum should be a positive integer";
   }
 
-  if (!positiveInt(numPetals)) {
+  if (numPetals && !positiveInt(numPetals)) {
     errors.numPetals = "numPetals should be a positive integer";
   }
 

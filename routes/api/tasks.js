@@ -3,34 +3,60 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 
+/// Validations
+const validateTask = require("../../validation/tasks");
+
 // Models
-const Task = require("../../models/Task");
+const Habit = require("../../models/Habit");
 
-// Create new task
-router.post("/", 
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const { 
-      habit,
-      title, 
-      periodNum, 
-      periodUnit, 
-      numTimesToDo, 
-      numPetals 
-    } = req.body;
+// Edit a task
+router.patch("/:id", passport.authenticate("jwt", { session: false }), async (req, res) => {
+  const {errors,isValid} = validateTask(req.body);
 
-    const newTask = new Task({
-      habit,
-      title,
-      periodNum,
-      periodUnit,
-      numTimesToDo,
-      numPetals
-    });
+  if (!isValid) {
+    return res.status(422).json(errors);
+  }
+  
+  let myTask;
+  let myHabit;
 
-    newTask.save()
-      .then(task => res.json(task))
-      .catch(err => res.status(500).json(err));
+  try {
+    myHabit = await Habit.findOne({ tasks: { $elemMatch: { _id: req.params.id } } });
+    if (!myHabit) {
+      return res.status(404).json(`Could not find task with id ${ req.params.id }`);
+    }
+    myTask = myHabit.tasks.find(({ _id }) => _id == req.params.id);
+  } catch(err) {
+    return res.status(422).json({ ...err, message: "Bad request." });
+  }
+  
+  // Check the habit exists
+  if (!myTask) {
+    return res.status(404).json(`Could not find task with id ${ req.params.id }`);
+  }
+
+  // Check that we are the author
+  if (req.user.id != myTask.user) {
+    return res.status(403).json("Cannot edit another user's tasks!");
+  }
+  
+  const {
+    title,
+    periodNum,
+    periodUnit, 
+    numTimesDone,
+    numPetals
+  } = req.body;
+
+  myTask.title = title || myTask.title;
+  myTask.periodNum = periodNum || myTask.periodNum;
+  myTask.periodUnit = periodUnit || myTask.periodUnit;
+  myTask.numTimesDone = numTimesDone || myTask.numTimesDone;
+  myTask.numPetals = numPetals || myTask.numPetals;
+
+  myHabit.save()
+    .then(obj=>res.json(obj)) 
+    .catch(err => res.status(422).json(err));
 });
 
 module.exports = router;
