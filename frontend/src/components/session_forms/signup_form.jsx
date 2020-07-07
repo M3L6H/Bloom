@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as='h2' color='blue' textAlign='center'>Sign Up</Header>
-                <Form class='user-input-form' size='medium'>
+                <Form className='user-input-form' size='medium'>
                     <Form.Input
                         fulid icon='user'
                         iconPosition='left'
