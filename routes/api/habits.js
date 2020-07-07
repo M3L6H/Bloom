@@ -33,7 +33,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
     completed: false,
     title: req.body.title ,
     description: req.body.description || "",
-    user: req.user.id 
+    user: req.user 
   });
 
   newHabit.save().then((habit)=> res.json(habit)); 
@@ -149,7 +149,6 @@ router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), asyn
   }
 
   const { 
-    habit,
     title, 
     periodNum, 
     periodUnit, 
@@ -158,7 +157,8 @@ router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), asyn
   } = req.body;
 
   const newTask = new Task({
-    habit,
+    habit: myHabit,
+    user: req.user,
     title,
     periodNum,
     periodUnit,
