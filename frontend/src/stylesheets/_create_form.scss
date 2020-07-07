@@ -1,0 +1,53 @@
+li {
+    list-style: none;
+}
+
+.prop-user-for-tasks, div.associated-tasks {
+    border: 1px solid lightgrey;
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 1em;
+    font-family: sans-serif;
+    color: lightgrey;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.habit-add-task-button {
+    color: grey;
+    text-align: right;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.habit-taks-creator {
+    margin-bottom: 15px;
+}
+
+div.associated-tasks {
+    color: black;
+    margin-top: -10px;
+    text-align: left;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.create-task-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgrey;
+    align-items: center;
+}
+
+.label-tasks {
+    font-weight: 700;
+    font-size: 13px;
+    margin: 0px;
+}
+
+.background {
+    background-color: #93BBDC;
+    background-color: #659ECD;
+    background-image: linear-gradient( #D1E2F0, #3776A9);
+}

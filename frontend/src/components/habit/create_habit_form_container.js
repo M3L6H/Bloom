@@ -9,4 +9,4 @@ const mDTP = dispatch => ({
 
 });
 
-export default connect(mSTP, mDTP)(CreateHabitForm);
+export default connect(null, null)(CreateHabitForm);

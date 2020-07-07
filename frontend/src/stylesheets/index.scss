@@ -2,7 +2,13 @@
 @import './login';
 @import './modal';
 @import './session';
+@import './create_form';
+@import './ashe_nav_bar';
 
 #test {
   color: red;
+}
+
+.hidden {
+  display: none;
 }
