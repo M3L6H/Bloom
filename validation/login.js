@@ -1,7 +1,7 @@
 ////////////////// Login Validaitons //////////////////////////
 
 const Validator = require('validator');
-const validText = require('./valid-text');
+const validText = require('./valid_text');
 
 module.exports = function validateLoginInput(input) {
   let errors = {};
