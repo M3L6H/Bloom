@@ -152,7 +152,6 @@ router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), asyn
     title, 
     periodNum, 
     periodUnit, 
-    numTimesToDo, 
     numPetals 
   } = req.body;
 
