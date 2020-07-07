@@ -1,0 +1,42 @@
+.habit-show-top {
+    align-items: center;
+    border-bottom: lightgrey 1px solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.habit-show-top > .title {
+    padding: 3% 20% 2% 7%;
+    font-size: 20px;
+
+}
+.habit-show-top > i {
+    padding-right: 10%;
+}
+
+
+.habit-show-middle {
+    display: flex;
+    flex-direction: column;
+    border: lightgrey solid 1px;
+    border-radius: 3px;
+    padding: 3% 0 2% 7%;
+    margin: 10%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.single-task {
+    border: 1px lightgray solid;
+    border-radius: 4px;
+    padding: 5px;
+
+}
+
+.habit-show-bottom {
+    //border: 1px black solid;
+    //margin-left: 10%;
+    margin-right: 10%;
+}

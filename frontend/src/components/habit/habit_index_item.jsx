@@ -8,28 +8,32 @@ class HabitIndexItem extends React.Component {
         this.state = {
             complete: false,
             title: "Eat Healthy",
-            description: "I'm going to eat healthy, so I can have a grerat skin and never get aged!",//this.props.description// 
+            description: "I'm going to eat healthy, so I can have a grerat skin and never get aged! I don't want to consume junk food but it so affordable and delicious. It's bad for the environment though.. ",
             tasks: ['drink water', 'eat less chocolate', 'eat more vegetable!']
         }
     }
 
-    ren
+    
 
     render() {
-        debugger;
-        const {title, description, task, complete} = this.state;
+        const {title, description, tasks, complete} = this.state;
         return (
             <div>
                 <div className='habit-description'>
                     <div className='habit-show-top'>
-                        {title}
+                        <span className='title'>{title}</span>
+                        <i className="fas fa-bars"></i>
                     </div>
                     <div className='habit-show-middle'>
+                        Description
                         {description}
                     </div>
                     <div className='habit-show-bottom'>
-                        { this.state.tasks.map(
-                            (task) => < TaskIndexItem task={task} />) }
+                        { tasks.map(
+                            (task, idx) => < TaskIndexItem 
+                                             key={idx}
+                                             task={task} 
+                                             complete={complete} />) }
                     </div> 
                 </div>
 

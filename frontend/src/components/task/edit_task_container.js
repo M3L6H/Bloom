@@ -1,20 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions'
+import { closeModal } from '../../actions/modal_actions'
 import TaskForm from './task_form';
+
 
 class EditTaskForm extends React.Component {
 
     constructor(props) {
         super(props)
-
-
     }
 
     render(){ 
-        const {formType, task} = this.props;
-        if(!task) return null;
-
+        const { formType, task } = this.props;
+ 
         return (
             <>
                 < TaskForm
@@ -30,7 +28,7 @@ class EditTaskForm extends React.Component {
 const mapStateToProps = (state, ownProps) => {
 
     return ({
-        formType: 'Edit Task'
+        formType: 'editTask'
     })
 }
 

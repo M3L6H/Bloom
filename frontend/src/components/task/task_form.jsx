@@ -24,8 +24,11 @@ class TaskForm extends React.Component {
             </select>
         )
 
+
+        //
         return (
             <div className='task-modal'>
+                <p>I'm in task form!</p>
                 <form className='task-form' >
                     <div className='task-form-top'>
                         {this.state.title}
