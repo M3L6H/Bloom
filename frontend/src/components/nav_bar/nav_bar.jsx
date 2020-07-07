@@ -8,24 +8,17 @@ class NavBar extends React.Component {
     }
 
     render() {
-        const dropdown = (
-            <Dropdown.Menu>
-                <Dropdown.Item text='Profile' />
-                <Dropdown.Item text='ele1' />
-                <Dropdown.Item text='ele2'/>
-                <Dropdown.Item text='ele3'/>
-            </Dropdown.Menu>
-        )
+       
         return(
             <div className="ui tabular menu">
                 <a href='#' className="active item"> first ele </a>
                 <a href='#' className="item"> second ele </a>
-                <i class='fa fa-bars' aria-hidden='true'></i>
+                <i className='fa fa-bars' aria-hidden='true'></i>
                 <div className='dropdown'>
-                    <div classNme='dropdown-content'>
+                    <div className='dropdown-content'>
                             <a href="#">Profile</a>
                             <a href="#">One</a>
-                            <a href="#">One</a>
+                            <a href="#">logout</a>
                     </div>
                 </div>
 
@@ -35,3 +28,5 @@ class NavBar extends React.Component {
 }
 
 export default NavBar;
+
+//<li onClixk={this.props.logout}>Logout<li>

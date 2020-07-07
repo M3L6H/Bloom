@@ -1,13 +1,10 @@
 .ui.tabular.menu {
-    border: green 2px solid;
-    display: flex;
-    justify-content: space-between;
+    display: flex; 
+    width: 60%;
 }
 .fa-bars {
-    border: 1px red solid;
-    //float: right;
-    //padding-right: 10px;
-    font-size: 30px;
+    margin: 3% 0 3% 50%;
+    font-size: 23px;
     cursor: pointer;
 }
 
@@ -17,7 +14,6 @@ i:hover .dropdown{
 }
 
 .dropdown {
-    background: red;
     display: none;
     position: absolute;
     min-width: 160px;
@@ -29,4 +25,11 @@ i:hover .dropdown{
     z-index: 1;
 }
 
+.ui.menu:after{
+    content: none;
+}
 
+
+// i.fa.fa-bars:before{
+//     content: none;
+// }

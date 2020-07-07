@@ -44,7 +44,7 @@ class LoginForm extends React.Component {
                     <Header as='h2' color='blue' textAlign='center'>Log In </Header>
                 <Form class='user-input-form' >
                     <Form.Input 
-                        fulid icon='user' 
+                        fluid icon='user' 
                         iconPosition='left' 
                         placeholder='Email' 
                         onChange={this.update('email')} />

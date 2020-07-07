@@ -48,7 +48,7 @@ class SignupForm extends React.Component {
                     <Header as='h2' color='blue' textAlign='center'>Sign Up</Header>
                 <Form className='user-input-form' size='medium'>
                     <Form.Input
-                        fulid icon='user'
+                        fluid icon='user'
                         iconPosition='left'
                         placeholder='Email' 
                         onChange={this.update('email')} />
