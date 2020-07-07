@@ -10,7 +10,6 @@ const taskSchema = new Schema({
   title: { type: String, required: true },
   periodNum: { type: Number, default: 1 },
   periodUnit: { type: String, default: "day" },
-  numTimesToDo: { type: Number, default: 1 },
   numTimesDone: { type: Number, default: 0 },
   numPetals: { type: Number, default: 1 }
 }, {
