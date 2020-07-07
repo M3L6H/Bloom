@@ -7,6 +7,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const passport = require('passport'); 
 /// Keys
 const keys = require('../../config/keys');
 /// Validations
@@ -107,12 +108,12 @@ router.post("/login", (req,res)=>{
 })
 
 //Get all a user's habits
-router.get("/:userId/habits",(req,res)=>{
+  router.get("/:userId/habits", passport.authenticate("jwt", { session: false }), (req,res)=>{
 
-    // Find all the User's habits, return null if none
-    Habit.find({user: req.params.userId})
-        .then((habits)=>res.json(habits))
-        .catch((err)=> res.json(null));
-})
+      // Find all the User's habits, return null if none
+      Habit.find({user: req.params.userId})
+          .then((habits)=>res.json(habits))
+          .catch((err)=> res.json(null));
+  })
 
 module.exports = router;
