@@ -27,12 +27,12 @@ class TaskForm extends React.Component {
 
         //
         return (
-            <div className='task-modal'>
+            <div className='task-modal-background'>
                 <p>I'm in task form!</p>
                 <form className='task-form' >
                     <div className='task-form-top'>
                         {this.state.title}
-                        <i class="fa fa-times"
+                        <i className="fa fa-times"
                             aria-hidden="true"
                             onClick={() => this.props.closeModal()}></i>
                     </div>
