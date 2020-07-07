@@ -63,7 +63,8 @@
     })
 
 // Update Habit
-
+// Returns JSON of updated Habit or old habit if no updates are passed in body
+// Expects body to contain ONLY new key:value pairs
     router.patch("/:id",(req,res)=>{
         Habit.findOneAndUpdate({_id:req.params.id}, req.body,{new:true, lean:true})
             .then(obj=>res.json(obj)); 
