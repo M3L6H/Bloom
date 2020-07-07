@@ -1,5 +1,5 @@
 const Validator = require("validator");
 
 module.exports = num => (
-  Validator.isInt(num) && parseInt(num) > 0
+  Validator.isInt(num.toString()) && parseInt(num) > 0
 );

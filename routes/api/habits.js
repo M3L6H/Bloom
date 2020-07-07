@@ -9,6 +9,8 @@ const passport = require("passport");
 
 /// Validations
 const validateNewHabitInput = require("../../validation/new_habit");
+const validateTask = require("../../validation/tasks");
+
 /// Models
 const Habit = require("../../models/Habit");
 const Task = require("../../models/Task");
@@ -24,7 +26,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
   const {errors,isValid} = validateNewHabitInput(req.body);
 
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.status(422).json(errors);
   }
 
   let newHabit = new Habit({
@@ -131,6 +133,12 @@ router.patch("/:id", passport.authenticate("jwt", { session: false }), async (re
 });
 
 router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), async (req, res) => {
+  const { errors, isValid } = validateTask(req.body);
+
+  if (!isValid) {
+    return res.status(422).json(errors);
+  }
+  
   let myHabit;
 
   try {
