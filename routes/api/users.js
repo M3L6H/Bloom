@@ -109,4 +109,43 @@ router.post("/login", (req,res)=>{
   });
 })
 
+// Reorganize task list
+// Returns user with updated task list
+
+router.get("/reorganize_tasks", passport.authenticate("jwt", { session: false }), async (req,res)=>{
+  let newTaskList = [];
+  let user;
+  let habits;
+  // Find the user model and habits
+  try{
+
+    user = await User.findOne({_id:req.user.id});
+    habits = await Habit.find({ _id: { $in: user.habits } });
+
+  }catch(err){
+
+    return res.status(422).json({ ...err, message: "Bad request." });
+  }
+  
+  // If no tasks, return an error
+  if(!habits || habits.length === 0){
+    return res.json("Could not find any tasks!").status(404);
+  }
+
+  // Order the habits
+  habits = user.habits.map((habitId)=> habits.find(habit => habit.id===habitId)); 
+
+  habits.forEach((habit)=>{
+    habit.tasks.forEach((task)=>{
+      newTaskList.push(task.id);
+    })
+  })
+
+  user.dailyTaskList = newTaskList;
+
+  user.save()
+    .then((user)=> res.json(user))
+    .catch((err)=>res.json(err).status(422));
+})
+
 module.exports = router;

@@ -126,7 +126,10 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), async (r
         let tasks = myHabit.tasks.map((task)=> task.id);
         tasks.forEach((task)=>{
           let taskIdx = owner.dailyTaskList.findIndex((_task)=> _task === task);
-          owner.dailyTaskList.splice(taskIdx,1); 
+
+          if(taskIdx){
+            owner.dailyTaskList.splice(taskIdx,1); 
+          }
         });
         owner.save(); 
       } else {
