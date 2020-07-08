@@ -1,4 +1,5 @@
 import React from 'react';
+import TaskItemShow from './task_item_show';
 
 class Landing extends React.Component {
 
@@ -11,22 +12,18 @@ class Landing extends React.Component {
     }
 
     render(){
+        const { tasks, habits } = this.props;
+
+        if(!tasks) return null;
         return(
             <div className="background">
-                <div>
-
+                <div className="petal-jar-container">
+                    Jar will go here
                 </div>
-                <div>
-                    
+                <div className="landing-tasks-container">
+                    <div className="label-primary-tasks">Your Current Primary Tasks</div>
+                    {tasks.slice(0,3).map( (task,idx) => <TaskItemShow key={idx} task={task} habit={habits[task.habit]}/> )}
                 </div>
-                This is Landing Page
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                This is Landing
             </div>
         )
     }

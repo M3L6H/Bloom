@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { fetchHabits } from '../../actions/habits_actions';
 
 const mSTP = state => ({
-    habits: state.habits,
-    tasks: state.tasks
+    habits: state.entities.habits,
+    tasks: Object.values(state.entities.tasks)
 });
 
 const mDTP = (dispatch) => ({
