@@ -51,7 +51,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), async (req,re
   }
 
   if (req.body.tasks) {
-    newHabit.tasks = req.body.tasks.map(task => { task.habit = newHabit; return task; });
+    newHabit.tasks = req.body.tasks.map(task => { task[habit] = newHabit; return task; });
     newHabit.save()
       .then(obj => res.json(obj))
       .catch(err => res.status(422).json(err));
