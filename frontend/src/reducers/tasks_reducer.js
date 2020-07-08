@@ -28,7 +28,7 @@ export default (state={}, action) => {
       newState = {};
 
       for (const id in state) {
-        if (state[id].habit != action.id) {
+        if (state[id].habit !== action.id) {
           newState[id] = state[id];
         }
       }
