@@ -44,7 +44,9 @@ router.post("/register", (req,res)=>{
             fName: req.body.fName,
             lName: req.body.lName,
             email: req.body.email,
-            pwdDigest: req.body.password
+            pwdDigest: req.body.password,
+            petals: 0,
+            rewards: req.body.rewards 
         });
 
         // Generate a secure password digest
@@ -106,17 +108,5 @@ router.post("/login", (req,res)=>{
     });
   });
 })
-
-//Get all a user's habits
-  router.get("/:userId/habits", passport.authenticate("jwt", { session: false }), (req,res)=>{
-      // Prevent the user from accessing another's habits!
-      if (req.user.id !== req.params.userId){
-        return res.status(401).json("Unauthorized!"); 
-      } 
-      // Find all the User's habits, return null if none
-      Habit.find({user: req.params.userId})
-          .then((habits)=>res.json(habits))
-          .catch((err)=> res.json(null));
-  })
 
 module.exports = router;
