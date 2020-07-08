@@ -4,6 +4,7 @@ import Main from './main';
 import Modal from './modal/modal';
 import CreateHabit from './habit';
 import AsheNavBar from './ashe_nav_bar';
+import Landing from './landing';
 
 const App = () => (
   <div className='test'>
@@ -11,6 +12,7 @@ const App = () => (
     <AuthRoute path="/" component={Main}/>
     <ProtectedRoute path="/" component={AsheNavBar} />
     <ProtectedRoute path="/habit" component={CreateHabit}/>
+    <ProtectedRoute path="/landing" component={Landing}/>
   </div>
 );
 

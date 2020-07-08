@@ -1,0 +1,40 @@
+.task-item-show-container {
+    background-color: rgba($color: white, $alpha: 0.6);
+    border: 1px solid white;
+    border-radius: 8px;
+    width: 74%;
+    margin: 15px auto;
+    padding: 8px 4px;
+    color: white;
+    position: relative;
+}
+
+.frequency-and-petals {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-item-title {
+    font-weight: 700;
+    color: black;
+}
+
+.task-item-title span {
+    color: grey;
+    font-weight: 500;
+}
+
+.task-complete {
+    position: absolute;
+    color: black;
+    top: 0;
+    right: 5px;
+}
+
+.check- {
+    background-color: white;
+    box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.4);
+    color: black;
+    // background-image: url("../images/blue_hydrangea.jpg");
+    // background-attachment: fill;
+}

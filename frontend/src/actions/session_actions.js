@@ -28,7 +28,6 @@ const parseUser = ({ token }) => {
 
 export const signup = user => dispatch => {
   return APIUtil.signup(user).then(res => {
-    debugger
     dispatch(receiveCurrentUser(parseUser(res.data)));
   })
   .catch(err => {

@@ -1,0 +1,29 @@
+.petal-jar-container {
+    background-image: linear-gradient(#D1E2F0, white);
+    height: 50vh;
+    border-bottom: 1px solid lightgrey;
+    width: 414px;
+    margin: 0 auto;
+}
+
+.landing-tasks-container {
+    background-color: #013A65;
+    background-color: #19364D;
+    height: 50vh;
+    $task_width: 414px;
+    width: $task_width;
+    margin: 0 auto;
+    position: fixed;
+    left: calc(50% - #{$task_width / 2 });
+    padding-top: 50px;
+}
+
+.label-primary-tasks {
+    text-align: center;
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+    position: absolute;
+    width: 100%;
+    top: 20px;
+}
