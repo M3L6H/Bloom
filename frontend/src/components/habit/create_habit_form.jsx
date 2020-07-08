@@ -33,6 +33,7 @@ class CreateHabitForm extends React.Component {
         e.preventDefault();
         e.stopPropagation();
         let habit = {title: this.state.title, description: this.state.description, tasks: this.state.tasks };
+        console.log(habit);
         this.props.createHabit(habit);
     }
 
