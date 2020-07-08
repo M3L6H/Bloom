@@ -10,29 +10,37 @@ class HabitIndexItem extends React.Component {
             title: "Eat Healthy",
             description: "I'm going to eat healthy, so I can have a grerat skin and never get aged! I don't want to consume junk food but it so affordable and delicious. It's bad for the environment though.. ",
             tasks: ['drink water', 'eat less chocolate', 'eat more vegetable!'],
-            edit: false,
+            editDescription: false,
             complete: false
         }
-        this.openEditForm = this.openEditForm.bind(this);
-        this.hideEditForm = this.hideEditForm.bind(this);
+        this.toggleEditDescription = this.toggleEditDescription.bind(this); 
     }
-
-    openEditForm() {
-        this.setState({ edit: true });
-    }
-
-    hideEditForm() {
-        this.setState({ edit: false });
+    
+    toggleEditDescription(){
+        var edit;
+        this.state.editDescription ? edit = false : edit = true;
+        this.setState({editDescription: edit}); 
     }
 
     render() {
-        const {
-            title, description, tasks, complete, updateHabit, deleteHabit
-        } = this.state;
+        //debugger;
+        const { title, description, tasks, complete } = this.state;
+        const { updateHabit, deleteHabit } = this.props;
 
 
-        const open = this.state.edit ? 'open' : '';
-    
+        const open = this.state.editDescription ? 'open' : '';
+        var descriptionComponent;
+        if(this.state.editDescription){
+            descriptionComponent = <EditDescriptionForm
+                                    open={open}
+                                    description={description}
+                                    updateHabit={updateHabit}
+                                    hideEditForm={this.toggleEditDescription}
+                                />
+                             
+        } else {
+            descriptionComponent = <p className="description">{description}</p>; 
+        }
  
         return (
             <div className="habit-show-container">
@@ -45,15 +53,9 @@ class HabitIndexItem extends React.Component {
                         <div className='habit-show-middle'>
                             <div className='hsm-top'>
                                 Description 
-                                <i class="fa fa-bell" aria-hidden="true"></i>
-                                <EditDescriptionForm
-                                    open={open}
-                                    description={description}
-                                    updateHabit={updateHabit}
-                                    hideEditForm={this.hideEditForm}
-                                />
+                                <i class="fa fa-bell" onClick={this.toggleEditDescription} aria-hidden="true"></i>
+                                {descriptionComponent} 
                             </div>
-                            {description}
                         </div>
                         <div className='habit-show-bottom'>
                             { tasks.map

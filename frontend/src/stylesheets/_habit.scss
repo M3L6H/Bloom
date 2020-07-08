@@ -29,7 +29,7 @@
 }
 
 
-.habit-show-middle {
+.habit-show-middle, .description-edit{
     display: flex;
     flex-direction: column;
     border: lightgrey solid 1px;
@@ -69,10 +69,10 @@ ul {
 }
 
 // hide the description edit box
-.description-edit {
-    //display: none;
-    width: 100%;
-}
+// .description-edit {
+//     //display: none;
+//     width: 100%;
+// }
 
 // open the edit box
 .description-edit.open {
