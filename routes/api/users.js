@@ -148,4 +148,38 @@ router.get("/reorganize_tasks", passport.authenticate("jwt", { session: false })
     .catch((err)=>res.json(err).status(422));
 })
 
+// Update dailyTaskList
+// expects a new array that will replace the original
+router.post("/update_tasks",passport.authenticate("jwt",{session:false}), async (req,res)=>{
+  
+  //First, make sure the request is valid
+  if(!req.body.dailyTaskList || !Array.isArray(req.body.dailyTaskList)){
+      return res.status(422).json("dailyTaskList must be an array of task id's!");
+  }
+
+  let user;
+  
+  // Find the user model
+  try {
+
+    user = await User.findOne({ _id: req.user.id });
+  } catch (err) {
+
+    return res.status(422).json({ ...err, message: "Bad request." });
+  }
+
+  // Check if user exists
+  if(!user){
+    return res.status(404).json("User not found!");
+  }
+
+  //Update the list 
+  user.dailyTaskList = req.body.dailyTaskList;
+
+  user.save()
+    .then((user)=> res.json(user))
+    .catch((err)=> res.json(err).status(422)); 
+
+})
+
 module.exports = router;
