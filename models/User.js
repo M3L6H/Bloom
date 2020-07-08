@@ -21,6 +21,8 @@ const RewardSchema = new Schema({
     }
 })
 
+
+
 const UserSchema = new Schema({
     email: {
         type: String,
