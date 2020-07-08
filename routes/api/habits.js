@@ -63,7 +63,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), async (req,re
       .then(obj => res.json(obj))
       .catch(err => res.status(422).json(err));
     user.dailyTaskList.push(...newHabit.tasks.map(task=>task.id));
-    
+
   } else {
     return res.json(newHabit); 
   }
@@ -95,10 +95,11 @@ router.get("/:id", passport.authenticate("jwt", { session: false }), async (req,
 // Delete Habit
 // Returns deleted habit id or "failed"
 router.delete("/:id", passport.authenticate("jwt", { session: false }), async (req,res) => {
-  let myHabit;
-
+  var myHabit;
+  var owner;
   try {
     myHabit = await Habit.findOne({ _id: req.params.id });
+    owner = await User.findOne({_id: req.user.id});
   } catch(err) {
     return res.status(422).json({ ...err, message: "Bad request." });
   }
@@ -117,6 +118,17 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), async (r
     .then((msg) => {
       if(msg && msg.deletedCount > 0) {
         res.json({id: req.params.id});
+        
+        // remove the habit and its tasks from the owner's habits and dailyTaskList arrays
+        let habitIdx = owner.habits.findIndex((habit)=> habit === myHabit.id);
+        owner.habits.splice(habitIdx,1); 
+        
+        let tasks = myHabit.tasks.map((task)=> task.id);
+        tasks.forEach((task)=>{
+          let taskIdx = owner.dailyTaskList.findIndex((_task)=> _task === task);
+          owner.dailyTaskList.splice(taskIdx,1); 
+        });
+        owner.save(); 
       } else {
         res.json("Failed");
       }
