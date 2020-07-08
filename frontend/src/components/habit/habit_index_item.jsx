@@ -30,7 +30,6 @@ class HabitIndexItem extends React.Component {
             title, description, tasks, complete, updateHabit, deleteHabit
         } = this.state;
 
-    
 
         const open = this.state.edit ? 'open' : '';
     

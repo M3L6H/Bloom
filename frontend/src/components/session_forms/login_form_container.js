@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import LoginForm from './login_form';
-import { login } from '../../actions/session_actions';// 
+import { login } from '../../actions/session_actions';//
+import { closeModal } from '../../actions/modal_actions';
 
 // const mapStateToProps = (state) => {
 //     return {
