@@ -7,12 +7,8 @@ import { updateTask } from '../../actions/tasks_actions'
 
 class EditTaskForm extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     render(){ 
-        const { formType, task, closeModal, updateTask } = this.props;
+        const { formType, task, closeModal, action } = this.props;
  
         return (
             <>
@@ -20,7 +16,7 @@ class EditTaskForm extends React.Component {
                     formType={formType}
                     task={task}
                     closeModal={closeModal}
-                    updateTask={updateTask}
+                    action={action}
                  />
             </>
 
@@ -38,7 +34,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return ({
         closeModal: () => dispatch(closeModal()),
-        updateTask: (task) => dispatch(updateTask(task))
+        action: (task) => dispatch(updateTask(task))
     })
 }
 

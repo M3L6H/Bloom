@@ -1,3 +1,8 @@
+.habit-show-container{
+    height: 100vh;
+    position: fixed;  
+}
+
 .habit-show-top {
     align-items: center;
     border-bottom: lightgrey 1px solid;
@@ -6,9 +11,8 @@
 }
 
 .habit-show-main {
-    border: 1px solid lightgrey;
-    margin: 20px 0;
-    padding: 10px;
+    border: 1px solid lightgray;
+    margin: 20px 20px;
     font-size: 1em;
     font-family: sans-serif;
     color: lightgrey;
@@ -30,9 +34,15 @@
     flex-direction: column;
     border: lightgrey solid 1px;
     border-radius: 3px;
-    padding: 3% 0 2% 7%;
+    padding: 3%;
     margin: 10%;
 }
+
+.hsm-top {
+    display: flex;
+    justify-content: space-between;
+}
+
 
 ul {
     list-style-type: none;
@@ -42,6 +52,7 @@ ul {
     border: 1px lightgray solid;
     border-radius: 4px;
     padding: 5px;
+    margin-left: 10%
 
 }
 
@@ -51,8 +62,31 @@ ul {
     margin-right: 10%;
 }
 
-.background {
+.habit-show-container {
     background-color: #93BBDC;
     background-color: #659ECD;
     background-image: linear-gradient( #D1E2F0, #3776A9);
+}
+
+// hide the description edit box
+.description-edit {
+    //display: none;
+    width: 100%;
+}
+
+// open the edit box
+.description-edit.open {
+    display: block;
+}
+
+.description-edit-container {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.edit-description-input {
+    font-size: 12px;
+    border: none;
 }

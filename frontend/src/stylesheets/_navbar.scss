@@ -1,27 +1,35 @@
 .ui.tabular.menu {
     display: flex; 
-    width: 60%;
+    width: 100%;
 }
 .fa-bars {
     //margin: 3% 0 3% 50%;
     font-size: 23px;
     cursor: pointer;
+
 }
 
-i:hover .dropdown{
+.dropdown:hover .dropdown-content{
     display: block;
     //position: absolute;
 }
 
 .dropdown {
-    display: none;
-    position: absolute;
-    min-width: 160px;
+    display: block;
+    position: relative;
     background: white;
-    border: 0.5px solid lightgray;
+    //border: 0.5px solid lightgray;
     border-radius: 4px;
     font-size: 16px;
     margin-top: 3px;
+    z-index: 1;
+    margin: 3% 0 3% 30%;
+}
+
+.dropdown-content {
+    border: 0.5px solid lightgray;
+    display: none;
+    position: absolute;
     z-index: 1;
 }
 

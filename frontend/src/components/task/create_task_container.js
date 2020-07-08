@@ -11,7 +11,7 @@ class CreateTaskForm extends React.Component {
     }
 
     render() {
-        const { formType, task, createTask, closeModal } = this.props;
+        const { formType, task, action, closeModal } = this.props;
         
         if (!task) return null;
 
@@ -20,7 +20,7 @@ class CreateTaskForm extends React.Component {
                 < TaskForm
                     formType={formType}
                     task={task}
-                    createTask={createTask}
+                    action={action}
                     closeModal={closeModal}
                 />
             </>
@@ -39,7 +39,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return ({
         closeModal: () => dispatch(closeModal()),
-        createTask: (task) => dispatch(createTask(task))
+        action: (task) => dispatch(createTask(task))
     })
 }
 

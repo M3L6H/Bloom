@@ -4,7 +4,7 @@ import HabitIndexItemContainer from './habit/habit_index_item_container';
 import Modal from './modal/modal';
 
 const App = () => (
-  <div className='test'>
+  <div>
     <Modal />
     <HabitIndexItemContainer />
   </div>

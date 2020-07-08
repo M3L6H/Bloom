@@ -1,16 +1,59 @@
-.task-modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba($color: white, $alpha: 0.0);
-  z-index: 10;
+// .task-modal-background {
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   background: rgba($color: white, $alpha: 0.0);
+//   z-index: 10;
+//   //border: 1px black solid;
+// }
+
+// .task-modal-background-child {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   border: 1px black solid;
+//   background: red;
+// }
+
+ul {
+  padding-inline-start: 0px;
 }
 
-.task-modal-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.task-form {
+  padding: 5%;
+  width: 50%;
+  border-radius: 8px;
+  background: lavender;
+  border: lavender 1px solid;
+  //display: flex;
+}
+
+.task-form > * {
+  padding: 3%;
+}
+
+.task-form-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-form-num-input > input {
+  width: 30%;
+  border: 0.5px solid lightgray;
+  border-radius: 5px;
+}
+
+.task-form-num-input > #frq-slct {
+  border: 0.5px solid lightgray;
+  border-radius: 5px;
+  color: gray;
+}
+
+.task-modal-background  button {
+  border: 0.5px solid lightgray;
+  border-radius: 5px;
+  color: gray;
 }

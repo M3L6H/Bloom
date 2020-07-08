@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class TaskForm extends React.Component {
     constructor(props) {
         super(props)
@@ -10,18 +11,32 @@ class TaskForm extends React.Component {
             numTimesDone: 0,
             numPetals: 0
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+    getSelectedValue() {
+        let e = document.getElementById('frq-slct');
+        let result = e.options[e.selectedIndex].value;
+        //update periodUnit //define unit???
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const task = Object.assign({}, this.state);
+        this.props.action(task)
+            .then(() => { this.props.action() })
     }
 
     render() {
         const {formType} = this.props;
         const submitButton = (
             (formType === 'editTask') ? (
-                <button onClick>update</button>
-            ) : <button onClick>create</button>
+                <button onClick={this.handleSubmit}>update</button>
+            ) : <button onClick={this.handleSubmit}>create</button>
         )
-        debugger
+        //debugger
         const freqDropDown = (
-            <select name="topic-select" id="slct">
+            <select name="frq-select" id="frq-slct">
                 <option>Category</option>
                 <option value="1">Day</option>
                 <option value="2">Week</option>
@@ -31,10 +46,8 @@ class TaskForm extends React.Component {
         )
 
 
-        //
         return (
             <div className='task-modal-background'>
-                <p>I'm in task form!</p>
                 <form className='task-form' >
                     <div className='task-form-top'>
                         {this.state.title}
@@ -42,9 +55,15 @@ class TaskForm extends React.Component {
                             aria-hidden="true"
                             onClick={() => this.props.closeModal()}></i>
                     </div>
-                    <input type="number" /> {freqDropDown}
-                    {this.state.numPetals} petals
-                    {submitButton}
+                    <div className='task-form-num-input'>
+                        <input type="number" /> {freqDropDown}
+                    </div>
+                    <div className='task-form-petal-cnt'>
+                        {this.state.numPetals} petals
+                    </div>
+                    <div class='submit-btn'>
+                        {submitButton}
+                    </div>
                 </form>
             </div>
 
