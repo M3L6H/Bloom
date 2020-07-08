@@ -24,9 +24,6 @@ function Modal({ modal, closeModal }) {
         case 'createTask':
             component = <CreateTaskContainer />;
             break;
-        case 'editHabit':
-            component = <EditHabitContainer />;
-            break;
         default:
             return null;
     }

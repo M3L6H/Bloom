@@ -28,8 +28,11 @@
     margin-right: 10%;
 }
 
+.habit-show-middel.open {
+    display: none;
+}
 
-.habit-show-middle, .description-edit{
+.habit-show-middle, .description-edit.open {
     display: flex;
     flex-direction: column;
     border: lightgrey solid 1px;
@@ -38,11 +41,12 @@
     margin: 10%;
 }
 
+
+
 .hsm-top {
     display: flex;
     justify-content: space-between;
 }
-
 
 ul {
     list-style-type: none;
@@ -57,12 +61,11 @@ ul {
 }
 
 .habit-show-bottom {
-    //border: 1px black solid;
-    //margin-left: 10%;
     margin-right: 10%;
 }
 
 .habit-show-container {
+    width: 100%;
     background-color: #93BBDC;
     background-color: #659ECD;
     background-image: linear-gradient( #D1E2F0, #3776A9);
@@ -76,17 +79,29 @@ ul {
 
 // open the edit box
 .description-edit.open {
-    display: block;
+    display: inline-block;
+    width: 80%;
 }
 
 .description-edit-container {
-    width: 100%;
+    //width: 90%;
     background: white;
     border-radius: 8px;
-    padding: 5px;
+    border: solid lavender 1px;
+    //border: solid yellow 2px;
+    //padding: 5px;
+    
 }
 
 .edit-description-input {
     font-size: 12px;
     border: none;
+    width: 100%;
+    //border: solid red 2px;
+}
+
+.description-edit.cancel {
+    width: 50%;
+    text-align: center;
+    background: lavenderblush;
 }

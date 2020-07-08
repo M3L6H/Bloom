@@ -6,7 +6,6 @@ export default class EditDescriptionForm extends React.Component {
         this.state = {
             description : this.props.description
         };
-        //
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -57,8 +56,8 @@ export default class EditDescriptionForm extends React.Component {
                         hideEditForm();
                     }}
                 >
-                    Cancel
-        </a>
+                    cancel
+                </a>
             </div>
         );
     }

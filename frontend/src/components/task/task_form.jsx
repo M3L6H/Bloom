@@ -61,7 +61,7 @@ class TaskForm extends React.Component {
                     <div className='task-form-petal-cnt'>
                         {this.state.numPetals} petals
                     </div>
-                    <div class='submit-btn'>
+                    <div className='submit-btn'>
                         {submitButton}
                     </div>
                 </form>

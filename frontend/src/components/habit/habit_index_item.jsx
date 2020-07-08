@@ -30,44 +30,50 @@ class HabitIndexItem extends React.Component {
 
         const open = this.state.editDescription ? 'open' : '';
         var descriptionComponent;
+        var editDescritionComponent;
         if(this.state.editDescription){
-            descriptionComponent = <EditDescriptionForm
-                                    open={open}
-                                    description={description}
-                                    updateHabit={updateHabit}
-                                    hideEditForm={this.toggleEditDescription}
-                                />
+            editDescritionComponent = (
+              <EditDescriptionForm
+                open={open}
+                description={description}
+                updateHabit={updateHabit}
+                hideEditForm={this.toggleEditDescription}
+              />
+            );
                              
         } else {
             descriptionComponent = <p className="description">{description}</p>; 
         }
  
         return (
-            <div className="habit-show-container">
-                <div className="habit-show-main">
-                    <div className='habit-description'>
-                        <div className='habit-show-top'>
-                            <span className='title'>{title}</span>
-                            <i className="fas fa-bars"></i>
-                        </div>
-                        <div className='habit-show-middle'>
-                            <div className='hsm-top'>
-                                Description 
-                                <i class="fa fa-bell" onClick={this.toggleEditDescription} aria-hidden="true"></i>
-                                {descriptionComponent} 
-                            </div>
-                        </div>
-                        <div className='habit-show-bottom'>
-                            { tasks.map
-                                ((task, idx) => < TaskIndexItem 
-                                                    key={idx}
-                                                    task={task} 
-                                                    complete={complete} />) }
-                        </div> 
-                    </div>
+          <div className="habit-show-container">
+            <div className="habit-show-main">
+              <div className="habit-description">
+                <div className="habit-show-top">
+                  <span className="title">{title}</span>
+                  <i className="fas fa-bars"></i>
                 </div>
+                <div className={`habit-show-middle ${open}`}>
+                  <div className="hsm-top">
+                    Description
+                    <i
+                      className="fa fa-bell"
+                      onClick={this.toggleEditDescription}
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                  {descriptionComponent}
+                </div>
+                {editDescritionComponent}
+                <div className="habit-show-bottom">
+                  {tasks.map((task, idx) => (
+                    <TaskIndexItem key={idx} task={task} />
+                  ))}
+                </div>
+              </div>
             </div>
-        )
+          </div>
+        );
     }
 }
 
