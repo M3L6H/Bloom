@@ -11,9 +11,6 @@ class TaksIndexItem extends React.Component {
         //this.handleEditTask = this.handleEditTask.bind(this);
     }
 
-    handleEditTask() {
-    
-    }
     
     render() {
         const {task, complete, openModal} = this.props

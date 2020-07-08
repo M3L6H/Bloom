@@ -26,7 +26,10 @@ class HabitIndexItem extends React.Component {
                             <i className="fas fa-bars"></i>
                         </div>
                         <div className='habit-show-middle'>
-                            Description
+                            <div className='hsm-top'>
+                                Description 
+                                <i className="fa fa-pencil" aria-hidden="true"></i>
+                            </div>
                             {description}
                         </div>
                         <div className='habit-show-bottom'>

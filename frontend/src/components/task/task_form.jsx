@@ -13,7 +13,13 @@ class TaskForm extends React.Component {
     }
 
     render() {
-
+        const {formType} = this.props;
+        const submitButton = (
+            (formType === 'editTask') ? (
+                <button onClick>update</button>
+            ) : <button onClick>create</button>
+        )
+        debugger
         const freqDropDown = (
             <select name="topic-select" id="slct">
                 <option>Category</option>
@@ -38,7 +44,7 @@ class TaskForm extends React.Component {
                     </div>
                     <input type="number" /> {freqDropDown}
                     {this.state.numPetals} petals
-                    <button>update/create</button>
+                    {submitButton}
                 </form>
             </div>
 

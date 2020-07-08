@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'
 import TaskForm from './task_form';
+import { updateTask } from '../../actions/tasks_actions'
 
 
 class EditTaskForm extends React.Component {
@@ -11,7 +12,7 @@ class EditTaskForm extends React.Component {
     }
 
     render(){ 
-        const { formType, task, closeModal } = this.props;
+        const { formType, task, closeModal, updateTask } = this.props;
  
         return (
             <>
@@ -19,6 +20,7 @@ class EditTaskForm extends React.Component {
                     formType={formType}
                     task={task}
                     closeModal={closeModal}
+                    updateTask={updateTask}
                  />
             </>
 
@@ -35,7 +37,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        updateTask: (task) => dispatch(updateTask(task))
     })
 }
 
