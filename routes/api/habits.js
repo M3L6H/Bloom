@@ -178,6 +178,8 @@ router.patch("/:id", passport.authenticate("jwt", { session: false }), async (re
     .catch(err => res.status(422).json(err));
 });
 
+//Create a new Task
+// Returns json of the new task
 router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), async (req, res) => {
   const { errors, isValid } = validateTask(req.body);
 
@@ -186,9 +188,10 @@ router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), asyn
   }
   
   let myHabit;
-
+  let owner;
   try {
     myHabit = await Habit.findOne({ _id: req.params.id });
+    owner = await User.findById(req.user.id);
   } catch(err) {
     return res.status(422).json({ ...err, message: "Bad request." });
   }
@@ -218,7 +221,10 @@ router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), asyn
     numPetals
   });
 
+
   myHabit.tasks.push(newTask);
+  owner.dailyTaskList.push(newTask.id);
+  owner.save();
   myHabit.save()
     .then(obj => res.json(obj.tasks[obj.tasks.length - 1]))
     .catch(err => res.status(422).json(err));
