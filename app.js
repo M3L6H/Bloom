@@ -11,7 +11,9 @@ const passport = require("passport");
 // Routes
 const tasks = require("./routes/api/tasks");
 const users = require("./routes/api/users"); 
-const habits = require("./routes/api/habits")
+const habits = require("./routes/api/habits");
+const rewards = require("./routes/api/rewards");
+
 // Grab the mongo uri
 const db = require("./config/keys").mongoURI;
 
@@ -31,6 +33,7 @@ app.use(bodyParser.json());
 app.use("/api/tasks", tasks);
 app.use("/api/users", users);
 app.use("/api/habits", habits);
+app.use("/api/rewards", rewards);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
