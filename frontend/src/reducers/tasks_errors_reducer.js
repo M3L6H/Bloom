@@ -12,7 +12,6 @@ export default (state = _defaultState, action) => {
     case RECEIVE_TASK_ERRORS:
       return action.errors;
     case RECEIVE_TASK:
-    case RECEIVE_TASKS:
     case REMOVE_TASK:
       return _defaultState;
     default:
