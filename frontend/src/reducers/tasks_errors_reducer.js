@@ -1,8 +1,7 @@
 import { 
   RECEIVE_TASK,
   REMOVE_TASK,
-  RECEIVE_TASK_ERRORS,
-  RECEIVE_TASKS
+  RECEIVE_TASK_ERRORS
 } from '../actions/tasks_actions';
 
 const _defaultState = {};

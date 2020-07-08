@@ -50,8 +50,14 @@ div.associated-tasks {
     background-color: #93BBDC;
     background-color: #659ECD;
     background-image: linear-gradient( #D1E2F0, #3776A9);
-    height: 100vh;
+    // height: 100vh;
     margin-top: 14px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
 }
 
 i.fa-minus-square:hover, i.fa-plus-square:hover {
