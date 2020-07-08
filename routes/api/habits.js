@@ -20,9 +20,17 @@ const Task = require("../../models/Task");
 //Test route
 router.get("/test",(req,res) => {res.json({msg:"habits"})});
 
+//Get all a user's habits
+router.get("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
+  // Find all the User's habits, return null if none
+  Habit.find({user: req.user.id})
+      .then((habits)=>res.json(habits))
+      .catch((err)=> res.json(err));
+});
+
 // Create Habit 
 // expects req body to have keys title, description,
-router.post("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
+router.post("/", passport.authenticate("jwt", { session: false }), async (req,res)=>{
   const {errors,isValid} = validateNewHabitInput(req.body);
 
   if (!isValid) {
@@ -33,13 +41,21 @@ router.post("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
     completed: false,
     title: req.body.title,
     description: req.body.description || "",
-    user: req.user,
-    tasks: req.tasks
+    user: req.user
   });
 
-  newHabit.save()
-    .then((habit)=> res.json(habit))
-    .catch(err => res.status(422).json(err));
+  try {
+    newHabit = await newHabit.save();    
+  } catch (err) {
+    return res.status(422).json(err);
+  }
+
+  if (req.body.tasks) {
+    newHabit.tasks = req.body.tasks.map(task => { task.habit = newHabit; return task; });
+    newHabit.save()
+      .then(obj => res.json(obj))
+      .catch(err => res.status(422).json(err));
+  }
 });
 
 //View Habit
