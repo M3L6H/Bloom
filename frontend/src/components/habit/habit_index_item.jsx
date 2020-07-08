@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TaskIndexItem from '../task/task_index_item';
 import EditDescriptionForm from './edit_description_form';
+import { fetchHabits } from '../../util/habits_util';
 
 class HabitIndexItem extends React.Component {
     constructor(props) {
@@ -14,8 +15,11 @@ class HabitIndexItem extends React.Component {
             complete: false
         }
         this.toggleEditDescription = this.toggleEditDescription.bind(this); 
+        
     }
+
     
+
     toggleEditDescription(){
         var edit;
         this.state.editDescription ? edit = false : edit = true;

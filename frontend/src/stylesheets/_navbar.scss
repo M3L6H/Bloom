@@ -10,10 +10,30 @@
 }
 
 .dropdown:hover .dropdown-content{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    right: 0;
+    height: 80px;
+    width: 60px;
+    border: lightgray solid 1px;
+    padding-top: 3px;
+    padding-left: 3px;
+    border-radius: 8px;
+    background: white;
     //position: absolute;
+
 }
 
+
+
+.dropdown-content > a:hover {
+    background: lavender;
+    color: white;
+}
+.dropdown:hover .dropdown-content > a {
+    padding: 3px, 0, 3px, 3px;
+}
 .dropdown {
     display: block;
     position: relative;
@@ -27,7 +47,7 @@
 }
 
 .dropdown-content {
-    border: 0.5px solid lightgray;
+    border: 0.5px solid lavender;
     display: none;
     position: absolute;
     z-index: 1;
