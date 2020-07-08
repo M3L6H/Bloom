@@ -46,7 +46,12 @@ const UserSchema = new Schema({
     },
     rewards: [RewardSchema],
     dailyTaskList: {
-        type: Array
+        type: Array,
+        default: []
+    },
+    habits: {
+        type: Array,
+        default: [] 
     }
 
 }, {

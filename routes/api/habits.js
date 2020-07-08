@@ -14,6 +14,7 @@ const validateTask = require("../../validation/tasks");
 /// Models
 const Habit = require("../../models/Habit");
 const Task = require("../../models/Task");
+const User = require("../../models/User");
 
 ////////////// Main
 
@@ -44,8 +45,14 @@ router.post("/", passport.authenticate("jwt", { session: false }), async (req,re
     user: req.user
   });
 
+  // This will store the Habit's user later
+  var user;
+
   try {
-    newHabit = await newHabit.save();    
+    newHabit = await newHabit.save();
+    user = await User.findById(newHabit.user);
+    user.habits.push(newHabit.id);
+    user.save();
   } catch (err) {
     return res.status(422).json(err);
   }
@@ -55,6 +62,10 @@ router.post("/", passport.authenticate("jwt", { session: false }), async (req,re
     newHabit.save()
       .then(obj => res.json(obj))
       .catch(err => res.status(422).json(err));
+    user.dailyTaskList.push(...newHabit.tasks.map(task=>task.id));
+    
+  } else {
+    return res.json(newHabit); 
   }
 });
 
