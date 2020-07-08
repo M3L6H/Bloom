@@ -9,11 +9,12 @@ class CreateHabitForm extends React.Component {
             title: "",
             description: "",
             task: "",
-            tasks: [] //array of strings 
+            tasks: []
         };
         this.handleEnter = this.handleEnter.bind(this);
         this.removeTask = this.removeTask.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleAddTask = this.handleAddTask.bind(this);
     }
 
 
@@ -23,18 +24,22 @@ class CreateHabitForm extends React.Component {
 
     handleEnter(e) {
         if (e.key === "Enter") {
-            this.state.tasks.push({ title: this.state.task });
-            console.log(this.state.tasks);
+            this.state.tasks.unshift({ title: this.state.task });
             this.setState({ task: "" });
         }
     }
 
+    handleAddTask(e) {
+        this.state.tasks.unshift({ title: this.state.task });
+        this.setState({ task: "" });
+    }
+
     handleSubmit(e) {
         e.preventDefault();
-        e.stopPropagation();
+        // e.stopPropagation();
         let habit = {title: this.state.title, description: this.state.description, tasks: this.state.tasks };
-        console.log(habit);
         this.props.createHabit(habit);
+        this.setState({ title: "", task: "", description: "", tasks: [] });
     }
 
     removeTask(idx) {
@@ -49,7 +54,7 @@ class CreateHabitForm extends React.Component {
         if(!this.state.tasks.length) {
             return(
                 <div className="prop-user-for-tasks">
-                    Currently no tasks have been assigned. Please add tasks for your goal.
+                    Currently no tasks have been assigned. Please add tasks to achieve your goal.
                 </div>
             )
         } else {
@@ -69,18 +74,22 @@ class CreateHabitForm extends React.Component {
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 300 }}>
                         <Form className='user-input-form' size='small' >
+                            <div className="habit-add-title">
+                                Title
+                            </div>
                             <Form.Input
                                 placeholder='Habit'
+                                value={this.state.title}
                                 onChange={this.update('title')} />
                             <div className="ui form">
                                 <div className="field">
                                     <label>Description</label>
-                                    <textarea rows="4" placeholder="Describe your goals." onChange={this.update('description')}></textarea>
+                                    <textarea rows="4" placeholder="Describe your goals." onChange={this.update('description')} value={this.state.description} ></textarea>
                                 </div>
                             </div>
                             {this.showTasks()}
                             <div className="habit-add-task-button">
-                                add Tasks  <i className="far fa-plus-square"></i>
+                                Add Tasks  <i className="far fa-plus-square" onClick={this.handleAddTask}></i>
                             </div>
                             <div className="habit-taks-creator">
                                 <Form.Input

@@ -29,7 +29,7 @@ div.associated-tasks {
     color: black;
     margin-top: -10px;
     text-align: left;
-    max-height: 150px;
+    max-height: 100px;
     overflow-y: auto;
 }
 
@@ -50,4 +50,16 @@ div.associated-tasks {
     background-color: #93BBDC;
     background-color: #659ECD;
     background-image: linear-gradient( #D1E2F0, #3776A9);
+    height: 100vh;
+    margin-top: 14px;
+}
+
+i.fa-minus-square:hover, i.fa-plus-square:hover {
+    cursor: pointer;
+}
+
+.habit-add-title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.9;
 }
