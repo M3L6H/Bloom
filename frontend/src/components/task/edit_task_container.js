@@ -11,13 +11,14 @@ class EditTaskForm extends React.Component {
     }
 
     render(){ 
-        const { formType, task } = this.props;
+        const { formType, task, closeModal } = this.props;
  
         return (
             <>
                 < TaskForm
                     formType={formType}
                     task={task}
+                    closeModal={closeModal}
                  />
             </>
 

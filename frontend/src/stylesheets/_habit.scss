@@ -5,13 +5,23 @@
     justify-content: space-between;
 }
 
+.habit-show-main {
+    border: 1px solid lightgrey;
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 1em;
+    font-family: sans-serif;
+    color: lightgrey;
+    border-radius: 4px;
+    background-color: white;
+}
 .habit-show-top > .title {
     padding: 3% 20% 2% 7%;
     font-size: 20px;
 
 }
 .habit-show-top > i {
-    padding-right: 10%;
+    margin-right: 10%;
 }
 
 
@@ -39,4 +49,10 @@ ul {
     //border: 1px black solid;
     //margin-left: 10%;
     margin-right: 10%;
+}
+
+.background {
+    background-color: #93BBDC;
+    background-color: #659ECD;
+    background-image: linear-gradient( #D1E2F0, #3776A9);
 }

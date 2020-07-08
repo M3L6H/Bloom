@@ -18,25 +18,26 @@ class HabitIndexItem extends React.Component {
     render() {
         const {title, description, tasks, complete} = this.state;
         return (
-            <div>
-                <div className='habit-description'>
-                    <div className='habit-show-top'>
-                        <span className='title'>{title}</span>
-                        <i className="fas fa-bars"></i>
+            <div className="background">
+                <div className="habit-show-main">
+                    <div className='habit-description'>
+                        <div className='habit-show-top'>
+                            <span className='title'>{title}</span>
+                            <i className="fas fa-bars"></i>
+                        </div>
+                        <div className='habit-show-middle'>
+                            Description
+                            {description}
+                        </div>
+                        <div className='habit-show-bottom'>
+                            { tasks.map(
+                                (task, idx) => < TaskIndexItem 
+                                                key={idx}
+                                                task={task} 
+                                                complete={complete} />) }
+                        </div> 
                     </div>
-                    <div className='habit-show-middle'>
-                        Description
-                        {description}
-                    </div>
-                    <div className='habit-show-bottom'>
-                        { tasks.map(
-                            (task, idx) => < TaskIndexItem 
-                                             key={idx}
-                                             task={task} 
-                                             complete={complete} />) }
-                    </div> 
                 </div>
-
             </div>
         )
     }
