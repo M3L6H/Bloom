@@ -31,34 +31,44 @@ export default class EditDescriptionForm extends React.Component {
         const { open, hideEditForm } = this.props;
         const { description } = this.state;
 
-        return (
-            <div className={`description-edit ${open}`}>
-                <div
-                    className="description-edit-container" >
-                    <textarea
-                        type="text"
-                        value={description}
-                        className="edit-description-input"
-                        onChange={this.handleChange}
-                        onKeyPress={(e) => 
-                            { if (e.key === 'Enter') { 
-                                e.preventDefault();   
-                                this.handleSubmit();
-                            }
-                        }}
-                    />
-                </div>
 
-                <a
-                    className={`description-edit cancel ${open}`}
-                    onClick={(e) => {
+        return (
+          <div className={`description-edit ${open}`}>
+            <div className="description-edit-container">
+                <div className="dec-top">
+                    Edit Description
+                    <i
+                        className="fa fa-times"
+                        aria-hidden="true"
+                        onClick={(e) => {
                         e.preventDefault();
                         hideEditForm();
-                    }}
-                >
-                    cancel
-                </a>
+                        }}
+                    ></i>
+                </div>
+              <textarea
+                type="text"
+                value={description}
+                className="edit-description-input"
+                onChange={this.handleChange}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    this.handleSubmit();
+                  }
+                }}
+              />
             </div>
+          </div>
         );
     }
 };
+                // <a
+                //     className={`description-edit cancel ${open}`}
+                //     onClick={(e) => {
+                //         e.preventDefault();
+                //         hideEditForm();
+                //     }}
+                // >
+                //     cancel
+                // </a>

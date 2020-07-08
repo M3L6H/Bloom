@@ -16,17 +16,15 @@ class CreateTaskForm extends React.Component {
         if (!task) return null;
 
         return (
-            <>
+        
                 < TaskForm
                     formType={formType}
                     task={task}
                     action={action}
                     closeModal={closeModal}
                 />
-            </>
-
-        )
-    }
+            )
+        }
 }
 
 const mapStateToProps = (state, ownProps) => {

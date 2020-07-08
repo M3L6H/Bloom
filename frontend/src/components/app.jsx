@@ -8,7 +8,6 @@ import HabitIndexContainer from './habit/habit_index';
 
 const App = () => (
   <div className="test">
-    <NavBarContainer />
     <HabitIndexItemContainer />
     <Modal />
   </div>
