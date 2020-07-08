@@ -44,7 +44,9 @@ router.post("/register", (req,res)=>{
             fName: req.body.fName,
             lName: req.body.lName,
             email: req.body.email,
-            pwdDigest: req.body.password
+            pwdDigest: req.body.password,
+            petals: 0,
+            rewards: req.body.rewards 
         });
 
         // Generate a secure password digest
