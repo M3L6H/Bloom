@@ -1,19 +1,17 @@
 import React from 'react';
-import NavBarContainer from './nav_bar/nav_bar_container';
-import HabitIndexItemContainer from './habit/habit_index_item_container';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Main from './main';
 import Modal from './modal/modal';
-import HabitIndexContainer from './habit/habit_index';
-import createHabitFormContainer from '.habit/create_habit_form_container';
-//<NavBarContainer />
-{/* <HabitIndexItemContainer /> */}
-//
+import CreateHabit from './habit';
+import AsheNavBar from './ashe_nav_bar';
+//import Landing from './landing';
 
 const App = () => (
-  <div className="test">
-    <HabitIndexItemContainer />
-    <AuthRoute path='/' component={Main} />
-    <ProtectedRoute path='/habit' componenet={CreateHabit}>
+  <div className='test'>
     <Modal />
+    <AuthRoute path="/" component={Main}/>
+    <ProtectedRoute path="/" component={AsheNavBar} />
+    <ProtectedRoute path="/habit" component={CreateHabit}/>
   </div>
 );
 
