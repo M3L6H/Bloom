@@ -15,7 +15,6 @@ class Main extends React.Component {
     this.hydrangea = React.createRef();
 
     window.addEventListener("load", () => {
-      console.log("called");
       this.hydrangea.current.classList.add("animated");
     });
   }
