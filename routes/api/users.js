@@ -127,8 +127,8 @@ router.get("/reorganize_tasks", passport.authenticate("jwt", { session: false })
     return res.status(422).json({ ...err, message: "Bad request." });
   }
   
-  // If no tasks, return an error
-  if(!habits || habits.length === 0){
+  // If no habits, return an error (only if habits key does not exist) 
+  if(!habits){
     return res.json("Could not find any tasks!").status(404);
   }
 
