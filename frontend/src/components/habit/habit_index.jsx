@@ -13,14 +13,14 @@ class HabitIndex extends React.Component {
     };
 
     componentDidMount() {
-        debugger;
+        //debugger;
         this.props.fetchHabits();
     }
 
     render() {
         const { habits } = this.props;
         if (!habits) return null;
-        //debugger;
+        debugger;
         return (
             <div>
                 <div>

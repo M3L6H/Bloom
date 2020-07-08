@@ -94,10 +94,8 @@ ul {
     
 }
 
-.dec-top > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.dec-top > i {
+    float: right;
 }
 
 .edit-description-input {
@@ -106,6 +104,8 @@ ul {
     width: 100%;
     height: 100px;
     border: solid lavender 1px;
+    margin-top: 3px;
+    padding: 3px;
     //border: solid red 2px;
 }
 
