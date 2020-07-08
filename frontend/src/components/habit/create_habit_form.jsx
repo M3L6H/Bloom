@@ -9,10 +9,11 @@ class CreateHabitForm extends React.Component {
             title: "",
             description: "",
             task: "",
-            tasks: []
+            tasks: [] //array of strings 
         };
         this.handleEnter = this.handleEnter.bind(this);
-        this.removeTask = this.removeTask.bind(this)
+        this.removeTask = this.removeTask.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
@@ -22,9 +23,17 @@ class CreateHabitForm extends React.Component {
 
     handleEnter(e) {
         if (e.key === "Enter") {
-            this.state.tasks.push(this.state.task);
+            this.state.tasks.push({ title: this.state.task });
+            console.log(this.state.tasks);
             this.setState({ task: "" });
         }
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        let habit = {title: this.state.title, description: this.state.description, tasks: this.state.tasks };
+        this.props.createHabit(habit);
     }
 
     removeTask(idx) {
@@ -46,7 +55,7 @@ class CreateHabitForm extends React.Component {
             return(
                 <> <p className="label-tasks">Tasks</p>
                 <div className="associated-tasks">
-                        {this.state.tasks.map((task, idx) => <div key={idx} className="create-task-item">{task} <i className="far fa-minus-square" onClick={this.removeTask(idx)}></i></div>)}
+                        {this.state.tasks.map((task, idx) => <div key={idx} className="create-task-item">{Object.values(task)} <i className="far fa-minus-square" onClick={this.removeTask(idx)}></i></div>)}
                 </div>
                 </>
         )}
@@ -58,7 +67,7 @@ class CreateHabitForm extends React.Component {
             <div className="background">
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 300 }}>
-                        <Form className='user-input-form' size='small'>
+                        <Form className='user-input-form' size='small' >
                             <Form.Input
                                 placeholder='Habit'
                                 onChange={this.update('title')} />
@@ -79,11 +88,10 @@ class CreateHabitForm extends React.Component {
                                     onChange={this.update('task')}
                                     onKeyDown={this.handleEnter} />
                             </div>
-                            <Button className='ui test button' fluid size='medium'>
+                            <Button className='ui test button' type="button" fluid size='medium' onClick={this.handleSubmit}>
                                 Create Habit
                             </Button>
                         </Form>
-
                     </Grid.Column>
                 </Grid>
             </div>

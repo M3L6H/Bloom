@@ -11,7 +11,6 @@ const App = () => (
     <AuthRoute path="/" component={Main}/>
     <ProtectedRoute path="/" component={AsheNavBar} />
     <ProtectedRoute path="/habit" component={CreateHabit}/>
-    {/* <CreateHabit /> */}
   </div>
 );
 
