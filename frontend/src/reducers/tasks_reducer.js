@@ -28,6 +28,9 @@ export default (state={}, action) => {
       newState = {};
 
       for (const id in state) {
+        // Using != here is necessary (i think) b/c one comes back as an object
+        // while the other is a string
+        // eslint-disable-next-line
         if (state[id].habit != action.id) {
           newState[id] = state[id];
         }
