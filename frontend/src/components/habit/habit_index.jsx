@@ -13,14 +13,12 @@ class HabitIndex extends React.Component {
         if (!habits) return null;
               
         return (
-            <div>
-                <div>
-                    {habits.map(
-                        (habit, idx) => <HabitIndexItem habit={habit} key={idx} />
-                    )}
-                </div>
-            </div>
-        )
+          <div className="habit-index-container">
+            {habits.map((habit, idx) => (
+            <HabitIndexItem habit={habit} key={idx} />
+            ))}
+          </div>
+        );
 
     }
 }

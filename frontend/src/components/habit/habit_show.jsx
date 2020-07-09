@@ -27,9 +27,15 @@ class HabitShow extends React.Component {
 
     render() {
    
-        const { habit, openModal } = this.props;
+        const {
+          habit,
+          openModal,
+          deleteHabit,
+          updateHabit,
+          tasks,
+        } = this.props;
         
-        const { updateHabit, tasks } = this.props;
+        //const { updateHabit, tasks } = this.props;
         if (!habit || !tasks) return null;
         const { title, description } = habit;
         

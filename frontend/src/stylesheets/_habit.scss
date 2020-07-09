@@ -1,8 +1,21 @@
+//Habit Index
+// body {
+//     width: 100%;
+//     background-color: #E5D7E9;
+//     background-image: linear-gradient(#EBE1EF, #663D5A);
+// }
+
+.habit-index-container {
+    width: 100%;
+    background-color: #E5D7E9;
+    background-color: #659ECD;
+    background-image: linear-gradient(#EBE1EF, #663D5A);
+}
 .hit-title {
     display: block;
     border: 2px solid lavenderblush;
-    background: lavenderblush;
-    color: purple;
+    background: transparent;
+    color: white;
     padding: 5px;
     margin: 20%;
     margin-top: 10px;
