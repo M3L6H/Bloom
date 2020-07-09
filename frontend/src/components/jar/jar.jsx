@@ -18,8 +18,8 @@ class Jar extends Component {
     this.unit = Math.min(windowWidth, windowHeight * this.windowPercentage) / 75;
     this.innerDiameter = 40 * this.unit;
     this.topOffset = 15 * this.unit;
-    // this.petalSize = 9;
-    this.petalSize = user.petals;
+    this.petalSize = 9;
+    // this.petalSize = user.petals;
 
     // Set up world
     this.world = new p2.World({
@@ -63,8 +63,7 @@ class Jar extends Component {
     this.jar = this._createPolyBody(this._jarPath(), { position });
 
     // Spawn petals
-    this._spawnPetals(10);
-    
+    this._spawnPetals(this.props.petals);
     this.rAF = requestAnimationFrame(this._updateAnimation);
   }
 
@@ -72,12 +71,18 @@ class Jar extends Component {
     cancelAnimationFrame(this.rAF);
   }
 
+  componentDidUpdate(prevProps) {
+    if(prevProps.petals !== this.props.petals) {
+      this._spawnPetals(this.props.petals - prevProps.petals);
+    }
+  }
+
   _spawnPetals(amt) {
     const { windowWidth } = this.props;
     const petalPosition = [(windowWidth - this.innerDiameter) / 2 + 0.15 * this.innerDiameter + Math.random() * 0.7 * this.innerDiameter, this.topOffset + 5 * this.unit];
     this.petals.push(this._createPolyBody(this._petalPath(), { position: petalPosition, mass: 1 }));
 
-    if (amt > 0) {
+    if (amt > 1) {
       setTimeout(() => this._spawnPetals(amt - 1), 150);
     }
   }

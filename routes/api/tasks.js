@@ -56,7 +56,7 @@ router.patch("/:id", passport.authenticate("jwt", { session: false }), async (re
   myTask.numPetals = numPetals || myTask.numPetals;
 
   myHabit.save()
-    .then(obj=>res.json(obj)) 
+    .then(obj=>res.json(obj.tasks.find( task => task._id == req.params.id))) 
     .catch(err => res.status(422).json(err));
 });
 

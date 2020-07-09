@@ -3,7 +3,7 @@ import { updatePetals } from '../../actions/users_actions';
 import Jar from './jar';
 
 const mapStateToProps = (state) => ({
-  user: Object.values(state.entities.users)[0]
+  petals: Object.values(state.entities.users)[0].petals
 });
 
 const mapDispatchToProps = (dispatch) => ({
