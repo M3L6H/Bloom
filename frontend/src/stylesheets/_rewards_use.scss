@@ -1,0 +1,25 @@
+.rewards-use-container {
+    width: 300px;
+    min-height: 400px;
+    border-radius: 12px;
+    background-color: rgba($color: #F4F1F9, $alpha: 0.9);
+    border: 1px solid lightgrey;
+    padding: 10px;
+}
+
+.rewards-use-label {
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+}
+
+img.petal {
+    width: 25px;
+    height: 25px;
+}
+
+.rewards-use-petals {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

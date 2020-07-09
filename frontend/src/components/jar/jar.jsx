@@ -218,10 +218,11 @@ class Jar extends Component {
 
     return (
       <canvas
-        width={ windowWidth }
-        height={ windowHeight * this.windowPercentage }
+        width={windowWidth}
+        height={windowHeight * this.windowPercentage}
         className="jar"
-        ref={ this.canvasRef }
+        ref={this.canvasRef}
+        onClick={() => this.props.openModal('userewards')}
       ></canvas>
     );
   }
