@@ -7,6 +7,21 @@ import EditDescriptionForm from './edit_description_form';
 
 class HabitIndexItem extends React.Component {
 
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const {habit, deleteHabit} = this.props;
+
+        return (
+            <div className='hit-title'>
+                {habit.title}
+            </div>
+        )
+
+    }
+
 }
 
 export default HabitIndexItem;

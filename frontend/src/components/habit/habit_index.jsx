@@ -4,7 +4,7 @@ import { fetchHabits } from "../../actions/habits_actions";
 import { Link } from 'react-router-dom';
 import TaskIndexItem from '../task/task_index_item';
 import EditDescriptionForm from './edit_description_form';
-import HabitShow from './habit_show';
+import HabitIndexItem from './habit_index_item';
 
 class HabitIndex extends React.Component {
 
@@ -25,7 +25,7 @@ class HabitIndex extends React.Component {
             <div>
                 <div>
                     {habits.map(
-                        (habit, idx) => <HabitShow habit={habit} key={idx} />
+                        (habit, idx) => <HabitIndexItem habit={habit} key={idx} />
                     )}
                 </div>
             </div>
