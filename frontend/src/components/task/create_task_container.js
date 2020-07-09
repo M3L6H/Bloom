@@ -5,10 +5,6 @@ import TaskForm from "./task_form";
 import { createTask } from "../../actions/tasks_actions";
 
 class CreateTaskForm extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { formType, action, closeModal, task, habit } = this.props;
 
