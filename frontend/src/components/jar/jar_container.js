@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    updatePetals: petals => dispatch(updatePetals(petals))
+  updatePetals: petals => dispatch(updatePetals(petals))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jar);

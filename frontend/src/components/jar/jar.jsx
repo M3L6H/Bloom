@@ -41,9 +41,7 @@ class Jar extends Component {
     this.bodyId = 1;
 
     // Appearance
-    // this.jarColor = "rgb(230, 230, 255)";
     this.jarColor = "#C9B9DF";
-    // this.jarColor = "#97DCED";
 
     // Initial values
     this.jar = null;
@@ -77,11 +75,10 @@ class Jar extends Component {
   }
 
   _spawnPetals(amt) {
-    const { windowWidth } = this.props;
-    const petalPosition = [(windowWidth - this.innerDiameter) / 2 + 0.15 * this.innerDiameter + Math.random() * 0.7 * this.innerDiameter, this.topOffset + 5 * this.unit];
-    this.petals.push(this._createPolyBody(this._petalPath(), { position: petalPosition, mass: 1 }));
-
-    if (amt > 1) {
+    if (amt > 0) {
+      const { windowWidth } = this.props;
+      const petalPosition = [(windowWidth - this.innerDiameter) / 2 + 0.15 * this.innerDiameter + Math.random() * 0.7 * this.innerDiameter, this.topOffset + 5 * this.unit];
+      this.petals.push(this._createPolyBody(this._petalPath(), { position: petalPosition, mass: 1 }));
       setTimeout(() => this._spawnPetals(amt - 1), 150);
     }
   }
