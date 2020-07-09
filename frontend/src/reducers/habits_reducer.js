@@ -11,7 +11,7 @@ export default (state={}, action) => {
     case RECEIVE_HABITS:
       return action.habits;
     case RECEIVE_HABIT:
-      return { ...state, [action.habit._id]: action.habit };
+      return { [action.habit._id]: action.habit };
     case REMOVE_HABIT:
       const newState = Object.assign({}, state);
       delete newState[action.id];

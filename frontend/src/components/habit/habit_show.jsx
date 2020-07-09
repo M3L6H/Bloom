@@ -60,12 +60,19 @@ class HabitShow extends React.Component {
         const habitTasks = (
           tasks.filter(task => task.habit === habit._id)
         )
+        const habitId = habit._id;
+        debugger
         return (
           <div className="habit-show-container">
             <div className="habit-show-main">
               <div className="habit-description">
                 <div className="habit-show-top">
                   <span className="title">{title}</span>
+                  <i
+                    className="fa fa-times-circle-o"
+                    aria-hidden="true"
+                    onClick={(habitId) => deleteHabit(habitId)}
+                  ></i>
                 </div>
                 <div className={`habit-show-middle ${open}`}>
                   <div className="hsm-top">

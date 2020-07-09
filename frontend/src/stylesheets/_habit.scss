@@ -17,19 +17,19 @@
 
 .habit-show-top {
     align-items: center;
-    border-bottom: lightgrey 1px solid;
+    border-bottom: white 1px solid;
     display: flex;
     justify-content: space-between;
 }
 
 .habit-show-main {
-    border: 1px solid lightgray;
+    border: 1px solid white;
     margin: 20px 20px;
     font-size: 1em;
     font-family: sans-serif;
-    color: lightgrey;
+    color: white;
     border-radius: 4px;
-    background-color: white;
+    background: transparent;
 }
 .habit-show-top > .title {
     padding: 3% 20% 2% 7%;
@@ -47,7 +47,7 @@
 .habit-show-middle, .description-edit.open {
     display: flex;
     flex-direction: column;
-    border: lightgrey solid 1px;
+    border: white solid 1px;
     border-radius: 3px;
     padding: 3%;
     margin: 10%;
@@ -95,9 +95,9 @@ ul {
 }
 .habit-show-container {
     width: 100%;
-    background-color: #93BBDC;
+    background-color: #E5D7E9;
     background-color: #659ECD;
-    background-image: linear-gradient( #D1E2F0, #3776A9);
+    background-image: linear-gradient(#EBE1EF, #663D5A);
 }
 
 // open the edit box

@@ -15,7 +15,7 @@ class TaksIndexItem extends React.Component {
     render() {
         const { task, complete, openModal, deleteTask } = this.props;
         if (!task) return null;
-        debugger;
+
         const taskId = task._id;
         return (
           <div>
@@ -23,7 +23,7 @@ class TaksIndexItem extends React.Component {
               <i
                 className="fa fa-times"
                 aria-hidden="true"
-                onClick={() => {debugger; deleteTask(taskId)}}
+                onClick={() =>  deleteTask(taskId)}
               ></i>
               <li
                 className="single-task"

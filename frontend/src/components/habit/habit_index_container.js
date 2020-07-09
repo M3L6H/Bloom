@@ -8,7 +8,7 @@ import {
 
 
 const mSTP = (state) => {
-  //debugger
+
   return {
     habits: Object.values(state.entities.habits),
   };
