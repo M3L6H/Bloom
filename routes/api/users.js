@@ -150,7 +150,7 @@ router.get("/reorganize_tasks", passport.authenticate("jwt", { session: false })
 
 // Update dailyTaskList
 // expects a new array that will replace the original
-router.post("/update_tasks",passport.authenticate("jwt",{session:false}), async (req,res)=>{
+router.post("/update_daily_task_list",passport.authenticate("jwt",{session:false}), async (req,res)=>{
   
   //First, make sure the request is valid
   if(!req.body.dailyTaskList || !Array.isArray(req.body.dailyTaskList)){
