@@ -36,7 +36,6 @@ class CreateHabitForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // e.stopPropagation();
         let habit = {title: this.state.title, description: this.state.description, tasks: this.state.tasks };
         this.props.createHabit(habit);
         this.setState({ title: "", task: "", description: "", tasks: [] });
