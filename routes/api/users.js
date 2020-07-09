@@ -178,7 +178,7 @@ router.patch("/update_daily_task_list",passport.authenticate("jwt",{session:fals
 
   user.save()
     .then((user)=> res.json(user))
-    .catch((err) => res.status(422)).json(err); 
+    .catch((err) => (res.status(422)).json(err)); 
 
 })
 
