@@ -1,28 +1,32 @@
 import React from 'react';
 import TaskItemShow from './task_item_show';
+import Jar from '../jar';
 
 class Landing extends React.Component {
 
-    constructor(props){
-        super(props);
-    }
-
     componentDidMount(){
+        this.props.fetchUser();
         this.props.fetchHabits();
     }
 
     render(){
-        const { tasks, habits } = this.props;
+        const { tasks, habits, updateTask, user, updatePetals } = this.props;
+        if(!tasks || !user) return null;
 
-        if(!tasks) return null;
+        let currentTasks = [];
+        tasks.forEach( task => {
+            if(task.numTimesDone < task.periodNum) {
+                currentTasks.push(task);}
+            });
+
         return(
             <div className="background">
                 <div className="petal-jar-container">
-                    Jar will go here
+                    <Jar user={user}/>
                 </div>
                 <div className="landing-tasks-container">
                     <div className="label-primary-tasks">Your Current Primary Tasks</div>
-                    {tasks.slice(0,3).map( (task,idx) => <TaskItemShow key={idx} task={task} habit={habits[task.habit]}/> )}
+                    {currentTasks.slice(0, 3).map((task, idx) => <TaskItemShow key={idx} task={task} habit={habits[task.habit]} updateTask={updateTask} updatePetals={updatePetals} user={user}/> )}
                 </div>
             </div>
         )
