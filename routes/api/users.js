@@ -78,13 +78,9 @@ router.post("/register", (req,res)=>{
 router.post("/login", (req,res)=>{
   const { errors, isValid } = validateLoginInput(req.body);
 
-  console.log("login called");
-
   if (!isValid) {
     return res.status(400).json(errors);
   }
-
-  console.log("Is valid")
 
   const email = req.body.email;
   const password = req.body.password;
@@ -95,13 +91,9 @@ router.post("/login", (req,res)=>{
       return res.status(400).json(errors);
     }
 
-    console.log("Found user")
-
     bcrypt.compare(password, user.pwdDigest).then(isMatch => {
       if (isMatch) {
         const payload = { id: user.id, fName: user.fName, lName: user.lName };
-
-        console.log("Returning token");
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({
