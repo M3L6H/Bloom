@@ -18,6 +18,7 @@ export default (state={}, action) => {
       return { ...state, [action.task._id]: action.task };
     case REMOVE_TASK:
       newState = Object.assign({}, state);
+      debugger;
       delete newState[action.id];
       return newState;
     case RECEIVE_HABITS:

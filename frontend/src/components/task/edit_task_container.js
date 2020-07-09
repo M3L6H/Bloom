@@ -9,7 +9,7 @@ class EditTaskForm extends React.Component {
 
     render(){ 
         const { formType, task, closeModal, action } = this.props;
-        //debugger
+
         return (
             
                 < TaskForm
@@ -27,7 +27,7 @@ const mapStateToProps = (state, ownProps) => {
 
     return ({
         formType: 'editTask',
-        task: ownProps.task
+        task: state.ui.modal.task
     })
 }
 
