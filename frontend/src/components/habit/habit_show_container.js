@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
-import HabitIndexItem from './habit_index_item';
+import HabitShow from './habit_show';
 import { fetchHabits, deleteHabit, updateHabit } from "../../actions/habits_actions";
 
 const mapStateToProps = (state) => {
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect(null, mapDispatchToProps)(HabitIndexItem);
+export default connect(null, mapDispatchToProps)(HabitShow);
