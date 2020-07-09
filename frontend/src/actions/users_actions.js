@@ -3,12 +3,12 @@ import {receiveTaskErrors} from "./tasks_actions"
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 
-const receiveUser = (user) => ({
+export const receiveUser = (user) => ({
   type: RECEIVE_USER,
   user
 });
 
-const receiveUserErrors = (errors) => ({
+export const receiveUserErrors = (errors) => ({
   type: RECEIVE_USER_ERRORS,
   errors
 });
