@@ -6,8 +6,7 @@ class TasksShow extends React.Component {
     constructor(props){
         super(props);
         this.dragEnd = this.dragEnd.bind(this); 
-        // Prevent render until props come back
-        this.propsLoaded = false;
+        this.state = {}; 
     }
 
     componentDidMount(){
@@ -15,15 +14,14 @@ class TasksShow extends React.Component {
         // Fetch the current user and their habits/tasks
         this.props.fetchHabits();
         this.props.fetchUser();
-
-        // Let render know props are here
-        this.propsLoaded = true;
+        
     }
 
     dragEnd(res) {
         let newTaskList = Array.from(this.props.user.dailyTaskList);
         newTaskList.splice(res.source.index,1)
         newTaskList.splice(res.destination.index,0,res.draggableId);
+        this.setState({taskOrder: newTaskList}); 
         this.props.updateDailyTaskList(newTaskList); 
     }
 
@@ -31,7 +29,12 @@ class TasksShow extends React.Component {
         const { tasks, habits, user } = this.props;
 
         //Check for relevent props before rendering
-        if(!this.propsLoaded || !this.props.user){
+        if(!this.props.habits || !this.props.user){
+            return null; 
+        }
+
+        if (!this.state.taskOrder) {
+            this.setState({ taskOrder: Array.from(user.dailyTaskList) });
             return null; 
         }
 
@@ -52,7 +55,7 @@ class TasksShow extends React.Component {
                                     {...provided.droppableProps}
                                     ref = {provided.innerRef}
                                 >
-                                        {user.dailyTaskList.map((taskId, idx) => (
+                                        {this.state.taskOrder.map((taskId, idx) => (
                                             <TaskShow key={taskId} index={idx} task={tasks[taskId]} habit={habits[tasks[taskId].habit]}/>
                                         ))}
                                     {provided.placeholder}
