@@ -4,13 +4,14 @@ import TaskIndexItem from '../task/task_index_item';
 import EditDescriptionForm from './edit_description_form';
 
 
+
 class HabitShow extends React.Component {
     constructor(props) {
       //debugger
       super(props);
       this.state = {
-        title: props.habit.title,
-        description: props.habit.description,
+        title: "",
+        description: "",
         editDescription: false,
         complete: false
         };
@@ -20,23 +21,25 @@ class HabitShow extends React.Component {
     }
 
     componentDidMount() {
-      this.props.fetchHabit(this.props.match.params.id)
+      this.props.fetchHabit(this.props.match.params.id)//.then (
+      //  ()=>(this.setState({title: this.props.habit.title, description: this.props.habit.description}))
+      // )
     }
 
     toggleEditDescription(){
         var edit;
         this.state.editDescription ? edit = false : edit = true;
-        this.setState({editDescription: edit}); 
+        this.setState({description: this.props.habit.description, editDescription: edit}); 
     }
 
     render() {
    
-        const { habit } = this.props;
-        if (!habit) return null;
-  
-        const { title, description, complete } = this.state;
+        const { habit, openModal } = this.props;
+        
         const { updateHabit, deleteHabit, tasks } = this.props;
-
+        if (!habit || !tasks) return null;
+        const { title, description } = habit;
+        
 
         const open = this.state.editDescription ? 'open' : '';
         var descriptionComponent;
@@ -76,6 +79,11 @@ class HabitShow extends React.Component {
                   {descriptionComponent}
                 </div>
                 {editDescritionComponent}
+                <i
+                  class="fa fa-plus"
+                  aria-hidden="true"
+                  onClick={() => openModal("createTask")}
+                ></i>
                 <div className="habit-show-bottom">
                   {tasks.map((task, idx) => (
                     <TaskIndexItem key={idx} task={task} />

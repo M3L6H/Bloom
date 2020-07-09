@@ -12,7 +12,7 @@ class CreateTaskForm extends React.Component {
 
     render() {
         const { formType, task, action, closeModal } = this.props;
-        
+
         if (!task) return null;
 
         return (

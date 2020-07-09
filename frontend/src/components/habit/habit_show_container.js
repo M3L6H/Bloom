@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return ({
         fetchHabit: (habitId) => dispatch(fetchHabit(habitId)),
-        openModal: () => dispatch(openModal()),
+        openModal: (modal) => dispatch(openModal(modal)),
         deleteHabit: (id) => dispatch(deleteHabit()),
         updateHabit: (habit) => dispatch(updateHabit(habit)),
         fetchHabits: () => dispatch(fetchHabits())

@@ -7,16 +7,20 @@ import CreateHabit from './habit';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import Landing from './landing';
 import HabitShowContainer from './habit/habit_show_container';
-import HabitIndexContainer from './habit/habit_index_container'
+import HabitIndexContainer from './habit/habit_index_container';
+import {Switch} from 'react-router-dom';
 
 const App = () => (
+  // add switch
   <div className="test">
     <Modal />
-    <AuthRoute path="/" component={Main} />
     <ProtectedRoute path="/" component={NavBarContainer} />
-    <ProtectedRoute path="/habit" component={CreateHabit} />
-    <ProtectedRoute path="/landing" component={HabitIndexContainer} />
-    <ProtectedRoute path="/habits/:id" component={HabitShowContainer} />
+    <Switch>
+      <ProtectedRoute path="/habits/:id" component={HabitShowContainer} />
+      <ProtectedRoute path="/habit" component={CreateHabit} />
+      <ProtectedRoute path="/landing" component={HabitIndexContainer} />
+      <AuthRoute path="/" component={Main} />
+    </Switch>
   </div>
 );
 

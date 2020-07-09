@@ -15,7 +15,7 @@ class TaksIndexItem extends React.Component {
     render() {
         const {task, complete, openModal} = this.props
         if (!task) return null;
-        debugger
+        //debugger
         return (
             <div>
                 <ul className='task-list'>
