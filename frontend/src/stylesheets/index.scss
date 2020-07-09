@@ -1,12 +1,13 @@
-@import './main';
 @import './login';
+@import './navbar';
+@import './habit';
+@import './task';
 @import './modal';
 @import './session';
-@import './create_form';
 @import './ashe_nav_bar';
+@import './main';
+@import './create_form';
+
 @import './landing';
 @import './task_item';
 
-.hidden {
-  display: none;
-}

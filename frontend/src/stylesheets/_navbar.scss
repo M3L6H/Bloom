@@ -1,0 +1,59 @@
+.ui.tabular.menu {
+    display: flex; 
+    width: 100%;
+}
+.fa-bars {
+    //margin: 3% 0 3% 50%;
+    font-size: 23px;
+    cursor: pointer;
+
+}
+
+.dropdown:hover .dropdown-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    right: 0;
+    height: 80px;
+    width: 60px;
+    border: lightgray solid 1px;
+    padding-top: 3px;
+    padding-left: 3px;
+    border-radius: 8px;
+    background: white;
+    //position: absolute;
+
+}
+
+
+
+.dropdown-content > a:hover {
+    background: lavender;
+    color: white;
+}
+.dropdown:hover .dropdown-content > a {
+    padding: 3px, 0, 3px, 3px;
+}
+.dropdown {
+    display: block;
+    position: relative;
+    background: white;
+    //border: 0.5px solid lightgray;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 3px;
+    z-index: 1;
+    margin: 3% 0 3% 30%;
+}
+
+.dropdown-content {
+    border: 0.5px solid lavender;
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.ui.menu:after{
+    content: none;
+}
+
