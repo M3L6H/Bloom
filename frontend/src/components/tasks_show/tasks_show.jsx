@@ -28,9 +28,23 @@ class TasksShow extends React.Component {
     
 
     dragEnd(res) {
+
+        // If out of bounds, do nothing
+        if(!res.destination){
+            return;
+        }
+
+        // If no change, do nothing
+        if(res.destination.droppableId === res.source.droppableId 
+            && res.destination.index === res.source.index){
+                return;
+            }
+        // Create copy of task list and update with new positions
         let newTaskList = Array.from(this.props.user.dailyTaskList);
         newTaskList.splice(res.source.index,1)
         newTaskList.splice(res.destination.index,0,res.draggableId);
+
+        //Set state and update database
         this.setState({taskOrder: newTaskList}); 
         this.props.updateDailyTaskList(newTaskList); 
     }
