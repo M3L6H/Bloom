@@ -207,4 +207,20 @@ router.patch("/update_petals", passport.authenticate("jwt", { session: false }),
     .then(user=> res.json(user))
     .catch(err=> res.json(err).status(422));
 })
+
+// Get a user's data
+
+router.get("/", passport.authenticate("jwt", { session: false }), async (req,res) => {
+
+  let user;
+
+  try {
+    user = await User.findById(req.user.id);
+  } catch (err) {
+    res.status(400).json({ ...err, message: "Bad Request" });
+  }
+
+  return res.json(user); 
+})
+
 module.exports = router;
