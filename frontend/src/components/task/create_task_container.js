@@ -11,15 +11,13 @@ class CreateTaskForm extends React.Component {
     }
 
     render() {
-        const { formType, task, action, closeModal } = this.props;
+        const { formType, action, closeModal } = this.props;
 
-        if (!task) return null;
-
+        //if (!task) return null;
+        debugger
         return (
-        
                 < TaskForm
                     formType={formType}
-                    task={task}
                     action={action}
                     closeModal={closeModal}
                 />
@@ -30,6 +28,13 @@ class CreateTaskForm extends React.Component {
 const mapStateToProps = (state, ownProps) => {
 
     return ({
+        task: {
+            title: '',
+            periodNum: 0,
+            periodUnit: "",
+            numTimesDone: 0,
+            numPetals: 0,
+        },
         formType: 'createTask'
     })
 }

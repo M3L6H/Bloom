@@ -6,7 +6,7 @@ class TaskForm extends React.Component {
     super(props);
     //debugger;
     this.state = {
-      title: props.task.title,
+      title: props.task.title || "",
       periodNum: 0,
       periodUnit: "",
       numTimesDone: 0,
