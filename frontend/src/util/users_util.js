@@ -5,5 +5,5 @@ export const fetchUser = () => (
 );
 
 export const updatePetals = (petals) => (
-  axios.patch(`/api/update_petals`, { petals })
+  axios.patch(`/api/users/update_petals`, { petals })
 );
