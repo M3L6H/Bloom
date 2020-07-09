@@ -2,7 +2,6 @@ import React from 'react';
 import TaskShow from './task_show';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 class TasksShow extends React.Component {
-
     constructor(props){
         super(props);
         this.dragEnd = this.dragEnd.bind(this); 

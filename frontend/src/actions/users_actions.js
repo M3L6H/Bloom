@@ -35,4 +35,4 @@ export const sortDailyTaskList = () => dispatch => (
   APIUtil.sortDailyTaskList()
     .then(res => dispatch(receiveUser(res.data)))
     .catch(err => dispatch(receiveTaskErrors(err.response.data)))
-)
+);

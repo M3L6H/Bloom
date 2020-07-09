@@ -2,10 +2,6 @@ import React from 'react';
 import {Draggable} from 'react-beautiful-dnd'; 
 class TaskShow extends React.Component {
 
-    constructor(props){
-        super(props);
-    }
-
     render(){
         const { task, habit } = this.props;
         if(!task || !habit) return null;
