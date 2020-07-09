@@ -13,7 +13,6 @@ class HabitIndex extends React.Component {
     };
 
     componentDidMount() {
-        //debugger;
         this.props.fetchHabits();
     }
 
@@ -25,7 +24,7 @@ class HabitIndex extends React.Component {
             <div>
                 <div>
                     {habits.map(
-                        (habit, idx) => <HabitIndexItem />
+                        (habit, idx) => <HabitIndexItem habit={habit} />
                     )}
                 </div>
             </div>
@@ -34,18 +33,4 @@ class HabitIndex extends React.Component {
     }
 }
 
-
-const mSTP = (state) => {
-    //debugger
-    return ({
-        habits: Object.values(state.entities.habits)
-    })
-}
-
-const mDTP = (dispatch) => {
-    return ({
-        fetchHabits: () => (dispatch(fetchHabits()))
-    })
-}
-
-export default connect (mSTP, mDTP)(HabitIndex);
+export default HabitIndex;

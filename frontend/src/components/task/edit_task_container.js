@@ -9,7 +9,7 @@ class EditTaskForm extends React.Component {
 
     render(){ 
         const { formType, task, closeModal, action } = this.props;
-        //debugger
+
         return (
             
                 < TaskForm

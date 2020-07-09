@@ -15,6 +15,13 @@ class HabitIndexItem extends React.Component {
             complete: false
         }
         this.toggleEditDescription = this.toggleEditDescription.bind(this); 
+        //  this.state = {
+        //    title: props.habit.title,
+        //    description: props.habit.description,
+        //    tasks: props.tasks,
+        //    editDescription: false,
+        //    complete: false,
+        //  };
         
     }
 
@@ -28,6 +35,7 @@ class HabitIndexItem extends React.Component {
 
     render() {
         //debugger;
+        var habit = this.state;
         const { title, description, tasks, complete } = this.state;
         const { updateHabit, deleteHabit } = this.props;
 
@@ -38,6 +46,7 @@ class HabitIndexItem extends React.Component {
         if(this.state.editDescription){
             editDescritionComponent = (
               <EditDescriptionForm
+                habit={habit}
                 open={open}
                 description={description}
                 updateHabit={updateHabit}
@@ -48,14 +57,14 @@ class HabitIndexItem extends React.Component {
         } else {
             descriptionComponent = <p className="description">{description}</p>; 
         }
- 
+
+        //debugger;
         return (
           <div className="habit-show-container">
             <div className="habit-show-main">
               <div className="habit-description">
                 <div className="habit-show-top">
                   <span className="title">{title}</span>
-                  <i className="fas fa-bars"></i>
                 </div>
                 <div className={`habit-show-middle ${open}`}>
                   <div className="hsm-top">

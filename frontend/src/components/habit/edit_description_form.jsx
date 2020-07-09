@@ -4,8 +4,8 @@ export default class EditDescriptionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            description : this.props.description
-        };
+          description: props.description,
+        }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -17,8 +17,8 @@ export default class EditDescriptionForm extends React.Component {
     //get updated description to update habit
     handleSubmit(e) {
         //debugger;
-        const description = this.props.description;
-        description = this.state.description;
+        //const description = this.props.description;
+        const description = this.state.description;
         //habit description needs to be updated
         this.props.habit.description= this.state.description;
         this.props.updateHabit(this.props.habit);
@@ -27,7 +27,7 @@ export default class EditDescriptionForm extends React.Component {
 
     //when edit description form is triggered, it renders edit form
     render() {
-        //debugger
+      //debugger;
         const { open, hideEditForm } = this.props;
         const { description } = this.state;
 
@@ -63,12 +63,4 @@ export default class EditDescriptionForm extends React.Component {
         );
     }
 };
-                // <a
-                //     className={`description-edit cancel ${open}`}
-                //     onClick={(e) => {
-                //         e.preventDefault();
-                //         hideEditForm();
-                //     }}
-                // >
-                //     cancel
-                // </a>
+            
