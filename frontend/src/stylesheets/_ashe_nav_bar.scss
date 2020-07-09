@@ -6,10 +6,11 @@
     top: 0px;
     display: flex;
     justify-content: center;
+    z-index: 1;
 }
 
 .navbar {
-    width: 354px;
+    width: 414px;
     background-color: white;
     border-left: 1px solid lightgrey;
     border-right: 1px solid lightgrey;
@@ -18,4 +19,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 15px;
+}
+
+.navbar-icons {
+    display: flex;
+}
+
+.navbar-icons div {
+    margin-left: 10px;
 }

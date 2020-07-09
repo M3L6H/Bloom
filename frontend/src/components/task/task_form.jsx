@@ -28,7 +28,7 @@ class TaskForm extends React.Component {
     }
 
     render() {
-        debugger;
+        //debugger;
         const {formType} = this.props;
         const submitButton = (
             (formType === 'editTask') ? (
