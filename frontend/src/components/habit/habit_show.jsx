@@ -1,9 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import TaskIndexItem from '../task/task_index_item';
 import EditDescriptionForm from './edit_description_form';
-
-
 
 class HabitShow extends React.Component {
     constructor(props) {
@@ -19,9 +16,7 @@ class HabitShow extends React.Component {
     }
 
     componentDidMount() {
-      this.props.fetchHabit(this.props.match.params.id)//.then (
-      //  ()=>(this.setState({title: this.props.habit.title, description: this.props.habit.description}))
-      // )
+      this.props.fetchHabit(this.props.match.params.id)
     }
 
     toggleEditDescription(){
@@ -34,7 +29,7 @@ class HabitShow extends React.Component {
    
         const { habit, openModal } = this.props;
         
-        const { updateHabit, deleteHabit, tasks } = this.props;
+        const { updateHabit, tasks } = this.props;
         if (!habit || !tasks) return null;
         const { title, description } = habit;
         

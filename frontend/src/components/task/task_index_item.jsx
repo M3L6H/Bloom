@@ -5,15 +5,10 @@ import { deleteTask } from "../../actions/tasks_actions";
 
 
 
-class TaksIndexItem extends React.Component {
+class TaskIndexItem extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
-    
     render() {
-        const { task, complete, openModal, deleteTask } = this.props;
+        const { task, openModal, deleteTask } = this.props;
         if (!task) return null;
 
         const taskId = task._id;
@@ -45,10 +40,6 @@ class TaksIndexItem extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
       openModal: (modal, task) => dispatch(openModal(modal, task)),
@@ -56,4 +47,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 }
 
-export default connect(null, mapDispatchToProps)(TaksIndexItem);
+export default connect(null, mapDispatchToProps)(TaskIndexItem);
