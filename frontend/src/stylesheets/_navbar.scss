@@ -1,6 +1,8 @@
 .ui.tabular.menu {
     display: flex; 
     width: 100%;
+    z-index: 1;
+    position: relative;
 }
 .fa-bars {
     //margin: 3% 0 3% 50%;
@@ -57,3 +59,5 @@
     content: none;
 }
 
+
+ 
