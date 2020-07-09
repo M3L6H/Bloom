@@ -211,7 +211,6 @@ class Jar extends Component {
     ctx.clearRect(0, 0, width, height);
 
     this._renderBodies(ctx);
-    // console.log(this.world.bodies);
     
     this.setState({ lastTime: time });
     this.rAF = requestAnimationFrame(this._updateAnimation);
