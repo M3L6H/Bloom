@@ -69,7 +69,7 @@ class CreateHabitForm extends React.Component {
     render(){
 
         return(
-            <div className="background">
+            <div className="background-create-habit">
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 300 }}>
                         <Form className='user-input-form' size='small' >

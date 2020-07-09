@@ -16,9 +16,6 @@ import { logout } from './actions/session_actions';
 import 'semantic-ui-css/semantic.min.css';
 import './stylesheets/index.scss';
 
-/// TESTING ///
-import * as action from "./actions/reward_actions";
-window.action = action;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -37,9 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     store = configureStore(preloadedState);
 
-    // TESTING//
-    window.dispatch = store.dispatch; 
-    /////////////
     const currentTime = Date.now() / 1000;
 
     // If the user's token has expired
@@ -57,5 +51,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(<Root store={store} />, root);
 });
-
-
