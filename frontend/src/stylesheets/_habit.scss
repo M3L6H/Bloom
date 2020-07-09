@@ -1,6 +1,7 @@
 .hit-title {
     display: block;
     border: 2px solid lavenderblush;
+    background: lavenderblush;
     color: purple;
     padding: 5px;
     margin: 20%;
@@ -53,8 +54,6 @@
     height: 45%;
 }
 
-
-
 .hsm-top {
     display: flex;
     justify-content: space-between;
@@ -64,37 +63,42 @@ ul {
     list-style-type: none;
 }
 
+.task-list {
+    border: 2px lavender solid;
+    border-radius: 8px;
+    margin-left: 10%;
+}
+
+.task-list > .fa-times{
+    float: right;
+    margin: 2%;
+}
 .single-task {
-    border: 1px lightgray solid;
-    border-radius: 4px;
+
+
     padding: 5px;
-    margin-left: 10%
+    margin: 2%;
 
 }
 
 .habit-show-bottom {
     margin-right: 10%;
-    //border: 1px red solid;
 }
 
 .fa-plus {
     float: right;
-    border: 1px yellow solid;
-    //margin-bottom: 3px;
+    margin-right: 10%;
 }
-
+.habit-description {
+    display: flex;
+    flex-direction: column;
+}
 .habit-show-container {
     width: 100%;
     background-color: #93BBDC;
     background-color: #659ECD;
     background-image: linear-gradient( #D1E2F0, #3776A9);
 }
-
-// hide the description edit box
-// .description-edit {
-//     //display: none;
-//     width: 100%;
-// }
 
 // open the edit box
 .description-edit.open {
@@ -103,13 +107,9 @@ ul {
 }
 
 .description-edit-container {
-    //width: 90%;
+
     background: white;
     border-radius: 8px;
-
-    //border: solid yellow 2px;
-    //padding: 5px;
-    
 }
 
 .dec-top > i {
@@ -131,4 +131,9 @@ ul {
     width: 50%;
     text-align: center;
     background: lavenderblush;
+}
+
+.hit-container {
+    margin: 10%;
+
 }

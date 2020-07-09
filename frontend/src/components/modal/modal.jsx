@@ -22,7 +22,7 @@ function Modal({ modal, closeModal }) {
             component = <EditTaskContainer task={modal.task} />;
             break;  
         case 'createTask':
-            component = <CreateTaskContainer />;
+            component = <CreateTaskContainer/>;
             break;
         default:
             return null;

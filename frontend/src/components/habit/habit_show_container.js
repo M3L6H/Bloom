@@ -9,7 +9,7 @@ import { fetchHabit, fetchHabits, deleteHabit, updateHabit } from "../../actions
 //   tasks: Object.values(state.entities.tasks),
 // });
 const mapStateToProps = (state, ownProps) => {
-    //debugger
+
     return ({
         habit: state.entities.habits[ownProps.match.params.id],
         tasks: Object.values(state.entities.tasks)

@@ -7,7 +7,7 @@ import EditDescriptionForm from './edit_description_form';
 
 class HabitShow extends React.Component {
     constructor(props) {
-      //debugger
+
       super(props);
       this.state = {
         title: "",
@@ -15,9 +15,7 @@ class HabitShow extends React.Component {
         editDescription: false,
         complete: false
         };
-      this.toggleEditDescription = this.toggleEditDescription.bind(
-      this
-      );
+      this.toggleEditDescription = this.toggleEditDescription.bind(this);
     }
 
     componentDidMount() {
@@ -58,8 +56,10 @@ class HabitShow extends React.Component {
         } else {
             descriptionComponent = <p className="description">{description}</p>; 
         }
-
-              
+        //filter tasks belongs to the habit
+        const habitTasks = (
+          tasks.filter(task => task.habit === habit._id)
+        )
         return (
           <div className="habit-show-container">
             <div className="habit-show-main">
@@ -68,23 +68,27 @@ class HabitShow extends React.Component {
                   <span className="title">{title}</span>
                 </div>
                 <div className={`habit-show-middle ${open}`}>
-                  <div className="hsm-top">Description</div>
-                  <i
-                    className="fa fa-pencil"
-                    onClick={this.toggleEditDescription}
-                    aria-hidden="true"
-                  ></i>
+                  <div className="hsm-top">
+                    Description
+                    <i
+                      className="fa fa-pencil"
+                      onClick={this.toggleEditDescription}
+                      aria-hidden="true"
+                    ></i>
+                  </div>
                   {descriptionComponent}
                 </div>
                 {editDescritionComponent}
-                <i
-                  className="fa fa-plus"
-                  aria-hidden="true"
-                  onClick={() => openModal("createTask")}
-                ></i>
+                <div className="hs-close-btn">
+                  <i
+                    className="fa fa-plus"
+                    aria-hidden="true"
+                    onClick={() => openModal("createTask")}
+                  ></i>
+                </div>
                 <div className="habit-show-bottom">
-                  {tasks.map((task, idx) => (
-                    <TaskIndexItem key={idx} task={task} />
+                  {habitTasks.map((task, idx) => (
+                    <TaskIndexItem key={idx} task={task} habit={habit._id} />
                   ))}
                 </div>
               </div>

@@ -12,6 +12,7 @@ class TaskForm extends React.Component {
     //   numPetals: 0,
     // };
 
+
  
     this.state = props.task;
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,14 +23,12 @@ class TaskForm extends React.Component {
       
     e.preventDefault();
     const task = Object.assign({}, this.state);
-    debugger;
     if (this.props.formType === "editTask") {
         task._id = this.props.task._id; 
     } else {
         task.habit = this.props.habit;
     }
-    //debugger;
-          
+
     this.props.action(task)
         .then(() => {this.props.closeModal();
     });

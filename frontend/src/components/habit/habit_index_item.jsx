@@ -16,7 +16,7 @@ class HabitIndexItem extends React.Component {
                      
 
                return (
-                 <div>
+                 <div className="hit-container">
                    <Link to={`/habits/${habit._id}`}>
                      <p className="hit-title">
                        {habit.title}
