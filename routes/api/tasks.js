@@ -8,6 +8,7 @@ const validateTask = require("../../validation/tasks");
 
 // Models
 const Habit = require("../../models/Habit");
+const User = require("../../models/User");
 
 // Edit a task
 router.patch("/:id", passport.authenticate("jwt", { session: false }), async (req, res) => {
@@ -62,11 +63,14 @@ router.patch("/:id", passport.authenticate("jwt", { session: false }), async (re
 // Delete a task
 router.delete("/:id", passport.authenticate("jwt", { session: false }), async (req, res) => {
   let myHabit;
+  let owner;
 
   try {
     myHabit = await Habit.findOne({ tasks: { $elemMatch: { _id: req.params.id } } });
     if (!myHabit) {
       return res.status(404).json(`Could not find task with id ${ req.params.id }`);
+    } else{
+      owner = await User.findById(myHabit.user);
     }
   } catch(err) {
     return res.status(422).json({ ...err, message: "Bad request." });
@@ -78,7 +82,8 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), async (r
   }
 
   myHabit.tasks = myHabit.tasks.filter(({ _id }) => _id != req.params.id);
-  
+  owner.dailyTaskList = owner.dailyTaskList.filter((task) => task != req.params.id);
+  owner.save(); 
   myHabit.save()
     .then(obj=>res.json(obj)) 
     .catch(err => res.status(422).json(err));
