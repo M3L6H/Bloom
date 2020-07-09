@@ -1,4 +1,5 @@
 import React from 'react';
+import RewardsUseItem from './rewards_use_item';
 
 class RewardsUse extends React.Component {
     constructor(props){
@@ -13,7 +14,9 @@ class RewardsUse extends React.Component {
               <img className="petal" src="https://i.ibb.co/wNWxh1g/petal.png" alt="petal" border="0" />
               Your current petals: {this.props.petals}
             </div>
-            <div className="rewards-use-details">Reward Details go here</div>
+            <div className="rewards-use-details">
+                <RewardsUseItem />
+            </div>
           </div>
         );
     }
