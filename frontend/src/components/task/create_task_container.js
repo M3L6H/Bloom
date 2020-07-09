@@ -6,10 +6,6 @@ import { createTask } from '../../actions/tasks_actions';
 
 class CreateTaskForm extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         const { formType, task, action, closeModal } = this.props;
         

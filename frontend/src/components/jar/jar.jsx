@@ -62,8 +62,7 @@ class Jar extends Component {
     this.jar = this._createPolyBody(this._jarPath(), { position });
 
     // Spawn petals
-    this._spawnPetals(10);
-    
+    this._spawnPetals(this.props.petals);
     this.rAF = requestAnimationFrame(this._updateAnimation);
   }
 
@@ -71,12 +70,18 @@ class Jar extends Component {
     cancelAnimationFrame(this.rAF);
   }
 
+  componentDidUpdate(prevProps) {
+    if(prevProps.petals !== this.props.petals) {
+      this._spawnPetals(this.props.petals - prevProps.petals);
+    }
+  }
+
   _spawnPetals(amt) {
     const { windowWidth } = this.props;
     const petalPosition = [(windowWidth - this.innerDiameter) / 2 + 0.15 * this.innerDiameter + Math.random() * 0.7 * this.innerDiameter, this.topOffset + 5 * this.unit];
     this.petals.push(this._createPolyBody(this._petalPath(), { position: petalPosition, mass: 1 }));
 
-    if (amt > 0) {
+    if (amt > 1) {
       setTimeout(() => this._spawnPetals(amt - 1), 150);
     }
   }
@@ -169,6 +174,8 @@ class Jar extends Component {
       switch(shape.type) {
         case p2.Shape.CONVEX:
           this._renderConvexShape(shape, ctx);
+          break;
+        default:
       }
     });
   }

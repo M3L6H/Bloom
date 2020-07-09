@@ -3,10 +3,6 @@ import TaskShow from './task_show';
 
 class TasksShow extends React.Component {
 
-    constructor(props){
-        super(props);
-    }
-
     componentDidMount(){
         this.props.fetchHabits();
     }
