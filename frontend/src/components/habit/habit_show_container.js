@@ -1,14 +1,24 @@
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import HabitShow from './habit_show';
-import { fetchHabits, deleteHabit, updateHabit } from "../../actions/habits_actions";
+import { fetchHabit, fetchHabits, deleteHabit, updateHabit } from "../../actions/habits_actions";
 
-const mapStateToProps = (state) => {
-    return null //({})
+
+// const mSTP = (state) => ({
+//   habits: state.entities.habits,
+//   tasks: Object.values(state.entities.tasks),
+// });
+const mapStateToProps = (state, ownProps) => {
+    //debugger
+    return ({
+        habit: state.entities.habits[ownProps.match.params.id],
+        tasks: Object.values(state.entities.tasks)
+    })
 }
 
 const mapDispatchToProps = (dispatch) => {
     return ({
+        fetchHabit: (habitId) => dispatch(fetchHabit(habitId)),
         openModal: () => dispatch(openModal()),
         deleteHabit: (id) => dispatch(deleteHabit()),
         updateHabit: (habit) => dispatch(updateHabit(habit)),
@@ -16,4 +26,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect(null, mapDispatchToProps)(HabitShow);
+export default connect(mapStateToProps, mapDispatchToProps)(HabitShow);

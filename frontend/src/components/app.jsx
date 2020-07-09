@@ -16,7 +16,7 @@ const App = () => (
     <ProtectedRoute path="/" component={NavBarContainer} />
     <ProtectedRoute path="/habit" component={CreateHabit} />
     <ProtectedRoute path="/landing" component={HabitIndexContainer} />
-    <ProtectedRoute path="/habit/:id" component={HabitShowContainer} />
+    <ProtectedRoute path="/habits/:id" component={HabitShowContainer} />
   </div>
 );
 

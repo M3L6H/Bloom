@@ -2,30 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TaskIndexItem from '../task/task_index_item';
 import EditDescriptionForm from './edit_description_form';
-import { fetchHabits } from '../../util/habits_util';
+
 
 class HabitShow extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            title: "Eat Healthy",
-            description: "I'm going to eat healthy, so I can have a grerat skin and never get aged! I don't want to consume junk food but it so affordable and delicious. It's bad for the environment though.. ",
-            tasks: ['drink water', 'eat less chocolate', 'eat more vegetable!'],
-            editDescription: false,
-            complete: false
-        }
-        this.toggleEditDescription = this.toggleEditDescription.bind(this); 
-        //  this.state = {
-        //    title: props.habit.title,
-        //    description: props.habit.description,
-        //    tasks: props.tasks,
-        //    editDescription: false,
-        //    complete: false,
-        //  };
-        
+      //debugger
+      super(props);
+      this.state = {
+        title: props.habit.title,
+        description: props.habit.description,
+        editDescription: false,
+        complete: false
+        };
+      this.toggleEditDescription = this.toggleEditDescription.bind(
+      this
+      );
     }
 
-    
+    componentDidMount() {
+      this.props.fetchHabit(this.props.match.params.id)
+    }
 
     toggleEditDescription(){
         var edit;
@@ -34,12 +30,12 @@ class HabitShow extends React.Component {
     }
 
     render() {
-        //debugger;
-        const { habits } = this.props;
-        if (!habits) return null;
-        var habit = this.state;
-        const { title, description, tasks, complete } = this.state;
-        const { updateHabit, deleteHabit } = this.props;
+   
+        const { habit } = this.props;
+        if (!habit) return null;
+  
+        const { title, description, complete } = this.state;
+        const { updateHabit, deleteHabit, tasks } = this.props;
 
 
         const open = this.state.editDescription ? 'open' : '';
@@ -60,7 +56,7 @@ class HabitShow extends React.Component {
             descriptionComponent = <p className="description">{description}</p>; 
         }
 
-        //debugger;
+        debugger;
         return (
           <div className="habit-show-container">
             <div className="habit-show-main">
@@ -82,7 +78,7 @@ class HabitShow extends React.Component {
                 {editDescritionComponent}
                 <div className="habit-show-bottom">
                   {tasks.map((task, idx) => (
-                    <TaskIndexItem key={idx} task={task} />
+                    <TaskIndexItem key={idx} task={task.title} />
                   ))}
                 </div>
               </div>

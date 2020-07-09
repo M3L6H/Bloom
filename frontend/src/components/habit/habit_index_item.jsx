@@ -12,15 +12,19 @@ class HabitIndexItem extends React.Component {
     }
 
     render() {
-        const {habit, deleteHabit} = this.props;
+               const { habit, deleteHabit } = this.props;
+               //debugger;
 
-        return (
-            <div className='hit-title'>
-                {habit.title}
-            </div>
-        )
-
-    }
+               return (
+                 <div>
+                   <Link to={`/habits/${habit._id}`}>
+                     <p className="hit-title">
+                       {habit.title}
+                     </p>
+                   </Link>
+                 </div>
+               );
+             }
 
 }
 

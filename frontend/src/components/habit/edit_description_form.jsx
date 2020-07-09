@@ -30,7 +30,7 @@ export default class EditDescriptionForm extends React.Component {
       //debugger;
         const { open, hideEditForm } = this.props;
         const { description } = this.state;
-
+        if (!this.props.description) return null; 
 
         return (
           <div className={`description-edit ${open}`}>
