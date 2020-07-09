@@ -21,7 +21,6 @@ class TaskItemShow extends React.Component {
       this.setState({ complete: true });
       window.setTimeout(() => {  
         this.props.updateTask({ ...this.props.task, numTimesDone: this.tracking });
-        console.log(this.tracking)
         this.setState({ complete: false })}, 1000);
       } else {
         this.props.updateTask({
