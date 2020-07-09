@@ -9,14 +9,18 @@ class HabitIndex extends React.Component {
 
     render() {
               
-        const { habits } = this.props;
+        const { habits, deleteHabit } = this.props;
         if (!habits) return null;
               
         return (
           <div className="habit-index-container">
             <div className="hic-title">My Habit Goals</div>
             {habits.map((habit, idx) => (
-            <HabitIndexItem habit={habit} key={idx} />
+              <HabitIndexItem
+                habit={habit}
+                key={idx}
+                deleteHabit={deleteHabit}
+              />
             ))}
           </div>
         );

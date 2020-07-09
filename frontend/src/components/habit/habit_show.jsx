@@ -62,7 +62,7 @@ class HabitShow extends React.Component {
           tasks.filter(task => task.habit === habit._id)
         )
         const habitId = habit._id;
-        debugger
+ 
         return (
           <div className="habit-show-container">
             <div className="habit-show-main">
