@@ -1,7 +1,7 @@
 import * as APIUtil from '../util/users_util';
 
-export const RECEIVE_USER;
-export const RECEIVE_USER_ERRORS;
+export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 
 const receiveUser = (user) => ({
   type: RECEIVE_USER,
