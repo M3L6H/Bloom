@@ -178,8 +178,33 @@ router.post("/update_tasks",passport.authenticate("jwt",{session:false}), async 
 
   user.save()
     .then((user)=> res.json(user))
-    .catch((err)=> res.json(err).status(422)); 
+    .catch((err) => res.status(422)).json(err); 
 
 })
 
+// Edit petals
+// expects "petals" key in request body
+router.patch("/update_petals", passport.authenticate("jwt", { session: false }), async (req,res)=> {
+  
+  if(!req.body.petals){
+    return res.status(422).json("petals is required!");
+  }
+
+  let user;
+
+  try{
+    user = await User.findById(req.user.id);
+  }catch(err){
+    res.status(400).json({...err,message:"Bad Request"});
+  }
+
+  if(!user){
+    res.json("User not found!").status(404);
+  }
+
+  user.petals = req.body.petals;
+  user.save()
+    .then(user=> res.json(user))
+    .catch(err=> res.json(err).status(422));
+})
 module.exports = router;
