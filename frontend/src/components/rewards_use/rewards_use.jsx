@@ -2,10 +2,6 @@ import React from 'react';
 import RewardsUseItem from './rewards_use_item';
 
 class RewardsUse extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
     render(){
         return (
           <div className="rewards-use-container">
