@@ -11,7 +11,7 @@ const receiveTask = (task) => {
   };
 };
 
-const removeTask = (id) => ({
+export const removeTask = (id) => ({
   type: REMOVE_TASK,
   id
 });

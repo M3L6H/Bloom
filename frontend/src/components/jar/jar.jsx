@@ -20,8 +20,6 @@ class Jar extends Component {
     this.topOffset = 15 * this.unit;
     this.petalSize = 9;
 
-    console.log(this.unit);
-
     // Set up world
     this.world = new p2.World({
       gravity: [0, 75 * this.unit]
@@ -43,7 +41,9 @@ class Jar extends Component {
     this.bodyId = 1;
 
     // Appearance
-    this.jarColor = "rgb(230, 230, 255)";
+    // this.jarColor = "rgb(230, 230, 255)";
+    this.jarColor = "#C9B9DF";
+    // this.jarColor = "#97DCED";
 
     // Initial values
     this.jar = null;

@@ -10,8 +10,9 @@
 }
 
 .navbar {
+    border-bottom: 1px solid lightgrey;
     width: 414px;
-    background-color: white;
+    background-color: #F4F1F9;
     border-left: 1px solid lightgrey;
     border-right: 1px solid lightgrey;
     height: 100%;
@@ -19,6 +20,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 15px;
+    // background-image: linear-gradient(  #D1E2F0, #3776A9);
 }
 
 .navbar-icons {
