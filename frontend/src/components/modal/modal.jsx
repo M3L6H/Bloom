@@ -10,7 +10,8 @@ function Modal({ modal, closeModal }) {
     if (!modal) return null;
 
     let component;
-    switch (modal) {
+    debugger;
+    switch (modal.modal) {
         case 'login':
             component = <LoginFormContainer />;
             break;
@@ -18,9 +19,7 @@ function Modal({ modal, closeModal }) {
             component = <SignupFormContainer />;
             break;  
         case 'editTask':
-            //component = <LoginFormContainer />;
-            component = <EditTaskContainer />;
-            // component = <SignupFormContainer />;
+            component = <EditTaskContainer task={modal.task} />;
             break;  
         case 'createTask':
             component = <CreateTaskContainer />;

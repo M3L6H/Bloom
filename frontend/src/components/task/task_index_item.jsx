@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { openModal } from '../../actions/modal_actions';
-import { RECEIVE_USER_LOGOUT } from '../../actions/session_actions';
+
 
 
 class TaksIndexItem extends React.Component {
@@ -14,11 +14,12 @@ class TaksIndexItem extends React.Component {
     
     render() {
         const {task, complete, openModal} = this.props
-
+        if (!task) return null;
+        debugger
         return (
             <div>
                 <ul className='task-list'>
-                    <li className='single-task' onClick={() => openModal('editTask')}>
+                    <li className='single-task' onClick={() => openModal('editTask', this.props.task)}>
                         {task.title}
                     </li>                
                 </ul>
@@ -34,7 +35,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        openModal: (modal) => dispatch(openModal(modal))
+        openModal: (modal, task) => dispatch(openModal(modal, task))
     })
 }
 

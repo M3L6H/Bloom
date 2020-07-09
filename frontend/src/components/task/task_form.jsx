@@ -6,7 +6,7 @@ class TaskForm extends React.Component {
         super(props)
         //debugger;
         this.state = {
-            //title: props.task.title,
+            title: props.task.title,
             periodNum: 0,
             periodUnit: 0,
             numTimesDone: 0,
@@ -52,7 +52,7 @@ class TaskForm extends React.Component {
             <div className='task-modal-background'>
                 <form className='task-form' >
                     <div className='task-form-top'>
-                        Edit Task
+                        {this.state.title}
                         <i className="fa fa-times"
                             aria-hidden="true"
                             onClick={() => this.props.closeModal()}></i>
