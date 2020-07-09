@@ -19,7 +19,7 @@ class TaksIndexItem extends React.Component {
             <div>
                 <ul className='task-list'>
                     <li className='single-task' onClick={() => openModal('editTask')}>
-                        {task}
+                        {task.title}
                     </li>                
                 </ul>
             </div>

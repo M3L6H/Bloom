@@ -56,7 +56,7 @@ class HabitShow extends React.Component {
             descriptionComponent = <p className="description">{description}</p>; 
         }
 
-        debugger;
+        //debugger;
         return (
           <div className="habit-show-container">
             <div className="habit-show-main">
@@ -78,7 +78,7 @@ class HabitShow extends React.Component {
                 {editDescritionComponent}
                 <div className="habit-show-bottom">
                   {tasks.map((task, idx) => (
-                    <TaskIndexItem key={idx} task={task.title} />
+                    <TaskIndexItem key={idx} task={task} />
                   ))}
                 </div>
               </div>
