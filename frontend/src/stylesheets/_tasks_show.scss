@@ -32,3 +32,11 @@
     font-size: 12px;
     color: grey;
 }
+
+.shows-tasks-all {
+    width: 320px;
+    margin: auto;
+    // max-height: 430px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
