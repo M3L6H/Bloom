@@ -72,6 +72,28 @@ class Jar extends Component {
     if(prevProps.petals !== this.props.petals) {
       this._spawnPetals(this.props.petals - prevProps.petals);
     }
+
+    if (prevProps.windowHeight !== this.props.windowHeight || prevProps.windowWidth !== this.props.windowWidth) {
+      this.jar = null;
+      this.petals = [];
+
+      const { windowHeight, windowWidth } = this.props;
+      this.unit = Math.min(windowWidth, windowHeight * this.windowPercentage) / 75;
+      this.innerDiameter = 40 * this.unit;
+      this.topOffset = 15 * this.unit;
+
+      this.world = new p2.World({
+        gravity: [0, 75 * this.unit]
+      });
+
+      this.petalImgSize = 72 * this.unit / 7.3;
+      this.petalImg = new Image(this.petalImgSize, this.petalImgSize);
+      this.petalImg.src = petal;
+
+      const position = [(windowWidth - this.innerDiameter) / 2 - 3 * this.unit, this.topOffset];
+      this.jar = this._createPolyBody(this._jarPath(), { position });
+      this._spawnPetals(this.props.petals);
+    }
   }
 
   _spawnPetals(amt) {
