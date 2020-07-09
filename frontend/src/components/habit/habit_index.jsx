@@ -17,10 +17,10 @@ class HabitIndex extends React.Component {
     }
 
     render() {
-        //debugger;
+              
         const { habits } = this.props;
         if (!habits) return null;
-        //debugger;
+              
         return (
             <div>
                 <div>

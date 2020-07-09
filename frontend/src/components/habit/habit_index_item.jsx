@@ -13,7 +13,7 @@ class HabitIndexItem extends React.Component {
 
     render() {
                const { habit, deleteHabit } = this.props;
-               //debugger;
+                     
 
                return (
                  <div>

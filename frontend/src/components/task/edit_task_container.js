@@ -24,7 +24,7 @@ class EditTaskForm extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    //debugger
+
     return ({
         formType: 'editTask',
         task: state.ui.modal.task

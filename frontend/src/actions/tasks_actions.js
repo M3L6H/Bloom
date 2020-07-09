@@ -22,11 +22,13 @@ const receiveTaskErrors = (errors) => ({
     errors
 });
 
-export const createTask = (task) => dispatch => (
+export const createTask = (task) => dispatch => {
+    debugger;
+    return(
     APIUtil.createTask(task)
         .then(res => dispatch(receiveTask(res.data)))
         .catch(err => dispatch(receiveTaskErrors(err.response.data)))
-);
+)}
 
 export const updateTask = (task) => dispatch => (
     APIUtil.updateTask(task)

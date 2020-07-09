@@ -16,7 +16,7 @@ export default class EditDescriptionForm extends React.Component {
 
     //get updated description to update habit
     handleSubmit(e) {
-        //debugger;
+              
         //const description = this.props.description;
         const description = this.state.description;
         //habit description needs to be updated
@@ -27,7 +27,7 @@ export default class EditDescriptionForm extends React.Component {
 
     //when edit description form is triggered, it renders edit form
     render() {
-      //debugger;
+            
         const { open, hideEditForm } = this.props;
         const { description } = this.state;
         if (!description) return null; 

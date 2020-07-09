@@ -10,7 +10,7 @@ function Modal({ modal, closeModal }) {
     if (!modal) return null;
 
     let component;
-    //debugger;
+          
     switch (modal.modal) {
         case 'login':
             component = <LoginFormContainer />;

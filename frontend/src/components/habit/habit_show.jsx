@@ -59,7 +59,7 @@ class HabitShow extends React.Component {
             descriptionComponent = <p className="description">{description}</p>; 
         }
 
-        //debugger;
+              
         return (
           <div className="habit-show-container">
             <div className="habit-show-main">
@@ -68,19 +68,17 @@ class HabitShow extends React.Component {
                   <span className="title">{title}</span>
                 </div>
                 <div className={`habit-show-middle ${open}`}>
-                  <div className="hsm-top">
-                    Description
-                    <i
-                      className="fa fa-bell"
-                      onClick={this.toggleEditDescription}
-                      aria-hidden="true"
-                    ></i>
-                  </div>
+                  <div className="hsm-top">Description</div>
+                  <i
+                    className="fa fa-pencil"
+                    onClick={this.toggleEditDescription}
+                    aria-hidden="true"
+                  ></i>
                   {descriptionComponent}
                 </div>
                 {editDescritionComponent}
                 <i
-                  class="fa fa-plus"
+                  className="fa fa-plus"
                   aria-hidden="true"
                   onClick={() => openModal("createTask")}
                 ></i>
