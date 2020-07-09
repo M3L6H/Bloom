@@ -13,13 +13,12 @@ class Jar extends Component {
     // Setting up dimensions
     this.windowPercentage = 0.5;
 
-    const { windowWidth, windowHeight, user } = this.props;
+    const { windowWidth, windowHeight } = this.props;
 
     this.unit = Math.min(windowWidth, windowHeight * this.windowPercentage) / 75;
     this.innerDiameter = 40 * this.unit;
     this.topOffset = 15 * this.unit;
     this.petalSize = 9;
-    // this.petalSize = user.petals;
 
     // Set up world
     this.world = new p2.World({
@@ -175,6 +174,8 @@ class Jar extends Component {
       switch(shape.type) {
         case p2.Shape.CONVEX:
           this._renderConvexShape(shape, ctx);
+          break;
+        default:
       }
     });
   }
@@ -217,8 +218,7 @@ class Jar extends Component {
   }
   
   render() {
-    const { windowWidth, windowHeight, user } = this.props;
-    // if(!user) return null;
+    const { windowWidth, windowHeight } = this.props;
 
     return (
       <canvas
