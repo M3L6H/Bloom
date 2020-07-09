@@ -13,13 +13,12 @@ class Jar extends Component {
     // Setting up dimensions
     this.windowPercentage = 0.5;
 
-    const { windowWidth, windowHeight, user } = this.props;
+    const { windowWidth, windowHeight } = this.props;
 
     this.unit = Math.min(windowWidth, windowHeight * this.windowPercentage) / 75;
     this.innerDiameter = 40 * this.unit;
     this.topOffset = 15 * this.unit;
     this.petalSize = 9;
-    // this.petalSize = user.petals;
 
     // Set up world
     this.world = new p2.World({
@@ -42,9 +41,7 @@ class Jar extends Component {
     this.bodyId = 1;
 
     // Appearance
-    // this.jarColor = "rgb(230, 230, 255)";
     this.jarColor = "#C9B9DF";
-    // this.jarColor = "#97DCED";
 
     // Initial values
     this.jar = null;
@@ -78,11 +75,10 @@ class Jar extends Component {
   }
 
   _spawnPetals(amt) {
-    const { windowWidth } = this.props;
-    const petalPosition = [(windowWidth - this.innerDiameter) / 2 + 0.15 * this.innerDiameter + Math.random() * 0.7 * this.innerDiameter, this.topOffset + 5 * this.unit];
-    this.petals.push(this._createPolyBody(this._petalPath(), { position: petalPosition, mass: 1 }));
-
-    if (amt > 1) {
+    if (amt > 0) {
+      const { windowWidth } = this.props;
+      const petalPosition = [(windowWidth - this.innerDiameter) / 2 + 0.15 * this.innerDiameter + Math.random() * 0.7 * this.innerDiameter, this.topOffset + 5 * this.unit];
+      this.petals.push(this._createPolyBody(this._petalPath(), { position: petalPosition, mass: 1 }));
       setTimeout(() => this._spawnPetals(amt - 1), 150);
     }
   }
@@ -175,6 +171,8 @@ class Jar extends Component {
       switch(shape.type) {
         case p2.Shape.CONVEX:
           this._renderConvexShape(shape, ctx);
+          break;
+        default:
       }
     });
   }
@@ -210,15 +208,13 @@ class Jar extends Component {
     ctx.clearRect(0, 0, width, height);
 
     this._renderBodies(ctx);
-    // console.log(this.world.bodies);
     
     this.setState({ lastTime: time });
     this.rAF = requestAnimationFrame(this._updateAnimation);
   }
   
   render() {
-    const { windowWidth, windowHeight, user } = this.props;
-    // if(!user) return null;
+    const { windowWidth, windowHeight } = this.props;
 
     return (
       <canvas

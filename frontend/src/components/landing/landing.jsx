@@ -4,10 +4,6 @@ import Jar from '../jar';
 
 class Landing extends React.Component {
 
-    constructor(props){
-        super(props);
-    }
-
     componentDidMount(){
         this.props.fetchUser();
         this.props.fetchHabits();
