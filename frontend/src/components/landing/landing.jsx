@@ -13,7 +13,7 @@ class Landing extends React.Component {
     }
 
     render(){
-        const { tasks, habits, updateTask, removeTask, deleteTask } = this.props;
+        const { tasks, habits, updateTask, deleteTask } = this.props;
         if(!tasks) return null;
 
         let currentTasks = [];
@@ -29,7 +29,7 @@ class Landing extends React.Component {
                 </div>
                 <div className="landing-tasks-container">
                     <div className="label-primary-tasks">Your Current Primary Tasks</div>
-                    {currentTasks.slice(0, 3).map((task, idx) => <TaskItemShow key={idx} task={task} habit={habits[task.habit]} updateTask={updateTask} removeTask={removeTask} deleteTask={deleteTask} /> )}
+                    {currentTasks.slice(0, 3).map((task, idx) => <TaskItemShow key={idx} task={task} habit={habits[task.habit]} updateTask={updateTask} deleteTask={deleteTask} /> )}
                 </div>
             </div>
         )

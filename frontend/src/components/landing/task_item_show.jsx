@@ -17,7 +17,6 @@ class TaskItemShow extends React.Component {
     this.props.updateTask(this.props.task);
     if (this.props.task.numTimesDone >= this.props.task.periodNum) {
       this.setState({ complete: !this.state.complete });
-      // this.props.deleteTask(this.props.task._id);
     }
   }
 
