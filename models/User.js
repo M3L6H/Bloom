@@ -44,7 +44,15 @@ const UserSchema = new Schema({
         type: Number,
         required: true
     },
-    rewards: [RewardSchema]
+    rewards: [RewardSchema],
+    dailyTaskList: {
+        type: Array,
+        default: []
+    },
+    habits: {
+        type: Array,
+        default: [] 
+    }
 
 }, {
     timestamps: true

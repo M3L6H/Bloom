@@ -14,6 +14,7 @@ const validateTask = require("../../validation/tasks");
 /// Models
 const Habit = require("../../models/Habit");
 const Task = require("../../models/Task");
+const User = require("../../models/User");
 
 ////////////// Main
 
@@ -44,8 +45,14 @@ router.post("/", passport.authenticate("jwt", { session: false }), async (req,re
     user: req.user
   });
 
+  // This will store the Habit's user later
+  var user;
+
   try {
-    newHabit = await newHabit.save();    
+    newHabit = await newHabit.save();
+    user = await User.findById(newHabit.user);
+    user.habits.push(newHabit.id);
+    user.save();
   } catch (err) {
     return res.status(422).json(err);
   }
@@ -55,6 +62,10 @@ router.post("/", passport.authenticate("jwt", { session: false }), async (req,re
     newHabit.save()
       .then(obj => res.json(obj))
       .catch(err => res.status(422).json(err));
+    user.dailyTaskList.push(...newHabit.tasks.map(task=>task.id));
+
+  } else {
+    return res.json(newHabit); 
   }
 });
 
@@ -84,10 +95,11 @@ router.get("/:id", passport.authenticate("jwt", { session: false }), async (req,
 // Delete Habit
 // Returns deleted habit id or "failed"
 router.delete("/:id", passport.authenticate("jwt", { session: false }), async (req,res) => {
-  let myHabit;
-
+  var myHabit;
+  var owner;
   try {
     myHabit = await Habit.findOne({ _id: req.params.id });
+    owner = await User.findOne({_id: req.user.id});
   } catch(err) {
     return res.status(422).json({ ...err, message: "Bad request." });
   }
@@ -106,6 +118,20 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), async (r
     .then((msg) => {
       if(msg && msg.deletedCount > 0) {
         res.json({id: req.params.id});
+        
+        // remove the habit and its tasks from the owner's habits and dailyTaskList arrays
+        let habitIdx = owner.habits.findIndex((habit)=> habit === myHabit.id);
+        owner.habits.splice(habitIdx,1); 
+        
+        let tasks = myHabit.tasks.map((task)=> task.id);
+        tasks.forEach((task)=>{
+          let taskIdx = owner.dailyTaskList.findIndex((_task)=> _task === task);
+
+          if(taskIdx){
+            owner.dailyTaskList.splice(taskIdx,1); 
+          }
+        });
+        owner.save(); 
       } else {
         res.json("Failed");
       }
@@ -155,6 +181,8 @@ router.patch("/:id", passport.authenticate("jwt", { session: false }), async (re
     .catch(err => res.status(422).json(err));
 });
 
+//Create a new Task
+// Returns json of the new task
 router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), async (req, res) => {
   const { errors, isValid } = validateTask(req.body);
 
@@ -163,9 +191,10 @@ router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), asyn
   }
   
   let myHabit;
-
+  let owner;
   try {
     myHabit = await Habit.findOne({ _id: req.params.id });
+    owner = await User.findById(req.user.id);
   } catch(err) {
     return res.status(422).json({ ...err, message: "Bad request." });
   }
@@ -195,7 +224,10 @@ router.post("/:id/tasks", passport.authenticate("jwt", { session: false }), asyn
     numPetals
   });
 
+
   myHabit.tasks.push(newTask);
+  owner.dailyTaskList.push(newTask.id);
+  owner.save();
   myHabit.save()
     .then(obj => res.json(obj.tasks[obj.tasks.length - 1]))
     .catch(err => res.status(422).json(err));
