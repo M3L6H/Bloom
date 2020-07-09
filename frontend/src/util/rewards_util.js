@@ -2,6 +2,8 @@
 // rewards are nested in the user document schema, but we have separated
 // their axios requests here for clarity
 
+import axios from "axios";
+
 export const createReward = (reward) => (
     axios.post("/api/rewards/", reward)
 );
