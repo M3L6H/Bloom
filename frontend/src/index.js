@@ -16,11 +16,6 @@ import { logout } from './actions/session_actions';
 import 'semantic-ui-css/semantic.min.css';
 import './stylesheets/index.scss';
 
-//// TESTING ////
-
-import { updateDailyTaskList } from "./util/users_util";
-
-window.updateDailyTaskList = updateDailyTaskList; 
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
