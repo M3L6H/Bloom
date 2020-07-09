@@ -1,63 +1,185 @@
-.ui.tabular.menu {
-    display: flex; 
-    width: 100%;
-    z-index: 1;
-    position: relative;
-}
-.fa-bars {
-    //margin: 3% 0 3% 50%;
-    font-size: 23px;
-    cursor: pointer;
-
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid lightgrey;
+  position: fixed;
+  z-index: 8;
+  width: 100%;
+  background-color: red;
+  box-shadow:0px 1px 1px lightgray;
 }
 
-.dropdown:hover .dropdown-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    right: 0;
-    height: 80px;
-    width: 60px;
-    border: lightgray solid 1px;
-    padding-top: 3px;
-    padding-left: 3px;
-    border-radius: 8px;
-    background: white;
-    //position: absolute;
-
+.nav-bar, .left, .right {
+  display: flex;
+  justify-content: space-between;
 }
 
 
-
-.dropdown-content > a:hover {
-    background: lavender;
-    color: white;
-}
-.dropdown:hover .dropdown-content > a {
-    padding: 3px, 0, 3px, 3px;
-}
-.dropdown {
-    display: block;
-    position: relative;
-    background: white;
-    //border: 0.5px solid lightgray;
-    border-radius: 4px;
-    font-size: 16px;
-    margin-top: 3px;
-    z-index: 1;
-    margin: 3% 0 3% 30%;
+.nav-first a, .answers a{
+  color: #FAC0B3;
+  margin-top: 10px;
+  display: block;
 }
 
+
+.round-btn {
+  margin-right: 20px;
+}
+.round-btn > button { 
+  background-color: #FAC0B3;
+  font-size: 16px;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 0px 4px 5px;
+  cursor: pointer;
+  border-radius: 500px;
+}
+
+.hamburger-icn {
+  padding: 5px;
+  font-size: 28px;
+  color: #FAC0B3;
+}
+
+.hamburger-icn > i:hover {
+  color: salmon;
+}
+.left > li {
+  display: block;
+}
 .dropdown-content {
-    border: 0.5px solid lavender;
-    display: none;
-    position: absolute;
-    z-index: 1;
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  background: white;
+  border: 0.5px solid lightgray;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 3px;
+  z-index: 1;
 }
 
-.ui.menu:after{
-    content: none;
+.dropdown-content li {
+  padding: 5px 8px;
 }
+
+
+.dropdown-content a {
+  color: #FAC0B3;
+  font-size: 16px;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.dropdown-content a:hover {
+  color: white;
+}
+.dropdown-content li:hover {
+  background: #FAC0B3;
+  color: white;
+  cursor: pointer;  
+}
+
+.dropdown-profile:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+li > .fa {
+  padding-right: 5px;
+  padding-left: 2px;
+  size: 16px;
+}
+.left {
+  margin-top: 10px;
+}
+
+#logo, #logo i {
+  font-size: 35px;
+  color: salmon;
+}
+
+.left div {
+  margin-left: 20px;
+}
+
+.left a:hover {
+  color: salmon;
+}
+
+.round-btn button:hover {
+  background: salmon;
+}
+
+.right {
+  align-items: center;
+}
+// .ui.tabular.menu {
+//     display: flex; 
+//     width: 100%;
+//     z-index: 1;
+//     position: relative;
+// }
+// .fa-bars {
+//     //margin: 3% 0 3% 50%;
+//     font-size: 23px;
+//     cursor: pointer;
+
+// }
+
+// .dropdown:hover .dropdown-content{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     right: 0;
+//     height: 80px;
+//     width: 60px;
+//     border: lightgray solid 1px;
+//     padding-top: 3px;
+//     padding-left: 3px;
+//     border-radius: 8px;
+//     background: white;
+//     //position: absolute;
+
+// }
+
+
+
+// .dropdown-content > a:hover {
+//     background: lavender;
+//     color: white;
+// }
+// .dropdown:hover .dropdown-content > a {
+//     padding: 3px, 0, 3px, 3px;
+// }
+// .dropdown {
+//     display: block;
+//     position: relative;
+//     background: white;
+//     //border: 0.5px solid lightgray;
+//     border-radius: 4px;
+//     font-size: 16px;
+//     margin-top: 3px;
+//     z-index: 1;
+//     margin: 3% 0 3% 30%;
+// }
+
+// .dropdown-content {
+//     border: 0.5px solid lavender;
+//     display: none;
+//     position: absolute;
+//     z-index: 1;
+// }
+
+// .ui.menu:after{
+//     content: none;
+// }
 
 
  
