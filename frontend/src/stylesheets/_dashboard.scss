@@ -57,6 +57,11 @@
     .rewards-use-item-container{
         background-color: lavender;
     }
+
+    .rewards-use-item-container:hover{
+        background-color: rgb(200, 200, 240);
+        cursor: pointer;
+    }
 }
 
 
