@@ -17,6 +17,7 @@ class CreateRewards extends React.Component {
     e.preventDefault();
     this.props.createReward(this.state);
     this.setState({ title: "", petalCost: 1 });
+    this.props.closeModal();
   }
 
   render() {
@@ -24,7 +25,6 @@ class CreateRewards extends React.Component {
       <>
         <Grid
           textAlign="center"
-          style={{ height: "100vh" }}
           verticalAlign="middle"
         >
           <Grid.Column style={{ width: 280 }}>

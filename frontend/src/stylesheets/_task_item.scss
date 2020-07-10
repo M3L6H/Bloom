@@ -4,8 +4,8 @@
     border-radius: 8px;
     width: 74%;
     margin: 15px auto;
-    padding: 8px 4px;
-    color: white;
+    padding: 8px;
+    color: grey;
     position: relative;
 }
 
@@ -27,8 +27,9 @@
 .task-complete {
     position: absolute;
     color: #2E1F47;
-    top: 0;
-    right: 5px;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
 }
 
 .check- {

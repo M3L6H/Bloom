@@ -1,4 +1,6 @@
 .rewards-use-container {
+    max-height: 70vh;
+    overflow-y: auto;
     width: 300px;
     min-height: 400px;
     border-radius: 12px;
@@ -16,6 +18,12 @@
 img.petal {
     width: 25px;
     height: 25px;
+}
+
+
+.rewards-petal-use h3 {
+    margin-top: 0px;
+    line-height: 0px;
 }
 
 .rewards-use-petals {
@@ -52,3 +60,4 @@ img.petal {
     font-weight: 600;
     color: #18708B;
 }
+

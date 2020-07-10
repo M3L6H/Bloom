@@ -4,6 +4,7 @@ import React from 'react';
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
+ 
     this.state = props.task;
     this.handleSubmit = this.handleSubmit.bind(this);
     
@@ -53,6 +54,10 @@ class TaskForm extends React.Component {
         null
       );
 
+    if (formType !== "createTask" && !this.state) {
+      return null;
+    }
+
     const freqDropDown = (
       <select
         name="frq-select"
@@ -75,7 +80,9 @@ class TaskForm extends React.Component {
       <div className="task-modal-background">
         <form className="task-form">
           <div className="task-form-top">
-            {renderTitle} <i
+            { formType !== "createTask" && this.state.title }
+            {getTask}
+            <i
               className="fa fa-times"
               aria-hidden="true"
               onClick={() => this.props.closeModal()}

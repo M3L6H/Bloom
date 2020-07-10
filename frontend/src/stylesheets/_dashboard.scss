@@ -1,0 +1,102 @@
+
+.dashboard-container{
+    max-width: 500px;
+    margin:0px auto;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(#013A65, #D4C7E5);
+    height:100vh;
+    padding: 36px;
+
+    .header {
+      color: white;
+      font-size: 24px;
+      font-weight: 900;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      h1 {
+        margin: 0;
+      }
+
+      .navbar-icons {
+        margin: 0;
+
+        .navbar-dropdown {
+          top: 24px;
+        }
+      }
+    }
+}
+
+.dashboard-container h2{
+    font-size: 18px;
+    color: white;
+}
+
+.rewards-options{
+    height:85%;
+    h2{
+        margin-bottom: 5px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+}
+
+.add-reward{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    margin-right: 0px;
+}
+
+.add-reward:hover{
+    // border-color: #cdc2e1;
+    color: #a0a1c3;
+    cursor: pointer;
+}
+
+.no-reward-message{
+    color: white;
+}
+
+.rewards-list{
+    border: 2px solid white; 
+    padding: 8px;
+    border-radius: 8px;
+    height: 100%;
+    overflow-y: auto; 
+
+    .rewards-use-item-container{
+        background-color: lavender;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .rewards-use-item-container:hover{
+        background-color: rgb(200, 200, 240);
+        cursor: pointer;
+    }
+}
+
+
+.rewards-petal-use.reward-menu-item {
+    background-color: inherit;
+    border: 0px;
+    font-size: 15px;
+}
+
+.rewards-petal-use.reward-menu-item:hover{
+    color:#7856B3;
+    cursor: default;
+}
+
+
+
+
+

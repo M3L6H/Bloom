@@ -4,5 +4,5 @@ import modalReducer from './modal_reducer';
 
 export default combineReducers({
   spawnFireworks: fireworksReducer,
-    modal: modalReducer
+  modal: modalReducer
 });

@@ -13,7 +13,8 @@
     width: 320px;
     max-height: 70vh;
     overflow-y: auto;
-    margin: 15px auto 10px auto;
+    // margin: 15px auto 10px auto;
+    margin: 15px 10px 10px 50px;
 }
 
 .hit-container {
@@ -21,6 +22,7 @@
     padding: 10px;
     margin: 15px;
     border-radius: 8px;
+    position: relative;
 }
 
 .hit-title {
@@ -45,4 +47,22 @@
     margin-top: 67px;
     text-align: center;
     color: white;
+    position: relative;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+}
+
+.delete-icon:hover, .add-icon:hover {
+    cursor: pointer;
+}
+
+.add-icon {
+    position: relative;
+    color: white;
+    top: -46px;
+    right: 50px;
 }

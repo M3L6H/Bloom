@@ -9,7 +9,7 @@ class NavBar extends React.Component {
         <div className="navbar">
           <div className="navbar-left">
             <div>
-              <Link className="plain" to="/">
+              <Link className="plain" to="/landing">
                 <p>Home</p>
               </Link>
             </div>
@@ -19,7 +19,7 @@ class NavBar extends React.Component {
               </Link>
             </div>
             <div>
-              <Link className="plain" to="/">
+              <Link className="plain" to="/tasks">
                 <p>Tasks</p>
               </Link>
             </div>
@@ -45,7 +45,4 @@ class NavBar extends React.Component {
     );
   }
 }
-
 export default NavBar;
-
-//<li onClick={this.props.logout}>Logout<li>

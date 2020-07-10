@@ -49,3 +49,13 @@ export const logout = () => dispatch => {
   APIUtil.setAuthToken(false);
   dispatch(receiveUserLogout());
 };
+
+export const demoLogin = () => (dispatch) => (
+  APIUtil.login({password: "password", email: "demouser@aa.io"})
+    .then((res) => {
+      dispatch(receiveCurrentUser(parseUser(res.data)));
+    })
+    .catch((err) => {
+      dispatch(receiveSessionErrors(err.response.data));
+    })
+);

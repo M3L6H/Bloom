@@ -6,7 +6,7 @@ import { fetchUser, updatePetals } from '../../actions/users_actions';
 
 const mSTP = state => ({
     habits: state.entities.habits,
-    tasks: Object.values(state.entities.tasks),
+    tasks: state.entities.tasks,
     user: Object.values(state.entities.users)[0]
 });
 

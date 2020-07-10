@@ -1,64 +1,61 @@
 import React from 'react';
 
 export default class EditDescriptionForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          description: props.description,
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+  constructor(props) {
+    super(props);
+
+    this.textarea = React.createRef();
+
+    this.state = {
+      description: props.description
     }
 
-    handleChange(e) {
-        this.setState({ description: e.target.value });
-    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    //get updated description to update habit
-    handleSubmit(e) {
-              
-        //habit description needs to be updated
-        this.props.habit.description= this.state.description;
-        this.props.updateHabit(this.props.habit);
-        this.props.hideEditForm();
-    }
+  componentDidMount() {
+    const range = document.createRange();
+    const selected = window.getSelection();
+    range.setStartBefore(this.textarea.current.childNodes[0]);
+    range.setEndAfter(this.textarea.current.childNodes[this.textarea.current.childNodes.length - 1]);
+    selected.removeAllRanges();
+    selected.addRange(range);
+    this.textarea.current.focus();
+  }
 
-    //when edit description form is triggered, it renders edit form
-    render() {
+  //get updated description to update habit
+  handleSubmit(e) {
+    e.preventDefault();
             
-        const { open, hideEditForm } = this.props;
-        const { description } = this.state;
-        if (description=== undefined) return null; 
+    //habit description needs to be updated
+    const description = this.textarea.current.innerHTML
+      .replace(/<div>/g, "\n")
+      .replace(/<\/div>/g, "");
+    this.props.updateHabit({ ...this.props.habit, description });
+    this.props.hideEditForm(description);
+  }
 
-        return (
-          <div className={`description-edit ${open}`}>
-            <div className="description-edit-container">
-                <div className="dec-top">
-                    Edit Description
-                    <i
-                        className="fa fa-times"
-                        aria-hidden="true"
-                        onClick={(e) => {
-                        e.preventDefault();
-                        hideEditForm();
-                        }}
-                    ></i>
-                </div>
-              <textarea
-                type="text"
-                value={description}
-                className="edit-description-input"
-                onChange={this.handleChange}
-                onKeyPress={(e) => {
-                  if (e.key === "Enter") {
-                    e.preventDefault();
-                    this.handleSubmit();
-                  }
-                }}
-              />
-            </div>
+  //when edit description form is triggered, it renders edit form
+  render() {
+          
+      const { open } = this.props;
+      const { description } = this.state;
+      if (!description) return null; 
+
+      return (
+        <div className={`description-edit ${open}`}>
+          <div className="description-edit-container">
+            <pre
+              contentEditable={ true }
+              ref={ this.textarea }
+              type="text"
+              className="edit-description-input"
+              suppressContentEditableWarning={true}
+              onBlur={ this.handleSubmit }
+            >{ description }</pre>
           </div>
-        );
-    }
+        </div>
+      );
+  }
 };
             

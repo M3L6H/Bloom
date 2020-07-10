@@ -38,14 +38,14 @@ class TaskItemShow extends React.Component {
       return (
         <div className={`task-item-show-container ${complete}`}>
           <div className="task-complete"><i className={`far fa-${complete}square`} onClick={this.completeTask}></i></div>
-          <div className="task-item-title">Task: {task.title} <span>{habit.title}</span></div>
+          <div className="task-item-title">{task.title} <span>- {habit.title}</span></div>
           <div className="task-item-detail">
             <div className="frequency-and-petals">
               <div className="task-item-frequency">
                 Goal: {task.numTimesDone}/{task.periodNum} per {task.periodUnit}
               </div>
               <div className="task-item-petals">
-                Reward: {task.numPetals} Petals
+                Reward: { `${ task.numPetals } Petal${ task.numPetals > 1 ? "s" : "" }` }
               </div>
             </div>
           </div>

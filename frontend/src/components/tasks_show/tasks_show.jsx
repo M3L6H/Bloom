@@ -1,14 +1,19 @@
 import React from 'react';
 import TaskShow from './task_show';
+import { Button } from 'semantic-ui-react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 class TasksShow extends React.Component {
     constructor(props){
         super(props);
-        this.dragEnd = this.dragEnd.bind(this); 
+        
         this.state = {
           loaded: false,
           taskOrder: null
         }; 
+
+        //Function bindings
+        this.dragEnd = this.dragEnd.bind(this); 
+        this.sort = this.sort.bind(this); 
     }
 
     async componentDidMount(){
@@ -24,6 +29,12 @@ class TasksShow extends React.Component {
 
     componentWillUnmount() {
       this._isMounted = false;
+    }
+
+    async sort(e){
+        e.preventDefault();
+        await this.props.sortDailyTaskList();
+        this.setState({taskOrder:this.props.user.dailyTaskList})
     }
     
 
@@ -63,8 +74,14 @@ class TasksShow extends React.Component {
                     <div className="show-tasks-container">
 
                         <div className="show-tasks-header">
+
                             <h3>Your Tasks</h3>
+                            <Button onClick={this.sort} className="ui button auto-sort">
+                              Auto Sort
+                            </Button>
+
                             <p>Drag and Drop to re-order</p>
+
                         </div>
 
                         <Droppable droppableId="1">

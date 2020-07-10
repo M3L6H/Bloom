@@ -19,6 +19,13 @@ ul {
     flex-direction: column;
     margin: 8px auto;
 
+.habit-show-container{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding-top: 40px;
 }
 
 .habit-show-top {
@@ -28,36 +35,62 @@ ul {
     justify-content: space-between;
 }
 
-
+.habit-show-main {
+  max-width: 414px;
+  border: 1px solid lightgray;
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 100%;
+  font-size: 1em;
+  font-family: sans-serif;
+  color: lightgrey;
+  border-radius: 4px;
+  background-color: white;
+}
 .habit-show-top > .title {
     padding: 3% 20% 2% 7%;
     font-size: 20px;
-
+    color: #4c3073;
 }
 .habit-show-top > i {
     margin-right: 10%;
 }
 
-.habit-show-middle.open {
-    display: none;
+.habit-show-middle {
+  display: block;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 3%;
+  margin: 0 2rem;
+  cursor: text;
+  color: lightgrey;
+
+  &.open {
+    border-color: #4c3073;
+  }
 }
 
-.habit-show-middle, .description-edit.open {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    //border: lightgrey solid 1px;
-    border: none;
-    border-radius: 8px;
-    padding: 3%;
-    margin: 10%;
-    height: 45%;
-    color: black;
+.description, .edit-description-input {
+  margin: 0;
+  font-family: inherit;
+  color: #4c3073;
 }
 
-.hsm-top {
-    display: flex;
-    justify-content: space-between;
+.description-edit-container .edit-description-input {
+  resize: none;
+  border: none;
+  outline: none;
+}
+
+.hsm-top, .hsb-top {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  margin: 0 2rem;
+
+  i {
+    margin: 0;
+  }
 }
 
 .habit-show-bottom {
@@ -68,50 +101,64 @@ ul {
 }
 
 .task-list {
-    border: 2px white solid;
-    background: white;
-    color: black;
-    border-radius: 8px;
-    //margin-left: 10%;
+  border: 2px lavender solid;
+  border-radius: 8px;
+  margin: 0;
+  cursor: pointer;
+
+  &:nth-child(n + 2) {
+    margin-top: 1rem;
+  }
+
+  .header {
+    color: #4c3073;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .task-list > .fa-times{
-    float: right;
-    margin: 2%;
+  float: right;
+  margin-top: 1rem;
+  margin-right: 1rem;
 }
 
 .single-task {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    font-size: 17px;
+  margin: 1rem;
 }
 
-.single-task-details > li {
-    font-size: 10px;
+.habit-show-bottom {
+  margin: 0 2rem;
+  overflow-y: auto;
 }
 
 
 .fa-plus {
-    float: right;
-    margin-right: 10%;
+  float: right;
+  margin-top: 1rem;
+  margin-right: 1rem;
 }
 
+.habit-description {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 20px;
+}
 
-// .habit-show-container {
-//     margin-top: 40px;
-//     text-align: center;
-//     width: 100%;
-//     background-color: #93BBDC;
-//     background-color: #659ECD;
-//     background-image: linear-gradient( #D1E2F0, #3776A9);
-// }
+.habit-show-container {
+    width: 100%;
+    background-color: #93BBDC;
+    background-color: #659ECD;
+    background-image: linear-gradient( #D1E2F0, #3776A9);
+}
 
 // open the edit box
-.description-edit.open {
-    display: inline-block;
-    //width: 80%;
-}
 
 .description-edit-container {
     background: white;
@@ -120,17 +167,6 @@ ul {
 
 .dec-top > i {
     float: right;
-}
-
-.edit-description-input {
-    font-size: 12px;
-    border: none;
-    width: 100%;
-    height: 100px;
-    border: solid lavender 1px;
-    margin-top: 3px;
-    padding: 3px;
-    //border: solid red 2px;
 }
 
 .description-edit.cancel {

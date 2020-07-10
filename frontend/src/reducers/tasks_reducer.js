@@ -3,6 +3,7 @@ import {
   RECEIVE_HABIT,
   REMOVE_HABIT
 } from '../actions/habits_actions';
+import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 
 import { 
   RECEIVE_TASK,
@@ -37,6 +38,8 @@ export default (state={}, action) => {
       }
 
       return newState;
+    case RECEIVE_USER_LOGOUT:
+      return {};
     default:
       return state;
   }

@@ -1,13 +1,13 @@
 export const OPEN_MODAL = "OPEN_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";
 
-// in order to edit task in edit task modal, passing an optional task
-export const openModal = (modal, task) => {
+// in order to edit task or reward, pass in optional object
+export const openModal = (modal, object) => {
           
     return {
         type: OPEN_MODAL,
         modal,
-        task
+        object
     }
 }
 
