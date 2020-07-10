@@ -59,3 +59,16 @@
   border-style: inset;
   cursor: pointer;
 }
+
+
+textarea.task-form-title {
+  padding: 5px 8px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+textarea {
+  resize: none;
+}
