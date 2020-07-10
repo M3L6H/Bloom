@@ -85,7 +85,7 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), async (r
   owner.dailyTaskList = owner.dailyTaskList.filter((task) => task != req.params.id);
   owner.save(); 
   myHabit.save()
-    .then(obj=>res.json(obj)) 
+    .then(()=>res.json({ _id: req.params.id })) 
     .catch(err => res.status(422).json(err));
 });
 

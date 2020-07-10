@@ -1,16 +1,17 @@
 import React from 'react';
 
-export default class EditDescriptionForm extends React.Component {
+export default class EditTitleForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.textarea = React.createRef();
 
     this.state = {
-      description: props.description
+      title: props.title
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   componentDidMount() {
@@ -23,36 +24,43 @@ export default class EditDescriptionForm extends React.Component {
     this.textarea.current.focus();
   }
 
-  //get updated description to update habit
+  handleKeyDown(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      this.handleSubmit(e);
+    }
+  }
+
+  //get updated title to update habit
   handleSubmit(e) {
     e.preventDefault();
             
-    //habit description needs to be updated
-    const description = this.textarea.current.innerHTML
+    //habit title needs to be updated
+    const title = this.textarea.current.innerHTML
       .replace(/<div>|<br>/g, "\n")
       .replace(/<\/div>/g, "");
-    this.props.updateHabit({ ...this.props.habit, description });
-    this.props.hideEditForm(description);
+    this.props.updateHabit({ ...this.props.habit, title });
+    this.props.hideEditForm(title);
   }
 
-  //when edit description form is triggered, it renders edit form
+  //when edit title form is triggered, it renders edit form
   render() {
           
-      const { open } = this.props;
-      const { description } = this.state;
-      if (!description) return null; 
+      const { title } = this.state;
+      if (!title) return null; 
 
       return (
-        <div className={`description-edit ${open}`}>
-          <div className="description-edit-container">
+        <div className={`title-edit`}>
+          <div className="title-edit-container">
             <pre
               contentEditable={ true }
               ref={ this.textarea }
               type="text"
-              className="edit-description-input"
+              className="edit-title-input"
               suppressContentEditableWarning={true}
               onBlur={ this.handleSubmit }
-            >{ description }</pre>
+              onKeyDown={ this.handleKeyDown }
+            >{ title }</pre>
           </div>
         </div>
       );

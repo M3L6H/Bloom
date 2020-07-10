@@ -19,7 +19,7 @@ class TaskIndexItem extends React.Component {
             <i
               className="fa fa-times"
               aria-hidden="true"
-              onClick={() => {deleteTask(taskId)}}
+              onClick={(e) => { e.stopPropagation(); deleteTask(taskId)}}
             ></i>
             <div
               className="single-task"
