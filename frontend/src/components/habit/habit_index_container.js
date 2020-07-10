@@ -5,11 +5,13 @@ import {
   deleteHabit,
   updateHabit,
 } from "../../actions/habits_actions";
+import { updateHabitList, fetchUser } from "../../actions/users_actions";
 
 
 const mSTP = (state) => {
   return {
-    habits: Object.values(state.entities.habits),
+    habits: state.entities.habits,
+    user: state.entities.users[state.session.user.id]
   };
 };
 
@@ -17,7 +19,9 @@ const mDTP = (dispatch) => {
   return {
     fetchHabits: () => dispatch(fetchHabits()),
     deleteHabit: (id) => dispatch(deleteHabit(id)),
-    updateHabit: (habit) => dispatch(updateHabit(habit))
+    updateHabit: (habit) => dispatch(updateHabit(habit)),
+    updateHabitList: (habits) => dispatch(updateHabitList(habits)),
+    fetchUser: () => dispatch(fetchUser()),
   };
 };
 

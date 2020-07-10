@@ -109,6 +109,45 @@ router.post("/login", (req,res)=>{
   });
 })
 
+// Update Habit Priorities
+// Returns user with updated habit list
+
+router.patch("/update_habit_list", passport.authenticate("jwt", { session: false }), async (req,res) => {
+  
+  // Authenticate request
+  if(!req.body.habits || !Array.isArray(req.body.habits)){
+    console.log(req.body.habits) ;
+    return res.status(404).json("habits must be an array!");
+  }
+
+  let user;
+
+  // Find the user model
+  try {
+
+    user = await User.findOne({ _id: req.user.id });
+
+  } catch (err) {
+
+    return res.status(422).json({ ...err, message: "Bad request." });
+  }
+
+  // Check if user exists
+  if (!user) {
+    return res.status(404).json("User not found!");
+  }
+
+  // Update habits list
+
+  user.habits = req.body.habits;
+
+  user.save()
+    .then((user) => res.json(user))
+    .catch((err) => (res.status(422)).json(err)); 
+
+
+});
+
 // Reorganize task list
 // Returns user with updated task list
 
