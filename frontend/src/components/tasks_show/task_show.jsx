@@ -14,7 +14,7 @@ class TaskShow extends React.Component {
                     {...provided.dragHandleProps}
                     ref={provided.innerRef} 
                     >
-                        <div className="taskshow-title">{task.title}   <span>{habit.title}</span></div>
+                        <div className="taskshow-title">{task.title} <span>- {habit.title}</span></div>
                         <div className="taskshow-detail">
                             <div className="frequency-and-petals">
                                 <div className="task-item-frequency">

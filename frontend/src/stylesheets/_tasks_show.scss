@@ -28,22 +28,22 @@
 }
 
 .taskshow-container {
-    background-color: white;
+    background-color: rgba($color: white, $alpha: 0.8);
     width: 86%;
     border-radius: 8px;
     margin: 8px auto;
-    padding: 5px;
+    padding: 8px;
+    color: grey;
 }
 
 .taskshow-title {
-    font-size: 15px;
-    font-weight: 700;
+  font-weight: 700;
+  color: #2E1F47;
 }
 
 .taskshow-title span {
-    font-weight: 400;
-    font-size: 12px;
-    color: grey;
+  color: grey;
+  font-weight: 500;
 }
 
 .shows-tasks-all {

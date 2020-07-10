@@ -38,7 +38,7 @@ class TaskItemShow extends React.Component {
       return (
         <div className={`task-item-show-container ${complete}`}>
           <div className="task-complete"><i className={`far fa-${complete}square`} onClick={this.completeTask}></i></div>
-          <div className="task-item-title">{task.title} <span>{habit.title}</span></div>
+          <div className="task-item-title">{task.title} <span>- {habit.title}</span></div>
           <div className="task-item-detail">
             <div className="frequency-and-petals">
               <div className="task-item-frequency">
