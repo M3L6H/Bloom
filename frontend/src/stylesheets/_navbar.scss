@@ -1,63 +1,81 @@
-.ui.tabular.menu {
-    display: flex; 
+.navbar-container {
     width: 100%;
-    z-index: 1;
-    position: relative;
-}
-.fa-bars {
-    //margin: 3% 0 3% 50%;
-    font-size: 23px;
-    cursor: pointer;
-
-}
-
-.dropdown:hover .dropdown-content{
+    height: 40px;
+    background-color: white;
+    position: fixed;
+    top: 0px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    right: 0;
-    height: 80px;
-    width: 60px;
-    border: lightgray solid 1px;
-    padding-top: 3px;
-    padding-left: 3px;
-    border-radius: 8px;
-    background: white;
-    //position: absolute;
-
+    justify-content: center;
+    z-index: 1;
 }
-
-
-
-.dropdown-content > a:hover {
+​
+.navbar {
+    border-bottom: 1px solid lightgrey;
+    width: 414px;
+    background-color: #F4F1F9;
+    background-color: #EEF9FC;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
     background: lavender;
-    color: white;
 }
-.dropdown:hover .dropdown-content > a {
-    padding: 3px, 0, 3px, 3px;
+​
+.navbar-left {
+    display: flex;
+    margin-left: 10px;
 }
-.dropdown {
-    display: block;
-    position: relative;
+​
+.navbar-left div { 
+    padding: 8px 10px 0 6px;
+}
+​
+.navbar-right {
+    margin-right: 10px;
+    padding-top: 10px;
+    font-size: 20px;
+}
+​
+.dropdown-content {
+    display: none;
+    min-width: 160px;
     background: white;
-    //border: 0.5px solid lightgray;
+    border: 0.5px solid lightgray;
     border-radius: 4px;
     font-size: 16px;
     margin-top: 3px;
     z-index: 1;
-    margin: 3% 0 3% 30%;
-}
-
-.dropdown-content {
-    border: 0.5px solid lavender;
-    display: none;
     position: absolute;
-    z-index: 1;
+    right: 0;
 }
-
-.ui.menu:after{
-    content: none;
+​
+.dropdown-content li:hover {
+  background: #FAC0B3;
+  color: white;
+  cursor: pointer;  
 }
-
-
- 
+​
+.dropdown-content li {
+  padding-bottom: 5px;
+}
+​
+.dropdown-content > li > span {
+    padding: 5px;
+}
+​
+.navbar-right > i:hover {
+  color: purple;
+}
+​
+.navbar-left p:hover {
+  color: salmon;
+}
+​
+.navbar-right:hover .dropdown-content {
+  display: block;
+}
+​
+.fa-bars {
+    position: relative;
+}

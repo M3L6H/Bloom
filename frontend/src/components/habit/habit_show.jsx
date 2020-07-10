@@ -55,6 +55,7 @@ class HabitShow extends React.Component {
         const habitTasks = (
           tasks.filter(task => task.habit === habit._id)
         )
+        
         return (
           <div className="habit-show-container">
             <div className="habit-show-main">
