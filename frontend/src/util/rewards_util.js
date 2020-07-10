@@ -9,7 +9,7 @@ export const createReward = (reward) => (
 );
 
 export const editReward = (reward) => (
-    axios.patch(`/api/rewards/${reward.id}`,reward)
+    axios.patch(`/api/rewards/${reward._id}`,reward)
 )
 
 export const deleteReward = (id) => (

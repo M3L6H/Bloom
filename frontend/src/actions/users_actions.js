@@ -36,3 +36,9 @@ export const sortDailyTaskList = () => dispatch => (
     .then(res => dispatch(receiveUser(res.data)))
     .catch(err => dispatch(receiveTaskErrors(err.response.data)))
 );
+
+export const updateHabitList = (habits) => dispatch => (
+  APIUtil.updateHabitList(habits)
+    .then(res => dispatch(receiveUser(res.data)))
+    .catch(err => dispatch(receiveTaskErrors(err.response.data)))
+); 

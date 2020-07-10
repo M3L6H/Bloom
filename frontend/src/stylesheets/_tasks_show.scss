@@ -12,6 +12,19 @@
 .show-tasks-header {
     color: white;
     text-align: center;
+
+    h1{
+        margin-bottom:2px;
+    }
+    
+    .auto-sort{
+        padding: 5px 15px;
+        background-color: rgb(32, 163, 32);
+        color: black;
+    }
+    .auto-sort:hover{
+        background-color: rgb(28, 138, 28);
+    }
 }
 
 .taskshow-container {

@@ -38,8 +38,9 @@
 }
 
 .add-reward:hover{
-    border-color: purple;
-    color: purple;
+    // border-color: #cdc2e1;
+    color: #a0a1c3;
+    cursor: pointer;
 }
 
 .no-reward-message{
@@ -51,10 +52,15 @@
     padding: 5px;
     border-radius: 4px;
     height: 100%;
-    overflow-y: scroll; 
+    overflow-y: auto; 
 
     .rewards-use-item-container{
         background-color: lavender;
+    }
+
+    .rewards-use-item-container:hover{
+        background-color: rgb(200, 200, 240);
+        cursor: pointer;
     }
 }
 
