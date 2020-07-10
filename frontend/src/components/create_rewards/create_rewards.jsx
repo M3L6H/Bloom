@@ -24,7 +24,6 @@ class CreateRewards extends React.Component {
       <>
         <Grid
           textAlign="center"
-          style={{ height: "100vh" }}
           verticalAlign="middle"
         >
           <Grid.Column style={{ width: 280 }}>
