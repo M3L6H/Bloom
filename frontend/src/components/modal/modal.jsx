@@ -6,7 +6,7 @@ import SignupFormContainer from '../session_forms/signup_form_container';
 import EditTaskContainer from '../task/edit_task_container';
 import CreateTaskContainer from '../task/create_task_container';
 import RewardsUse from '../rewards_use';
-import CreateRewards from '../create_rewards';
+import CreateRewards from '../reward_forms';
 
 function Modal({ modal, closeModal }) {
     if (!modal) return null;
