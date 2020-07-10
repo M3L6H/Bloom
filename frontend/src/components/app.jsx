@@ -10,9 +10,12 @@ import Landing from './landing';
 
 import TasksShow from './tasks_show';
 
+import Fireworks from './fireworks';
+
 const App = () => (
   // add switch
   <div className="test">
+    <Fireworks />
     <Modal />
     <ProtectedRoute path="/" component={AsheNavBar} />
     <Switch>
