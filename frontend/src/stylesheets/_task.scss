@@ -5,10 +5,12 @@ ul {
 .task-form {
   padding: 5%;
   width: 200px;
-  height: 200px;
-  border-radius: 8px; 
-  background: lavender;
-  border: lavender 1px solid;
+  //height: 200px;
+  border-radius: 12px; 
+  background-color: rgba($color: #F4F1F9, $alpha: 0.9);
+  border: 2px solid #9B80C6;
+  // background: lavender;
+  // border: lavender 1px solid;
   box-shadow:0 3px 9px rgba(0,0,0,0.5);
 
 }
@@ -76,4 +78,9 @@ ul {
   padding: 8px;
   color: gray;
   margin-left: 55px;
+}
+
+.submit-btn > button:hover {
+  color: #9B80C6;
+  border: 2px solid #9B80C6;
 }

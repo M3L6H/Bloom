@@ -3,10 +3,10 @@ import React from 'react';
 import Dropdown from '../dropdown';
 
 class NavBar extends React.Component {
-  render(){
-    const landing = this.props.location.pathname === "/landing" ? "landing" : "" ;
-    const tasksLocation = this.props.location.pathname === "/tasks" ? "tasksLocation" : "" ;
-    const habitsLocation = this.props.location.pathname === "/habits" ? "habitsLocation" : "" ;
+  render() {
+    const landing = this.props.location.pathname === "/landing" ? "landing" : "";
+    const tasksLocation = this.props.location.pathname === "/tasks" ? "tasksLocation" : "";
+    const habitsLocation = this.props.location.pathname === "/habits" ? "habitsLocation" : "";
 
     return (
       <div className="navbar-container">

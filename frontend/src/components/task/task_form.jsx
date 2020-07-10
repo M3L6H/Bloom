@@ -64,8 +64,7 @@ class TaskForm extends React.Component {
         id="frq-slct"
         onChange={this.update("periodUnit")}
       >
-        <option>Category</option>
-        <option value="day">Day</option>
+        <option value="day" selected>Day</option>
         <option value="week">Week</option>
         <option value="month">Month</option>
         <option value="year">Year</option>
@@ -80,8 +79,9 @@ class TaskForm extends React.Component {
       <div className="task-modal-background">
         <form className="task-form">
           <div className="task-form-top">
-            { formType !== "createTask" && this.state.title }
-            {getTask}
+            
+            {renderTitle}
+           
             <i
               className="fa fa-times"
               aria-hidden="true"
