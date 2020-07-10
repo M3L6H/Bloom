@@ -17,7 +17,7 @@ class NavBar extends React.Component {
               <div className="navbar-icons">
                 <i className="fa fa-bars"></i>
                 <div className="navbar-dropdown">
-                    <div onClick={() => this.props.openModal("createRewards")}>Create Rewards</div>
+                    <div onClick={() => this.props.history.push("/dashboard")}>Dashboard</div>
                     <div onClick={() => this.props.history.push("/habit")}>Create Habits</div>
                     <div onClick={this.props.logout}>LogOut</div>
                 </div>
