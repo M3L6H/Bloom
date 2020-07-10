@@ -8,7 +8,7 @@ class NavBar extends React.Component {
                     <div>this is Ashe's Temp Nav Bar</div>
                     <div className="navbar-icons">
                         <div><i className="fab fa-readme" onClick={() => this.props.history.push("/habits")}></i></div>
-                        <div><i className="fas fa-trophy" onClick={() => this.props.openModal("createRewards")}></i></div>
+                        <div><i className="fas fa-trophy" onClick={() => this.props.history.push("/dashboard")}></i></div>
                         <div><i className="fas fa-edit" onClick={() => this.props.history.push("/tasks")}></i></div>
                         <div><i className="fas fa-home" onClick={() => this.props.history.push("/landing")}></i></div>
                         <div><i className="fas fa-plus" onClick={() => this.props.history.push("/habit")}></i></div>
