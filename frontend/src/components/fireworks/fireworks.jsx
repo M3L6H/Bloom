@@ -81,7 +81,6 @@ class Fireworks extends Component {
     }
 
     this.fireworks[this.fireworkId++] = firework;
-    console.log(this.fireworks);
   }
 
   _fireworkParticlePath() {

@@ -4,15 +4,6 @@ import React from 'react';
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   title: props.task.title || "",
-    //   periodNum: 0,
-    //   periodUnit: "",
-    //   numTimesDone: 0,
-    //   numPetals: 0,
-    // };
-
-
  
     this.state = props.task;
     this.handleSubmit = this.handleSubmit.bind(this);

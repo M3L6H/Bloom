@@ -29,7 +29,6 @@ class LoginForm extends React.Component {
     return (
       <Grid
         textAlign="center"
-        style={{ height: "100vh" }}
         verticalAlign="middle"
       >
         <Grid.Column style={{ width: 250 }}>
