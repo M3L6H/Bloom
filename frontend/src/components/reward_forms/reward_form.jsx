@@ -33,7 +33,7 @@ class CreateRewards extends React.Component {
       formTitle = "Create A Reward for Yourself!";
     }else {
       formTitle = "Edit Reward";
-      deleteButton = <Button className="ui test button" type="button" fluid size="medium"
+      deleteButton = <Button className="ui test button delete-reward-button" type="button" fluid size="medium"
         onClick={this.deleteReward}>
           Delete Reward 
       </Button>;
