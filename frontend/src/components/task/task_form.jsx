@@ -12,7 +12,7 @@ class TaskForm extends React.Component {
 
 
   handleSubmit(e) {
-      
+      console.log(this.state);
     e.preventDefault();
     const task = Object.assign({}, this.state);
     if (this.props.formType === "editTask") {
@@ -27,7 +27,6 @@ class TaskForm extends React.Component {
   }
 
   update(field) {
-
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
@@ -63,11 +62,12 @@ class TaskForm extends React.Component {
         name="frq-select"
         id="frq-slct"
         onChange={this.update("periodUnit")}
+        value={this.state.periodUnit}
       >
-        <option value="day" selected>Day</option>
+        <option value="day">Day</option>
         <option value="week">Week</option>
-        <option value="month">Month</option>
-        <option value="year">Year</option>
+        <option value="month" >Month</option>
+        <option value="year" >Year</option>
       </select>
     );
 
@@ -87,12 +87,12 @@ class TaskForm extends React.Component {
           {getTask}
           <div className="task-form-input">
             <div className="task-form-num-input">
-              <input type="number" onChange={this.update("periodNum")} />{" "}
-              {freqDropDown}
+              <input type="number" value={this.state.periodNum} onChange={this.update("periodNum")} />{" "}
+                times per {freqDropDown}
             </div>
             <div className="task-form-petal-cnt">
-              Get <input type="number" onChange={this.update("numPetals")} />{" "}
-              petals
+              Get <input type="number" value={this.state.numPetals} onChange={this.update("numPetals")} />{" "}
+              petals per completion
             </div>
             <div className="submit-btn">{submitButton}</div>
           </div>
