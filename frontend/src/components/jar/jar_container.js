@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { updatePetals } from '../../actions/users_actions';
-import { openModal } from '../../actions/modal_actions';
 import Jar from './jar';
 
 const mapStateToProps = (state) => ({
@@ -8,8 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updatePetals: petals => dispatch(updatePetals(petals)),
-  openModal: modal => dispatch(openModal(modal))
+  updatePetals: petals => dispatch(updatePetals(petals))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jar);

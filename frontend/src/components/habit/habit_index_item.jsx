@@ -1,10 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 class HabitIndexItem extends React.Component {
-
   render() {
     const { habit } = this.props;
 
@@ -19,7 +16,6 @@ class HabitIndexItem extends React.Component {
       </div>
     );
   }
-
 }
 
 export default HabitIndexItem;

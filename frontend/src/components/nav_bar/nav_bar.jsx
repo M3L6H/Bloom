@@ -1,27 +1,49 @@
-import React from 'react';
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 class NavBar extends React.Component {
-    render() {
-       
-        return(
-            <div className="ui tabular menu">
-                <a href='/' className="active item"> first ele </a>
-                <a href='/' className="item"> second ele </a>
-                <div className='dropdown'>
-                <i className='fa fa-bars' aria-hidden='true'></i>
-                    <div className='dropdown-content'>
-                            <a href="/">Profile</a>
-                            <a href="/">One</a>
-                            <a href="/">logout</a>
-                    </div>
-                </div>
-
+  render() {
+    return (
+      <div className="navbar-container">
+        <div className="navbar">
+          <div className="navbar-left">
+            <div>
+              <Link className="plain" to="/">
+                <p>Home</p>
+              </Link>
             </div>
-        )
-    }
+            <div>
+              <Link className="plain" to="/">
+                <p>Habits</p>
+              </Link>
+            </div>
+            <div>
+              <Link className="plain" to="/">
+                <p>Tasks</p>
+              </Link>
+            </div>
+          </div>
+          <div className="navbar-right">
+            <i className="fa fa-bars"></i>
+            <div className="dropdown-content">
+                <li>
+                    <Link to={`/`}>
+                        <span>My Habits</span>
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`/`}>
+                        <span>My Reward</span>
+                    </Link>
+                </li>
+                <li onClick={this.props.logout}>Logout</li> 
+            </div>
+        </div>
+          
+        </div>
+      </div>
+    );
+  }
 }
 
 export default NavBar;
-
-//<li onClick={this.props.logout}>Logout<li>
