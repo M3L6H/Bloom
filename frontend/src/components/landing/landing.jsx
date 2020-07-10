@@ -14,10 +14,16 @@ class Landing extends React.Component {
         if(!tasks || !user) return null;
 
         let currentTasks = [];
-        tasks.forEach( task => {
-            if(task.numTimesDone < task.periodNum) {
-                currentTasks.push(task);}
-            });
+        let index = 0;
+
+        while (currentTasks.length < 3 && index < user.dailyTaskList.length) {
+          const task = tasks[user.dailyTaskList[index]];
+          if (task && task.numTimesDone < task.periodNum) {
+            currentTasks.push(task);
+          }
+
+          ++index;
+        }
 
         return(
             <div className="background">
