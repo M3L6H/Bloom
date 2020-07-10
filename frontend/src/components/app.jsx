@@ -6,7 +6,7 @@ import CreateHabit from './habit';
 import HabitIndexContainer from './habit/habit_index_container';
 import HabitShowContainer from './habit/habit_show_container';
 import {Switch} from 'react-router-dom';
-import AsheNavBar from './ashe_nav_bar';
+import NavBar from './ashe_nav_bar';
 import Landing from './landing';
 import TasksShow from './tasks_show';
 import Fireworks from './fireworks';
@@ -16,7 +16,7 @@ const App = () => (
   <div className="test">
     <Fireworks />
     <Modal />
-    <ProtectedRoute path="/" component={AsheNavBar} />
+    <ProtectedRoute path="/" component={NavBar} />
     {/* <ProtectedRoute path="/" component={NavBar} /> */}
     <Switch>
       <ProtectedRoute path="/habits/:id" component={HabitShowContainer} />

@@ -20,15 +20,78 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 15px;
     background-image: linear-gradient(  #DCF2F9, #E9E2F3);
     color: #4C3073;
 }
 
 .navbar-icons {
     display: flex;
+    position: relative;
+    margin-top: 9px;
 }
 
 .navbar-icons div {
     margin-left: 10px;
+}
+
+.navbar-dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid lightgrey;
+    top: 15px;
+    right: -8px;
+    width: 130px;
+    border-radius: 8px;
+    padding: 8px 8px 8px 0;
+}
+
+.navbar-icons:hover .navbar-dropdown {
+    display: block;
+}
+
+.navbar-dropdown div {
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.navbar-dropdown div:hover {
+    cursor: pointer;
+    background-color: #E9E3F2;
+}
+
+.navbar-icons:hover {
+    cursor: pointer;
+}
+
+.link-home, .link-tasks, .link-habits {
+    // background-color: blue;
+    height: 80%;
+    width: 27%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-top: 9px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.navbar-icons {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing {
+    background-color: white;
+    border-top: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+}
+
+.tasksLocation, .habitsLocation {
+    background-color: rgb(17,69,108);
+    color: white;
 }
