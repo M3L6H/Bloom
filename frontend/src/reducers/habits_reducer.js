@@ -3,6 +3,7 @@ import {
   RECEIVE_HABIT,
   REMOVE_HABIT
 } from '../actions/habits_actions';
+import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 
 export default (state={}, action) => {
   Object.freeze(state);
@@ -16,6 +17,8 @@ export default (state={}, action) => {
       const newState = Object.assign({}, state);
       delete newState[action.id];
       return newState;
+    case RECEIVE_USER_LOGOUT:
+      return {};
     default:
       return state;
   }
