@@ -7,6 +7,7 @@ class CreateRewards extends React.Component {
     super(props);
     this.state = Object.assign({},this.props.reward)
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteReward = this.deleteReward.bind(this);
   }
 
 
@@ -16,12 +17,28 @@ class CreateRewards extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state)
     this.props.action(this.state);
   }
 
+  deleteReward(e){
+    e.preventDefault();
+    this.props.deleteReward(this.props.reward._id);
+  }
+
   render() {
-    let formTitle = this.props.formType === "Create Reward" ? "Create A Reward for Yourself!" : "Edit Reward"
+    
+    let formTitle;
+    let deleteButton = null; 
+    if (this.props.formType === "Create Reward"){
+      formTitle = "Create A Reward for Yourself!";
+    }else {
+      formTitle = "Edit Reward";
+      deleteButton = <Button className="ui test button" type="button" fluid size="medium"
+        onClick={this.deleteReward}>
+          Delete Reward 
+      </Button>;
+    }
+
     return (
       <>
         <Grid
@@ -50,6 +67,7 @@ class CreateRewards extends React.Component {
                 onClick={this.handleSubmit}>
                 {this.props.formType}
               </Button>
+              {deleteButton}
             </Form>
           </Grid.Column>
         </Grid>

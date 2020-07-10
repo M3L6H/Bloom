@@ -4,7 +4,8 @@
 //Imports
 import { connect } from 'react-redux';
 import RewardForm from './reward_form';
-import { editReward } from '../../actions/reward_actions';
+import { editReward, deleteReward } from '../../actions/reward_actions';
+
 
 function mSTP(state) {
     return {
@@ -14,6 +15,7 @@ function mSTP(state) {
 
 const mDTP = (dispatch) => ({
     action: reward => dispatch(editReward(reward)),
+    deleteReward: (id) => dispatch(deleteReward(id))
 });
 
 export default connect(mSTP, mDTP)(RewardForm);
