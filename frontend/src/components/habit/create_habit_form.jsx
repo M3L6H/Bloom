@@ -34,10 +34,10 @@ class CreateHabitForm extends React.Component {
         this.setState({ task: "" });
     }
 
-    handleSubmit(e) {
+    async handleSubmit(e) {
         e.preventDefault();
         let habit = {title: this.state.title, description: this.state.description, tasks: this.state.tasks };
-        this.props.createHabit(habit);
+        await this.props.createHabit(habit);
         this.setState({ title: "", task: "", description: "", tasks: [] });
         this.props.history.push("/landing");
     }
