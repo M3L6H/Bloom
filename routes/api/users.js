@@ -116,7 +116,8 @@ router.patch("/update_habit_list", passport.authenticate("jwt", { session: false
   
   // Authenticate request
   if(!req.body.habits || !Array.isArray(req.body.habits)){
-    return res.status(404).json("habits must be an array!")
+    console.log(req.body.habits) ;
+    return res.status(404).json("habits must be an array!");
   }
 
   let user;
