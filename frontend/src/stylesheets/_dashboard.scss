@@ -7,11 +7,12 @@
     flex-direction: column;
     background-image: linear-gradient(#013A65, #D4C7E5);
     height:100vh;
-    padding: 30px;
+    padding: 36px;
 }
 
 .dashboard-container > h1{
     color: white;
+    font-size: 32;
     font-weight: 900;
 }
 
@@ -21,6 +22,7 @@
 }
 
 .rewards-options{
+    height:85%;
     h2{
         margin-bottom: 5px;
         display: flex;
@@ -49,7 +51,8 @@
     border: 1px solid white; 
     padding: 5px;
     border-radius: 4px;
-    min-height: 300px;
+    height: 100%;
+    overflow-y: scroll; 
 
     .rewards-use-item-container{
         background-color: lavender;
