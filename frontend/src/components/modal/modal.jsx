@@ -24,7 +24,7 @@ function Modal({ modal, closeModal }) {
             component = <EditTaskContainer task={modal.object} />;
             break;  
         case 'createTask':
-            component = <CreateTaskContainer/>;
+            component = <CreateTaskContainer habit={modal.object}/>;
             break;
         case 'useRewards':
             component = <RewardsUse />;

@@ -33,7 +33,8 @@ class TaskForm extends React.Component {
 
   render() {
  
-    const { formType } = this.props;
+    const { formType, habit } = this.props;
+    //console.log(habit)
     const editTitle = this.state.title;
     const submitButton =
       formType === "editTask" ? (
