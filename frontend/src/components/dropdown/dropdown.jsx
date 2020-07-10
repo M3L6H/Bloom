@@ -16,6 +16,10 @@ class Dropdown extends Component {
   componentDidMount() {
     document.body.addEventListener("click", this._handleBodyClick);
   }
+
+  componentWillUnmount() {
+    document.body.removeEventListener("click", this._handleBodyClick);
+  }
   
   _handleBodyClick() {
     this.setState({ dropdownOpen: false });
