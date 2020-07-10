@@ -21,7 +21,7 @@ class TaskShow extends React.Component {
                                     Goal: {task.numTimesDone}/{task.periodNum} per {task.periodUnit}
                                 </div>
                                 <div className="task-item-petals">
-                                    Reward: {task.numPetals} Petals
+                                    Reward: { `${ task.numPetals } Petal${ task.numPetals > 1 ? "s" : "" }` }
                                 </div>
                             </div>
                         </div>
