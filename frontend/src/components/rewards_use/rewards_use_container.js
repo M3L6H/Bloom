@@ -4,7 +4,8 @@ import { updatePetals } from '../../actions/users_actions';
 
 const mSTP = (state) => ({
   petals: Object.values(state.entities.users)[0].petals,
-  rewards: Object.values(state.entities.users)[0].rewards
+  rewards: Object.values(state.entities.users)[0].rewards,
+  spawnFireworks: state.ui.spawnFireworks
 });
 
 const mDTP = (dispatch) => ({

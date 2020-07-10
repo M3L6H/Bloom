@@ -9,11 +9,13 @@ import AsheNavBar from './ashe_nav_bar';
 import Landing from './landing';
 import TasksShow from './tasks_show';
 
+import Fireworks from './fireworks';
 import HabitIndexContainer from './habit/habit_index_container';
 
 const App = () => (
   // add switch
   <div className="test">
+    <Fireworks />
     <Modal />
     <ProtectedRoute path="/" component={AsheNavBar} />
     <Switch>
