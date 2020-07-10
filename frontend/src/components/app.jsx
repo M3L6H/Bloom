@@ -9,7 +9,7 @@ import {Switch} from 'react-router-dom';
 import AsheNavBar from './ashe_nav_bar';
 import Landing from './landing';
 import TasksShow from './tasks_show';
-
+import NavBarContainer from './nav_bar/nav_bar_container'
 import Fireworks from './fireworks';
 
 const App = () => (
@@ -17,7 +17,7 @@ const App = () => (
   <div className="test">
     <Fireworks />
     <Modal />
-    <ProtectedRoute path="/" component={AsheNavBar} />
+    <ProtectedRoute path="/" component={NavBarContainer} />
     <Switch>
       <ProtectedRoute path="/habits/:id" component={HabitShowContainer} />
       <ProtectedRoute path="/habits" component={HabitIndexContainer} />
