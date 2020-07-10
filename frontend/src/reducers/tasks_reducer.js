@@ -24,7 +24,7 @@ export default (state={}, action) => {
     case RECEIVE_HABITS:
       return action.tasks;
     case RECEIVE_HABIT:
-      return { ...state, ...action.tasks };
+      return { ...action.tasks };
     case REMOVE_HABIT:
       newState = {};
 
