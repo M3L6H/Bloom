@@ -8,7 +8,6 @@ import {
 
 
 const mSTP = (state) => {
-
   return {
     habits: Object.values(state.entities.habits),
   };
