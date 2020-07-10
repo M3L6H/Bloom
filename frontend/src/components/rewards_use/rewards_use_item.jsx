@@ -23,7 +23,7 @@ class RewardsUseItem extends React.Component {
                 alt="petal"
                 border="0"
               />
-              {this.props.reward.petalCost} petals
+              <h3>{this.props.reward.petalCost}</h3>
             </div>
           </div>
         );
