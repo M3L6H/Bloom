@@ -31,10 +31,10 @@ class TasksShow extends React.Component {
       this._isMounted = false;
     }
 
-    sort(e){
+    async sort(e){
         e.preventDefault();
-        this.props.sortDailyTaskList()
-          .then(({ user: { dailyTaskList } }) => this.setState({ taskOrder: dailyTaskList })); 
+        await this.props.sortDailyTaskList();
+        this.setState({taskOrder:this.props.user.dailyTaskList})
     }
     
 
