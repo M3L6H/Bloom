@@ -1,15 +1,15 @@
-import React from "react";
-import HabitIndexItem from "./habit_index_item";
+import React from 'react';
+import HabitIndexItem from './habit_index_item';
 
 class HabitIndex extends React.Component {
-  componentDidMount() {
-    this.props.fetchHabits();
-  }
 
+    componentDidMount() {
+        this.props.fetchHabits();
+    }
 
     render() {
     
-        const { habits, deleteHabit  } = this.props;
+        const { habits } = this.props;
         if (!habits) return null;
               
         return (
@@ -19,7 +19,7 @@ class HabitIndex extends React.Component {
             </div>
             <div className="index-habit-container">
               {habits.map((habit, idx) => (
-                <HabitIndexItem habit={habit} deleteHabit={deleteHabit} key={idx} />
+                <HabitIndexItem habit={habit} key={idx} />
               ))}
             </div>
           </div>
