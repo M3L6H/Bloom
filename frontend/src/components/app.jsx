@@ -10,6 +10,7 @@ import Landing from './landing';
 import TasksShow from './tasks_show';
 import Fireworks from './fireworks';
 import HabitIndexContainer from './habit/habit_index_container';
+import NavBar from './nav_bar';
 
 const App = () => (
   // add switch
@@ -17,9 +18,10 @@ const App = () => (
     <Fireworks />
     <Modal />
     <ProtectedRoute path="/" component={AsheNavBar} />
+    {/* <ProtectedRoute path="/" component={NavBar} /> */}
     <Switch>
+      <ProtectedRoute exact path="/habits/:id" component={HabitShowContainer} />
       <ProtectedRoute path="/habits" component={HabitIndexContainer} />
-      <ProtectedRoute path="/habits/:id" component={HabitShowContainer} />
       <ProtectedRoute path="/habit" component={CreateHabit} />
       <ProtectedRoute path="/landing" component={Landing} />
       <ProtectedRoute path="/tasks" component={TasksShow} />
