@@ -6,48 +6,74 @@ ul {
   padding: 5%;
   width: 200px;
   height: 200px;
-  border-radius: 8px;
-  
+  border-radius: 8px; 
   background: lavender;
   border: lavender 1px solid;
+  box-shadow:0 3px 9px rgba(0,0,0,0.5);
+
 }
 
 .task-form > * {
   padding: 3%;
 }
 
+// .task-form-top {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
 .task-form-top {
+  position: relative;
+  font-weight: 700;
+  font-size: 20px;
+  border-bottom: 1px solid white;
+  text-align: center;
+  //border: 3px red solid;
+  margin-bottom: 10px;
+}
+
+.task-form-top > .fa-times{
+  float: right;
+  font-size: 10x;
+  top: 10%;
+}
+
+.task-form-num-input > input, .task-form-petal-cnt > input {
+  width: 40%;
+  border: 0.5px solid lightgray;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 8px;
+}
+
+.task-form-petal-cnt > input {
+  width: 50%;
+}
+.task-form-petal-cnt {
   display: flex;
   justify-content: space-between;
 }
 
-.task-form-num-input > input, .task-form-petal-cnt > input {
-  width: 15%;
-  border: 0.5px solid lightgray;
-  border-radius: 5px;
-  padding: 3px;
-}
-
 .get-new-task-modal {
-  width: 80%;
+  width: 100%;
   border: 0.5px lightgray solid;
   border-radius: 5px;
-  padding: 3px;
+  padding: 5px;
 }
+
 .task-form-num-input > #frq-slct {
   border: 0.5px solid lightgray;
   border-radius: 5px;
   color: gray;
+  padding: 5px;
+  width: 58%;
 
 }
 
-.task-modal-background  button {
+.submit-btn > button {
   border: 0.5px solid lightgray;
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 8px;
   color: gray;
+  margin-left: 55px;
 }
-
-// .task-list:hover {
-//   background: linear-gradient( lavender, white);
-//   border: white solid 1px;
-// }

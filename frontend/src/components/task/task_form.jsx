@@ -69,30 +69,30 @@ class TaskForm extends React.Component {
 
     const renderTitle = 
       formType === "editTask" ? (
-        editTitle) : (null)
-
+        editTitle) : ("Create Task")
     
     return (
       <div className="task-modal-background">
         <form className="task-form">
           <div className="task-form-top">
-            {renderTitle}
-            {getTask}
-            <i
+            {renderTitle} <i
               className="fa fa-times"
               aria-hidden="true"
               onClick={() => this.props.closeModal()}
             ></i>
           </div>
-          <div className="task-form-num-input">
-            <input type="number" onChange={this.update("periodNum")} />{" "}
-            {freqDropDown}
+          {getTask}
+          <div className="task-form-input">
+            <div className="task-form-num-input">
+              <input type="number" onChange={this.update("periodNum")} />{" "}
+              {freqDropDown}
+            </div>
+            <div className="task-form-petal-cnt">
+              Get <input type="number" onChange={this.update("numPetals")} />{" "}
+              petals
+            </div>
+            <div className="submit-btn">{submitButton}</div>
           </div>
-          <div className="task-form-petal-cnt">
-            get <input type="number" onChange={this.update("numPetals")} />{" "}
-            petals
-          </div>
-          <div className="submit-btn">{submitButton}</div>
         </form>
       </div>
     );
