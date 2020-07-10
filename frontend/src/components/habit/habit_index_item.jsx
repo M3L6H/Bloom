@@ -7,7 +7,6 @@ class HabitIndexItem extends React.Component {
 
   render() {
     const { habit } = this.props;
-          
 
     return (
       <div className="hit-container">
@@ -15,6 +14,7 @@ class HabitIndexItem extends React.Component {
           <p className="hit-title">
             {habit.title}
           </p>
+          <span>{habit.description}</span>
         </Link>
       </div>
     );

@@ -27,7 +27,7 @@ class CreateRewards extends React.Component {
           style={{ height: "100vh" }}
           verticalAlign="middle"
         >
-          <Grid.Column style={{ maxWidth: 300 }}>
+          <Grid.Column style={{ width: 280 }}>
             <Form className="user-input-form" size="small">
               <div className="habit-add-title">Create Rewards for Yourself!</div>
               <br />
