@@ -47,7 +47,7 @@ export default class EditTitleForm extends React.Component {
   render() {
           
       const { title } = this.state;
-      if (!title) return null; 
+      if (title === undefined || title === null) return null; 
 
       return (
         <div className={`title-edit`}>
