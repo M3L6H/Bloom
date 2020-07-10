@@ -43,10 +43,9 @@ class CreateRewards extends React.Component {
       <>
         <Grid
           textAlign="center"
-          style={{ height: "100vh" }}
           verticalAlign="middle"
         >
-          <Grid.Column style={{ width: 280 }}>
+          <Grid.Column>
             <Form className="user-input-form" size="small">
               <div className="habit-add-title">{formTitle}</div>
               <br />
