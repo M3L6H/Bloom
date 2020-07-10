@@ -18,7 +18,6 @@ class CreateRewards extends React.Component {
     e.preventDefault();
     console.log(this.state)
     this.props.action(this.state);
-    this.setState({ title: "", petalCost: 1 });
   }
 
   render() {
