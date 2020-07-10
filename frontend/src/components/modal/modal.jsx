@@ -21,6 +21,7 @@ function Modal({ modal, closeModal }) {
             component = <SignupFormContainer />;
             break;  
         case 'editTask':
+
             component = <EditTaskContainer task={modal.task} />;
             break;  
         case 'createTask':

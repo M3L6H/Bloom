@@ -63,11 +63,17 @@ ul {
     margin: 2%;
 }
 .single-task {
+    display: flex;
+    justify-content: space-between;
     padding: 5px;
     margin: 2%;
-
+    font-size: 17px;
+    color: gray;
 }
 
+.single-task-details > li {
+    font-size: 10px;
+}
 .habit-show-bottom {
     margin-right: 10%;
 }

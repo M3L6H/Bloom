@@ -6,6 +6,7 @@ class TaskForm extends React.Component {
     super(props);
     this.state = props.task;
     this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
 
 
@@ -68,9 +69,9 @@ class TaskForm extends React.Component {
 
     const renderTitle = 
       formType === "editTask" ? (
-        {editTitle}) : (null)
+        editTitle) : (null)
 
-    
+    debugger;
     
     return (
       <div className="task-modal-background">
@@ -89,7 +90,8 @@ class TaskForm extends React.Component {
             {freqDropDown}
           </div>
           <div className="task-form-petal-cnt">
-            {this.state.numPetals} petals
+            get <input type="number" onChange={this.update("numPetals")} />{" "}
+            petals
           </div>
           <div className="submit-btn">{submitButton}</div>
         </form>

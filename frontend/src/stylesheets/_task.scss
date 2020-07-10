@@ -20,19 +20,24 @@ ul {
   justify-content: space-between;
 }
 
-.task-form-num-input > input {
+.task-form-num-input > input, .task-form-petal-cnt > input {
   width: 15%;
   border: 0.5px solid lightgray;
   border-radius: 5px;
+  padding: 3px;
 }
 
 .get-new-task-modal {
   width: 80%;
+  border: 0.5px lightgray solid;
+  border-radius: 5px;
+  padding: 3px;
 }
 .task-form-num-input > #frq-slct {
   border: 0.5px solid lightgray;
   border-radius: 5px;
   color: gray;
+
 }
 
 .task-modal-background  button {
