@@ -33,7 +33,8 @@ class TasksShow extends React.Component {
 
     sort(e){
         e.preventDefault();
-        this.props.sortDailyTaskList(); 
+        this.props.sortDailyTaskList()
+          .then(({ user: { dailyTaskList } }) => this.setState({ taskOrder: dailyTaskList })); 
     }
     
 
@@ -73,9 +74,14 @@ class TasksShow extends React.Component {
                     <div className="show-tasks-container">
 
                         <div className="show-tasks-header">
+
                             <h3>Your Tasks</h3>
-                            <Button onClick={this.sort}>Auto Sort</Button>
+                            <Button onClick={this.sort} className="ui button auto-sort">
+                              Auto Sort
+                            </Button>
+
                             <p>Drag and Drop to re-order</p>
+
                         </div>
 
                         <Droppable droppableId="1">
