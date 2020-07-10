@@ -1,15 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 class HabitIndexItem extends React.Component {
-
   render() {
     const { habit, deleteHabit } = this.props;
     const habitId = habit._id;
-  
-          
+
     return (
       <div className="hit-container">
         <ul className="hit-container-ele">
@@ -28,7 +24,6 @@ class HabitIndexItem extends React.Component {
       </div>
     );
   }
-
 }
 
 export default HabitIndexItem;

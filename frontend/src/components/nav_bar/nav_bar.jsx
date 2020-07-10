@@ -6,41 +6,40 @@ class NavBar extends React.Component {
     return (
       <div className="navbar-container">
         <div className="navbar">
-          <div className="navbar-icons-right">
+          <div className="navbar-left">
             <div>
-              <Link to={`/`}>
-                <span>Home</span>
+              <Link className="plain" to="/">
+                <p>Home</p>
               </Link>
             </div>
             <div>
-              <Link to={`/`}>
-                <span>First</span>
+              <Link className="plain" to="/">
+                <p>Habits</p>
               </Link>
             </div>
             <div>
-              <Link to={`/`}>
-                <span>Second</span>
+              <Link className="plain" to="/">
+                <p>Tasks</p>
               </Link>
             </div>
           </div>
-          <div className="navbar-icons-left">
+          <div className="navbar-right">
             <i className="fa fa-bars"></i>
             <div className="dropdown-content">
-              <ul>
                 <li>
-                  <Link to={`/`}>
-                    <span>Home</span>
-                  </Link>
+                    <Link to={`/`}>
+                        <span>My Habits</span>
+                    </Link>
                 </li>
                 <li>
-                  <Link to={`/habits`}>
-                    <span>My Habits</span>
-                  </Link>
+                    <Link to={`/`}>
+                        <span>My Reward</span>
+                    </Link>
                 </li>
-                <li onClick={this.props.logout}>Logout</li>
-              </ul>
+                <li onClick={this.props.logout}>Logout</li> 
             </div>
-          </div>
+        </div>
+          
         </div>
       </div>
     );

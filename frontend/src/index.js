@@ -16,7 +16,6 @@ import { logout } from './actions/session_actions';
 import 'semantic-ui-css/semantic.min.css';
 import './stylesheets/index.scss';
 
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 

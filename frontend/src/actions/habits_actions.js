@@ -37,12 +37,11 @@ const receiveHabit = ({ tasks: habitTasks, ...habit }) => {
     };
 };
 
-const removeHabit = (id) => {
-
-    return ({
+const removeHabit = (id) => ({
     type: REMOVE_HABIT,
     id
-})}
+});
+
 const receiveHabitErrors = (errors) => ({
     type: RECEIVE_HABIT_ERRORS,
     errors
@@ -72,9 +71,8 @@ export const updateHabit = (habit) => dispatch => (
         .catch(err => dispatch(receiveHabitErrors(err.response.data)))
 );
 
-export const deleteHabit = (id) => dispatch => { return (
+export const deleteHabit = (id) => dispatch => (
     APIUtil.deleteHabit(id)
         .then(res => dispatch(removeHabit(res.data.id)))
         .catch(err => dispatch(receiveHabitErrors(err.response.data)))
-)}
-
+);
