@@ -10,10 +10,10 @@ import Modal from './modal/modal';
 import CreateHabit from './habit';
 import HabitIndexContainer from './habit/habit_index_container';
 import HabitShowContainer from './habit/habit_show_container';
-import {Switch, Route} from 'react-router-dom';
-import AsheNavBar from './ashe_nav_bar';
+import NavBar from './ashe_nav_bar';
 import Landing from './landing';
 import TasksShow from './tasks_show';
+import {Switch} from 'react-router-dom';
 import Dashboard from './dashboard';
 
 import Fireworks from './fireworks';
@@ -24,8 +24,8 @@ const App = () => (
     <Fireworks />
     <Modal />
     <Switch>
-      <Route path="/dashboard" component={()=><></>}/>
-      <ProtectedRoute path="/" component={AsheNavBar} />
+      <ProtectedRoute path="/dashboard" component={()=><></>}/>
+      <ProtectedRoute path="/" component={NavBar} />
     </Switch>
 
     <Switch>

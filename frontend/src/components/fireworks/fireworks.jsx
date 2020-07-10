@@ -108,7 +108,7 @@ class Fireworks extends Component {
     const width = canvas.width;
     const height = canvas.height;
 
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    ctx.fillStyle = "rgba(0, 0, 0, 0.02)";
 
     if (shootingFireworks) {
       ctx.fillRect(0, 0, width, height);
