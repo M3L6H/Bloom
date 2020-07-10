@@ -7,10 +7,10 @@ import HabitShowContainer from './habit/habit_show_container';
 import {Switch} from 'react-router-dom';
 import AsheNavBar from './ashe_nav_bar';
 import Landing from './landing';
-
 import TasksShow from './tasks_show';
 
 import Fireworks from './fireworks';
+import HabitIndexContainer from './habit/habit_index_container';
 
 const App = () => (
   // add switch
@@ -19,6 +19,7 @@ const App = () => (
     <Modal />
     <ProtectedRoute path="/" component={AsheNavBar} />
     <Switch>
+      <ProtectedRoute path="/habits" component={HabitIndexContainer} />
       <ProtectedRoute path="/habits/:id" component={HabitShowContainer} />
       <ProtectedRoute path="/habit" component={CreateHabit} />
       <ProtectedRoute path="/landing" component={Landing} />
