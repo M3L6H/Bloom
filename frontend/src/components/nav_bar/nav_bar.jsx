@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+
 
 class NavBar extends React.Component {
   render() {
@@ -38,12 +38,13 @@ class NavBar extends React.Component {
                 </li>
                 <li onClick={this.props.logout}>Logout</li> 
             </div>
-        </div>
-          
+          </div>
         </div>
       </div>
-    );
-  }
+        );
+    }
 }
 
 export default NavBar;
+
+//<li onClick={this.props.logout}>Logout<li>

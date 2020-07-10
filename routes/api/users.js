@@ -112,7 +112,7 @@ router.post("/login", (req,res)=>{
 // Reorganize task list
 // Returns user with updated task list
 
-router.get("/reorganize_tasks", passport.authenticate("jwt", { session: false }), async (req,res)=>{
+router.patch("/reorganize_tasks", passport.authenticate("jwt", { session: false }), async (req,res)=>{
   let newTaskList = [];
   let user;
   let habits;
@@ -150,7 +150,7 @@ router.get("/reorganize_tasks", passport.authenticate("jwt", { session: false })
 
 // Update dailyTaskList
 // expects a new array that will replace the original
-router.post("/update_tasks",passport.authenticate("jwt",{session:false}), async (req,res)=>{
+router.patch("/update_daily_task_list",passport.authenticate("jwt",{session:false}), async (req,res)=>{
   
   //First, make sure the request is valid
   if(!req.body.dailyTaskList || !Array.isArray(req.body.dailyTaskList)){
@@ -178,7 +178,7 @@ router.post("/update_tasks",passport.authenticate("jwt",{session:false}), async 
 
   user.save()
     .then((user)=> res.json(user))
-    .catch((err) => res.status(422)).json(err); 
+    .catch((err) => (res.status(422)).json(err)); 
 
 })
 

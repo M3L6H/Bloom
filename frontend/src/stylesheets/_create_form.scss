@@ -47,9 +47,8 @@ div.associated-tasks {
 }
 
 .background {
-    background-color: #93BBDC;
-    background-color: #659ECD;
-    // background-image: linear-gradient( #D1E2F0, #3776A9);
+    // background-color: #93BBDC;
+    // background-color: #659ECD;
     background-color: white;
     // height: 100vh;
     margin-top: 14px;
@@ -68,4 +67,14 @@ i.fa-minus-square:hover, i.fa-plus-square:hover {
     font-size: 13px;
     font-weight: 700;
     line-height: 1.9;
+}
+
+.background-create-habit {
+    background-image: linear-gradient( white, #3776A9);
+    margin-top: 14px;
+    $bg-width: 414px;
+    width: $bg-width;
+    margin: 0 auto;
+    position: fixed;
+    left: calc(50% - #{$bg_width / 2 });
 }
