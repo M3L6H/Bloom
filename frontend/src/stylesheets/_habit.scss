@@ -76,6 +76,8 @@ ul {
 }
 .habit-show-bottom {
     margin-right: 10%;
+    max-height: 50vh;
+    overflow-y: auto;
 }
 
 .fa-plus {

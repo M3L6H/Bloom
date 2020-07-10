@@ -71,7 +71,6 @@ class TaskForm extends React.Component {
       formType === "editTask" ? (
         editTitle) : (null)
 
-    debugger;
     
     return (
       <div className="task-modal-background">
