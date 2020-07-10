@@ -12,17 +12,20 @@ class HabitShow extends React.Component {
         editDescription: false,
         complete: false
         };
-      this.toggleEditDescription = this.toggleEditDescription.bind(this);
+      this.showEditDescription = this.showEditDescription.bind(this);
+      this.hideEditDescription = this.hideEditDescription.bind(this);
     }
 
     componentDidMount() {
       this.props.fetchHabit(this.props.match.params.id)
     }
 
-    toggleEditDescription(){
-        var edit;
-        this.state.editDescription ? edit = false : edit = true;
-        this.setState({description: this.props.habit.description, editDescription: edit}); 
+    showEditDescription(){
+      this.setState({description: this.props.habit.description, editDescription: true}); 
+    }
+
+    hideEditDescription(description){
+      this.setState({description: description || this.props.habit.description, editDescription: false}); 
     }
 
     render() {
@@ -31,25 +34,26 @@ class HabitShow extends React.Component {
         
         const { updateHabit, tasks } = this.props;
         if (!habit || !tasks) return null;
-        const { title, description } = habit;
-        
+        const { title, description: habitDesc } = habit;
+        const description = this.state.description || habitDesc;
 
         const open = this.state.editDescription ? 'open' : '';
-        var descriptionComponent;
-        var editDescritionComponent;
+        let descriptionComponent;
         if(this.state.editDescription){
-            editDescritionComponent = (
-              <EditDescriptionForm
-                habit={habit}
-                open={open}
-                description={description}
-                updateHabit={updateHabit}
-                hideEditForm={this.toggleEditDescription}
-              />
-            );
+          descriptionComponent = (
+            <EditDescriptionForm
+              habit={habit}
+              open={open}
+              description={description}
+              updateHabit={updateHabit}
+              hideEditForm={this.hideEditDescription}
+            />
+          );
                              
         } else {
-            descriptionComponent = <p className="description">{description}</p>; 
+          descriptionComponent = <pre className="description">
+            { description.length > 0 ? description : "Click here to add a description." }
+          </pre>; 
         }
         //filter tasks belongs to the habit
         const habitTasks = (
@@ -63,18 +67,20 @@ class HabitShow extends React.Component {
                 <div className="habit-show-top">
                   <span className="title">{title}</span>
                 </div>
-                <div className={`habit-show-middle ${open}`}>
-                  <div className="hsm-top">
-                    Description
-                    <i
-                      className="fa fa-pencil"
-                      onClick={this.toggleEditDescription}
-                      aria-hidden="true"
-                    ></i>
-                  </div>
+                <div className="hsm-top">
+                  Description
+                  <i
+                    className="fa fa-pencil"
+                    onClick={this.showEditDescription}
+                    aria-hidden="true"
+                  ></i>
+                </div>
+                <div 
+                  className={`habit-show-middle ${open}`}
+                  onClick={this.showEditDescription}
+                >
                   {descriptionComponent}
                 </div>
-                {editDescritionComponent}
                 <div className="hs-close-btn">
                   <i
                     className="fa fa-plus"

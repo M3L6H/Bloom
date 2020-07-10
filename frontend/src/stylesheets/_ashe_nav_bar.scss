@@ -1,7 +1,7 @@
 .navbar-container {
     width: 100%;
     height: 40px;
-    background-color: white;
+    background-image: linear-gradient(  #DCF2F9, #E9E2F3);
     position: fixed;
     top: 0px;
     display: flex;
@@ -12,10 +12,6 @@
 .navbar {
     border-bottom: 1px solid lightgrey;
     width: 414px;
-    background-color: #F4F1F9;
-    background-color: #EEF9FC;
-    border-left: 1px solid lightgrey;
-    border-right: 1px solid lightgrey;
     height: 100%;
     display: flex;
     justify-content: space-between;
