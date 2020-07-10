@@ -3,6 +3,7 @@
 // Imports
 import React from "react";
 import RewardMenuItem from "./reward_menu_item";
+import Dropdown from '../dropdown';
 
 //Main
 export default class UserDashboard extends React.Component{
@@ -42,8 +43,10 @@ export default class UserDashboard extends React.Component{
         }
         return(
             <div className="dashboard-container">
-
-                <h1>{this.props.user.fName}</h1>
+                <div className="header">
+                  <h1>{this.props.user.fName}</h1>
+                  <Dropdown />
+                </div>
 
                 <div className="rewards-options">
                     <h2>Rewards <i className="fas fa-plus add-reward" onClick={this.openNewReward}></i></h2>

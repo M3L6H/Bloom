@@ -37,13 +37,15 @@
 .navbar-dropdown {
     display: none;
     position: absolute;
-    background-color: rgba($color: white, $alpha: 0.8);
+    background-color: rgba($color: white, $alpha: 1);
     border: 1px solid lightgrey;
     top: 15px;
     right: 3px;
     width: 130px;
     border-radius: 8px;
     padding: 8px 8px 8px 0;
+    color: #4C3073;
+    font-size: 14px;
 }
 
 .navbar-dropdown.open {
