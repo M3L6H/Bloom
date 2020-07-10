@@ -19,7 +19,6 @@ import Dashboard from './dashboard';
 import Fireworks from './fireworks';
 
 const App = () => (
-  // add switch
   <div className="test">
     <Fireworks />
     <Modal />
