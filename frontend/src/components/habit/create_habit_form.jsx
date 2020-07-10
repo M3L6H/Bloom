@@ -23,7 +23,7 @@ class CreateHabitForm extends React.Component {
     }
 
     handleEnter(e) {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" && this.state.task.length != 0) {
             this.state.tasks.unshift({ title: this.state.task });
             this.setState({ task: "" });
         }
