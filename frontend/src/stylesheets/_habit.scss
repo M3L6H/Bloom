@@ -90,6 +90,11 @@ ul {
 
   i {
     margin: 0;
+    cursor: pointer;
+    
+    &:hover {
+      color: #4c3073;
+    }
   }
 }
 
@@ -126,6 +131,10 @@ ul {
   float: right;
   margin-top: 1rem;
   margin-right: 1rem;
+    
+  &:hover {
+    color: red;
+  }
 }
 
 .single-task {
@@ -140,8 +149,13 @@ ul {
 
 .fa-plus {
   float: right;
+  cursor: pointer;
   margin-top: 1rem;
   margin-right: 1rem;
+    
+  &:hover {
+    color: #4c3073;
+  }
 }
 
 .habit-description {
