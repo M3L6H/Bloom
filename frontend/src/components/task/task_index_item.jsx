@@ -12,7 +12,9 @@ class TaskIndexItem extends React.Component {
         if (!task) return null;
         const taskId = task._id;
         return (
-          <div className="task-list">
+          <div className="task-list"
+            onClick={() => openModal("editTask", this.props.task)}
+          >
             <i
               className="fa fa-times"
               aria-hidden="true"
@@ -20,7 +22,6 @@ class TaskIndexItem extends React.Component {
             ></i>
             <div
               className="single-task"
-              onClick={() => openModal("editTask", this.props.task)}
             >
               <div className="header">{ task.title }</div>
               <div className="details">

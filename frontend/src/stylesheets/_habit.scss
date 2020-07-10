@@ -91,6 +91,7 @@ ul {
   border: 2px lavender solid;
   border-radius: 8px;
   margin: 0;
+  cursor: pointer;
 
   &:nth-child(n + 2) {
     margin-top: 1rem;
