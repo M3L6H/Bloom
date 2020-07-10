@@ -2,6 +2,7 @@ import React from 'react';
 
 
 class TaskForm extends React.Component {
+
   constructor(props) {
     super(props);
  
@@ -12,7 +13,6 @@ class TaskForm extends React.Component {
 
 
   handleSubmit(e) {
-      console.log(this.state);
     e.preventDefault();
     const task = Object.assign({}, this.state);
     if (this.props.formType === "editTask") {
@@ -41,17 +41,18 @@ class TaskForm extends React.Component {
         <button onClick={this.handleSubmit}>create</button>
       );
 
-    const getTask =
-      formType === "createTask" ? (
-      <input 
-        className = 'get-new-task-modal'
-        type='text' 
-        placeholder='Add your task' 
-        onChange={this.update('title')}
-        />
-      ) : (
-        null
-      );
+    // const getTask =
+    //   formType === "createTask" ? (
+    //   <input 
+    //     className = 'get-new-task-modal'
+    //     type='text' 
+    //     value={this.state.title}
+    //     placeholder='Add your task' 
+    //     onChange={this.update('title')}
+    //     />
+    //   ) : (
+    //     null
+    //   );
 
     if (formType !== "createTask" && !this.state) {
       return null;
@@ -73,25 +74,37 @@ class TaskForm extends React.Component {
 
     const renderTitle = 
       formType === "editTask" ? (
-        editTitle) : ("Create Task")
+        "Edit Task") : ("Create Task")
     
     return (
       <div className="task-modal-background">
         <form className="task-form">
-          <div className="task-form-top">
-            
-            {renderTitle}
-           
-            
-          </div>
-          {getTask}
+          <div className="task-form-top">{renderTitle}</div>
+          <textarea
+            className="task-form-title"
+            type="textarea"
+            value={this.state.title}
+            placeholder="Add your task"
+            onChange={this.update("title")}
+          />
           <div className="task-form-input">
             <div className="task-form-num-input">
-              <input type="number" value={this.state.periodNum} onChange={this.update("periodNum")} />{" "}
-                times per {freqDropDown}
+              <input
+                type="number"
+                min="1"
+                value={this.state.periodNum || 1}
+                onChange={this.update("periodNum")}
+              />{" "}
+              times per {freqDropDown}
             </div>
             <div className="task-form-petal-cnt">
-              Get <input type="number" value={this.state.numPetals} onChange={this.update("numPetals")} />{" "}
+              Get{" "}
+              <input
+                type="number"
+                min="1"
+                value={this.state.numPetals || 1}
+                onChange={this.update("numPetals")}
+              />{" "}
               petals per completion
             </div>
             <div className="submit-btn">{submitButton}</div>
