@@ -4,11 +4,15 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 class TasksShow extends React.Component {
     constructor(props){
         super(props);
-        this.dragEnd = this.dragEnd.bind(this); 
+        
         this.state = {
           loaded: false,
           taskOrder: null
         }; 
+
+        //Function bindings
+        this.dragEnd = this.dragEnd.bind(this); 
+        this.sort = this.sort.bind(this); 
     }
 
     async componentDidMount(){
@@ -24,6 +28,11 @@ class TasksShow extends React.Component {
 
     componentWillUnmount() {
       this._isMounted = false;
+    }
+
+    sort(e){
+        e.preventDefault();
+        this.props.sortDailyTaskList(); 
     }
     
 
@@ -64,6 +73,7 @@ class TasksShow extends React.Component {
 
                         <div className="show-tasks-header">
                             <h3>Your Tasks</h3>
+                            <button onClick={this.sort}>Auto Sort</button>
                             <p>Drag and Drop to re-order</p>
                         </div>
 
