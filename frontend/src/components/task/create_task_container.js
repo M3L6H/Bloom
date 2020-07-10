@@ -22,7 +22,6 @@ class CreateTaskForm extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    habit: Object.keys(state.entities.habits)[0],
     task: {
       title: "",
       periodNum: 0,
