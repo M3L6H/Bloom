@@ -60,7 +60,7 @@
     background-color: #E9E3F2;
 }
 
-.navbar-icons:hover {
+.navbar-icons:hover, .link-home:hover, .link-tasks:hover, .link-habits:hover {
     cursor: pointer;
 }
 
@@ -91,7 +91,7 @@
 }
 
 .tasksLocation, .habitsLocation {
-    background-color: rgb(17,69,108);
+    background-color: rgb(13,66,108);
     color: white;
 }
 

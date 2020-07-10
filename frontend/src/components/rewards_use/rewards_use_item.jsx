@@ -9,8 +9,10 @@ class RewardsUseItem extends React.Component {
 
     handleClick(e){
         let newPetalNum = this.props.petals - this.props.reward.petalCost;
-        this.props.updatePetals(newPetalNum);
-        this.props.spawnFireworks(this.props.reward.petalCost);
+        if (newPetalNum >= 0) {
+            this.props.updatePetals(newPetalNum);
+            this.props.spawnFireworks(this.props.reward.petalCost);
+        }
     }
 
     render(){

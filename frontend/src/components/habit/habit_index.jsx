@@ -9,17 +9,18 @@ class HabitIndex extends React.Component {
 
     render() {
     
-        const { habits } = this.props;
+        const { habits, deleteHabit } = this.props;
         if (!habits) return null;
               
         return (
           <div className="background-index-habit">
             <div className="show-habits-header">
               <h3>Your Habits</h3>
+              <i className="fas fa-plus add-icon" onClick={() => this.props.history.push("/habit")}></i>
             </div>
             <div className="index-habit-container">
               {habits.map((habit, idx) => (
-                <HabitIndexItem habit={habit} key={idx} />
+                <HabitIndexItem habit={habit} key={idx} deleteHabit={deleteHabit}/>
               ))}
             </div>
           </div>
