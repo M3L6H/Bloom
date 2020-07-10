@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskShow from './task_show';
+import { Button } from 'semantic-ui-react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 class TasksShow extends React.Component {
     constructor(props){
@@ -73,7 +74,7 @@ class TasksShow extends React.Component {
 
                         <div className="show-tasks-header">
                             <h3>Your Tasks</h3>
-                            <button onClick={this.sort}>Auto Sort</button>
+                            <Button onClick={this.sort}>Auto Sort</Button>
                             <p>Drag and Drop to re-order</p>
                         </div>
 
