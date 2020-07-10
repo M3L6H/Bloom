@@ -46,12 +46,11 @@ export default class EditTitleForm extends React.Component {
   //when edit title form is triggered, it renders edit form
   render() {
           
-      const { open } = this.props;
       const { title } = this.state;
       if (!title) return null; 
 
       return (
-        <div className={`title-edit ${open}`}>
+        <div className={`title-edit`}>
           <div className="title-edit-container">
             <pre
               contentEditable={ true }

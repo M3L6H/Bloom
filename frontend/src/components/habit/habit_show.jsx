@@ -5,16 +5,20 @@ import EditDescriptionForm from './edit_description_form';
 
 class HabitShow extends React.Component {
     constructor(props) {
-
       super(props);
+
       this.state = {
         title: "",
         description: "",
         editDescription: false,
+        editTitle: false,
         complete: false
       };
+
       this.showEditDescription = this.showEditDescription.bind(this);
       this.hideEditDescription = this.hideEditDescription.bind(this);
+      this.showEditTitle = this.showEditTitle.bind(this);
+      this.hideEditTitle = this.hideEditTitle.bind(this);
     }
 
     componentDidMount() {
@@ -29,12 +33,21 @@ class HabitShow extends React.Component {
       this.setState({description: description || this.props.habit.description, editDescription: false}); 
     }
 
+    showEditTitle() {
+      this.setState({ title: this.props.habit.title, editTitle: true });
+    }
+
+    hideEditTitle(title)  {
+      this.setState({ title: title || this.props.habit.title, editTitle: false });
+    }
+
     render() {
         const { habit, openModal } = this.props;
         
         const { updateHabit, tasks } = this.props;
         if (!habit || !tasks) return null;
-        const { title, description: habitDesc } = habit;
+        const { title: habitTitle, description: habitDesc } = habit;
+        const title = this.state.title || habitTitle;
         const description = this.state.description || habitDesc;
 
         const open = this.state.editDescription ? 'open' : '';
@@ -59,13 +72,27 @@ class HabitShow extends React.Component {
         const habitTasks = (
           tasks.filter(task => task.habit === habit._id)
         );
+
+        let titleComponent;
+        if (this.state.editTitle) {
+          titleComponent = (
+            <EditTitleForm
+              habit={ habit }
+              title={ title }
+              updateHabit={ updateHabit }
+              hideEditForm={ this.hideEditTitle }
+            />
+          );
+        } else {
+          titleComponent = <span className="title">{title}</span>;
+        }
         
         return (
           <div className="show-tasks-container">
             <div className="habit-show-main">
               <div className="habit-description">
-                <div className="habit-show-top">
-                  <span className="title">{title}</span>
+                <div className="habit-show-top" onClick={ this.showEditTitle }>
+                  { titleComponent }
                 </div>
                 <div className="hsm-top">
                   Description
