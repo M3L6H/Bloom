@@ -1,5 +1,9 @@
+ul {
+    list-style-type: none;
+}
+
 .habit-show-main {
-    width: 280px;
+    width: 300px;
     margin: 8px auto;
     border: 1px solid lightgray;
     // margin: 20px 20px;
@@ -39,13 +43,16 @@
 }
 
 .habit-show-middle, .description-edit.open {
+    background-color: white;
     display: flex;
     flex-direction: column;
-    border: lightgrey solid 1px;
-    border-radius: 3px;
+    //border: lightgrey solid 1px;
+    border: none;
+    border-radius: 8px;
     padding: 3%;
     margin: 10%;
     height: 45%;
+    color: black;
 }
 
 .hsm-top {
@@ -53,37 +60,40 @@
     justify-content: space-between;
 }
 
-ul {
-    list-style-type: none;
+.habit-show-bottom {
+    //margin-right: 10%;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 6%;
+    margin-left: 4%;
+    //padding: 0 10px 0 10px;
+    //margin: 5%;
 }
 
 .task-list {
-    border: 2px lavender solid;
+    border: 2px white solid;
+    background: white;
+    color: black;
     border-radius: 8px;
-    margin-left: 10%;
+    //margin-left: 10%;
 }
 
 .task-list > .fa-times{
     float: right;
     margin: 2%;
 }
+
 .single-task {
     display: flex;
     justify-content: space-between;
     padding: 5px;
-    margin: 2%;
     font-size: 17px;
-    color: gray;
 }
 
 .single-task-details > li {
     font-size: 10px;
 }
-.habit-show-bottom {
-    margin-right: 10%;
-    max-height: 50vh;
-    overflow-y: auto;
-}
+
 
 .fa-plus {
     float: right;
@@ -91,23 +101,22 @@ ul {
 }
 
 
-.habit-show-container {
-    margin-top: 40px;
-    text-align: center;
-    width: 100%;
-    background-color: #93BBDC;
-    background-color: #659ECD;
-    background-image: linear-gradient( #D1E2F0, #3776A9);
-}
+// .habit-show-container {
+//     margin-top: 40px;
+//     text-align: center;
+//     width: 100%;
+//     background-color: #93BBDC;
+//     background-color: #659ECD;
+//     background-image: linear-gradient( #D1E2F0, #3776A9);
+// }
 
 // open the edit box
 .description-edit.open {
     display: inline-block;
-    width: 80%;
+    //width: 80%;
 }
 
 .description-edit-container {
-
     background: white;
     border-radius: 8px;
 }
