@@ -23,7 +23,6 @@ export const receiveTaskErrors = (errors) => ({
 });
 
 export const createTask = (task) => dispatch => {
-    //debugger;
     return(
     APIUtil.createTask(task)
         .then(res => dispatch(receiveTask(res.data)))
