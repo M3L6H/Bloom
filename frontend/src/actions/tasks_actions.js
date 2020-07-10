@@ -17,7 +17,7 @@ const removeTask = (id) => ({
     id
 });
 
-export const receiveTaskErrors = (errors) => ({
+const receiveTaskErrors = (errors) => ({
     type: RECEIVE_TASK_ERRORS,
     errors
 });
