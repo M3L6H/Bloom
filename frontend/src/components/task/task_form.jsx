@@ -7,8 +7,10 @@ class TaskForm extends React.Component {
     super(props);
  
     this.state = props.task;
+    this.state.periodNum = this.state.periodNum > 0 ? this.state.periodNum : 1;
+    this.state.numPetals = this.state.numPetals > 0 ? this.state.numPetals : 1;
+    this.state.periodUnit = this.state.periodUnit.length > 0 ? this.state.periodUnit : "day";
     this.handleSubmit = this.handleSubmit.bind(this);
-    
   }
 
 
@@ -20,6 +22,10 @@ class TaskForm extends React.Component {
     } else {
         task.habit = this.props.habit;
     }
+
+    if (!task.title) return;
+    
+    debugger;
 
     this.props.action(task)
         .then(() => {this.props.closeModal();
@@ -78,7 +84,7 @@ class TaskForm extends React.Component {
               <input
                 type="number"
                 min="1"
-                value={this.state.periodNum || 1}
+                value={this.state.periodNum}
                 onChange={this.update("periodNum")}
               />{" "}
             times per {freqDropDown}
@@ -88,7 +94,7 @@ class TaskForm extends React.Component {
               <input
                 type="number"
                 min="1"
-                value={this.state.numPetals || 1}
+                value={this.state.numPetals}
                 onChange={this.update("numPetals")}
               />{" "}
               petals per completion
