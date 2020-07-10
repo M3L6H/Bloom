@@ -16,3 +16,9 @@ export const sortDailyTaskList = () => {
   axios.patch(`/api/users/reorganize_tasks`)
 }
 
+export const updateHabitList = (habitList) => {
+  axios.patch(`/api/users/update_habit_list`, habitList)
+}
+
+
+
