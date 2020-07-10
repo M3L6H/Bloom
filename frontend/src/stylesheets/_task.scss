@@ -21,11 +21,14 @@ ul {
 }
 
 .task-form-num-input > input {
-  width: 30%;
+  width: 15%;
   border: 0.5px solid lightgray;
   border-radius: 5px;
 }
 
+.get-new-task-modal {
+  width: 80%;
+}
 .task-form-num-input > #frq-slct {
   border: 0.5px solid lightgray;
   border-radius: 5px;

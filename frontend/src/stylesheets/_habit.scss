@@ -1,17 +1,7 @@
-// .hit-title {
-//     display: block;
-//     border: 2px solid lavenderblush;
-//     background: lavenderblush;
-//     color: purple;
-//     padding: 5px;
-//     margin: 20%;
-//     margin-top: 10px;
-//     border-radius: 8px;
-// }
-
 .habit-show-container{
     height: 100vh;
     position: fixed;  
+    background-image: linear-gradient(#013A65, #D4C7E5);
 }
 
 .habit-show-top {
@@ -73,8 +63,6 @@ ul {
     margin: 2%;
 }
 .single-task {
-
-
     padding: 5px;
     margin: 2%;
 
@@ -133,7 +121,3 @@ ul {
     text-align: center;
     background: lavenderblush;
 }
-
-// .hit-container {
-//     margin: 10%;
-// }

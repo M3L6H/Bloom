@@ -4,16 +4,6 @@ import React from 'react';
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   title: props.task.title || "",
-    //   periodNum: 0,
-    //   periodUnit: "",
-    //   numTimesDone: 0,
-    //   numPetals: 0,
-    // };
-
-
- 
     this.state = props.task;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -42,6 +32,7 @@ class TaskForm extends React.Component {
   render() {
  
     const { formType } = this.props;
+    const editTitle = this.state.title;
     const submitButton =
       formType === "editTask" ? (
         <button onClick={this.handleSubmit}>update</button>
@@ -52,6 +43,7 @@ class TaskForm extends React.Component {
     const getTask =
       formType === "createTask" ? (
       <input 
+        className = 'get-new-task-modal'
         type='text' 
         placeholder='Add your task' 
         onChange={this.update('title')}
@@ -73,12 +65,18 @@ class TaskForm extends React.Component {
         <option value="year">Year</option>
       </select>
     );
+
+    const renderTitle = 
+      formType === "editTask" ? (
+        {editTitle}) : (null)
+
+    
     
     return (
       <div className="task-modal-background">
         <form className="task-form">
           <div className="task-form-top">
-            {this.state.title}
+            {renderTitle}
             {getTask}
             <i
               className="fa fa-times"
