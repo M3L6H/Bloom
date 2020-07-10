@@ -9,9 +9,11 @@ class Fireworks extends Component {
   
     this.canvasRef = React.createRef();
 
+    // Dimensions
     const { windowWidth, windowHeight } = this.props;
 
     this.unit = Math.min(windowWidth, windowHeight) / 75;
+    this.fireworkSize = 3;
 
     // Set up world
     this.world = new p2.World({
@@ -33,6 +35,7 @@ class Fireworks extends Component {
 
     // Appearance
     this.fireworksColor = "rgba(255, 186, 48, 0.3)";
+    this.textColor = "#C9B9DF";
 
     // Initial values
     this.fireworkId = 1;
@@ -64,9 +67,9 @@ class Fireworks extends Component {
     const firework = [];
 
     for (let i = 0; i < 36; ++i) {
-      const angle = 2 * Math.PI * i / 36;
-      const position = [Math.cos(angle) * this.unit * 5, Math.sin(angle) * this.unit * 5];
-      const force = [position[0] * 200 * this.unit, position[1] * 200 * this.unit];
+      const angle = 2 * Math.PI * i / 36 + 10;
+      const position = [Math.cos(angle) * this.unit * this.fireworkSize, Math.sin(angle) * this.unit * this.fireworkSize];
+      const force = [position[0] * 720, position[1] * 720];
       
       firework.push(this._createPolyBody(this._fireworkParticlePath(), {
         mass: 1,
@@ -84,14 +87,16 @@ class Fireworks extends Component {
   _fireworkParticlePath() {
     return [
       [0, 0],
-      [5 * this.unit, 0],
-      [5 * this.unit, this.unit],
+      [this.fireworkSize * this.unit, 0],
+      [this.fireworkSize * this.unit, this.unit],
       [0, this.unit]
     ];
   }
   
   _updateAnimation(time) {
     const { lastTime } = this.state;
+
+    const shootingFireworks = Object.keys(this.fireworks).length > 0;
     
     // Update world
     const deltaTime = lastTime ? (time - lastTime) / 1000 : 0;
@@ -103,7 +108,17 @@ class Fireworks extends Component {
     const width = canvas.width;
     const height = canvas.height;
 
-    // ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+
+    if (shootingFireworks) {
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = this.textColor;
+      ctx.font = `${ Math.min(height, width) / 12 }px sans-serif`;
+      ctx.textAlign = "center";
+      ctx.fillText("Reward Redeemed!", width / 2, height / 2, width * 0.8);
+    } else {
+      ctx.clearRect(0, 0, width, height);
+    }
 
     this._renderBodies(ctx);
 
@@ -165,7 +180,7 @@ class Fireworks extends Component {
     let dead = true;
 
     this.fireworks[firework].forEach(fireworkParticle => {
-      if (fireworkParticle.position[1] <= this.props.windowHeight) {
+      if (fireworkParticle.position[1] <= 2 * this.props.windowHeight) {
         dead = false;
       }
 
@@ -173,7 +188,6 @@ class Fireworks extends Component {
     });
 
     if (dead) {
-      console.log("Killing");
       this.fireworks[firework].forEach(fireworkParticle => {
         this.world.removeBody(fireworkParticle);
       });
