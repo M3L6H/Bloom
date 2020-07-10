@@ -28,7 +28,9 @@
 .habit-show-main {
   max-width: 414px;
   border: 1px solid lightgray;
-  margin: 20px auto;
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 100%;
   font-size: 1em;
   font-family: sans-serif;
   color: lightgrey;
@@ -61,6 +63,7 @@
 .description, .edit-description-input {
   margin: 0;
   font-family: inherit;
+  color: #4c3073;
 }
 
 .description-edit-container .edit-description-input {
@@ -69,11 +72,15 @@
   outline: none;
 }
 
-.hsm-top {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 1rem;
-    margin: 0 2rem;
+.hsm-top, .hsb-top {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  margin: 0 2rem;
+
+  i {
+    margin: 0;
+  }
 }
 
 ul {
@@ -81,35 +88,54 @@ ul {
 }
 
 .task-list {
-    border: 2px lavender solid;
-    border-radius: 8px;
-    margin-left: 10%;
+  border: 2px lavender solid;
+  border-radius: 8px;
+  margin: 0;
+
+  &:nth-child(n + 2) {
+    margin-top: 1rem;
+  }
+
+  .header {
+    color: #4c3073;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .task-list > .fa-times{
-    float: right;
-    margin: 2%;
+  float: right;
+  margin-top: 1rem;
+  margin-right: 1rem;
 }
+
 .single-task {
-
-
-    padding: 5px;
-    margin: 2%;
-
+  margin: 1rem;
 }
 
 .habit-show-bottom {
-    margin-right: 10%;
+  margin: 0 2rem;
+  overflow-y: auto;
 }
 
 .fa-plus {
-    float: right;
-    margin-right: 10%;
+  float: right;
+  margin-top: 1rem;
+  margin-right: 1rem;
 }
+
 .habit-description {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 20px;
 }
+
 .habit-show-container {
     width: 100%;
     background-color: #93BBDC;

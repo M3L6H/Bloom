@@ -81,7 +81,8 @@ class HabitShow extends React.Component {
                 >
                   {descriptionComponent}
                 </div>
-                <div className="hs-close-btn">
+                <div className="hsb-top">
+                  Tasks
                   <i
                     className="fa fa-plus"
                     aria-hidden="true"

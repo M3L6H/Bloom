@@ -12,27 +12,26 @@ class TaskIndexItem extends React.Component {
         if (!task) return null;
         const taskId = task._id;
         return (
-          <div>
-            <ul className="task-list">
-              <i
-                className="fa fa-times"
-                aria-hidden="true"
-                onClick={() => {deleteTask(taskId)}}
-              ></i>
-              <li
-                className="single-task"
-                onClick={() => openModal("editTask", this.props.task)}
-              >
-                {task.title}
-                <ul>
-                  <li>
-                    {task.periodNum} / {task.periodUnit}{" "}
-                  </li>
-                  <li>{task.numTimesDone} times did</li>
-                  <li>earn {task.numPetal} petals </li>
-                </ul>
-              </li>
-            </ul>
+          <div className="task-list">
+            <i
+              className="fa fa-times"
+              aria-hidden="true"
+              onClick={() => {deleteTask(taskId)}}
+            ></i>
+            <div
+              className="single-task"
+              onClick={() => openModal("editTask", this.props.task)}
+            >
+              <div className="header">{ task.title }</div>
+              <div className="details">
+                <span>
+                  { `${ task.numTimesDone }/${ task.periodNum } per ${ task.periodUnit }`}
+                </span>
+                <span>
+                  { `${ task.numPetals } petal${ task.numPetals > 1 ? "s" : "" }` }
+                </span>
+              </div>
+            </div>
           </div>
         );
 

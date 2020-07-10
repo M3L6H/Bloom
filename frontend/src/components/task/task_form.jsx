@@ -5,7 +5,7 @@ class TaskForm extends React.Component {
   constructor(props) {
     super(props);
  
-    this.state = props.task;
+    this.state = { task: props.task };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -69,7 +69,7 @@ class TaskForm extends React.Component {
       <div className="task-modal-background">
         <form className="task-form">
           <div className="task-form-top">
-            {this.state.title}
+            { formType !== "createTask" && this.state.task.title }
             {getTask}
             <i
               className="fa fa-times"
@@ -82,7 +82,7 @@ class TaskForm extends React.Component {
             {freqDropDown}
           </div>
           <div className="task-form-petal-cnt">
-            {this.state.numPetals} petals
+            {this.state.task.numPetals} petals
           </div>
           <div className="submit-btn">{submitButton}</div>
         </form>
