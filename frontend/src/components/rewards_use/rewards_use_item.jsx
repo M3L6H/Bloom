@@ -12,6 +12,7 @@ class RewardsUseItem extends React.Component {
         if (newPetalNum >= 0) {
             this.props.updatePetals(newPetalNum);
             this.props.spawnFireworks(this.props.reward.petalCost);
+            this.props.removePetal(this.props.reward.petalCost);
         }
     }
 

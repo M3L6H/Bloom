@@ -4,7 +4,7 @@ import RewardsUseItem from './rewards_use_item';
 class RewardsUse extends React.Component {
 
     render(){
-      const { rewards, petals, updatePetals, spawnFireworks } = this.props;
+      const { rewards, petals, updatePetals, spawnFireworks, removePetal } = this.props;
       
         return (
           <div className="rewards-use-container">
@@ -20,7 +20,7 @@ class RewardsUse extends React.Component {
             </div>
             <div className="rewards-use-details">
               {rewards.map((reward, idx) => (
-                <RewardsUseItem key={idx} petals={petals} reward={reward} updatePetals={updatePetals} spawnFireworks={ spawnFireworks }/>
+                <RewardsUseItem key={idx} petals={petals} reward={reward} updatePetals={updatePetals} spawnFireworks={ spawnFireworks } removePetal={ removePetal }/>
               ))}
             </div>
           </div>
