@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
       password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -21,18 +22,21 @@ class LoginForm extends React.Component {
     this.props.closeModal();
   }
 
+  handleDemo(e){
+    e.preventDefault();
+    this.props.demoLogin();
+    this.props.closeModal();
+  }
+
   renderErrors() {
     return <div>error messages will be printed</div>;
   }
 
   render() {
     return (
-      <Grid
-        textAlign="center"
-        verticalAlign="middle"
-      >
+      <Grid textAlign="center" verticalAlign="middle">
         <Grid.Column style={{ width: 250 }}>
-          <Form className="user-input-form" onSubmit={this.handleSubmit}>
+          <Form className="user-input-form">
             <Form.Input
               fluid
               icon="user"
@@ -48,8 +52,12 @@ class LoginForm extends React.Component {
               type="password"
               onChange={this.update("password")}
             />
-            <Button className="ui test button" fluid size="large">
+            <Button className="ui test button" fluid size="large" type="button" onClick={this.handleSubmit}>
               Log In
+            </Button>
+            <div className="space"></div>
+            <Button className="ui test button" fluid size="large" type="button" onClick={this.handleDemo}>
+              Demo User
             </Button>
           </Form>
         </Grid.Column>
