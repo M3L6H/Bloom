@@ -52,7 +52,7 @@ class LoginForm extends React.Component {
               type="password"
               onChange={this.update("password")}
             />
-            <Button className="ui test button" fluid size="large" type="button" onClick={this.handleSubmit}>
+            <Button className="ui test button" fluid size="large" type="submit" onClick={this.handleSubmit}>
               Log In
             </Button>
             <div className="space"></div>
