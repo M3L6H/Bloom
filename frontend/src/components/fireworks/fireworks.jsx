@@ -11,7 +11,7 @@ class Fireworks extends Component {
 
     const { windowWidth, windowHeight } = this.props;
 
-    this.unit = Math.min(windowWidth, windowHeight * this.windowPercentage) / 75;
+    this.unit = Math.min(windowWidth, windowHeight) / 75;
 
     // Set up world
     this.world = new p2.World({
@@ -32,7 +32,7 @@ class Fireworks extends Component {
     this._updateAnimation = this._updateAnimation.bind(this);
 
     // Appearance
-    this.fireworksColor = "#C9B9DF";
+    this.fireworksColor = "rgba(255, 186, 48, 0.3)";
 
     // Initial values
     this.fireworkId = 1;
@@ -55,7 +55,7 @@ class Fireworks extends Component {
       this._spawnFirework(pos);
 
       if (numFireworks > 1) {
-        setTimeout(() => this.spawnFireworks(numFireworks - 1), 1500);
+        setTimeout(() => this.spawnFireworks(numFireworks - 1), 1250);
       }
     }
   }
@@ -64,28 +64,29 @@ class Fireworks extends Component {
     const firework = [];
 
     for (let i = 0; i < 36; ++i) {
-      const angle = Math.PI * i / 36;
-      const position = [Math.cos(angle * this.unit), Math.sin(angle * this.unit)];
-      const force = [position[0] * 10, position[1] * 10];
+      const angle = 2 * Math.PI * i / 36;
+      const position = [Math.cos(angle) * this.unit * 5, Math.sin(angle) * this.unit * 5];
+      const force = [position[0] * 200 * this.unit, position[1] * 200 * this.unit];
       
-      firework[this.fireworkId++] = this._createPolyBody(this._fireworkParticlePath(), {
+      firework.push(this._createPolyBody(this._fireworkParticlePath(), {
         mass: 1,
         collisionResponse: false,
         position: [position[0] + pos[0], position[1] + pos[1]],
         force,
         angle
-      });
+      }));
     }
 
-    this.fireworks.push(firework);
+    this.fireworks[this.fireworkId++] = firework;
+    console.log(this.fireworks);
   }
 
   _fireworkParticlePath() {
     return [
       [0, 0],
-      [0, 5 * this.unit],
-      [this.unit, 5 * this.unit],
-      [this.unit, 5 * this.unit]
+      [5 * this.unit, 0],
+      [5 * this.unit, this.unit],
+      [0, this.unit]
     ];
   }
   
@@ -102,7 +103,7 @@ class Fireworks extends Component {
     const width = canvas.width;
     const height = canvas.height;
 
-    ctx.clearRect(0, 0, width, height);
+    // ctx.clearRect(0, 0, width, height);
 
     this._renderBodies(ctx);
 
@@ -172,6 +173,10 @@ class Fireworks extends Component {
     });
 
     if (dead) {
+      console.log("Killing");
+      this.fireworks[firework].forEach(fireworkParticle => {
+        this.world.removeBody(fireworkParticle);
+      });
       delete this.fireworks[firework];
     }
   }
