@@ -72,9 +72,15 @@ class TasksShow extends React.Component {
                     <div className="show-tasks-container">
 
                         <div className="show-tasks-header">
+
                             <h3>Your Tasks</h3>
-                            <button onClick={this.sort}>Auto Sort</button>
+
+                            <button onClick={this.sort} className="ui button auto-sort">
+                                Auto Sort
+                            </button>
+
                             <p>Drag and Drop to re-order</p>
+
                         </div>
 
                         <Droppable droppableId="1">
