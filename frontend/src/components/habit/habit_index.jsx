@@ -6,19 +6,25 @@ class HabitIndex extends React.Component {
     this.props.fetchHabits();
   }
 
-  render() {
-    const { habits, deleteHabit } = this.props;
-    if (!habits) return null;
 
-    return (
-      <div className="habit-index-container">
-        <div className="hic-title">My Habits</div>
-        {habits.map((habit, idx) => (
-          <HabitIndexItem habit={habit} key={idx} deleteHabit={deleteHabit} />
-        ))}
-      </div>
-    );
-  }
+    render() {
+    
+        const { habits, deleteHabit  } = this.props;
+        if (!habits) return null;
+              
+        return (
+          <div className="background-index-habit">
+            <div className="show-habits-header">
+              <h3>Your Habits</h3>
+            </div>
+            <div className="index-habit-container">
+              {habits.map((habit, idx) => (
+                <HabitIndexItem habit={habit} deleteHabit={deleteHabit} key={idx} />
+              ))}
+            </div>
+          </div>
+        );
+    }
 }
 
 export default HabitIndex;

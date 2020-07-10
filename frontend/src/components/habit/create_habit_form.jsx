@@ -39,6 +39,7 @@ class CreateHabitForm extends React.Component {
         let habit = {title: this.state.title, description: this.state.description, tasks: this.state.tasks };
         this.props.createHabit(habit);
         this.setState({ title: "", task: "", description: "", tasks: [] });
+        this.props.history.push("/landing");
     }
 
     removeTask(idx) {
