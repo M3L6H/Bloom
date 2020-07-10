@@ -82,11 +82,7 @@ class TaskForm extends React.Component {
             
             {renderTitle}
            
-            <i
-              className="fa fa-times"
-              aria-hidden="true"
-              onClick={() => this.props.closeModal()}
-            ></i>
+            
           </div>
           {getTask}
           <div className="task-form-input">
