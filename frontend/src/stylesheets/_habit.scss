@@ -3,22 +3,23 @@ ul {
 }
 
 .habit-show-main {
-    width: 300px;
+    width: 310px;
     margin: 8px auto;
     border: 1px solid lightgray;
-    // margin: 20px 20px;
     font-size: 1em;
     font-family: sans-serif;
-    color: white;
     border-radius: 4px;
-    background-color: transparent;
+    background: transparent;
 }
 
 .habit-description {
     display: flex;
     flex-direction: column;
     margin: 8px auto;
+    height: 100%;
+    padding-bottom: 20px;
 }
+
 .habit-show-container{
   position: fixed;
   bottom: 0;
@@ -45,12 +46,13 @@ ul {
   font-family: sans-serif;
   color: lightgrey;
   border-radius: 4px;
-  background-color: white;
 }
 .habit-show-top > .title {
     padding: 3% 20% 2% 7%;
     font-size: 20px;
     color: #4c3073;
+    font-weight: bold;
+    margin: 2%;
 }
 .habit-show-top > i {
     margin-right: 10%;
@@ -58,13 +60,12 @@ ul {
 
 .habit-show-middle {
   display: block;
-  border: 1px solid lightgrey;
+  //border: 1px solid lightgrey;
   border-radius: 8px;
   padding: 3%;
   margin: 0 2rem;
   cursor: text;
-  color: lightgrey;
-
+  background: white;
   &.open {
     border-color: #4c3073;
   }
@@ -101,11 +102,13 @@ ul {
 }
 
 .task-list {
-  border: 2px lavender solid;
+  //border: 2px lavender solid;
+  border: none;
+  padding: 2px;
   border-radius: 8px;
   margin: 0;
   cursor: pointer;
-
+  background: white;
   &:nth-child(n + 2) {
     margin-top: 1rem;
   }
@@ -130,6 +133,7 @@ ul {
 
 .single-task {
   margin: 1rem;
+
 }
 
 .habit-show-bottom {
@@ -142,13 +146,6 @@ ul {
   float: right;
   margin-top: 1rem;
   margin-right: 1rem;
-}
-
-.habit-description {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding-bottom: 20px;
 }
 
 .habit-show-container {

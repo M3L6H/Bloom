@@ -73,11 +73,12 @@ ul {
 }
 
 .submit-btn > button {
-  border: 0.5px solid lightgray;
+  border: 0.5px solid #9B80C6;
   border-radius: 8px;
   padding: 8px;
-  color: gray;
+  color: #9B80C6;
   margin-left: 55px;
+  background: transparent;
 }
 
 .submit-btn > button:hover {
