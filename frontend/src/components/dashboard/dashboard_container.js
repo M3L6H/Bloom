@@ -14,7 +14,7 @@ function mSTP(state){
 function mDTP(dispatch){
     return{
         fetchUser: ()=> dispatch(fetchUser()),
-        openModal: (modalType) => dispatch(openModal(modalType))
+        openModal: (modalType,object) => dispatch(openModal(modalType,object))
     }
 }
 
