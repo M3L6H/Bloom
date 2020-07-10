@@ -27,7 +27,7 @@ function Modal({ modal, closeModal }) {
             component = <CreateTaskContainer/>;
             break;
         case 'useRewards':
-            component = <RewardsUse />;
+            component = <RewardsUse removePetal={ modal.object } />;
             break;
         case 'createRewards':
             component = <CreateRewards />;

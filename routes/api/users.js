@@ -223,8 +223,7 @@ router.patch("/update_daily_task_list",passport.authenticate("jwt",{session:fals
 // Edit petals
 // expects "petals" key in request body
 router.patch("/update_petals", passport.authenticate("jwt", { session: false }), async (req,res)=> {
-  
-  if(!req.body.petals){
+  if(req.body.petals === undefined || req.body.petals === null){
     return res.status(422).json("petals is required!");
   }
 

@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updatePetals: petals => dispatch(updatePetals(petals)),
-  openModal: modal => dispatch(openModal(modal))
+  openModal: (modal, object) => dispatch(openModal(modal, object))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jar);
