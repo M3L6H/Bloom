@@ -56,8 +56,7 @@ class HabitIndex extends React.Component {
     }
 
     render() {
-    
-        const { habits, user } = this.props;
+        const { habits,  deleteHabit } = this.props;
         
        //Check for relevent props before rendering
         if(!this.state.loaded){
@@ -70,6 +69,7 @@ class HabitIndex extends React.Component {
               
               <div className="show-habits-header">
                 <h3>Your Habits</h3>
+                <i className="fas fa-plus add-icon" onClick={() => this.props.history.push("/habit")}></i>
               </div>
 
               <Droppable droppableId="1">
@@ -80,7 +80,7 @@ class HabitIndex extends React.Component {
                     ref={provided.innerRef} 
                   >
                     {this.state.habitList.map((habitId, idx) => (
-                      <HabitIndexItem habit={habits[habitId]} index={idx} key={habitId} />
+                      <HabitIndexItem habit={habits[habitId]} index={idx} key={habitId} deleteHabit={deleteHabit} />
                     ))}
                     {provided.placeholder}
                   </div>

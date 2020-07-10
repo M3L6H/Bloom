@@ -6,7 +6,9 @@ import { Draggable } from 'react-beautiful-dnd';
 class HabitIndexItem extends React.Component {
 
   render() {
-    const { habit } = this.props;
+    const { habit, deleteHabit } = this.props;
+
+    if (!habit) return null;
 
     return (
       <Draggable draggableId={habit._id} index={this.props.index}>
@@ -17,6 +19,7 @@ class HabitIndexItem extends React.Component {
             {...provided.dragHandleProps}
             ref={provided.innerRef} 
           >
+            <i className="fas fa-minus delete-icon" onClick={() => deleteHabit(habit._id)}></i>
             <Link to={`/habits/${habit._id}`}>
               <p className="hit-title">
                 {habit.title}

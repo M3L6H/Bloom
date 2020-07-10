@@ -17,6 +17,7 @@ class CreateRewards extends React.Component {
     e.preventDefault();
     this.props.createReward(this.state);
     this.setState({ title: "", petalCost: 1 });
+    this.props.closeModal();
   }
 
   render() {

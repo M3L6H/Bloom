@@ -115,23 +115,22 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), async (r
   }
 
   Habit.deleteOne({_id: req.params.id})
-    .then((msg) => {
+    .then(async (msg) => {
       if(msg && msg.deletedCount > 0) {
-        res.json({id: req.params.id});
-        
         // remove the habit and its tasks from the owner's habits and dailyTaskList arrays
-        let habitIdx = owner.habits.findIndex((habit)=> habit === myHabit.id);
+        let habitIdx = owner.habits.findIndex((habit)=> habit == myHabit.id);
         owner.habits.splice(habitIdx,1); 
         
-        let tasks = myHabit.tasks.map((task)=> task.id);
+        let tasks = myHabit.tasks.map((task)=> task._id);
         tasks.forEach((task)=>{
-          let taskIdx = owner.dailyTaskList.findIndex((_task)=> _task === task);
+          let taskIdx = owner.dailyTaskList.findIndex((_task)=> _task == task);
 
           if(taskIdx){
             owner.dailyTaskList.splice(taskIdx,1); 
           }
         });
-        owner.save(); 
+        await owner.save(); 
+        res.json({ user: owner, id: req.params.id });
       } else {
         res.json("Failed");
       }
