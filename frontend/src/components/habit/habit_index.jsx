@@ -14,7 +14,7 @@ class HabitIndex extends React.Component {
               
         return (
           <div className="habit-index-container">
-            <div className="hic-title">My Habit Goals</div>
+            <div className="hic-title">My Habits</div>
             {habits.map((habit, idx) => (
               <HabitIndexItem
                 habit={habit}

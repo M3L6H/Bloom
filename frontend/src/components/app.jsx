@@ -21,8 +21,9 @@ const App = () => (
     <ProtectedRoute path="/" component={NavBarContainer} />
     <Switch>
       <ProtectedRoute path="/habits/:id" component={HabitShowContainer} />
+      <ProtectedRoute path="/habits" component={HabitIndexContainer} />
       <ProtectedRoute path="/habit" component={CreateHabit} />
-      <ProtectedRoute path="/landing" component={HabitIndexContainer} />
+      <ProtectedRoute path="/landing" component={Landing} />
       <ProtectedRoute path="/tasks" component={TasksShow} />
       <AuthRoute path="/" component={Main} />
     </Switch>

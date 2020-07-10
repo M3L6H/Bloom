@@ -17,7 +17,8 @@
     color: white;
     font-weight: bold;
     font-size: 20px;
-    padding: 10%
+    padding: 10%;
+    padding-top: 20%;
 }
 
 // .hit-title {
@@ -114,6 +115,7 @@ ul {
 .habit-description {
     display: flex;
     flex-direction: column;
+    margin-top: 20%;
 }
 .habit-show-container {
     width: 100%;
@@ -156,16 +158,19 @@ ul {
 }
 
 .hit-container {
-    display: flex;
-    flex-direction: row-reverse;
+    //display: flex;
     margin: 5%;
     color: white;
     display: block;
     border: 2px solid lavenderblush;
     background: transparent;
     color: white;
-    padding: 10%;
     font-size: 20px;
     border-radius: 8px;
-
 }
+
+.big-i {
+    font-size: 30px;
+}
+
+

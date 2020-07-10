@@ -9,6 +9,7 @@
     z-index: 1;
 }
 
+
 .navbar {
     border-bottom: 1px solid lightgrey;
     width: 414px;
@@ -21,14 +22,16 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 15px;
-    background-image: linear-gradient(  #DCF2F9, #E9E2F3);
-    color: #4C3073;
+    color: gray;
+    background: transparent;
+    // background-image: linear-gradient(  #DCF2F9, #E9E2F3);
+    // color: #4C3073;
 }
 
-.navbar-icons {
+.navbar-icons-right {
     display: flex;
 }
 
-.navbar-icons div {
+.navbar-icons-right div {
     margin-left: 10px;
 }

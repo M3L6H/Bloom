@@ -12,14 +12,19 @@ class HabitIndexItem extends React.Component {
           
     return (
       <div className="hit-container">
-        <i
-          className="fa fa-times-circle-o"
-          aria-hidden="true"
-          onClick={() => {return deleteHabit(habitId)}}
-        ></i>
-        <Link to={`/habits/${habit._id}`}>
-          <p className="hit-title">{habit.title}</p>
-        </Link>
+        <ul className="hit-container-ele">
+          <i
+            className="fa fa-times-circle-o"
+            aria-hidden="true"
+            onClick={() => {
+              return deleteHabit(habitId);
+            }}
+          ></i>
+          <li>
+            <span className="big-i"> I </span>
+            <Link to={`/habits/${habit._id}`}>{habit.title}</Link>
+          </li>
+        </ul>
       </div>
     );
   }
