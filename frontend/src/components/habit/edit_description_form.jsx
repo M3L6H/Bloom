@@ -29,7 +29,7 @@ export default class EditDescriptionForm extends React.Component {
             
     //habit description needs to be updated
     const description = this.textarea.current.innerHTML
-      .replace(/<div>/g, "\n")
+      .replace(/<div>|<br>/g, "\n")
       .replace(/<\/div>/g, "");
     this.props.updateHabit({ ...this.props.habit, description });
     this.props.hideEditForm(description);
