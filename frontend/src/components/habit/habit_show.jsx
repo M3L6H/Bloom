@@ -4,6 +4,7 @@ import EditDescriptionForm from "./edit_description_form";
 
 class HabitShow extends React.Component {
   constructor(props) {
+    
     super(props);
     this.state = {
       title: "",

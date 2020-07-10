@@ -13,7 +13,7 @@ class NavBar extends React.Component {
               </Link>
             </div>
             <div>
-              <Link className="plain" to="/">
+              <Link className="plain" to="/habits">
                 <p>Habits</p>
               </Link>
             </div>
@@ -27,12 +27,12 @@ class NavBar extends React.Component {
             <i className="fa fa-bars"></i>
             <div className="dropdown-content">
                 <li>
-                    <Link to={`/`}>
+                    <Link to={`/habits`}>
                         <span>My Habits</span>
                     </Link>
                 </li>
                 <li>
-                    <Link to={`/`}>
+                    <Link to={`/habit`}>
                         <span>My Reward</span>
                     </Link>
                 </li>
