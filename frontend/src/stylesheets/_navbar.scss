@@ -8,11 +8,7 @@
     justify-content: center;
     z-index: 1;
 }
-<<<<<<< HEAD
-
-=======
 ​
->>>>>>> 4aa5e49869f43ae7666687957af38f573c186917
 .navbar {
     border-bottom: 1px solid lightgrey;
     width: 414px;
@@ -25,38 +21,22 @@
     justify-content: space-between;
     background: lavender;
 }
-<<<<<<< HEAD
-
-=======
 ​
->>>>>>> 4aa5e49869f43ae7666687957af38f573c186917
 .navbar-left {
     display: flex;
     margin-left: 10px;
 }
-<<<<<<< HEAD
-
-.navbar-left div { 
-    padding: 8px 10px 0 6px;
-}
-
-=======
 ​
 .navbar-left div { 
     padding: 8px 10px 0 6px;
 }
 ​
->>>>>>> 4aa5e49869f43ae7666687957af38f573c186917
 .navbar-right {
     margin-right: 10px;
     padding-top: 10px;
     font-size: 20px;
 }
-<<<<<<< HEAD
-
-=======
 ​
->>>>>>> 4aa5e49869f43ae7666687957af38f573c186917
 .dropdown-content {
     display: none;
     min-width: 160px;
@@ -69,39 +49,11 @@
     position: absolute;
     right: 0;
 }
-<<<<<<< HEAD
-
-=======
 ​
->>>>>>> 4aa5e49869f43ae7666687957af38f573c186917
 .dropdown-content li:hover {
   background: #FAC0B3;
   color: white;
   cursor: pointer;  
-<<<<<<< HEAD
-}
-
-.dropdown-content li {
-  padding-bottom: 5px;
-}
-
-.dropdown-content > li > span {
-    padding: 5px;
-}
-
-.navbar-right > i:hover {
-  color: purple;
-}
-
-.navbar-left p:hover {
-  color: salmon;
-}
-
-.navbar-right:hover .dropdown-content {
-  display: block;
-}
-
-=======
 }
 ​
 .dropdown-content li {
@@ -124,7 +76,6 @@
   display: block;
 }
 ​
->>>>>>> 4aa5e49869f43ae7666687957af38f573c186917
 .fa-bars {
     position: relative;
 }
