@@ -80,7 +80,7 @@ class TasksShow extends React.Component {
                               Auto Sort
                             </Button>
 
-                            <p>Drag and Drop to re-order</p>
+                            <p>Drag and Drop to Re-Order</p>
 
                         </div>
 
