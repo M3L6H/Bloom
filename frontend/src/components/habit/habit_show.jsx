@@ -43,7 +43,6 @@ class HabitShow extends React.Component {
 
     render() {
         const { habit, openModal } = this.props;
-        
         const { updateHabit, tasks } = this.props;
         if (!habit || !tasks) return null;
         const { title: habitTitle, description: habitDesc } = habit;
@@ -113,7 +112,7 @@ class HabitShow extends React.Component {
                   <i
                     className="fa fa-plus"
                     aria-hidden="true"
-                    onClick={() => openModal("createTask")}
+                    onClick={() => openModal("createTask", habit)}
                   ></i>
                 </div>
                 <div className="habit-show-bottom">
