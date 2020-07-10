@@ -11,6 +11,7 @@ class TaskIndexItem extends React.Component {
         const { task, openModal, deleteTask } = this.props;
         if (!task) return null;
         const taskId = task._id;
+       
         return (
           <div className="task-list"
             onClick={() => openModal("editTask", this.props.task)}

@@ -5,7 +5,6 @@ li {
 .prop-user-for-tasks, div.associated-tasks {
     border: 1px solid lightgrey;
     margin: 20px 0;
-    padding: 10px;
     font-size: 1em;
     font-family: sans-serif;
     color: lightgrey;
@@ -47,10 +46,7 @@ div.associated-tasks {
 }
 
 .background {
-    // background-color: #93BBDC;
-    // background-color: #659ECD;
     background-color: white;
-    // height: 100vh;
     margin-top: 14px;
     position: fixed;
     top: 0;
@@ -77,4 +73,5 @@ i.fa-minus-square:hover, i.fa-plus-square:hover {
     margin: 0 auto;
     position: fixed;
     left: calc(50% - #{$bg_width / 2 });
+    bottom: 0;
 }

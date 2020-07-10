@@ -7,6 +7,7 @@ class TaskForm extends React.Component {
  
     this.state = props.task;
     this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
 
 
@@ -33,6 +34,7 @@ class TaskForm extends React.Component {
   render() {
  
     const { formType } = this.props;
+    const editTitle = this.state.title;
     const submitButton =
       formType === "editTask" ? (
         <button onClick={this.handleSubmit}>update</button>
@@ -43,6 +45,7 @@ class TaskForm extends React.Component {
     const getTask =
       formType === "createTask" ? (
       <input 
+        className = 'get-new-task-modal'
         type='text' 
         placeholder='Add your task' 
         onChange={this.update('title')}
@@ -61,34 +64,38 @@ class TaskForm extends React.Component {
         id="frq-slct"
         onChange={this.update("periodUnit")}
       >
-        <option>Category</option>
-        <option value="day">Day</option>
+        <option value="day" selected>Day</option>
         <option value="week">Week</option>
         <option value="month">Month</option>
         <option value="year">Year</option>
       </select>
     );
+
+    const renderTitle = 
+      formType === "editTask" ? (
+        editTitle) : ("Create Task")
     
     return (
       <div className="task-modal-background">
         <form className="task-form">
           <div className="task-form-top">
-            { formType !== "createTask" && this.state.title }
-            {getTask}
-            <i
-              className="fa fa-times"
-              aria-hidden="true"
-              onClick={() => this.props.closeModal()}
-            ></i>
+            
+            {renderTitle}
+           
+            
           </div>
-          <div className="task-form-num-input">
-            <input type="number" onChange={this.update("periodNum")} />{" "}
-            {freqDropDown}
+          {getTask}
+          <div className="task-form-input">
+            <div className="task-form-num-input">
+              <input type="number" onChange={this.update("periodNum")} />{" "}
+              {freqDropDown}
+            </div>
+            <div className="task-form-petal-cnt">
+              Get <input type="number" onChange={this.update("numPetals")} />{" "}
+              petals
+            </div>
+            <div className="submit-btn">{submitButton}</div>
           </div>
-          <div className="task-form-petal-cnt">
-            {this.state.numPetals} petals
-          </div>
-          <div className="submit-btn">{submitButton}</div>
         </form>
       </div>
     );
