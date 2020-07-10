@@ -61,7 +61,7 @@ class HabitShow extends React.Component {
         )
         
         return (
-          <div className="habit-show-container">
+          <div className="show-tasks-container">
             <div className="habit-show-main">
               <div className="habit-description">
                 <div className="habit-show-top">
