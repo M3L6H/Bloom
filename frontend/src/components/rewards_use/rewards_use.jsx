@@ -4,6 +4,8 @@ import RewardsUseItem from './rewards_use_item';
 class RewardsUse extends React.Component {
 
     render(){
+      const { rewards, petals, updatePetals, spawnFireworks } = this.props;
+      
         return (
           <div className="rewards-use-container">
             <div className="rewards-use-label">Redeem Your Rewards!</div>
@@ -14,11 +16,11 @@ class RewardsUse extends React.Component {
                 alt="petal"
                 border="0"
               />
-              Your current petals: {this.props.petals}
+              Your current petals: {petals}
             </div>
             <div className="rewards-use-details">
-              {this.props.rewards.map((reward, idx) => (
-                <RewardsUseItem key={idx} petals={this.props.petals} reward={reward} updatePetals={this.props.updatePetals}/>
+              {rewards.map((reward, idx) => (
+                <RewardsUseItem key={idx} petals={petals} reward={reward} updatePetals={updatePetals} spawnFireworks={ spawnFireworks }/>
               ))}
             </div>
           </div>
