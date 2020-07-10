@@ -14,7 +14,7 @@
     max-height: 70vh;
     overflow-y: auto;
     // margin: 15px auto 10px auto;
-    margin: 15px 10px 10px 50px;
+    margin: 35px 10px 10px 50px;
 }
 
 .hit-container {
@@ -31,6 +31,7 @@
     display: block;
     margin-bottom: 4px;
     color: black;
+    overflow-wrap: break-word;
 }
 
 .hit-title > i {
@@ -48,6 +49,15 @@
     text-align: center;
     color: white;
     position: relative;
+}
+
+.show-habits-header p {
+    font-weight: 500;
+    display: block;
+    // margin-bottom: -20px;
+    position: absolute;
+    left: 35%;
+    top: 20px;
 }
 
 .delete-icon {

@@ -87,7 +87,7 @@ class TaskForm extends React.Component {
                 value={this.state.periodNum}
                 onChange={this.update("periodNum")}
               />{" "}
-              times per {freqDropDown}
+            times per {freqDropDown}
             </div>
             <div className="task-form-petal-cnt">
               Get{" "}
@@ -99,7 +99,7 @@ class TaskForm extends React.Component {
               />{" "}
               petals per completion
             </div>
-            <div className="submit-btn">{submitButton}</div>
+            <div className="submit-task-btn">{submitButton}</div>
           </div>
         </form>
       </div>

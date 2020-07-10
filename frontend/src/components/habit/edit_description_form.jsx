@@ -16,10 +16,12 @@ export default class EditDescriptionForm extends React.Component {
   componentDidMount() {
     const range = document.createRange();
     const selected = window.getSelection();
-    range.setStartBefore(this.textarea.current.childNodes[0]);
-    range.setEndAfter(this.textarea.current.childNodes[this.textarea.current.childNodes.length - 1]);
-    selected.removeAllRanges();
-    selected.addRange(range);
+    if (this.textarea.current.innerHTML.length > 0) {
+      range.setStartBefore(this.textarea.current.childNodes[0]);
+      range.setEndAfter(this.textarea.current.childNodes[this.textarea.current.childNodes.length - 1]);
+      selected.removeAllRanges();
+      selected.addRange(range);
+    }
     this.textarea.current.focus();
   }
 
@@ -40,7 +42,7 @@ export default class EditDescriptionForm extends React.Component {
           
       const { open } = this.props;
       const { description } = this.state;
-      if (!description) return null; 
+      if (description === undefined || description === null) return null; 
 
       return (
         <div className={`description-edit ${open}`}>
