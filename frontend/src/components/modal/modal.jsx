@@ -6,7 +6,7 @@ import SignupFormContainer from '../session_forms/signup_form_container';
 import EditTaskContainer from '../task/edit_task_container';
 import CreateTaskContainer from '../task/create_task_container';
 import RewardsUse from '../rewards_use';
-import CreateRewards from '../reward_forms';
+import {CreateRewards, EditReward} from '../reward_forms';
 
 function Modal({ modal, closeModal }) {
     if (!modal) return null;
@@ -21,7 +21,7 @@ function Modal({ modal, closeModal }) {
             component = <SignupFormContainer />;
             break;  
         case 'editTask':
-            component = <EditTaskContainer task={modal.task} />;
+            component = <EditTaskContainer task={modal.object} />;
             break;  
         case 'createTask':
             component = <CreateTaskContainer/>;
@@ -32,6 +32,9 @@ function Modal({ modal, closeModal }) {
         case 'createRewards':
             component = <CreateRewards />;
             break;
+        case 'editReward':
+            component = <EditReward reward={modal.object}/>
+            break; 
         default:
             return null;
     }

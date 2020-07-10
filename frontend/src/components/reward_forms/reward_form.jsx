@@ -5,9 +5,10 @@ class CreateRewards extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = Object.assign({},this.props.reward);
+    this.state = Object.assign({},this.props.reward)
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
 
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });

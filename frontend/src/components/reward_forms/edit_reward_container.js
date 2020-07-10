@@ -13,7 +13,7 @@ function mSTP(state) {
 }
 
 const mDTP = (dispatch) => ({
-    action: reward => dispatch(editReward(reward))
+    action: reward => dispatch(editReward(reward)),
 });
 
 export default connect(mSTP, mDTP)(RewardForm);
