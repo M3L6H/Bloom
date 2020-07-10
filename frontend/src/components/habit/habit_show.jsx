@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskIndexItem from '../task/task_index_item';
+import EditTitleForm from './edit_title_form';
 import EditDescriptionForm from './edit_description_form';
 
 class HabitShow extends React.Component {
@@ -11,7 +12,7 @@ class HabitShow extends React.Component {
         description: "",
         editDescription: false,
         complete: false
-        };
+      };
       this.showEditDescription = this.showEditDescription.bind(this);
       this.hideEditDescription = this.hideEditDescription.bind(this);
     }
@@ -29,7 +30,6 @@ class HabitShow extends React.Component {
     }
 
     render() {
-   
         const { habit, openModal } = this.props;
         
         const { updateHabit, tasks } = this.props;
@@ -58,7 +58,7 @@ class HabitShow extends React.Component {
         //filter tasks belongs to the habit
         const habitTasks = (
           tasks.filter(task => task.habit === habit._id)
-        )
+        );
         
         return (
           <div className="habit-show-container">
