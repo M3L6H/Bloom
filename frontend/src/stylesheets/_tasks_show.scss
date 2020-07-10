@@ -20,10 +20,17 @@
     .auto-sort{
         padding: 5px 15px;
         background-color: rgb(32, 163, 32);
-        color: black;
+        background-color: white;
+        background-color: #AA6DA3;
+        color: white;
+        border: 2px solid #74446E;
+        border-style: outset;
     }
     .auto-sort:hover{
         background-color: rgb(28, 138, 28);
+        background-color: #74446E;
+        color: white;
+        border-style: inset;
     }
 }
 
@@ -49,6 +56,7 @@
 .shows-tasks-all {
     width: 320px;
     margin: auto;
-    max-height: 80vh;
+    margin-top: 10px;
+    max-height: 76vh;
     overflow-y: auto;
 }
