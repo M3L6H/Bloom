@@ -1,75 +1,46 @@
-ul {
-  padding-inline-start: 0px;
-}
-//button big
 .task-form {
   padding: 5%;
-  width: 200px;
-  //height: 200px;
+  width: 250px;
   border-radius: 12px; 
   background-color: rgba($color: #F4F1F9, $alpha: 0.9);
-  border: 2px solid #9B80C6;
-  // background: lavender;
-  // border: lavender 1px solid;
+  border: 1px solid #9B80C6;
   box-shadow:0 3px 9px rgba(0,0,0,0.5);
 
 }
 
-.task-form > * {
-  padding: 3%;
-}
-
-// .task-form-top {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
 .task-form-top {
-  position: relative;
   font-weight: 700;
-  font-size: 20px;
-  border-bottom: 1px solid white;
+  font-size: 16px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 8px;
   text-align: center;
-  //border: 3px red solid;
   margin-bottom: 10px;
-}
-
-.task-form-top > .fa-times{
-  float: right;
-  font-size: 10x;
-  top: 10%;
+  border: 1px solid lightgrey;
 }
 
 .task-form-num-input > input, .task-form-petal-cnt > input {
-  width: 40%;
+  width: 15%;
   border: 0.5px solid lightgray;
   border-radius: 5px;
-  padding: 5px;
+  padding: 2px 4px;
   margin-bottom: 8px;
 }
 
-.task-form-petal-cnt > input {
-  width: 50%;
-}
-.task-form-petal-cnt {
-  display: flex;
-  justify-content: space-between;
+.task-form-num-input > input {
+  margin-right: 5px;
 }
 
-.get-new-task-modal {
-  width: 100%;
-  border: 0.5px lightgray solid;
-  border-radius: 5px;
-  padding: 5px;
-}
+.task-form-num-input > #frq-slct:hover, .task-form-num-input > input:hover, .task-form-petal-cnt > input:hover {
+  cursor: pointer;
+} 
 
 .task-form-num-input > #frq-slct {
   border: 0.5px solid lightgray;
   border-radius: 5px;
-  color: gray;
-  padding: 5px;
-  width: 58%;
-
+  padding: 1px 4px;
+  width: 50%;
+  margin-left: 10px;
 }
 
 .submit-btn > button {
@@ -82,6 +53,21 @@ ul {
 }
 
 .submit-btn > button:hover {
-  color: #9B80C6;
-  border: 2px solid #9B80C6;
+  background-color: lightgrey;
+  color: white;
+  border-style: inset;
+  cursor: pointer;
+}
+
+
+textarea.task-form-title {
+  padding: 5px 8px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+textarea {
+  resize: none;
 }

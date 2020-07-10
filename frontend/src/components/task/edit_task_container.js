@@ -19,7 +19,7 @@ class EditTaskForm extends React.Component {
                     action={action}
                  />
           
-        )
+        );
     }
 }
 
@@ -28,14 +28,14 @@ const mapStateToProps = (state) => {
     return ({
         formType: 'editTask',
         task: state.ui.modal.object
-    })
-}
+    });
+};
 
 const mapDispatchToProps = (dispatch) => {
     return ({
         closeModal: () => dispatch(closeModal()),
         action: (task) => dispatch(updateTask(task))
-    })
-}
+    });
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTaskForm);

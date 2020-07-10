@@ -36,6 +36,7 @@ class Jar extends Component {
 
     // Binding functions
     this._updateAnimation = this._updateAnimation.bind(this);
+    this.removePetals = this.removePetals.bind(this);
 
     // Body id
     this.bodyId = 1;
@@ -102,6 +103,13 @@ class Jar extends Component {
       const petalPosition = [(windowWidth - this.innerDiameter) / 2 + 0.15 * this.innerDiameter + Math.random() * 0.7 * this.innerDiameter, this.topOffset + 5 * this.unit];
       this.petals.push(this._createPolyBody(this._petalPath(), { position: petalPosition, mass: 1 }));
       setTimeout(() => this._spawnPetals(amt - 1), 150);
+    }
+  }
+
+  removePetals(amt) {
+    for (let i = 0; i < amt && this.petals.length > 0; ++i) {
+      const petal = this.petals.pop();
+      this.world.removeBody(petal);
     }
   }
 
@@ -244,7 +252,7 @@ class Jar extends Component {
         height={windowHeight * this.windowPercentage}
         className="jar"
         ref={this.canvasRef}
-        onClick={() => this.props.openModal('useRewards')}
+        onClick={() => this.props.openModal('useRewards', this.removePetals)}
       ></canvas>
     );
   }
