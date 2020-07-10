@@ -32,7 +32,14 @@ export default class UserDashboard extends React.Component{
         }
 
         let rewards = this.props.user.rewards
+        
+        let rewardList;
 
+        if(rewards.length === 0){
+            rewardList = <h3 className="no-reward-message">It looks like you haven't added any rewards! Click the "+" button to get started.</h3>
+        } else{
+            rewardList = rewards.map(reward => <RewardMenuItem reward={reward} />)
+        }
         return(
             <div className="dashboard-container">
 
@@ -41,7 +48,7 @@ export default class UserDashboard extends React.Component{
                 <div className="rewards-options">
                     <h2>Rewards <i className="fas fa-plus add-reward" onClick={this.openNewReward}></i></h2>
                     <div className="rewards-list">
-                        {rewards.map(reward=> <RewardMenuItem reward={reward}/>)}
+                        {rewardList}
                     </div>
                 </div>
 

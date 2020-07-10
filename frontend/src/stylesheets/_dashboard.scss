@@ -20,6 +20,15 @@
     color: white;
 }
 
+.rewards-options{
+    h2{
+        margin-bottom: 5px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+}
+
 .add-reward{
     padding: 5px;
     border-radius: 5px;
@@ -32,8 +41,24 @@
     color: purple;
 }
 
+.no-reward-message{
+    color: white;
+}
+
+.rewards-list{
+    border: 1px solid white; 
+    padding: 5px;
+    border-radius: 4px;
+    min-height: 300px;
+
+    .rewards-use-item-container{
+        background-color: lavender;
+    }
+}
+
+
 .rewards-petal-use.reward-menu-item {
-    background-color: white;
+    background-color: inherit;
     border: 0px;
     font-size: 15px;
 }
@@ -42,4 +67,8 @@
     color:#7856B3;
     cursor: default;
 }
+
+
+
+
 
