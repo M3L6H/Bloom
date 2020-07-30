@@ -33,8 +33,7 @@
 
 .petal-jar-counter {
     position: absolute;
-    top: 280px;
-    // left: 50%;
+    bottom: 30px;
     $petal-length: 47px;
     left: calc(50% - #{$petal-length});
     border: 2px solid grey;
@@ -55,8 +54,8 @@
 .redirect-add-habit {
     position: absolute;
     z-index: 1;
-    top: 50px;
-    right: -10px;
+    top: 60px;
+    right: -5px;
 }
 
 .redirect-add-habit i:hover {
