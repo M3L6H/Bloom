@@ -41,9 +41,10 @@ img.petal {
     padding: 8px;
     margin-top: 8px;
     border: 1px solid lightgrey;
+    position: relative;
 }
 
-.rewards-petal-use {
+.rewards-petal-use, .reward-menu-item {
     background-color: #EEF9FC;
     border: 1px solid #BCABD9;
     border-radius: 8px;
@@ -51,6 +52,7 @@ img.petal {
     display: flex;
     align-items: center;
     color: #7856B3;
+    color: #8D3F67;
 }
 
 .reward-menu-item > h3 {
@@ -67,3 +69,28 @@ img.petal {
     color: #18708B;
 }
 
+.rewards-create-button {
+    background-color: white;
+    padding: 1px 9px;
+    font-size: 12px;
+    width: 160px;
+    margin: 2px auto 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    color: grey;
+}
+
+.rewards-create-button:hover {
+    cursor: pointer;
+    color: #471F34;
+    border: 1px solid #471F34;
+}
+
+.delete-rewards-button {
+    position: absolute; 
+    top: -2px;
+    right: 5px;
+    color: #8D3F67;
+    z-index: 5;
+}
