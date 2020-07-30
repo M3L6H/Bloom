@@ -1,7 +1,9 @@
 import React from 'react';
 import {Draggable} from 'react-beautiful-dnd'; 
 import TaskItemShow from "../landing/task_item_show";
-class TaskShow extends React.Component {
+
+// Expects props
+class DraggableTask extends React.Component {
 
     render(){
         const { task, habit , user, updatePetals, updateTask } = this.props;
@@ -24,4 +26,4 @@ class TaskShow extends React.Component {
 
 }
 
-export default TaskShow;
+export default DraggableTask;

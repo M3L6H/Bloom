@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskShow from './task_show';
+import DraggableTask from './draggable_task';
 import { Button } from 'semantic-ui-react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 class TasksShow extends React.Component {
@@ -93,7 +93,7 @@ class TasksShow extends React.Component {
                                     ref = {provided.innerRef}
                                 >
                                         {this.state.taskOrder.map((taskId, idx) => (
-                                            <TaskShow key={taskId} index={idx} updateTask={updateTask} updatePetals={updatePetals} user={this.user} task={tasks[taskId]} habit={habits[tasks[taskId].habit]}/>
+                                            <DraggableTask key={taskId} index={idx} updateTask={updateTask} updatePetals={updatePetals} user={this.user} task={tasks[taskId]} habit={habits[tasks[taskId].habit]}/>
                                         ))}
                                     {provided.placeholder}
                                 </div>
