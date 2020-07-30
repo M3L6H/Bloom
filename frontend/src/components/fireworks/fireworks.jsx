@@ -3,6 +3,8 @@ import withWindowDimensions from '../hocs/with_window_dimensions';
 
 import p2 from 'p2';
 
+const FIREWORKS_LIMIT = 10;
+
 class Fireworks extends Component {
   constructor(props) {
     super(props);
@@ -52,6 +54,7 @@ class Fireworks extends Component {
   }
 
   spawnFireworks(numFireworks) {
+    numFireworks = Math.min(numFireworks, FIREWORKS_LIMIT);
     if (numFireworks > 0) {
       const { windowHeight, windowWidth } = this.props;
       const pos = [Math.random() * windowWidth, Math.random() * windowHeight];
