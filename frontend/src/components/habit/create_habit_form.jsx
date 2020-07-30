@@ -38,7 +38,6 @@ class CreateHabitForm extends React.Component {
 
     async handleSubmit(e) {
         e.preventDefault();
-<<<<<<< HEAD
        
         let habit = {title: this.state.title, description: this.state.description, tasks: this.state.tasks };
         await this.props.createHabit(habit);
@@ -48,14 +47,6 @@ class CreateHabitForm extends React.Component {
         // this.setState({ title: "", task: "", description: "", tasks: [] });
         // this.props.history.push("/habits");
         
-=======
-        if (this.state.title.length != 0) {
-            let habit = { title: this.state.title, description: this.state.description, tasks: this.state.tasks };
-            await this.props.createHabit(habit);
-            this.setState({ title: "", task: "", description: "", tasks: [] });
-            this.props.history.push("/habits");
-        }
->>>>>>> 92a8ec09b7c88e7a265a23003e8faed54e9d66bb
     }
 
     removeTask(idx) {

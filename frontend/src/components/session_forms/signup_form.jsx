@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, Grid } from "semantic-ui-react";
+import errorMessage from "../error_message/error_message";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -26,16 +27,6 @@ class SignupForm extends React.Component {
       .then(() => { if (this.props.errors.length === 0) this.props.closeModal() });
   }
 
-  renderErrors(type) {
-    if (Object.keys(this.props.errors).length > 0) {
-      return (
-        <div className='login-error'>
-          {this.props.errors[type]}
-        </div>
-      )
-    }
-  }
-
   render() {
     return (
       <Grid
@@ -55,15 +46,17 @@ class SignupForm extends React.Component {
               placeholder="Email"
               onChange={this.update("email")}
             />
-            {this.renderErrors("email")}
+            {errorMessage(this.props.errors, "email")}
             <Form.Input
               placeholder="First Name"
               onChange={this.update("fName")}
             />
+            {errorMessage(this.props.errors, "fName")}
             <Form.Input
               placeholder="Last Name"
               onChange={this.update("lName")}
             />
+            {errorMessage(this.props.errors, "lName")}
             <Form.Input
               fluid
               icon="lock"
@@ -72,7 +65,7 @@ class SignupForm extends React.Component {
               type="password"
               onChange={this.update("password")}
             />
-            {this.renderErrors("password")}
+            {errorMessage(this.props.errors, "password")}
             <Form.Input
               fluid
               icon="lock"
@@ -81,7 +74,7 @@ class SignupForm extends React.Component {
               type="password"
               onChange={this.update("password2")}
             />
-            {this.renderErrors("password2")}
+            {errorMessage(this.props.errors, "password2")}
             <Button className="ui test button" fluid size="large">
               Register
             </Button>

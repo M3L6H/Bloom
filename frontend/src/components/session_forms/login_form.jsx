@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, Grid } from "semantic-ui-react";
+import errorMessage from "../error_message/error_message";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -28,18 +29,6 @@ class LoginForm extends React.Component {
     this.props.closeModal();
   }
 
-  renderErrors(type) {
-    if (Object.keys(this.props.errors).length > 0) {
-
-      return (
-        <div className='login-error'>
-          {this.props.errors[type]}
-        </div>
-      )
-    }
-     
-  }
-
   render() {
   
     return (
@@ -53,7 +42,7 @@ class LoginForm extends React.Component {
               placeholder="Email"
               onChange={this.update("email")}
             />
-            {this.renderErrors("email")}
+            {errorMessage(this.props.errors, "email")}
             <Form.Input
               fluid
               icon="lock"
@@ -62,7 +51,7 @@ class LoginForm extends React.Component {
               type="password"
               onChange={this.update("password")}
             />
-            {this.renderErrors("password")}
+            {errorMessage(this.props.errors, "password")}
             <Button className="ui test button" fluid size="large" type="submit" onClick={this.handleSubmit}>
               Log In
             </Button>
