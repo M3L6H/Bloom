@@ -42,7 +42,6 @@ export default class EditDescriptionForm extends React.Component {
           
       const { open } = this.props;
       const { description } = this.state;
-      // debugger
       if (description === undefined || description === null) return null; 
 
       return (

@@ -30,7 +30,6 @@ class LoginForm extends React.Component {
 
   renderErrors(type) {
     if (Object.keys(this.props.errors).length > 0) {
-      console.log(this.props.errors)
 
       return (
         <div className='login-error'>
