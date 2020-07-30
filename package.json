@@ -24,9 +24,7 @@
     "mongoose": "^5.9.26",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "validator": "^13.1.1",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.12"
+    "validator": "^13.1.1"
   },
   "engines": {
     "node": "v10.13.0"
