@@ -40,6 +40,10 @@ div.associated-tasks {
     padding: 0.5rem 1rem;
 }
 
+.create-task-item:last-of-type {
+    border-bottom: 0px;
+}
+
 .label-tasks {
     font-weight: 700;
     font-size: 13px;
