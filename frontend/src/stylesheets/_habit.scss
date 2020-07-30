@@ -71,6 +71,12 @@ ul {
   }
 }
 
+.edit-description-input {
+   width:200px;
+   overflow:auto;
+   word-wrap:break-word;
+}
+
 .description, .edit-description-input, .edit-title-input {
   margin: 0;
   font-family: inherit;

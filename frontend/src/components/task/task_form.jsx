@@ -33,7 +33,6 @@ class TaskForm extends React.Component {
 
     if (!task.title) return;
     
-    debugger;
 
     this.props.action(task)
         .then(() => {this.props.closeModal();
@@ -93,6 +92,7 @@ class TaskForm extends React.Component {
               <input
                 type="number"
                 min="1"
+<<<<<<< HEAD
                 value={ this.state.periodNum }
                 onChange={ this.update("periodNum") }
               />
@@ -127,6 +127,16 @@ class TaskForm extends React.Component {
             />
           </Form.Field>
         </Form>
+=======
+                value={this.state.numPetals}
+                onChange={this.update("numPetals")}
+              />{" "}
+              petals per full completion
+            </div>
+            <div className="submit-task-btn">{submitButton}</div>
+          </div>
+        </form>
+>>>>>>> bc580c5a7c964d7d3a831df6ae63cb7afb88d823
       </div>
     );
   }

@@ -9,6 +9,12 @@ export default class RewardMenuItem extends React.Component{
         super(props);
 
         this.openEditForm = this.openEditForm.bind(this); 
+        this.handleDelete = this.handleDelete.bind(this);
+    }
+
+    handleDelete(e){
+        e.stopPropagation();
+        this.props.deleteReward(this.props.reward._id);
     }
 
     openEditForm(e){
@@ -18,7 +24,7 @@ export default class RewardMenuItem extends React.Component{
 
     render(){
         
-        const {reward} = this.props;
+        const { reward } = this.props;
 
         return(
             <div className="rewards-use-item-container" onClick={this.openEditForm}>
@@ -31,6 +37,9 @@ export default class RewardMenuItem extends React.Component{
                         alt="petal"
                         border="0"
                     />
+                </div>
+                <div className="delete-rewards-button" onClick={this.handleDelete}>
+                    <i className="fas fa-minus"></i>
                 </div>
             </div>
         )

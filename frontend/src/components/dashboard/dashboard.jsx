@@ -39,7 +39,7 @@ export default class UserDashboard extends React.Component{
         if(rewards.length === 0){
             rewardList = <h3 className="no-reward-message">It looks like you haven't added any rewards! Click the "+" button to get started.</h3>
         } else{
-            rewardList = rewards.map(reward => <RewardMenuItem key={ reward._id } reward={reward} openModal={this.props.openModal} />)
+            rewardList = rewards.map(reward => <RewardMenuItem key={reward._id} reward={reward} openModal={this.props.openModal} deleteReward={this.props.deleteReward}/>)
         }
         return(
             <div className="dashboard-container">
