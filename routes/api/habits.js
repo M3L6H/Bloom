@@ -30,7 +30,7 @@ router.get("/", passport.authenticate("jwt", { session: false }), (req,res)=>{
 });
 
 // Create Habit 
-// expects req body to have keys title, description,
+// expects req body to have keys title, description, tasks
 router.post("/", passport.authenticate("jwt", { session: false }), async (req,res)=>{
   const {errors,isValid} = validateNewHabitInput(req.body);
 
