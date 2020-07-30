@@ -30,6 +30,7 @@ div.associated-tasks {
     text-align: left;
     max-height: 100px;
     overflow-y: auto;
+    padding: 10px;
 }
 
 .create-task-item {
@@ -37,7 +38,7 @@ div.associated-tasks {
     justify-content: space-between;
     border-bottom: 1px solid lightgrey;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0.5rem 0 0.5rem;
 }
 
 .create-task-item:last-of-type {
