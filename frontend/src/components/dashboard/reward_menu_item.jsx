@@ -24,13 +24,13 @@ export default class RewardMenuItem extends React.Component{
             <div className="rewards-use-item-container" onClick={this.openEditForm}>
                 <div className="rewards-title">{reward.title}</div>
                 <div className="rewards-petal-use reward-menu-item" >
+                    <h3>{reward.petalCost}</h3>
                     <img
                         className="petal"
                         src="https://i.ibb.co/wNWxh1g/petal.png"
                         alt="petal"
                         border="0"
                     />
-                    <h3>{reward.petalCost}</h3>
                 </div>
             </div>
         )

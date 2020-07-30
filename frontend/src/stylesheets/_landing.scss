@@ -3,6 +3,7 @@
     // border-bottom: 1px solid lightgrey;
     // width: 414px;
     margin: 0 auto;
+    position: relative;
 }
 
 .landing-tasks-container {
@@ -28,4 +29,25 @@
     position: absolute;
     width: 100%;
     top: 20px;
+}
+
+.petal-jar-counter {
+    position: absolute;
+    top: 280px;
+    // left: 50%;
+    $petal-length: 47px;
+    left: calc(50% - #{$petal-length});
+    border: 2px solid grey;
+    padding: 1px 8px;
+    border-radius: 8px;
+    background-color: rgba($color: white, $alpha: 0.4);
+    text-align: center;
+    font-size: 12px;
+    color: grey;
+}
+
+.petal-jar-counter:hover {
+    cursor: pointer;
+    border-color: #471F34;
+    color: #471F34;
 }

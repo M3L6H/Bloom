@@ -45,6 +45,10 @@ class Landing extends React.Component {
         <div className="background">
             <div className="petal-jar-container">
                 <Jar user={user}/>
+          <div className="petal-jar-counter" onClick={() => this.props.openModal('useRewards')}>
+                  <div>Current Petals: {user.petals}</div>
+                  <div>Click to Redeem</div>
+                </div>
             </div>
             <div className="landing-tasks-container">
                 <div className="label-primary-tasks">Your Current Primary Tasks</div>
