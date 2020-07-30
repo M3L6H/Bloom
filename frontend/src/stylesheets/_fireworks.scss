@@ -6,3 +6,10 @@ canvas.fireworks {
   bottom: 0;
   z-index: 100;
 }
+
+.skip-fireworks {
+  position: fixed;
+  bottom: 5vw;
+  right: 5vw;
+  z-index: 101;
+}
