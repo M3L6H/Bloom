@@ -5,13 +5,9 @@ class TaskItemShow extends React.Component {
   constructor(props){
     super(props);
     this.state = { complete: false };
-    this.toggleComplete = this.toggleComplete.bind(this);
     this.completeTask = this.completeTask.bind(this);
   }
 
-  toggleComplete(){
-  }
-  
   completeTask(e){
     this.tracking = this.props.task.numTimesDone;
     this.tracking += 1;
