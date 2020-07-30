@@ -15,7 +15,11 @@ module.exports = function validateNewHabitInput(input) {
 
     if(Validator.isEmpty(input.title)){
         errors.title = "Title is required";
-    } 
+    }
+
+    if(input.tasks.length === 0){
+        errors.tasks = "Must add at least one Task"
+    }
 
     return {
         errors,

@@ -54,7 +54,7 @@ export default class EditDescriptionForm extends React.Component {
               className="edit-description-input"
               suppressContentEditableWarning={true}
               onBlur={ this.handleSubmit }
-            >{ description }</pre>
+            > { description }</pre>
           </div>
         </div>
       );
