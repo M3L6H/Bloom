@@ -51,6 +51,7 @@ class Landing extends React.Component {
                 </div>
             </div>
             <div className="landing-tasks-container">
+                <div className="redirect-add-habit" onClick={() => this.props.history.push("/habit")}><i className="fas fa-plus add-icon"></i></div>
                 <div className="label-primary-tasks">Your Current Primary Tasks</div>
                 {currentTasks.slice(0, 3).map((task, idx) => <TaskItemShow key={idx} task={task} habit={habits[task.habit]} updateTask={updateTask} updatePetals={updatePetals} user={user}/> )}
             </div>

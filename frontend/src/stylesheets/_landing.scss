@@ -51,3 +51,14 @@
     border-color: #471F34;
     color: #471F34;
 }
+
+.redirect-add-habit {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    right: -10px;
+}
+
+.redirect-add-habit i:hover {
+    color: #DCD0DC;
+} 
