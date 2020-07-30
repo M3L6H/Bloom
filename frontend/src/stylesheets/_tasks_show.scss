@@ -41,16 +41,17 @@
     margin: 8px auto;
     padding: 8px;
     color: grey;
+    position: relative;
 }
 
 .taskshow-title {
-  font-weight: 700;
-  color: #2E1F47;
+    font-weight: 700;
+    color: #2E1F47;
 }
 
 .taskshow-title span {
-  color: grey;
-  font-weight: 500;
+    color: grey;
+    font-weight: 500;
 }
 
 .shows-tasks-all {
@@ -59,4 +60,19 @@
     margin-top: 10px;
     max-height: 70vh;
     overflow-y: auto;
+}
+
+.COMPLETE {
+    background-color: rgba($color: white, $alpha: 0.4);
+    color: white;
+}
+
+.taskshow-completion {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.title-completed span {
+    color: white;
 }
