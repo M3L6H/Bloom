@@ -39,7 +39,7 @@ export const login = user => dispatch => (
   APIUtil.login(user).then(res => {
     dispatch(receiveCurrentUser(parseUser(res.data)));
   })
-  .catch(err => {
+  .catch(err => { ;
     dispatch(receiveSessionErrors(err.response.data));
   })
 );

@@ -25,7 +25,6 @@ class TaskForm extends React.Component {
 
     if (!task.title) return;
     
-    debugger;
 
     this.props.action(task)
         .then(() => {this.props.closeModal();

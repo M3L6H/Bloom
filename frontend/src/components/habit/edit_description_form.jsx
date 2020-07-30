@@ -42,6 +42,7 @@ export default class EditDescriptionForm extends React.Component {
           
       const { open } = this.props;
       const { description } = this.state;
+      // debugger
       if (description === undefined || description === null) return null; 
 
       return (
@@ -54,7 +55,7 @@ export default class EditDescriptionForm extends React.Component {
               className="edit-description-input"
               suppressContentEditableWarning={true}
               onBlur={ this.handleSubmit }
-            >{ description }</pre>
+            > { description }</pre>
           </div>
         </div>
       );
