@@ -43,13 +43,7 @@ class Landing extends React.Component {
 
     return(
         <div className="background">
-            <div className="petal-jar-container">
-                <Jar user={user}/>
-                <div className="petal-jar-counter" onClick={() => this.props.openModal('useRewards')}>
-                  <div>Current Petals: {user.petals}</div>
-                  <div>Click to Redeem</div>
-                </div>
-            </div>
+            <Jar user={user}/>
             <div className="landing-tasks-container">
                 <div className="redirect-add-habit" onClick={() => this.props.history.push("/habit")}><i className="fas fa-plus add-icon"></i></div>
                 <div className="label-primary-tasks">Your Current Primary Tasks</div>

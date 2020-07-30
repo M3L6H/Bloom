@@ -2,7 +2,7 @@ import React from 'react';
 import {Draggable} from 'react-beautiful-dnd'; 
 import TaskItemShow from "../landing/task_item_show";
 
-// Expects props
+// Expects props task, habit, user, updatePetals(fcn), and updateTask(fcn)
 class DraggableTask extends React.Component {
 
     render(){
