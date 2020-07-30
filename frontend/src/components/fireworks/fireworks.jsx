@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import withWindowDimensions from '../hocs/with_window_dimensions';
 
+import { Button } from 'semantic-ui-react';
+
 import p2 from 'p2';
 
 const FIREWORKS_LIMIT = 10;
@@ -33,6 +35,7 @@ class Fireworks extends Component {
 
     // Binding functions
     this.spawnFireworks = this.spawnFireworks.bind(this);
+    this.skipFireworks = this.skipFireworks.bind(this);
     this._updateAnimation = this._updateAnimation.bind(this);
 
     // Appearance
@@ -61,8 +64,18 @@ class Fireworks extends Component {
       this._spawnFirework(pos);
 
       if (numFireworks > 1) {
-        setTimeout(() => this.spawnFireworks(numFireworks - 1), 1250);
+        this.spawnTimeout = setTimeout(() => this.spawnFireworks(numFireworks - 1), 1250);
       }
+    }
+  }
+
+  skipFireworks() {
+    if (this.spawnTimeout) {
+      clearTimeout(this.spawnTimeout);
+    }
+
+    for (const firework in this.fireworks) {
+      this._deleteFirework(firework);
     }
   }
   
@@ -178,6 +191,13 @@ class Fireworks extends Component {
     });
   }
 
+  _deleteFirework(firework) {
+    this.fireworks[firework].forEach(fireworkParticle => {
+      this.world.removeBody(fireworkParticle);
+    });
+    delete this.fireworks[firework];
+  }
+
   _renderFirework(firework, ctx) {
     let dead = true;
 
@@ -190,10 +210,7 @@ class Fireworks extends Component {
     });
 
     if (dead) {
-      this.fireworks[firework].forEach(fireworkParticle => {
-        this.world.removeBody(fireworkParticle);
-      });
-      delete this.fireworks[firework];
+      this._deleteFirework(firework);
     }
   }
 
@@ -206,14 +223,21 @@ class Fireworks extends Component {
   render() {
     const { windowWidth, windowHeight } = this.props;
 
+    const shootingFireworks = Object.keys(this.fireworks).length > 0;
+
     return (
-      <canvas
-        width={windowWidth}
-        height={windowHeight}
-        className="fireworks"
-        ref={this.canvasRef}
-        style={{ pointerEvents: Object.keys(this.fireworks).length > 0 ?  "fill" : "none" }}
-      ></canvas>
+      <>
+        <canvas
+          width={windowWidth}
+          height={windowHeight}
+          className="fireworks"
+          ref={this.canvasRef}
+          style={{ pointerEvents: shootingFireworks ?  "fill" : "none" }}
+        ></canvas>
+        { shootingFireworks && 
+          <Button onClick={ this.skipFireworks } className="skip-fireworks">Skip</Button>
+        }
+      </>
     );
   }
 }
