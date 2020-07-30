@@ -244,16 +244,21 @@ class Jar extends Component {
   }
   
   render() {
-    const { windowWidth, windowHeight } = this.props;
+    const { windowWidth, windowHeight, user } = this.props;
 
     return (
-      <canvas
-        width={windowWidth}
-        height={windowHeight * this.windowPercentage}
-        className="jar"
-        ref={this.canvasRef}
-        // onClick={() => this.props.openModal('useRewards', this.removePetals)}
-      ></canvas>
+      <div className="petal-jar-container">
+        <canvas
+          width={windowWidth}
+          height={windowHeight * this.windowPercentage}
+          className="jar"
+          ref={this.canvasRef}
+        ></canvas>
+        <div className="petal-jar-counter" onClick={() => this.props.openModal('useRewards', this.removePetals)}>
+          <div>Current Petals: {user.petals}</div>
+          <div>Click to Redeem</div>
+        </div>
+      </div>
     );
   }
 }
