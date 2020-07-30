@@ -21,15 +21,19 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
-
     e.preventDefault();
     this.props.signup(this.state)
       .then(() => { if (this.props.errors.length === 0) this.props.closeModal() });
-    // this.props.closeModal();
   }
 
-  renderErrors() {
-    return <div>error messages will be printed</div>;
+  renderErrors(type) {
+    if (Object.keys(this.props.errors).length > 0) {
+      return (
+        <div className='login-error'>
+          {this.props.errors[type]}
+        </div>
+      )
+    }
   }
 
   render() {
@@ -51,6 +55,7 @@ class SignupForm extends React.Component {
               placeholder="Email"
               onChange={this.update("email")}
             />
+            {this.renderErrors("email")}
             <Form.Input
               placeholder="First Name"
               onChange={this.update("fName")}
@@ -67,6 +72,7 @@ class SignupForm extends React.Component {
               type="password"
               onChange={this.update("password")}
             />
+            {this.renderErrors("password")}
             <Form.Input
               fluid
               icon="lock"
@@ -75,6 +81,7 @@ class SignupForm extends React.Component {
               type="password"
               onChange={this.update("password2")}
             />
+            {this.renderErrors("password2")}
             <Button className="ui test button" fluid size="large">
               Register
             </Button>
