@@ -1,9 +1,10 @@
 import React from 'react';
 import {Draggable} from 'react-beautiful-dnd'; 
+import TaskItemShow from "../landing/task_item_show";
 class TaskShow extends React.Component {
 
     render(){
-        const { task, habit } = this.props;
+        const { task, habit , user, updatePetals, updateTask } = this.props;
         if(!task || !habit) return null;
         return(
             <Draggable draggableId={task._id} index={this.props.index}>
@@ -14,17 +15,7 @@ class TaskShow extends React.Component {
                     {...provided.dragHandleProps}
                     ref={provided.innerRef} 
                     >
-                        <div className="taskshow-title">{task.title} <span>- {habit.title}</span></div>
-                        <div className="taskshow-detail">
-                            <div className="frequency-and-petals">
-                                <div className="task-item-frequency">
-                                    Goal: {task.numTimesDone}/{task.periodNum} per {task.periodUnit}
-                                </div>
-                                <div className="task-item-petals">
-                                    Reward: { `${ task.numPetals } Petal${ task.numPetals > 1 ? "s" : "" }` }
-                                </div>
-                            </div>
-                        </div>
+                        <TaskShow task={task} habit={habit} updateTask={updateTask} updatePetals={updatePetals} user={user}/>
                     </div>
                 )}
             </Draggable>

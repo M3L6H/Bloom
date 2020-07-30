@@ -22,6 +22,7 @@ class TasksShow extends React.Component {
         // Fetch the current user and their habits/tasks
         await this.props.fetchHabits();
         const { user } = await this.props.fetchUser();
+        this.user = user; 
         if (this._isMounted) {
           this.setState({ loaded: true, taskOrder: Array.from(user.dailyTaskList) });
         }
@@ -92,7 +93,7 @@ class TasksShow extends React.Component {
                                     ref = {provided.innerRef}
                                 >
                                         {this.state.taskOrder.map((taskId, idx) => (
-                                            <TaskShow key={taskId} index={idx} task={tasks[taskId]} habit={habits[tasks[taskId].habit]}/>
+                                            <TaskShow key={taskId} index={idx} user={this.user} task={tasks[taskId]} habit={habits[tasks[taskId].habit]}/>
                                         ))}
                                     {provided.placeholder}
                                 </div>
