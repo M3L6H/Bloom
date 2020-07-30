@@ -24,6 +24,14 @@ class SignupForm extends React.Component {
     e.preventDefault();
     this.props.signup(this.state)
       .then(() => { if (this.props.errors.length === 0) this.props.closeModal() });
+
+    this.setState = {
+      email: "",
+      fName: "",
+      lName: "",
+      password: "",
+      password2: ""
+    };
   }
 
   renderErrors(type) {
@@ -32,6 +40,7 @@ class SignupForm extends React.Component {
         <div className='login-error'>
           {this.props.errors[type]}
         </div>
+
       )
     }
   }
