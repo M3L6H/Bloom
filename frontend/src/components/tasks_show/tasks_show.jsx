@@ -62,7 +62,7 @@ class TasksShow extends React.Component {
     }
 
     render(){
-        const { tasks, habits } = this.props;
+        const { tasks, habits , updatePetals , updateTask } = this.props;
 
         //Check for relevent props before rendering
         if(!this.state.loaded){
@@ -93,7 +93,7 @@ class TasksShow extends React.Component {
                                     ref = {provided.innerRef}
                                 >
                                         {this.state.taskOrder.map((taskId, idx) => (
-                                            <TaskShow key={taskId} index={idx} user={this.user} task={tasks[taskId]} habit={habits[tasks[taskId].habit]}/>
+                                            <TaskShow key={taskId} index={idx} updateTask={updateTask} updatePetals={updatePetals} user={this.user} task={tasks[taskId]} habit={habits[tasks[taskId].habit]}/>
                                         ))}
                                     {provided.placeholder}
                                 </div>

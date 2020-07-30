@@ -10,12 +10,12 @@ class TaskShow extends React.Component {
             <Draggable draggableId={task._id} index={this.props.index}>
                 { (provided) =>(
                     
-                    <div className="taskshow-container" 
+                    <div className="" 
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={provided.innerRef} 
                     >
-                        <TaskShow task={task} habit={habit} updateTask={updateTask} updatePetals={updatePetals} user={user}/>
+                        <TaskItemShow task={task} habit={habit} updateTask={updateTask} updatePetals={updatePetals} user={user}/>
                     </div>
                 )}
             </Draggable>
