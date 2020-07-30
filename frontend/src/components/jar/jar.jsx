@@ -252,7 +252,7 @@ class Jar extends Component {
         height={windowHeight * this.windowPercentage}
         className="jar"
         ref={this.canvasRef}
-        onClick={() => this.props.openModal('useRewards', this.removePetals)}
+        // onClick={() => this.props.openModal('useRewards', this.removePetals)}
       ></canvas>
     );
   }

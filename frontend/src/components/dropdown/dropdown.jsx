@@ -40,7 +40,7 @@ class Dropdown extends Component {
             <div onClick={() => this.props.history.push("/landing")}>Home</div>
             <div onClick={() => this.props.history.push("/dashboard")}>Dashboard</div>
             <div onClick={() => this.props.history.push("/habit")}>Create Habits</div>
-            <div onClick={this.props.logout}>LogOut</div>
+            <div onClick={this.props.logout}>Log Out</div>
         </div>
       </div>
     );
