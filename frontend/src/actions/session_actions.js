@@ -30,18 +30,18 @@ export const signup = user => dispatch => {
   return APIUtil.signup(user).then(res => {
     dispatch(receiveCurrentUser(parseUser(res.data)));
   })
-  .catch(err => {
-    dispatch(receiveSessionErrors(err.response.data));
-  })
+    .catch(err => {
+      dispatch(receiveSessionErrors(err.response.data));
+    })
 };
 
 export const login = user => dispatch => (
   APIUtil.login(user).then(res => {
     dispatch(receiveCurrentUser(parseUser(res.data)));
   })
-  .catch(err => { ;
-    dispatch(receiveSessionErrors(err.response.data));
-  })
+    .catch(err => {
+      dispatch(receiveSessionErrors(err.response.data));
+    })
 );
 
 export const logout = () => dispatch => {
@@ -51,7 +51,7 @@ export const logout = () => dispatch => {
 };
 
 export const demoLogin = () => (dispatch) => (
-  APIUtil.login({password: "password", email: "demouser@aa.io"})
+  APIUtil.login({ password: "password", email: "demouser@aa.io" })
     .then((res) => {
       dispatch(receiveCurrentUser(parseUser(res.data)));
     })

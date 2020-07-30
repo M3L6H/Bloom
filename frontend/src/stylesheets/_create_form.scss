@@ -11,6 +11,14 @@ li {
     border-radius: 4px;
     background-color: white;
 }
+.prop-user-for-tasks:hover {
+    cursor: default;
+}
+
+.prop-user-for-tasks {
+    border: 1px solid red;
+    color: red;
+}
 
 .habit-add-task-button {
     color: grey;
@@ -39,6 +47,10 @@ div.associated-tasks {
     border-bottom: 1px solid lightgrey;
     align-items: center;
     padding: 0.3rem 0.5rem 0 0.5rem;
+}
+
+.create-task-item:last-of-type {
+    border-bottom: 0px;
 }
 
 .label-tasks {

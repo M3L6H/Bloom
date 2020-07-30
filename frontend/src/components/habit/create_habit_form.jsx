@@ -3,7 +3,7 @@ import { Button, Form, Grid } from 'semantic-ui-react';
 
 class CreateHabitForm extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             title: "",
@@ -23,59 +23,56 @@ class CreateHabitForm extends React.Component {
     }
 
     handleEnter(e) {
-        if (e.key === "Enter" && this.state.task.length !== 0) {
+        if (e.key === "Enter" && this.state.task.length != 0) {
             this.state.tasks.unshift({ title: this.state.task });
             this.setState({ task: "" });
         }
     }
 
     handleAddTask(e) {
-        if (this.state.task.length !== 0) {
-        this.state.tasks.unshift({ title: this.state.task });}
+        if (this.state.task.length != 0) {
+            this.state.tasks.unshift({ title: this.state.task });
+        }
         this.setState({ task: "" });
     }
 
     async handleSubmit(e) {
         e.preventDefault();
-        if (this.state.title.length !== 0) {
-            let habit = {title: this.state.title, description: this.state.description, tasks: this.state.tasks };
+        if (this.state.title.length != 0) {
+            let habit = { title: this.state.title, description: this.state.description, tasks: this.state.tasks };
             await this.props.createHabit(habit);
             this.setState({ title: "", task: "", description: "", tasks: [] });
-            this.props.history.push("/landing");
-        } else { 
-            console.log("title can't be blank!")
+            this.props.history.push("/habits");
         }
-           
     }
 
     removeTask(idx) {
         return e => {
-        let newTask = this.state.tasks.slice();
-        newTask.splice(idx,1);
-        this.setState({ tasks: newTask });
+            let newTask = this.state.tasks.slice();
+            newTask.splice(idx, 1);
+            this.setState({ tasks: newTask });
         };
     }
 
     showTasks() {
-        if(!this.state.tasks.length) {
-            return(
+        if (!this.state.tasks.length) {
+            return (
                 <div className="prop-user-for-tasks">
                     Currently no tasks have been assigned. Please add tasks to achieve your goal.
                 </div>
             )
         } else {
-            return(
+            return (
                 <> <p className="label-tasks">Tasks</p>
-                <div className="associated-tasks">
+                    <div className="associated-tasks">
                         {this.state.tasks.map((task, idx) => <div key={idx} className="create-task-item">{Object.values(task)} <i className="far fa-minus-square" onClick={this.removeTask(idx)}></i></div>)}
-                </div>
+                    </div>
                 </>
-        )}
+            )
+        }
     }
-
-    render(){
-
-        return(
+    render() {
+        return (
             <div className="background-create-habit">
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 300 }}>
@@ -113,7 +110,5 @@ class CreateHabitForm extends React.Component {
             </div>
         )
     }
-
 }
-
 export default CreateHabitForm;
