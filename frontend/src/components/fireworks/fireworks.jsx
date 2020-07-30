@@ -209,6 +209,7 @@ class Fireworks extends Component {
         height={windowHeight}
         className="fireworks"
         ref={this.canvasRef}
+        style={{ pointerEvents: Object.keys(this.fireworks).length > 0 ?  "fill" : "none" }}
       ></canvas>
     );
   }
