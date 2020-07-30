@@ -97,7 +97,7 @@ class TaskForm extends React.Component {
                 value={this.state.numPetals}
                 onChange={this.update("numPetals")}
               />{" "}
-              petals per completion
+              petals per full completion
             </div>
             <div className="submit-task-btn">{submitButton}</div>
           </div>

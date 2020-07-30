@@ -18,6 +18,7 @@ class RewardsUse extends React.Component {
               />
               Your current petals: {petals}
             </div>
+            <div className=""></div>
             <div className="rewards-use-details">
               {rewards.map((reward, idx) => (
                 <RewardsUseItem key={idx} petals={petals} reward={reward} updatePetals={updatePetals} spawnFireworks={ spawnFireworks } removePetal={ removePetal }/>
