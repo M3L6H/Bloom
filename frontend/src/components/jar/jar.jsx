@@ -52,6 +52,10 @@ class Jar extends Component {
     this.petalImgSize = 72 * this.unit / 7.3;
     this.petalImg = new Image(this.petalImgSize, this.petalImgSize);
     this.petalImg.src = petal;
+
+    // Physics timeout
+    this.physicsTimeout = 8000;
+    this.currentTime = 0;
   }
 
   componentDidMount() {
@@ -62,6 +66,9 @@ class Jar extends Component {
 
     // Spawn petals
     this._spawnPetals(this.props.petals);
+
+    if (this.rAF) cancelAnimationFrame(this.rAF);
+    
     this.rAF = requestAnimationFrame(this._updateAnimation);
   }
 
@@ -102,6 +109,7 @@ class Jar extends Component {
       const { windowWidth } = this.props;
       const petalPosition = [(windowWidth - this.innerDiameter) / 2 + 0.15 * this.innerDiameter + Math.random() * 0.7 * this.innerDiameter, this.topOffset + 5 * this.unit];
       this.petals.push(this._createPolyBody(this._petalPath(), { position: petalPosition, mass: 1 }));
+      this.currentTime = 0;
       setTimeout(() => this._spawnPetals(amt - 1), 150);
     }
   }
@@ -110,6 +118,7 @@ class Jar extends Component {
     for (let i = 0; i < amt && this.petals.length > 0; ++i) {
       const petal = this.petals.pop();
       this.world.removeBody(petal);
+      this.currentTime = 0;
     }
   }
 
@@ -225,35 +234,46 @@ class Jar extends Component {
   _updateAnimation(time) {
     const { lastTime } = this.state;
     
+    // Update timeout
+    this.currentTime += time - lastTime;
+    
     // Update world
     const deltaTime = lastTime ? (time - lastTime) / 1000 : 0;
     this.world.step(this.fixedTimeStep, deltaTime, this.maxSubSteps);
 
-    // Render canvas
-    const canvas = this.canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const width = canvas.width;
-    const height = canvas.height;
+    if (this.currentTime < this.physicsTimeout) {
+      // Render canvas
+      const canvas = this.canvasRef.current;
+      const ctx = canvas.getContext("2d");
+      const width = canvas.width;
+      const height = canvas.height;
+  
+      ctx.clearRect(0, 0, width, height);
+  
+      this._renderBodies(ctx);
+    }
 
-    ctx.clearRect(0, 0, width, height);
-
-    this._renderBodies(ctx);
-    
     this.setState({ lastTime: time });
+
     this.rAF = requestAnimationFrame(this._updateAnimation);
   }
   
   render() {
-    const { windowWidth, windowHeight } = this.props;
+    const { windowWidth, windowHeight, user } = this.props;
 
     return (
-      <canvas
-        width={windowWidth}
-        height={windowHeight * this.windowPercentage}
-        className="jar"
-        ref={this.canvasRef}
-        // onClick={() => this.props.openModal('useRewards', this.removePetals)}
-      ></canvas>
+      <div className="petal-jar-container">
+        <canvas
+          width={windowWidth}
+          height={windowHeight * this.windowPercentage}
+          className="jar"
+          ref={this.canvasRef}
+        ></canvas>
+        <div className="petal-jar-counter" onClick={() => this.props.openModal('useRewards', this.removePetals)}>
+          <div>Current Petals: {user.petals}</div>
+          <div>Click to Redeem</div>
+        </div>
+      </div>
     );
   }
 }

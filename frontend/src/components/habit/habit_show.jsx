@@ -90,8 +90,13 @@ class HabitShow extends React.Component {
           <div className="show-tasks-container">
             <div className="habit-show-main">
               <div className="habit-description">
-                <div className="habit-show-top" onClick={ this.showEditTitle }>
-                  { titleComponent }
+                <div className="habit-show-top">
+                  {titleComponent}
+                  <i
+                    className="fa fa-pencil"
+                    onClick={this.showEditTitle}
+                    aria-hidden="true"
+                  ></i>
                 </div>
                 <div className="hsm-top">
                   Description
@@ -101,7 +106,7 @@ class HabitShow extends React.Component {
                     aria-hidden="true"
                   ></i>
                 </div>
-                <div 
+                <div
                   className={`habit-show-middle ${open}`}
                   onClick={this.showEditDescription}
                 >
