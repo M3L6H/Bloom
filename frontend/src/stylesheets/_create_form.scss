@@ -11,6 +11,14 @@ li {
     border-radius: 4px;
     background-color: white;
 }
+.prop-user-for-tasks:hover {
+    cursor: default;
+}
+
+.prop-user-for-tasks {
+    border: 1px solid red;
+    color: red;
+}
 
 .habit-add-task-button {
     color: grey;

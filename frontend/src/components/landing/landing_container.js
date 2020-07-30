@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchHabits } from '../../actions/habits_actions';
 import { updateTask } from '../../actions/tasks_actions';
 import { fetchUser, updatePetals } from '../../actions/users_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const mSTP = state => ({
     habits: state.entities.habits,
@@ -14,7 +15,8 @@ const mDTP = (dispatch) => ({
   fetchHabits: () => dispatch(fetchHabits()),
   updateTask: task => dispatch(updateTask(task)),
   fetchUser: () => dispatch(fetchUser()),
-  updatePetals: petals => dispatch(updatePetals(petals))
+  updatePetals: petals => dispatch(updatePetals(petals)),
+  openModal: (modal, object) => dispatch(openModal(modal, object))
 });
 
 export default connect(mSTP, mDTP)(Landing);
