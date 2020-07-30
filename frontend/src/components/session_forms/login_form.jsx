@@ -19,7 +19,7 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
-      .then(() => {this.props.closeModal()});
+      .then(() => { if (this.props.errors.length === 0) this.props.closeModal()});
   }
 
   handleDemo(e){
@@ -28,11 +28,20 @@ class LoginForm extends React.Component {
     this.props.closeModal();
   }
 
-  renderErrors() {
-    return <div>error messages will be printed</div>;
+  renderErrors(type) {
+    debugger
+    if (this.props.errors.length > 0) {
+      return (
+        <div className='login-error'>
+          {this.props.errors[type]}
+        </div>
+      )
+    }
+     
   }
 
   render() {
+  
     return (
       <Grid textAlign="center" verticalAlign="middle">
         <Grid.Column style={{ width: 250 }}>
@@ -44,6 +53,7 @@ class LoginForm extends React.Component {
               placeholder="Email"
               onChange={this.update("email")}
             />
+            {this.renderErrors("email")}
             <Form.Input
               fluid
               icon="lock"
@@ -52,6 +62,7 @@ class LoginForm extends React.Component {
               type="password"
               onChange={this.update("password")}
             />
+            {this.renderErrors("password")}
             <Button className="ui test button" fluid size="large" type="submit" onClick={this.handleSubmit}>
               Log In
             </Button>
