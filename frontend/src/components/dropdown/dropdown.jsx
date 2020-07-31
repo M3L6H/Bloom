@@ -1,51 +1,37 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 
-class Dropdown extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-      dropdownOpen: false
-    };
+import { Dropdown } from 'semantic-ui-react';
 
-    this._handleBodyClick = this._handleBodyClick.bind(this);
-    this._handleDropdownClick = this._handleDropdownClick.bind(this);
-  }
-
-  componentDidMount() {
-    document.body.addEventListener("click", this._handleBodyClick);
-  }
-
-  componentWillUnmount() {
-    document.body.removeEventListener("click", this._handleBodyClick);
-  }
-  
-  _handleBodyClick() {
-    this.setState({ dropdownOpen: false });
-  }
-
-  _handleDropdownClick(e) {
-    e.stopPropagation();
-    this.setState({ dropdownOpen: !this.state.dropdownOpen });
-  }
-
+class CustomDropdown extends Component {
   render() {
-    const { dropdownOpen } = this.state;
-    
     return (
-      <div className="navbar-icons">
-        <i className="fa fa-bars" onClick={ this._handleDropdownClick }></i>
-        <div className={`navbar-dropdown${ dropdownOpen ? " open" : "" }`}>
-            <div onClick={() => this.props.history.push("/landing")}>Home</div>
-            <div onClick={() => this.props.history.push("/dashboard")}>Dashboard</div>
-            <div onClick={() => this.props.history.push("/habit")}>Create Habits</div>
-            <div onClick={() => this.props.openModal("demo")}>Bloom Demo</div>
-            <div onClick={this.props.logout}>Log Out</div>
-        </div>
-      </div>
+        <Dropdown
+          icon="bars"
+          direction="right"
+          className="custom-dropdown"
+        >
+          <Dropdown.Menu className="dropdown-menu">
+            <Dropdown.Item
+              text="Home"
+              onClick={ () => this.props.history.push("/landing") }
+            />
+            <Dropdown.Item
+              text="Dashboard"
+              onClick={ () => this.props.history.push("/dashboard") }
+            />
+            <Dropdown.Item
+              text="Create Habits"
+              onClick={ () => this.props.history.push("/habit") }
+            />
+            <Dropdown.Item
+              text="Log Out"
+              onClick={ this.props.logout }
+            />
+          </Dropdown.Menu>
+        </Dropdown>
     );
   }
 }
 
-export default withRouter(Dropdown);
+export default withRouter(CustomDropdown);
