@@ -66,3 +66,21 @@
 .redirect-add-habit i:hover {
     color: #DCD0DC;
 } 
+
+.ui.dropdown.filter-dropdown {
+  position: absolute;
+  top: 13px;
+  left: 0.75rem;
+  margin-top: 1rem;
+  z-index: 1;
+  color: white;
+
+  i:hover {
+    color: #DCD0DC;
+  }
+}
+
+.message {
+  color: white;
+  margin: 0 1rem;
+}
