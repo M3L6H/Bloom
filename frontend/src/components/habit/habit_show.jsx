@@ -85,6 +85,7 @@ class HabitShow extends React.Component {
         } else {
           titleComponent = <span className="title">{title}</span>;
         }
+        
         return (
           <div className="show-tasks-container">
             <i className="fa fa-times" aria-hidden="true"

@@ -23,14 +23,14 @@ class CreateHabitForm extends React.Component {
     }
 
     handleEnter(e) {
-        if (e.key === "Enter" && this.state.task.length != 0) {
+        if (e.key === "Enter" && this.state.task.length !== 0) {
             this.state.tasks.unshift({ title: this.state.task });
             this.setState({ task: "" });
         }
     }
 
     handleAddTask(e) {
-        if (this.state.task.length != 0) {
+        if (this.state.task.length !== 0) {
             this.state.tasks.unshift({ title: this.state.task });
         }
         this.setState({ task: "" });
@@ -38,7 +38,7 @@ class CreateHabitForm extends React.Component {
 
     async handleSubmit(e) {
         e.preventDefault();
-        if (this.state.title.length != 0) {
+        if (this.state.title.length !== 0) {
             let habit = { title: this.state.title, description: this.state.description, tasks: this.state.tasks };
             await this.props.createHabit(habit);
             this.setState({ title: "", task: "", description: "", tasks: [] });

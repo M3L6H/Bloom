@@ -13,15 +13,15 @@ class deleteHabitForm extends React.Component {
 
     deleteHabit() {
         this.props.deleteHabit(this.props.props.habit._id);
-        this.props.props.history.push("/habits");
+        this.props.closeModal();
+        if (this.props.props.redirect) this.props.props.history.push("/habits");
     }
 
     render() {
-
         return (
            <div className="task-modal-backgroud">
                 <form className="task-form">
-                    <button className="submit-task-btn" onClick={this.deleteHabit}>Delete?</button>
+                    <button className="delete-confirm-btn" onClick={this.deleteHabit}>Delete this habit?</button>
                 </form>
             </div>
         );
