@@ -1,27 +1,10 @@
-import React from 'react';
+//This container returns a form for editing an existing task
+
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'
 import TaskForm from './task_form';
 import { updateTask } from '../../actions/tasks_actions'
 
-
-class EditTaskForm extends React.Component {
-
-    render(){ 
-        const { formType, task, closeModal, action } = this.props;
-        
-        return (
-            
-                < TaskForm
-                    formType={formType}
-                    task={task}
-                    closeModal={closeModal}
-                    action={action}
-                 />
-          
-        );
-    }
-}
 
 const mapStateToProps = (state) => {
 
@@ -38,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
     });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditTaskForm);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);

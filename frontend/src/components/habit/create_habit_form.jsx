@@ -12,7 +12,6 @@ class CreateHabitForm extends React.Component {
         this.state = {
             title: "",
             description: "",
-            task: "",
             tasks: []
         };
         this.handleEnter = this.handleEnter.bind(this);
@@ -33,11 +32,13 @@ class CreateHabitForm extends React.Component {
         }
     }
 
-    handleAddTask(e) {
-        if (this.state.task.length !== 0) {
-            this.state.tasks.unshift({ title: this.state.task });
-        }
-        this.setState({ task: "" });
+    async handleAddTask(task) {
+        console.log(task);
+        let newTaskList = this.state.tasks.slice();
+        newTaskList.push(task);
+        this.setState({
+            tasks: newTaskList
+        })
     }
 
     async handleSubmit(e) {
@@ -75,7 +76,7 @@ class CreateHabitForm extends React.Component {
             return(
                 <> <p className="label-tasks">Tasks</p>
                 <div className="associated-tasks">
-                        {this.state.tasks.map((task, idx) => <div key={idx} className="create-task-item">{Object.values(task)} <i className="far fa-minus-square" onClick={this.removeTask(idx)}></i></div>)}
+                        {this.state.tasks.map((task, idx) => <div key={idx} className="create-task-item">{task.title} <i className="far fa-minus-square" onClick={this.removeTask(idx)}></i></div>)}
                 </div>
                 </>
         )}
@@ -107,14 +108,7 @@ class CreateHabitForm extends React.Component {
                             {this.showTasks()}
                             {errorMessage(this.props.errors, "tasks")}
                             <div className="habit-add-task-button">
-                                Add Tasks  <i className="far fa-plus-square" onClick={this.handleAddTask}></i>
-                            </div>
-                            <div className="habit-taks-creator">
-                                <Form.Input
-                                    placeholder='Your task here..'
-                                    value={this.state.task}
-                                    onChange={this.update('task')}
-                                    onKeyDown={this.handleEnter} />
+                                Add Tasks  <i className="far fa-plus-square" onClick={()=>this.props.openModal("createHabitTask", this.handleAddTask)}></i>
                             </div>
                             <Button className='ui test button' type="button" fluid size='medium' onClick={this.handleSubmit}>
                                 Create Habit
