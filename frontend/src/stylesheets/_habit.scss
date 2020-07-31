@@ -205,5 +205,11 @@ ul {
 
 // delete modal button
 .delete-confirm-btn {
-  margin-left: 22%;
+  margin-left: 3%;
+  border-radius: 8px;
+  border: 0.8px lightgray solid;
+}
+
+.delete-habit-title {
+  font-weight: 800;
 }

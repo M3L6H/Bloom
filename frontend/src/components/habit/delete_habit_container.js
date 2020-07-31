@@ -18,10 +18,12 @@ class deleteHabitForm extends React.Component {
     }
 
     render() {
+    
+        const {props} = this.props;
         return (
            <div className="task-modal-backgroud">
                 <form className="task-form">
-                    <button className="delete-confirm-btn" onClick={this.deleteHabit}>Delete this habit?</button>
+                    <button className="delete-confirm-btn" onClick={this.deleteHabit}>Are you sure you want to delete <p className="delete-habit-title">{props.habit.title}?</p></button>
                 </form>
             </div>
         );
