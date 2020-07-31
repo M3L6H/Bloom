@@ -25,11 +25,29 @@ class LoginForm extends React.Component {
 
   handleDemo(e){
     e.preventDefault();
-    this.props.demoLogin();
-    this.props.closeModal();
+    const email = "demo@example.com";
+    const password = "aaaaaaaa";
+
+    const cb = (field, text, i, next) => {
+      this.setState({ [field]: text.slice(0, i) });
+
+      if (i < text.length) {
+        setTimeout(() => cb(field, text, i + 1, next), 50);
+      } else {
+        setTimeout(next, 100);
+      }
+    };
+
+    cb("email", email, 1, () => {
+      cb("password", password, 1, () => {
+        this.props.demoLogin();
+        this.props.closeModal();
+      })
+    });
   }
 
   render() {
+    const { email, password } = this.state;
   
     return (
       <Grid textAlign="center" verticalAlign="middle">
@@ -41,6 +59,7 @@ class LoginForm extends React.Component {
               iconPosition="left"
               placeholder="Email"
               onChange={this.update("email")}
+              value={ email }
             />
             {errorMessage(this.props.errors, "email")}
             <Form.Input
@@ -50,6 +69,7 @@ class LoginForm extends React.Component {
               placeholder="Password"
               type="password"
               onChange={this.update("password")}
+              value={ password }
             />
             {errorMessage(this.props.errors, "password")}
             <Button className="ui test button" fluid size="large" type="submit" onClick={this.handleSubmit}>
