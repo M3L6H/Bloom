@@ -28,11 +28,13 @@ export default class UserDashboard extends React.Component{
     }
 
     render(){
+        const { user } = this.props;
+      
         if(!this.state.propsLoaded){
             return null;
         }
 
-        let rewards = this.props.user.rewards
+        let rewards = user.rewards
         
         let rewardList;
 
@@ -46,6 +48,16 @@ export default class UserDashboard extends React.Component{
                 <div className="header">
                   <h1>{this.props.user.fName}</h1>
                   <Dropdown />
+                </div>
+
+                <div className="lifetime-petals">
+                  <h2>Lifetime Petals</h2>
+                  <div className="petals-earned">
+                    Petals earned: { user.petalsEarned || 0 }
+                  </div>
+                  <div className="petals-used">
+                    Petals used: { user.petalsUsed || 0 }
+                  </div>
                 </div>
 
                 <div className="rewards-options">

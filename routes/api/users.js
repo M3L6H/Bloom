@@ -269,10 +269,6 @@ router.get("/", passport.authenticate("jwt", { session: false }), async (req,res
     res.status(400).json({ ...err, message: "Bad Request" });
   }
 
-  // Migrate previous users who did not have these fields
-  user.petalsEarned = user.petalsEarned || 0;
-  user.petalsUsed = user.petalsUsed || 0;
-
   return res.json(user); 
 })
 
