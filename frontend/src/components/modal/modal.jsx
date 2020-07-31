@@ -12,6 +12,8 @@ import Demo from '../demo';
 import SortingModal from "../loading_screens/sorting_modal";
 function Modal({ modal, closeModal }) {
 
+    if (!modal) return null;
+
     let component;
           
     switch (modal.modal) {
