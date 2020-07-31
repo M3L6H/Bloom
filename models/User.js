@@ -52,6 +52,14 @@ const UserSchema = new Schema({
     habits: {
         type: Array,
         default: [] 
+    },
+    petalsEarned: {
+      type: Number,
+      default: 0
+    },
+    petalsUsed: {
+      type: Number,
+      default: 0
     }
 
 }, {
