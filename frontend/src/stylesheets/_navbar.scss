@@ -36,6 +36,15 @@
     padding-top: 10px;
     font-size: 20px;
 }
+
+.ui.dropdown .menu.dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+.custom-dropdown i {
+  margin-top: 10px;
+}
 ​
 .dropdown-content {
     display: none;
