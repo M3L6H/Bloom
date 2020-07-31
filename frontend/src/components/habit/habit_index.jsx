@@ -1,6 +1,7 @@
 import React from 'react';
 import HabitIndexItem from './habit_index_item';
 import { DragDropContext, Droppable} from "react-beautiful-dnd";
+import { openModal } from '../../actions/modal_actions';
 class HabitIndex extends React.Component {
 
     constructor(props){
@@ -54,14 +55,13 @@ class HabitIndex extends React.Component {
       this.setState({ habitList: newHabitList });
       this.props.updateHabitList(newHabitList); 
     }
-
     render() {
-        const { habits,  deleteHabit } = this.props;
+        const { habits,  deleteHabit, openModal } = this.props;
         
        //Check for relevent props before rendering
         if(!this.state.loaded){
-            return null; 
-        }
+            return null ;
+       } 
 
         return (
           <div className="background-index-habit">
@@ -81,7 +81,13 @@ class HabitIndex extends React.Component {
                     ref={provided.innerRef} 
                   >
                     {this.state.habitList.map((habitId, idx) => (
-                      <HabitIndexItem habit={habits[habitId]} index={idx} key={habitId} deleteHabit={deleteHabit} />
+                      <HabitIndexItem 
+                        openModal={openModal}
+                        habit={habits[habitId]} 
+                        index={idx} key={habitId} 
+                        deleteHabit={deleteHabit}
+                        redirect={false}
+                        />
                     ))}
                     {provided.placeholder}
                   </div>

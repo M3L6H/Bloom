@@ -21,6 +21,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     this.props.login(this.state)
       .then(() => { if (this.props.errors.length === 0) this.props.closeModal()});
+      
   }
 
   handleDemo(e){
@@ -45,6 +46,7 @@ class LoginForm extends React.Component {
       })
     });
   }
+  
 
   render() {
     const { email, password } = this.state;
@@ -54,6 +56,7 @@ class LoginForm extends React.Component {
         <Grid.Column style={{ width: 250 }}>
           <Form className="user-input-form">
             <Form.Input
+              // error={{ content: 'Email is invalid' }}
               fluid
               icon="user"
               iconPosition="left"
@@ -63,6 +66,7 @@ class LoginForm extends React.Component {
             />
             {errorMessage(this.props.errors, "email")}
             <Form.Input
+              // error={{ content: 'Password field is required' }}
               fluid
               icon="lock"
               iconPosition="left"

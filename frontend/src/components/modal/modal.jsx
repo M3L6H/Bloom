@@ -5,6 +5,7 @@ import LoginFormContainer from '../session_forms/login_form_container';
 import SignupFormContainer from '../session_forms/signup_form_container';
 import EditTaskContainer from '../task/edit_task_container';
 import CreateTaskContainer from '../task/create_task_container';
+import DeleteHabitContainer from '../habit/delete_habit_container';
 import RewardsUse from '../rewards_use';
 import {CreateRewards, EditReward} from '../reward_forms';
 import SortingModal from "../loading_screens/sorting_modal";
@@ -24,6 +25,9 @@ function Modal({ modal, closeModal }) {
         case 'editTask':
             component = <EditTaskContainer task={modal.object} />;
             break;  
+        case 'deleteHabit' :
+            component = <DeleteHabitContainer props={modal.object} />
+            break;
         case 'createTask':
             component = <CreateTaskContainer habit={modal.object}/>;
             break;
