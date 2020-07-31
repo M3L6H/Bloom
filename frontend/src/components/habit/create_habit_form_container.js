@@ -8,7 +8,6 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
     createHabit: habit => dispatch(createHabit(habit)),
-    // createTask: task => dispatch(createTask(task))
 });
 
 export default connect(mSTP, mDTP)(CreateHabitForm);
