@@ -28,8 +28,11 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.signup(this.state)
-      .then(() => { if (this.props.errors.length === 0) this.props.closeModal() })
-      .then(setTimeout(() => this.props.openModal("demo"), 2000))
+      .then(() => { if (this.props.errors.length === 0) {
+        this.props.closeModal();
+        setTimeout(() => this.props.openModal("demo"), 2000);
+      } }
+    );
   }
 
   render() {
