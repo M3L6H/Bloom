@@ -34,8 +34,10 @@ class TasksShow extends React.Component {
 
     async sort(e){
         e.preventDefault();
+        this.props.openModal("autoSort");
         await this.props.sortDailyTaskList();
-        this.setState({taskOrder:this.props.user.dailyTaskList})
+        this.setState({taskOrder:this.props.user.dailyTaskList});
+        this.props.closeModal(); 
     }
     
 
