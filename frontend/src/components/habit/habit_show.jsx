@@ -19,7 +19,6 @@ class HabitShow extends React.Component {
       this.hideEditDescription = this.hideEditDescription.bind(this);
       this.showEditTitle = this.showEditTitle.bind(this);
       this.hideEditTitle = this.hideEditTitle.bind(this);
-      this.deleteHabit = this.deleteHabit.bind(this);
     }
 
     componentDidMount() {
@@ -40,11 +39,6 @@ class HabitShow extends React.Component {
 
     hideEditTitle(title)  {
       this.setState({ title: title || this.props.habit.title, editTitle: false });
-    }
-
-    deleteHabit() {
-      this.props.deleteHabit(this.props.habit._id);
-      this.props.history.push("/habits");
     }
 
     render() {
@@ -93,7 +87,8 @@ class HabitShow extends React.Component {
         }
         return (
           <div className="show-tasks-container">
-            <i className="fa fa-times" aria-hidden="true" onClick={this.deleteHabit}></i>
+            <i className="fa fa-times" aria-hidden="true"
+              onClick={() => openModal("deleteHabit", this.props)} ></i>
             <div className="habit-show-main">
               <div className="habit-description">
                 <div className="habit-show-top">
