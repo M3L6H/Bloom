@@ -11,7 +11,7 @@ class Demo extends React.Component {
                 <div className="demo-image demo-02"></div>
                 <div className="demo-prompt">We'll start with creating some habits you want to form. Go to the upper right menu and click "Create Habits."</div>
                 <div className="demo-image demo-03"></div>
-                <div className="demo-prompt">Let's add some title and description on the habit you want to form.</div>
+                <div className="demo-prompt">Let's add some title and description on the habit you want to create.</div>
                 <div className="demo-image demo-04"></div>
                 <div className="demo-prompt">Currently there are no tasks assigned. Let's add some associated tasks. You can type in the textbox and either enter or click the + button to add.</div>
                 <div className="demo-image demo-05"></div>
@@ -23,7 +23,7 @@ class Demo extends React.Component {
                 <div className="demo-image demo-08"></div>
                 <div className="demo-prompt">All your tasks will show on the Tasks page. You can drag and drop to put the highest priority tasks on top.</div>
                 <div className="demo-image demo-09"></div>
-                <div className="demo-prompt">Your home page will show the top three priority tasks that you want to focus on, along with a jar to collect your petals.</div>
+                <div className="demo-prompt">Your home page will show a jar to collect your petals. You can select from upper left whether you want to view all your habits, or tasks per a specific habit.</div>
                 <div className="demo-image demo-10"></div>
                 <div className="demo-prompt">You can create your custom reward in your Dashboard page. Choose what you want to compensate yourself for your tasks completed and how many petals it'll cost!</div>
                 <div className="demo-image demo-11"></div>
