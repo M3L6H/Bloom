@@ -78,7 +78,10 @@ class TaskForm extends React.Component {
 
   update(field) {
     return (e, details) => { 
-      const { value, searchQuery } = details || {};
+      let { value, searchQuery } = details || {};
+
+      searchQuery = isNaN(searchQuery) ? null : searchQuery;
+
       const task = this.state.task;
       // There are several different ways values get passed in, thus all the ORs
       task[field] = searchQuery || value || e.currentTarget.value;
@@ -164,7 +167,7 @@ class TaskForm extends React.Component {
               onSearchChange={ this.update("numPetals") }
               onChange={ this.update("numPetals") }
               value={ numPetals }
-              noResultsMessage={ `Custom (${ this.state.numPetals })` }
+              noResultsMessage={ null }
               options={ numPetalsOptions }
             />
             {errorMessage(this.state.errors, "numPetals")}
