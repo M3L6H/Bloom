@@ -83,7 +83,7 @@ class HabitShow extends React.Component {
             />
           );
         } else {
-          titleComponent = <span className="title">{title}</span>;
+          titleComponent = <span className="title" onClick={ this.showEditTitle }>{title}</span>;
         }
         
         return (
