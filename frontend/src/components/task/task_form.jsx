@@ -13,9 +13,9 @@ class TaskForm extends React.Component {
       task: props.task,
       errors: {}
     }
-    this.state.task.periodNum = this.state.periodNum > 0 ? this.state.periodNum.toString() : "1";
-    this.state.task.numPetals = this.state.numPetals > 0 ? this.state.numPetals.toString() : "1";
-    this.state.task.periodUnit = this.state.periodUnit && this.state.periodUnit.length > 0 ? this.state.periodUnit : "day";
+    this.state.task.periodNum = this.state.task.periodNum > 0 ? this.state.task.periodNum.toString() : "1";
+    this.state.task.numPetals = this.state.task.numPetals > 0 ? this.state.task.numPetals.toString() : "1";
+    this.state.task.periodUnit = this.state.task.periodUnit && this.state.task.periodUnit.length > 0 ? this.state.task.periodUnit : "day";
     this.validateTask = this.validateTask.bind(this); 
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -29,7 +29,7 @@ class TaskForm extends React.Component {
   }
 
   validateTask(){
-    const task = Object.assign({}, this.state);
+    const task = Object.assign({}, this.state.task);
     let errors = {};
 
     if(!task.title || task.title.length === 0){
@@ -54,7 +54,7 @@ class TaskForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const task = Object.assign({}, this.state);
+    const task = Object.assign({}, this.state.task);
     if (this.props.formType === "editTask") {
         task._id = this.props.task._id; 
     } else {
@@ -79,13 +79,15 @@ class TaskForm extends React.Component {
   update(field) {
     return (e, details) => { 
       const { value, searchQuery } = details || {};
+      const task = this.state.task;
       // There are several different ways values get passed in, thus all the ORs
-      this.setState({ [field]: searchQuery || value || e.currentTarget.value })
+      task[field] = searchQuery || value || e.currentTarget.value;
+      this.setState({ task });
     };
   }
 
   render() {
-    const { numPetals } = this.state;
+    const { numPetals, title, periodNum, periodUnit } = this.state.task;
     const { formType } = this.props;
 
     const submitButton =
@@ -121,7 +123,7 @@ class TaskForm extends React.Component {
             <label>Title</label>
             <input 
               placeholder={ this.placeholders[Math.floor(Math.random() * this.placeholders.length)] }
-              value={ this.state.title }
+              value={ title }
               onChange={ this.update("title") }
             />
           </Form.Field>
@@ -134,7 +136,7 @@ class TaskForm extends React.Component {
               <Input
                 type="number"
                 min="1"
-                value={ this.state.periodNum }
+                value={ periodNum }
                 onChange={ this.update("periodNum") }
                 className="period-num"
               />
@@ -143,7 +145,7 @@ class TaskForm extends React.Component {
                 placeholder="Select Period"
                 selection
                 onChange={ this.update("periodUnit") }
-                value={ this.state.periodUnit }
+                value={ periodUnit }
                 className="period-unit"
                 options={ [
                   { key: "Day", text: "per Day", value: "day" },
@@ -161,7 +163,7 @@ class TaskForm extends React.Component {
               search
               onSearchChange={ this.update("numPetals") }
               onChange={ this.update("numPetals") }
-              value={ this.state.numPetals }
+              value={ numPetals }
               noResultsMessage={ `Custom (${ this.state.numPetals })` }
               options={ numPetalsOptions }
             />
