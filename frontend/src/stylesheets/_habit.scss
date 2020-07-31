@@ -210,6 +210,21 @@ ul {
   border: 0.8px lightgray solid;
 }
 
+.delete-habit-question {
+  text-align: center;
+}
+
 .delete-habit-title {
+  text-align: center;
   font-weight: 800;
+}
+
+.delete-habit-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-confirm-btn {
+  width: 40px;
+  padding: 5px;
 }

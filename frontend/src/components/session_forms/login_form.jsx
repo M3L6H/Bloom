@@ -20,10 +20,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     this.props.login(this.state)
       .then(() => { if (this.props.errors.length === 0) this.props.closeModal()});
-    this.setState = {
-      email: "",
-      password: "",
-    };
+      
   }
 
   handleDemo(e){
