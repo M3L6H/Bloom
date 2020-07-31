@@ -83,7 +83,7 @@ class HabitShow extends React.Component {
             />
           );
         } else {
-          titleComponent = <span className="title">{title}</span>;
+          titleComponent = <span className="title" onClick={ this.showEditTitle }>{title}</span>;
         }
         
         return (
@@ -92,11 +92,15 @@ class HabitShow extends React.Component {
               <div className="habit-description">
                 <div className="habit-show-top">
                   {titleComponent}
-                  <i
-                    className="fa fa-pencil"
-                    onClick={this.showEditTitle}
-                    aria-hidden="true"
-                  ></i>
+                  <span className="buttons">
+                    <i
+                      className="fa fa-pencil"
+                      onClick={this.showEditTitle}
+                      aria-hidden="true"
+                    ></i>
+                    <i className="fa fa-trash habit-delete" aria-hidden="true"
+                      onClick={() => openModal("deleteHabit", this.props)} ></i>
+                  </span>
                 </div>
                 <div className="hsm-top">
                   Description

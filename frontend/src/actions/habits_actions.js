@@ -72,6 +72,7 @@ export const updateHabit = (habit) => dispatch => (
         .catch(err => dispatch(receiveHabitErrors(err.response.data)))
 );
 
+
 export const deleteHabit = (id) => dispatch => (
     APIUtil.deleteHabit(id)
         .then(res => dispatch(removeHabit(res.data)))
