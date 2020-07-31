@@ -137,9 +137,19 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), async (r
 // Returns JSON of updated Habit or old habit if no updates are passed in body
 // Expects body to contain ONLY new key:value pairs
 router.patch("/:id", passport.authenticate("jwt", { session: false }), async (req,res)=>{
-  const {errors,isValid} = validateNewHabitInput(req.body);
+  const errors = {};
+  
+  const {
+    title,
+    description,
+    completed
+  } = req.body;
 
-  if (!isValid) {
+  if (title && title.length === 0) {
+    errors.title = "Title cannot be empty!";
+  }
+  
+  if (Object.keys(errors).length > 0) {
     return res.status(422).json(errors);
   }
 
@@ -160,12 +170,6 @@ router.patch("/:id", passport.authenticate("jwt", { session: false }), async (re
   if (req.user.id != myHabit.user) {
     return res.status(403).json("Cannot edit another user's habits!");
   }
-  
-  const {
-    title,
-    description,
-    completed
-  } = req.body;
 
   myHabit.title = title || myHabit.title;
   myHabit.description = description || myHabit.description;

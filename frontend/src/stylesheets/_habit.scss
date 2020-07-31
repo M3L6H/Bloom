@@ -4,12 +4,18 @@ ul {
 
 .habit-show-main {
     width: 310px;
-    margin: 8px auto;
     border: 1px solid lightgray;
     font-size: 1em;
     font-family: sans-serif;
     border-radius: 4px;
     background: transparent;
+    max-width: 414px;
+    border: 1px solid lightgray;
+    margin: 0 auto;
+    font-size: 1em;
+    font-family: sans-serif;
+    color: lightgrey;
+    border-radius: 4px;
 }
 
 .habit-description {
@@ -37,19 +43,8 @@ ul {
     justify-content: space-between;
 }
 
-.habit-show-main {
-  max-width: 414px;
-  border: 1px solid lightgray;
-  margin: 0 auto;
-  margin-top: 20px;
-  height: 100%;
-  font-size: 1em;
-  font-family: sans-serif;
-  color: lightgrey;
-  border-radius: 4px;
-}
 .habit-show-top > .title, .title-edit {
-    padding: 3% 20% 2% 7%;
+    padding: 3% 0% 2% 7%;
     font-size: 20px;
     color: #4c3073;
     font-weight: bold;
@@ -227,4 +222,25 @@ ul {
 .delete-confirm-btn {
   width: 40px;
   padding: 5px;
+  cursor: pointer;
+}
+
+.habit-delete {
+  cursor: pointer;
+
+  &:hover {
+    color: red;
+  }
+}
+
+.buttons {
+  margin-right: 1rem;
+
+  >* {
+    margin-right: 1rem;
+  }
+
+  >*:last-child {
+    margin-right: 0;
+  }
 }

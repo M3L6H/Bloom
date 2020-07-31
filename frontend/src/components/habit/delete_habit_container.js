@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import { deleteHabit } from "../../actions/habits_actions";
 
-
 class deleteHabitForm extends React.Component {
 
     constructor(props) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import HabitIndexItem from './habit_index_item';
 import { DragDropContext, Droppable} from "react-beautiful-dnd";
+
 class HabitIndex extends React.Component {
 
     constructor(props){
