@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Form, Dropdown } from 'semantic-ui-react';
+import { Button, Form, Dropdown, Input } from 'semantic-ui-react';
 
 class TaskForm extends React.Component {
 
@@ -8,8 +8,8 @@ class TaskForm extends React.Component {
     super(props);
  
     this.state = props.task;
-    this.state.periodNum = this.state.periodNum > 0 ? this.state.periodNum : 1;
-    this.state.numPetals = this.state.numPetals > 0 ? this.state.numPetals : 1;
+    this.state.periodNum = this.state.periodNum > 0 ? this.state.periodNum : "1";
+    this.state.numPetals = this.state.numPetals > 0 ? this.state.numPetals : "1";
     this.state.periodUnit = this.state.periodUnit.length > 0 ? this.state.periodUnit : "day";
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -40,44 +40,45 @@ class TaskForm extends React.Component {
   }
 
   update(field) {
-    return (e) => this.setState({ [field]: e.currentTarget.value });
+    return (e, details) => { 
+      const { value, searchQuery } = details || {};
+      // There are several different ways values get passed in, thus all the ORs
+      this.setState({ [field]: searchQuery || value || e.currentTarget.value })
+    };
   }
 
   render() {
- 
+    const { numPetals } = this.state;
     const { formType } = this.props;
+
     const submitButton =
       formType === "editTask" ? (
-        <button onClick={this.handleSubmit}>update</button>
+        <Button type="submit" fluid onClick={this.handleSubmit}>Update</Button>
       ) : (
-        <button onClick={this.handleSubmit}>create</button>
+        <Button type="submit" fluid onClick={this.handleSubmit}>Create</Button>
       );
 
     if (formType !== "createTask" && !this.state) {
       return null;
     }
 
-    const freqDropDown = (
-      <select
-        name="frq-select"
-        id="frq-slct"
-        onChange={this.update("periodUnit")}
-        value={this.state.periodUnit}
-      >
-        <option value="day">Day</option>
-        <option value="week">Week</option>
-        <option value="month" >Month</option>
-        <option value="year" >Year</option>
-      </select>
-    );
-
     const formTitle = 
       formType === "editTask" ? (
-        "Edit Task") : ("Create Task")
+        "Edit Task") : ("Create Task");
+
+    const numPetalsOptions = [
+      { key: "Small", text: "Small (1 petal)", value: "1" },
+      { key: "Medium", text: "Medium (5 petals)", value: "5" },
+      { key: "Large", text: "Large (10 petals)", value: "10" }
+    ];
+
+    if (numPetals && numPetals !== "1" && numPetals !== "5" && numPetals !== "10") {
+      numPetalsOptions.push({ key: "Custom", text: `Custom (${ numPetals } petals)`, value: numPetals });
+    }
     
     return (
       <div className="task-modal-background">
-        <Form className="task-form">
+        <Form className="task-form" unstackable>
           <div className="task-form-top">{ formTitle }</div>
           <Form.Field>
             <label>Title</label>
@@ -87,22 +88,23 @@ class TaskForm extends React.Component {
               onChange={ this.update("title") }
             />
           </Form.Field>
-          <Form.Group widths="equal">
-            <Form.Field>
-              <input
+          <Form.Field className="period-label">
+            <label>Frequency</label>
+          </Form.Field>
+            <div className="period-group">
+              <Input
                 type="number"
                 min="1"
-<<<<<<< HEAD
                 value={ this.state.periodNum }
                 onChange={ this.update("periodNum") }
+                className="period-num"
               />
-            </Form.Field>
-            <Form.Field>
               <Dropdown
                 placeholder="Select Period"
                 selection
                 onChange={ this.update("periodUnit") }
                 value={ this.state.periodUnit }
+                className="period-unit"
                 options={ [
                   { key: "Day", text: "per Day", value: "day" },
                   { key: "Week", text: "per Week", value: "week" },
@@ -110,33 +112,22 @@ class TaskForm extends React.Component {
                   { key: "Year", text: "per Year", value: "year" },
                 ] }
               />
-            </Form.Field>
-          </Form.Group>
+            </div>
           <Form.Field>
             <label>Reward</label>
             <Dropdown
               placeholder="Select Reward"
               selection
+              search
+              onSearchChange={ this.update("numPetals") }
               onChange={ this.update("numPetals") }
               value={ this.state.numPetals }
-              options={ [
-                { key: "Small", text: "Small (1 petal)", value: 1 },
-                { key: "Medium", text: "Medium (5 petals)", value: 5 },
-                { key: "Large", text: "Large (10 petals)", value: 10 },
-              ] }
+              noResultsMessage={ `Custom (${ this.state.numPetals })` }
+              options={ numPetalsOptions }
             />
           </Form.Field>
+          { submitButton }
         </Form>
-=======
-                value={this.state.numPetals}
-                onChange={this.update("numPetals")}
-              />{" "}
-              petals per full completion
-            </div>
-            <div className="submit-task-btn">{submitButton}</div>
-          </div>
-        </form>
->>>>>>> bc580c5a7c964d7d3a831df6ae63cb7afb88d823
       </div>
     );
   }

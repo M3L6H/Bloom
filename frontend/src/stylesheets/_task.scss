@@ -72,3 +72,25 @@ textarea.task-form-title {
 textarea {
   resize: none;
 }
+
+.ui.form .field.period-label {
+  margin: 0;
+}
+
+.period-group {
+  display: flex;
+  margin: 0 0 1em;
+
+  .period-num {
+    margin-right: 10px;
+
+    input[type=number] {
+      width: 100px;
+    }
+  }
+  
+  .ui.selection.dropdown.period-unit {
+    width: 150px;
+    min-width: auto;
+  }
+}
