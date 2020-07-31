@@ -13,9 +13,6 @@ class LoginForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
-  componentDidMount() {
-    // this.props.errors = [];
-  }
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
@@ -28,7 +25,12 @@ class LoginForm extends React.Component {
 
     e.preventDefault();
     this.props.login(this.state)
-      .then(() => { if (this.props.errors.length === 0) this.props.closeModal()});
+      .then(() => { 
+        if (this.props.errors.length === 0) {
+          this.props.closeModal()
+        }
+      }
+    );
     
       
   }
@@ -52,6 +54,7 @@ class LoginForm extends React.Component {
       cb("password", password, 1, () => {
         this.props.demoLogin();
         this.props.closeModal();
+        setTimeout(() => this.props.openModal("demo"), 2000);
       })
     });
   }

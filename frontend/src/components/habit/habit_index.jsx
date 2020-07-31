@@ -70,7 +70,11 @@ class HabitIndex extends React.Component {
               <div className="show-habits-header">
                 <h3>Your Habits</h3>
                 <i className="fas fa-plus add-icon" onClick={() => this.props.history.push("/habit")}></i>
-                <p>Click to Edit Details</p>
+                <div className="instructions">
+                  <span>Click a Habit to Edit Details</span>
+                  <span>Drag and Drop to re-order priority</span>
+                </div>
+                
               </div>
 
               <Droppable droppableId="1">

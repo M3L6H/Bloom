@@ -83,7 +83,8 @@ class TasksShow extends React.Component {
                               Auto Sort
                             </Button>
 
-                            <p>Drag and Drop to Change Priority</p>
+                            <p>Drag and Drop Tasks to Change Priority</p>
+                            <span>Auto Sort re-orders your task list to match the priority of your habits list</span>
 
                         </div>
 

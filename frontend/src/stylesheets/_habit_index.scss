@@ -51,12 +51,15 @@
     position: relative;
 }
 
-.show-habits-header p {
+.show-habits-header .instructions {
     font-weight: 500;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     // margin-bottom: -20px;
     position: absolute;
-    left: 35%;
+    left: 28%;
     top: 20px;
 }
 
