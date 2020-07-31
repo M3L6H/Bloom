@@ -5,16 +5,26 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
+export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS';
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser
 });
 
-export const receiveSessionErrors = errors => ({
+export const removeErrors = (errors) => {
+  return ({
+    type: REMOVE_SESSION_ERRORS,
+    errors
+  })
+}
+
+export const receiveSessionErrors = errors => {
+  return{
+  
   type: RECEIVE_SESSION_ERRORS,
   errors
-});
+}};
 
 export const receiveUserLogout = () => ({
   type: RECEIVE_USER_LOGOUT
@@ -59,3 +69,7 @@ export const demoLogin = () => (dispatch) => (
       dispatch(receiveSessionErrors(err.response.data));
     })
 );
+
+export const clearErrors = () => (dispatch) => {
+  return dispatch(removeErrors());
+};

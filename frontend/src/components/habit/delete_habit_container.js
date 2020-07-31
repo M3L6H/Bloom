@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import { deleteHabit } from "../../actions/habits_actions";
-import { Button } from 'semantic-ui-react';
 
 
 class deleteHabitForm extends React.Component {
