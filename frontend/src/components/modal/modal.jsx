@@ -7,6 +7,7 @@ import EditTaskContainer from '../task/edit_task_container';
 import CreateTaskContainer from '../task/create_task_container';
 import RewardsUse from '../rewards_use';
 import {CreateRewards, EditReward} from '../reward_forms';
+import Demo from '../demo';
 
 function Modal({ modal, closeModal }) {
     if (!modal) return null;
@@ -33,8 +34,11 @@ function Modal({ modal, closeModal }) {
             component = <CreateRewards />;
             break;
         case 'editReward':
-            component = <EditReward reward={modal.object}/>
+            component = <EditReward reward={modal.object}/>;
             break; 
+        case 'demo':
+            component = <Demo />;
+            break;
         default:
             return null;
     }

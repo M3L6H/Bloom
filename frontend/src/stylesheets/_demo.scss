@@ -1,0 +1,25 @@
+.demo-container {
+    width: 300px;
+    background-color: white;
+    border-radius: 12px;
+    height: 80vh;
+    border: 1px solid lightgrey;
+    overflow-y: auto;
+}
+
+.demo-image {
+    width: 280px;
+    height: 180px;
+    border: 1px solid red;
+    margin: 0 auto;
+}
+
+.demo-01 {
+    background: url("../images/demo02.png");
+    background-size: cover;
+}
+
+.demo-02 {
+    background: url("../images/demo01.png");
+    background-size: cover;
+}
