@@ -2,13 +2,12 @@
 
 import React from "react";
 
-export default function AutoSortLoading(){
+export default function SortingModal(){
     return (
-        <div class="ui segment">
-            <div class="ui active dimmer">
-                <div class="ui text loader">Sorting Tasks</div>
+        
+            <div class="ui inverted active dimmer">
+                <div class="ui text active loader">Sorting Tasks</div>
             </div>
-            <p></p>
-        </div>
+          
     );
 }
