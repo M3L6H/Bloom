@@ -2,15 +2,21 @@ import React from 'react';
 
 import { Button, Form, Dropdown, Input } from 'semantic-ui-react';
 
+import errorMessage from "../error_message/error_message"
+
 class TaskForm extends React.Component {
 
   constructor(props) {
     super(props);
  
-    this.state = props.task;
-    this.state.periodNum = this.state.periodNum > 0 ? this.state.periodNum.toString() : "1";
-    this.state.numPetals = this.state.numPetals > 0 ? this.state.numPetals.toString() : "1";
-    this.state.periodUnit = this.state.periodUnit.length > 0 ? this.state.periodUnit : "day";
+    this.state = {
+      task: props.task,
+      errors: {}
+    }
+    this.state.task.periodNum = this.state.periodNum > 0 ? this.state.periodNum.toString() : "1";
+    this.state.task.numPetals = this.state.numPetals > 0 ? this.state.numPetals.toString() : "1";
+    this.state.task.periodUnit = this.state.periodUnit && this.state.periodUnit.length > 0 ? this.state.periodUnit : "day";
+    this.validateTask = this.validateTask.bind(this); 
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.placeholders = [
@@ -22,6 +28,30 @@ class TaskForm extends React.Component {
     ];
   }
 
+  validateTask(){
+    const task = Object.assign({}, this.state);
+    let errors = {};
+
+    if(!task.title || task.title.length === 0){
+      errors.title = "Title is required";
+    }
+
+    if(!task.periodNum || !Number.isInteger(Number(task.periodNum))){
+      errors.periodNum = "Must be an integer";
+    }
+
+    if(!task.numPetals || !Number.isInteger(Number(task.numPetals))){
+      errors.numPetals = "Must be an integer";
+    }
+
+    let response = {
+      errors: errors,
+      isValid: Object.keys(errors).length === 0
+    }
+    
+    return response; 
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const task = Object.assign({}, this.state);
@@ -31,12 +61,19 @@ class TaskForm extends React.Component {
         task.habit = this.props.habit;
     }
 
-    if (!task.title) return;
+    const {errors, isValid} = this.validateTask(); 
     
-
-    this.props.action(task)
-        .then(() => {this.props.closeModal();
-    });
+    if(isValid){
+      this.props.action(task)
+        .then(() => {
+          this.props.closeModal();
+        }); 
+    } else{
+      this.setState({
+        errors: errors
+      })
+    }
+    
   }
 
   update(field) {
@@ -88,6 +125,8 @@ class TaskForm extends React.Component {
               onChange={ this.update("title") }
             />
           </Form.Field>
+          {errorMessage(this.state.errors, "title")}
+
           <Form.Field className="period-label">
             <label>Frequency</label>
           </Form.Field>
@@ -99,6 +138,7 @@ class TaskForm extends React.Component {
                 onChange={ this.update("periodNum") }
                 className="period-num"
               />
+              {errorMessage(this.state.errors,"periodNum")}
               <Dropdown
                 placeholder="Select Period"
                 selection
@@ -125,6 +165,7 @@ class TaskForm extends React.Component {
               noResultsMessage={ `Custom (${ this.state.numPetals })` }
               options={ numPetalsOptions }
             />
+            {errorMessage(this.state.errors, "numPetals")}
           </Form.Field>
           { submitButton }
         </Form>

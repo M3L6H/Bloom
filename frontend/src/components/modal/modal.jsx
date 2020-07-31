@@ -10,12 +10,9 @@ import RewardsUse from '../rewards_use';
 import {CreateRewards, EditReward} from '../reward_forms';
 import Demo from '../demo';
 import SortingModal from "../loading_screens/sorting_modal";
-<<<<<<< HEAD
 import CreateHabitTask from "../task/create_habit_task_container";
 
 
-=======
->>>>>>> d537f29524c73a38d7a8935f199fba1565c4c708
 function Modal({ modal, closeModal }) {
 
     if (!modal) return null;
