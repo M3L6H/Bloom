@@ -8,11 +8,16 @@ import CreateTaskContainer from '../task/create_task_container';
 import DeleteHabitContainer from '../habit/delete_habit_container';
 import RewardsUse from '../rewards_use';
 import {CreateRewards, EditReward} from '../reward_forms';
+import Demo from '../demo';
 import SortingModal from "../loading_screens/sorting_modal";
+<<<<<<< HEAD
 import CreateHabitTask from "../task/create_habit_task_container";
 
 
+=======
+>>>>>>> d537f29524c73a38d7a8935f199fba1565c4c708
 function Modal({ modal, closeModal }) {
+
     if (!modal) return null;
 
     let component;
@@ -40,7 +45,7 @@ function Modal({ modal, closeModal }) {
             component = <CreateRewards />;
             break;
         case 'editReward':
-            component = <EditReward reward={modal.object}/>
+            component = <EditReward reward={modal.object}/>;
             break; 
         case "autoSort":
             component = <SortingModal/>
@@ -48,6 +53,9 @@ function Modal({ modal, closeModal }) {
         case "createHabitTask":
             component = <CreateHabitTask action={modal.object}/>
             break; 
+        case "demo":
+            component = <Demo />
+            break;
         default:
             return null;
     }

@@ -13,14 +13,23 @@ class LoginForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
+  componentDidMount() {
+    // this.props.errors = [];
+  }
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
+  componentWillMount() {
+    this.props.clearErrors();
+  }
+  
   handleSubmit(e) {
+
     e.preventDefault();
     this.props.login(this.state)
       .then(() => { if (this.props.errors.length === 0) this.props.closeModal()});
+    
       
   }
 

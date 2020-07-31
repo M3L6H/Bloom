@@ -25,6 +25,10 @@ class CustomDropdown extends Component {
               onClick={ () => this.props.history.push("/habit") }
             />
             <Dropdown.Item
+              text="Bloom Demo"
+              onClick={ () => this.props.openModal("demo") }
+            />
+            <Dropdown.Item
               text="Log Out"
               onClick={ this.props.logout }
             />
