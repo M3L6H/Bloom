@@ -1,24 +1,10 @@
-import React from "react";
+// This container returns a form for creating tasks directly by editing an existing habit
+
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import TaskForm from "./task_form";
 import { createTask } from "../../actions/tasks_actions";
 
-class CreateTaskForm extends React.Component {
-  render() {
-    const { formType, action, closeModal, task, habit } = this.props;
-
-    return (
-      <TaskForm
-        task={task}
-        formType={formType}
-        action={action}
-        habit={habit}
-        closeModal={closeModal}
-      />
-    );
-  }
-}
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -40,4 +26,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateTaskForm);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);
