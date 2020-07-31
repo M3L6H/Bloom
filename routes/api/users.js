@@ -239,7 +239,19 @@ router.patch("/update_petals", passport.authenticate("jwt", { session: false }),
     res.json("User not found!").status(404);
   }
 
+  const diff = req.body.petals - user.petals;
   user.petals = req.body.petals;
+
+  // Migrate previous users who did not have these fields
+  user.petalsEarned = user.petalsEarned || 0;
+  user.petalsUsed = user.petalsUsed || 0;
+
+  if (diff > 0) {
+    user.petalsEarned += diff;
+  } else {
+    user.petalsUsed += Math.abs(diff);
+  }
+
   user.save()
     .then(user=> res.json(user))
     .catch(err=> res.json(err).status(422));
@@ -256,6 +268,10 @@ router.get("/", passport.authenticate("jwt", { session: false }), async (req,res
   } catch (err) {
     res.status(400).json({ ...err, message: "Bad Request" });
   }
+
+  // Migrate previous users who did not have these fields
+  user.petalsEarned = user.petalsEarned || 0;
+  user.petalsUsed = user.petalsUsed || 0;
 
   return res.json(user); 
 })
