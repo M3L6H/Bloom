@@ -33,11 +33,14 @@ class CreateRewards extends React.Component {
       formTitle = "Create A Reward for Yourself!";
     }else {
       formTitle = "Edit Reward";
-      deleteButton = <Button className="ui test button delete-reward-button" type="button" fluid size="medium"
+      deleteButton = (<Button className="ui test button delete-reward-button" type="button" fluid size="medium"
         onClick={this.deleteReward}>
           Delete Reward 
-      </Button>;
+      </Button>);
     }
+
+    let suggestions = ["Play an hour of League.", "Eat a chocolate bar.", "Watch a movie.", "Treat myself a nice dinner.", "Wear a beanie.", "Take a vacation to Hawaii.", "Go for a walk.", "Go for a backpacking trip.", "Take a long bath."];
+    let suggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
 
     return (
       <>
@@ -50,16 +53,16 @@ class CreateRewards extends React.Component {
               <div className="habit-add-title">{formTitle}</div>
               <br />
               <div className="field">
-                <label>What to do when you're done?</label>
+                <label>Reward</label>
                 <Form.Input
-                  placeholder="Reward yourself for your work!"
+                  placeholder={suggestion}
                   value={this.state.title}
                   onChange={this.update("title")}
                 />
               </div>
               <div className="ui form"></div>
               <div className="field">
-                <label>How many petals will you need for this reward?</label>
+                <label>Petal Cost for Redeeming</label>
                 <input type="number" min="1" value={this.state.petalCost} onChange={this.update("petalCost")}/>
               </div>
               <Button className="ui test button" type="button" fluid size="medium"
