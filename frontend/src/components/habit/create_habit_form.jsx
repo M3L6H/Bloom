@@ -1,9 +1,13 @@
 import React from 'react';
 import { Button, Form, Grid } from 'semantic-ui-react';
 
+import { RECEIVE_HABIT } from "../../actions/habits_actions";
+
+import errorMessage from "../error_message/error_message";
+
 class CreateHabitForm extends React.Component {
 
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
             title: "",
@@ -38,41 +42,48 @@ class CreateHabitForm extends React.Component {
 
     async handleSubmit(e) {
         e.preventDefault();
-        if (this.state.title.length !== 0) {
-            let habit = { title: this.state.title, description: this.state.description, tasks: this.state.tasks };
-            await this.props.createHabit(habit);
-            this.setState({ title: "", task: "", description: "", tasks: [] });
-            this.props.history.push("/habits");
-        }
+        
+            let habit = {title: this.state.title, description: this.state.description, tasks: this.state.tasks };
+
+            this.props.createHabit(habit).then(res => {
+
+                if (res.type === RECEIVE_HABIT){
+                    this.setState({ title: "", task: "", description: "", tasks: [] });
+                    this.props.history.push("/habits");
+                }
+                
+            })
+            
     }
 
     removeTask(idx) {
         return e => {
-            let newTask = this.state.tasks.slice();
-            newTask.splice(idx, 1);
-            this.setState({ tasks: newTask });
+        let newTask = this.state.tasks.slice();
+        newTask.splice(idx,1);
+        this.setState({ tasks: newTask });
         };
     }
 
     showTasks() {
-        if (!this.state.tasks.length) {
-            return (
+        if(!this.state.tasks.length) {
+            return(
                 <div className="prop-user-for-tasks">
                     Currently no tasks have been assigned. Please add tasks to achieve your goal.
                 </div>
             )
         } else {
-            return (
+            return(
                 <> <p className="label-tasks">Tasks</p>
-                    <div className="associated-tasks">
+                <div className="associated-tasks">
                         {this.state.tasks.map((task, idx) => <div key={idx} className="create-task-item">{Object.values(task)} <i className="far fa-minus-square" onClick={this.removeTask(idx)}></i></div>)}
-                    </div>
+                </div>
                 </>
-            )
-        }
+        )}
     }
-    render() {
-        return (
+
+    render(){
+
+        return(
             <div className="background-create-habit">
                 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 300 }}>
@@ -80,17 +91,21 @@ class CreateHabitForm extends React.Component {
                             <div className="habit-add-title">
                                 Title
                             </div>
+                            {errorMessage(this.props.errors, "title")}
                             <Form.Input
                                 placeholder='Habit'
                                 value={this.state.title}
                                 onChange={this.update('title')} />
+                                
                             <div className="ui form">
                                 <div className="field">
                                     <label>Description</label>
                                     <textarea rows="4" placeholder="Describe your goals." onChange={this.update('description')} value={this.state.description} ></textarea>
                                 </div>
                             </div>
+                            
                             {this.showTasks()}
+                            {errorMessage(this.props.errors, "tasks")}
                             <div className="habit-add-task-button">
                                 Add Tasks  <i className="far fa-plus-square" onClick={this.handleAddTask}></i>
                             </div>
@@ -110,5 +125,7 @@ class CreateHabitForm extends React.Component {
             </div>
         )
     }
+
 }
+
 export default CreateHabitForm;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, Grid } from "semantic-ui-react";
+import errorMessage from "../error_message/error_message";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -28,24 +29,30 @@ class LoginForm extends React.Component {
 
   handleDemo(e){
     e.preventDefault();
-    this.props.demoLogin();
-    this.props.closeModal();
-  }
+    const email = "demo@example.com";
+    const password = "aaaaaaaa";
 
-  renderErrors(type) {
-    if (Object.keys(this.props.errors).length > 0) {
+    const cb = (field, text, i, next) => {
+      this.setState({ [field]: text.slice(0, i) });
 
-      return (
-        <div className='login-error'>
-          {this.props.errors[type]}
-        </div>
-      )
-    }
-     
+      if (i < text.length) {
+        setTimeout(() => cb(field, text, i + 1, next), 50);
+      } else {
+        setTimeout(next, 100);
+      }
+    };
+
+    cb("email", email, 1, () => {
+      cb("password", password, 1, () => {
+        this.props.demoLogin();
+        this.props.closeModal();
+      })
+    });
   }
   
 
   render() {
+    const { email, password } = this.state;
   
     return (
       <Grid textAlign="center" verticalAlign="middle">
@@ -58,8 +65,9 @@ class LoginForm extends React.Component {
               iconPosition="left"
               placeholder="Email"
               onChange={this.update("email")}
+              value={ email }
             />
-            {this.renderErrors("email")}
+            {errorMessage(this.props.errors, "email")}
             <Form.Input
               // error={{ content: 'Password field is required' }}
               fluid
@@ -68,8 +76,9 @@ class LoginForm extends React.Component {
               placeholder="Password"
               type="password"
               onChange={this.update("password")}
+              value={ password }
             />
-            {this.renderErrors("password")}
+            {errorMessage(this.props.errors, "password")}
             <Button className="ui test button" fluid size="large" type="submit" onClick={this.handleSubmit}>
               Log In
             </Button>

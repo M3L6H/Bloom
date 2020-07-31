@@ -93,7 +93,16 @@ class TasksShow extends React.Component {
                                     ref = {provided.innerRef}
                                 >
                                         {this.state.taskOrder.map((taskId, idx) => (
-                                            <DraggableTask key={taskId} index={idx} updateTask={updateTask} updatePetals={updatePetals} user={this.user} task={tasks[taskId]} habit={habits[tasks[taskId].habit]}/>
+                                            <DraggableTask 
+                                              key={taskId} 
+                                              index={idx} 
+                                              updateTask={updateTask} 
+                                              updatePetals={updatePetals} 
+                                              user={this.user} 
+                                              task={tasks[taskId]} 
+                                              habit={habits[tasks[taskId].habit]}
+                                              openModal={ this.props.openModal }
+                                            />
                                         ))}
                                     {provided.placeholder}
                                 </div>

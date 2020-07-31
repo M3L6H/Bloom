@@ -1,6 +1,7 @@
 import RewardsUse from './rewards_use';
 import { connect } from 'react-redux';
 import { updatePetals } from '../../actions/users_actions';
+import { openModal } from "../../actions/modal_actions";
 
 const mSTP = (state, ownProps) => ({
   ...ownProps,
@@ -11,6 +12,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = (dispatch) => ({
   updatePetals: (petals) => dispatch(updatePetals(petals)),
+  openModal: (modalType, object) => dispatch(openModal(modalType, object))
 });
 
 export default connect(mSTP, mDTP)(RewardsUse);

@@ -5,7 +5,7 @@ import TaskItemShow from '../landing/task_item_show';
 // Expects props task, habit, user, updatePetals(fcn), and updateTask(fcn)
 class DraggableTask extends TaskItemShow {
     render(){
-        const { task, habit } = this.props;
+        const { task, habit, openModal, index } = this.props;
         if(!task || !habit) return null;
         let completed;
         let completedT;
@@ -19,13 +19,14 @@ class DraggableTask extends TaskItemShow {
         }
 
         return(
-            <Draggable draggableId={task._id} index={this.props.index}>
+            <Draggable draggableId={task._id} index={index}>
                 { (provided) =>(
                     
                     <div className={`taskshow-container ${ completed }`} 
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                    ref={provided.innerRef} 
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      ref={provided.innerRef} 
+                      onClick={ () => openModal("editTask", task) }
                     >
                       { !completed && 
                         <div className="task-complete"><i className={`far fa-${complete}square`} onClick={this.completeTask}></i></div>

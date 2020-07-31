@@ -28,24 +28,36 @@ export default class UserDashboard extends React.Component{
     }
 
     render(){
+        const { user } = this.props;
+      
         if(!this.state.propsLoaded){
             return null;
         }
 
-        let rewards = this.props.user.rewards
+        let rewards = user.rewards
         
         let rewardList;
 
         if(rewards.length === 0){
             rewardList = <h3 className="no-reward-message">It looks like you haven't added any rewards! Click the "+" button to get started.</h3>
         } else{
-            rewardList = rewards.map(reward => <RewardMenuItem key={ reward._id } reward={reward} openModal={this.props.openModal} />)
+            rewardList = rewards.map(reward => <RewardMenuItem key={reward._id} reward={reward} openModal={this.props.openModal} deleteReward={this.props.deleteReward}/>)
         }
         return(
             <div className="dashboard-container">
                 <div className="header">
                   <h1>{this.props.user.fName}</h1>
                   <Dropdown />
+                </div>
+
+                <div className="lifetime-petals">
+                  <h2>Lifetime Petals</h2>
+                  <div className="petals-earned">
+                    Petals earned: { user.petalsEarned || 0 }
+                  </div>
+                  <div className="petals-used">
+                    Petals used: { user.petalsUsed || 0 }
+                  </div>
                 </div>
 
                 <div className="rewards-options">

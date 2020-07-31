@@ -21,6 +21,9 @@ class CreateRewards extends React.Component {
   }
 
   render() {
+
+    let suggestions = [];
+
     return (
       <>
         <Grid
@@ -32,9 +35,9 @@ class CreateRewards extends React.Component {
               <div className="habit-add-title">Create Rewards for Yourself!</div>
               <br />
               <div className="field">
-                <label>What to do when you're done?</label>
+                <label>Rewards</label>
                 <Form.Input
-                  placeholder="Reward yourself for your work!"
+                  placeholder="Treat myself for a nice dinner."
                   value={this.state.title}
                   onChange={this.update("title")}
                 />
