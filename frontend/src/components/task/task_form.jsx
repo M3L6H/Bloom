@@ -8,8 +8,8 @@ class TaskForm extends React.Component {
     super(props);
  
     this.state = props.task;
-    this.state.periodNum = this.state.periodNum > 0 ? this.state.periodNum : "1";
-    this.state.numPetals = this.state.numPetals > 0 ? this.state.numPetals : "1";
+    this.state.periodNum = this.state.periodNum > 0 ? this.state.periodNum.toString() : "1";
+    this.state.numPetals = this.state.numPetals > 0 ? this.state.numPetals.toString() : "1";
     this.state.periodUnit = this.state.periodUnit.length > 0 ? this.state.periodUnit : "day";
     this.handleSubmit = this.handleSubmit.bind(this);
 
