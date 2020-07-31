@@ -228,7 +228,6 @@ class Jar extends Component {
 
   _renderBodies(ctx) {
     this.petals.forEach(body => this._renderPetal(body, ctx));
-    this._renderBody(this.jar, ctx);
   }
   
   _updateAnimation(time) {
@@ -241,17 +240,20 @@ class Jar extends Component {
     const deltaTime = lastTime ? (time - lastTime) / 1000 : 0;
     this.world.step(this.fixedTimeStep, deltaTime, this.maxSubSteps);
 
+    // Render canvas
+    const canvas = this.canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    const width = canvas.width;
+    const height = canvas.height;
+
+    // Only render the petals if we are currently simulating
     if (this.currentTime < this.physicsTimeout) {
-      // Render canvas
-      const canvas = this.canvasRef.current;
-      const ctx = canvas.getContext("2d");
-      const width = canvas.width;
-      const height = canvas.height;
   
       ctx.clearRect(0, 0, width, height);
-  
       this._renderBodies(ctx);
     }
+    
+    this._renderBody(this.jar, ctx);
 
     this.setState({ lastTime: time });
 

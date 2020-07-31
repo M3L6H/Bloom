@@ -3,7 +3,7 @@ import TasksShow from './tasks_show';
 import { fetchHabits } from '../../actions/habits_actions';
 import { updateTask, deleteTask } from '../../actions/tasks_actions';
 import { fetchUser, updatePetals, updateDailyTaskList, sortDailyTaskList} from "../../actions/users_actions";
-import { openModal } from '../../actions/modal_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mSTP = state => ({
     habits: state.entities.habits,
@@ -19,7 +19,8 @@ const mDTP = dispatch => ({
     fetchUser: ()=> dispatch(fetchUser()),
     updateDailyTaskList: (newTaskList) => dispatch(updateDailyTaskList(newTaskList)),
     sortDailyTaskList: ()=> dispatch(sortDailyTaskList()),
-    openModal: (type, object) => dispatch(openModal(type, object))
+    openModal: (type, object) => dispatch(openModal(type, object)),
+    closeModal: () => dispatch(closeModal()) 
 });
 
 export default connect(mSTP, mDTP)(TasksShow);
