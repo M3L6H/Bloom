@@ -32,7 +32,7 @@ class Landing extends React.Component {
     let currentTasks = [];
     let index = 0;
 
-    while (currentTasks.length < 3 && index < user.dailyTaskList.length) {
+    while (index < user.dailyTaskList.length) {
       const task = tasks[user.dailyTaskList[index]];
       if (task && task.numTimesDone < task.periodNum) {
         currentTasks.push(task);
@@ -45,9 +45,13 @@ class Landing extends React.Component {
         <div className="background">
             <Jar user={user}/>
             <div className="landing-tasks-container">
-                <div className="redirect-add-habit" onClick={() => this.props.history.push("/habit")}><i className="fas fa-plus add-icon"></i></div>
+                <div className="redirect-add-habit" onClick={() => this.props.history.push("/habit")}>
+                  <i className="fas fa-plus"></i>
+                </div>
                 <div className="label-primary-tasks">Your Current Primary Tasks</div>
-                {currentTasks.slice(0, 3).map((task, idx) => <TaskItemShow key={idx} task={task} habit={habits[task.habit]} updateTask={updateTask} updatePetals={updatePetals} user={user}/> )}
+                <div className="tasks">
+                  {currentTasks.map((task, idx) => <TaskItemShow key={idx} task={task} habit={habits[task.habit]} updateTask={updateTask} updatePetals={updatePetals} user={user}/> )}
+                </div>
             </div>
         </div>
     );
