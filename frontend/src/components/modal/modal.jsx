@@ -9,10 +9,8 @@ import DeleteHabitContainer from '../habit/delete_habit_container';
 import RewardsUse from '../rewards_use';
 import {CreateRewards, EditReward} from '../reward_forms';
 import Demo from '../demo';
-import SortingModal from '../../components/loading_screens/sorting_modal';
-
+import SortingModal from "../loading_screens/sorting_modal";
 function Modal({ modal, closeModal }) {
-    if (!modal) return null;
 
     let component;
           
