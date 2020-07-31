@@ -39,7 +39,7 @@ class Demo extends React.Component {
                 We are all working towards a full bloom of our potential. We hope this little tool we made might help you along the way.
                 </div>
                 <div className="demo-thankyou">With warmest regards,</div>
-                <div className="demo-thankyou">Michael Hollingworth, Anna Cho, Ajay Ramajani, Ashe Hwang.</div>
+                <div className="demo-thankyou">Michael Hollingworth, Anna Cho, Ajay Rajamani, Ashe Hwang.</div>
             </div>
         )
     }
