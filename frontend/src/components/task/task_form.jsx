@@ -36,13 +36,15 @@ class TaskForm extends React.Component {
       errors.title = "Title is required";
     }
 
-    if(!task.periodNum || !Number.isInteger(Number(task.periodNum))){
-      errors.periodNum = "Must be an integer";
+    if (!task.periodNum || !Number.isInteger(Number(task.periodNum)) || Number(task.periodNum) <= 0 ){
+      errors.periodNum = "Must be a positive integer";
     }
 
-    if(!task.numPetals || !Number.isInteger(Number(task.numPetals))){
-      errors.numPetals = "Must be an integer";
+    if (!task.numPetals || !Number.isInteger(Number(task.numPetals)) || Number(task.numPetals) <= 0 ){
+      errors.numPetals = "Must be a positive integer";
+
     }
+
 
     let response = {
       errors: errors,
@@ -122,18 +124,21 @@ class TaskForm extends React.Component {
       <div className="task-modal-background">
         <Form className="task-form" unstackable>
           <div className="task-form-top">{ formTitle }</div>
+          
           <Form.Field>
             <label>Title</label>
+            {errorMessage(this.state.errors, "title")}
             <input 
               placeholder={ this.placeholders[Math.floor(Math.random() * this.placeholders.length)] }
               value={ title }
               onChange={ this.update("title") }
             />
           </Form.Field>
-          {errorMessage(this.state.errors, "title")}
+          
 
           <Form.Field className="period-label">
             <label>Frequency</label>
+            {errorMessage(this.state.errors, "periodNum")}
           </Form.Field>
             <div className="period-group">
               <Input
@@ -143,7 +148,7 @@ class TaskForm extends React.Component {
                 onChange={ this.update("periodNum") }
                 className="period-num"
               />
-              {errorMessage(this.state.errors,"periodNum")}
+              
               <Dropdown
                 placeholder="Select Period"
                 selection
@@ -160,6 +165,7 @@ class TaskForm extends React.Component {
             </div>
           <Form.Field>
             <label>Reward</label>
+            {errorMessage(this.state.errors, "numPetals")}
             <Dropdown
               placeholder="Select Reward"
               selection
@@ -170,7 +176,7 @@ class TaskForm extends React.Component {
               noResultsMessage={ null }
               options={ numPetalsOptions }
             />
-            {errorMessage(this.state.errors, "numPetals")}
+            
           </Form.Field>
           { submitButton }
         </Form>
