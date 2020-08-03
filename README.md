@@ -1,4 +1,5 @@
 <h1 style="center">Bloom</h1>
+<img src="./readme_images/Bloom.jpg">
 
 A positive reinforcement habit builder with a growth mindset. Find the live demo
 here: [bloom](https://bl00m.herokuapp.com/).
@@ -43,6 +44,8 @@ are highlighted below.
 
 ### The Petal Jar
 
+<img src="./readme_images/petal_jar.jpg">
+
 Designing the petal jar to function correctly proved to be quite challenging. We
 used the physics library p2.js to calculate the physics, but the rendering logic
 was custom made. Particularly difficult was rendering the jar itself, which was
@@ -71,6 +74,8 @@ _renderConvexShape(shape, ctx) {
 ```
 
 ### Drag and Drop Reordering
+
+<img src="./readme_images/drag_and_drop.jpg">
 
 The ability to drag and drop tasks to reorder them also was a complicated
 feature. We used the React Beautiful Dnd library, but managing the ordering in

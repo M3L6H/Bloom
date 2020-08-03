@@ -67,6 +67,7 @@ class LoginForm extends React.Component {
       <Grid textAlign="center" verticalAlign="middle">
         <Grid.Column style={{ width: 250 }}>
           <Form className="user-input-form">
+            {errorMessage(this.props.errors, "email")}
             <Form.Input
               // error={{ content: 'Email is invalid' }}
               fluid
@@ -76,7 +77,7 @@ class LoginForm extends React.Component {
               onChange={this.update("email")}
               value={ email }
             />
-            {errorMessage(this.props.errors, "email")}
+            {errorMessage(this.props.errors, "password")}
             <Form.Input
               // error={{ content: 'Password field is required' }}
               fluid
@@ -87,7 +88,7 @@ class LoginForm extends React.Component {
               onChange={this.update("password")}
               value={ password }
             />
-            {errorMessage(this.props.errors, "password")}
+            
             <Button className="ui test button" fluid size="large" type="submit" onClick={this.handleSubmit}>
               Log In
             </Button>

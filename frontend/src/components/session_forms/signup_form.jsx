@@ -47,6 +47,7 @@ class SignupForm extends React.Component {
             size="small"
             onSubmit={this.handleSubmit}
           >
+            {errorMessage(this.props.errors, "email")}
             <Form.Input
               fluid
               icon="user"
@@ -54,17 +55,17 @@ class SignupForm extends React.Component {
               placeholder="Email"
               onChange={this.update("email")}
             />
-            {errorMessage(this.props.errors, "email")}
+            {errorMessage(this.props.errors, "fName")}
             <Form.Input
               placeholder="First Name"
               onChange={this.update("fName")}
             />
-            {errorMessage(this.props.errors, "fName")}
+            {errorMessage(this.props.errors, "lName")}
             <Form.Input
               placeholder="Last Name"
               onChange={this.update("lName")}
             />
-            {errorMessage(this.props.errors, "lName")}
+            {errorMessage(this.props.errors, "password")}
             <Form.Input
               fluid
               icon="lock"
@@ -73,7 +74,7 @@ class SignupForm extends React.Component {
               type="password"
               onChange={this.update("password")}
             />
-            {errorMessage(this.props.errors, "password")}
+            {errorMessage(this.props.errors, "password2")}
             <Form.Input
               fluid
               icon="lock"
@@ -82,7 +83,7 @@ class SignupForm extends React.Component {
               type="password"
               onChange={this.update("password2")}
             />
-            {errorMessage(this.props.errors, "password2")}
+            
             <Button className="ui test button" fluid size="large">
               Register
             </Button>
