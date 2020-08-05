@@ -8,7 +8,6 @@ import CreateTaskContainer from '../task/create_task_container';
 import DeleteHabitContainer from '../habit/delete_habit_container';
 import RewardsUse from '../rewards_use';
 import {CreateRewards, EditReward} from '../reward_forms';
-import Demo from '../demo';
 import SortingModal from "../loading_screens/sorting_modal";
 import CreateHabitTask from "../task/create_habit_task_container";
 
@@ -50,9 +49,6 @@ function Modal({ modal, closeModal }) {
         case "createHabitTask":
             component = <CreateHabitTask action={modal.object}/>
             break; 
-        case "demo":
-            component = <Demo />
-            break;
         default:
             return null;
     }
