@@ -33,7 +33,6 @@ class CreateHabitForm extends React.Component {
     }
 
     async handleAddTask(task) {
-        console.log(task);
         let newTaskList = this.state.tasks.slice();
         newTaskList.push(task);
         this.setState({
