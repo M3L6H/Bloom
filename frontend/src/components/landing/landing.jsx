@@ -44,11 +44,11 @@ class Landing extends React.Component {
 
     while (index < user.dailyTaskList.length) {
       const task = tasks[user.dailyTaskList[index]];
-      if (task && task.numTimesDone < task.periodNum && (!habit || habits[task.habit].title === habit)) {
+      if (!task) continue;
+
+      if (task.numTimesDone < task.periodNum && (!habit || habits[task.habit].title === habit)) {
         currentTasks.push(task);
       }
-
-      if (!task) continue;
       
       const title = habits[task.habit].title;
       
@@ -88,7 +88,7 @@ class Landing extends React.Component {
                 </Dropdown>
                 <div className="label-primary-tasks">Your Current Primary Tasks</div>
                 <div className="tasks">
-                  {currentTasks.map((task, idx) => <TaskItemShow key={idx} task={task} habit={habits[task.habit]} updateTask={updateTask} updatePetals={updatePetals} user={user}/> )}
+                  {currentTasks.map((task) => <TaskItemShow key={task._id} task={ task } habit={habits[task.habit]} updateTask={updateTask} updatePetals={updatePetals} user={user}/> )}
                 </div>
                 { currentTasks.length === 0 && 
                 <div className="message">
