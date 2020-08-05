@@ -9,6 +9,7 @@ class TaskItemShow extends React.Component {
   }
 
   completeTask(e){
+    e.stopPropagation();
     this.tracking = this.props.task.numTimesDone;
     this.tracking += 1;
     if (this.tracking >= this.props.task.periodNum) {

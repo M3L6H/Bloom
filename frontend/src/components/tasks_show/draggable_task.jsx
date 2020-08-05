@@ -29,7 +29,7 @@ class DraggableTask extends TaskItemShow {
                       onClick={ () => openModal("editTask", task) }
                     >
                       { !completed && 
-                        <div className="task-complete"><i className={`far fa-${complete}square`} onClick={this.completeTask}></i></div>
+                        <div className="task-complete"><i className={`far fa-${complete}square`} onClick={ this.completeTask }></i></div>
                       }
                       <div className="taskshow-completion">{completed}</div>
                       <div className={`taskshow-title ${completedT}`}>{task.title} <span>- {habit.title}</span></div>
