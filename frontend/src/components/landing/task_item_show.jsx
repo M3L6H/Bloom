@@ -4,25 +4,24 @@ class TaskItemShow extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { complete: false };
+    const { task } = props;
+    this.state = { complete: task.numTimesDone >= task.periodNum };
     this.completeTask = this.completeTask.bind(this);
   }
 
   completeTask(e){
     e.stopPropagation();
-    this.tracking = this.props.task.numTimesDone;
-    this.tracking += 1;
-    if (this.tracking >= this.props.task.periodNum) {
+    let tracking = this.props.task.numTimesDone;
+    tracking += 1;
+    if (tracking >= this.props.task.periodNum) {
       this.props.user.petals += this.props.task.numPetals;
       this.props.updatePetals(this.props.user.petals);
       this.setState({ complete: true });
-      window.setTimeout(() => {  
-        this.props.updateTask({ ...this.props.task, numTimesDone: this.tracking });
-        this.setState({ complete: false })}, 1000);
-      } else {
+      this.props.updateTask({ ...this.props.task, numTimesDone: tracking });
+    } else {
         this.props.updateTask({
           ...this.props.task,
-          numTimesDone: this.tracking,
+          numTimesDone: tracking,
         });
     }
   }
