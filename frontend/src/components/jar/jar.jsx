@@ -64,9 +64,6 @@ class Jar extends Component {
     const position = [(windowWidth - this.innerDiameter) / 2 - 3 * this.unit, this.topOffset];
     this.jar = this._createPolyBody(this._jarPath(), { position });
 
-    // Spawn petals
-    this._spawnPetals(this.props.petals);
-
     if (this.rAF) cancelAnimationFrame(this.rAF);
     
     this.rAF = requestAnimationFrame(this._updateAnimation);
@@ -272,7 +269,7 @@ class Jar extends Component {
           ref={this.canvasRef}
         ></canvas>
         <div className="petal-jar-counter" onClick={() => this.props.openModal('useRewards', this.removePetals)}>
-          <div>Current Petals: {user.petals}</div>
+          <div>Current Petals: {user ? user.petals : 0}</div>
           <div>Click to Redeem</div>
         </div>
       </div>
