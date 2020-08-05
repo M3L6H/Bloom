@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Button, Modal } from 'semantic-ui-react';
+import { Button, Header, Image, Modal } from 'semantic-ui-react';
+
+import demoLanding from '../../images/demo-landing.png';
 
 const Demo = ({ location }) => {
   const [open, setOpen] = useState(false);
@@ -21,8 +23,12 @@ const Demo = ({ location }) => {
   // eslint-disable-next-line
   switch(location.pathname) {
     case "/landing":
-      modalDetails.title = "Landing Help";
-
+      modalDetails.title = "Home Help";
+      modalDetails.image = demoLanding;
+      modalDetails.description = (
+        <p>The home page is the heart of the app. Here you can complete tasks, redeem rewards, and more.</p>
+      );
+      break;
   }
   
   return (
@@ -33,8 +39,14 @@ const Demo = ({ location }) => {
         open={ open }
         trigger={ trigger }
       >
-        <Modal.Header>{ modalDetails.title }</Modal.Header>
-
+        <Modal.Header>Bloom Demo</Modal.Header>
+        <Modal.Content image>
+          <Image size="medium" src={ modalDetails.image } wrapped />
+          <Modal.Description>
+            <Header>{ modalDetails.title }</Header>
+            { modalDetails.description }
+          </Modal.Description>
+        </Modal.Content>
       </Modal>
     </>
   );
