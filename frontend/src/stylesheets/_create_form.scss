@@ -89,3 +89,7 @@ i.fa-minus-square:hover, i.fa-plus-square:hover {
     left: calc(50% - #{$bg_width / 2 });
     bottom: 0;
 }
+
+.ui.button.back-button {
+  margin-top: 1rem;
+}

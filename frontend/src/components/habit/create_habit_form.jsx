@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
 import { Button, Form, Grid } from 'semantic-ui-react';
 
 import { RECEIVE_HABIT } from "../../actions/habits_actions";
@@ -109,8 +110,11 @@ class CreateHabitForm extends React.Component {
                             <div className="habit-add-task-button">
                                 Add Tasks  <i className="far fa-plus-square" onClick={()=>this.props.openModal("createHabitTask", this.handleAddTask)}></i>
                             </div>
-                            <Button className='ui test button' type="button" fluid size='medium' onClick={this.handleSubmit}>
+                            <Button primary className='ui test button' type="button" fluid size='medium' onClick={this.handleSubmit}>
                                 Create Habit
+                            </Button>
+                            <Button className="back-button" fluid onClick={ () => this.props.history.goBack() }>
+                              Back
                             </Button>
                         </Form>
                     </Grid.Column>
@@ -121,4 +125,4 @@ class CreateHabitForm extends React.Component {
 
 }
 
-export default CreateHabitForm;
+export default withRouter(CreateHabitForm);
