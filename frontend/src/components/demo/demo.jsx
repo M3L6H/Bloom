@@ -33,7 +33,7 @@ class Demo extends React.Component {
                 As you complete tasks, you will accumilate petals in the petal jar! These petals can be redeemed for rewards, which you set for yourself from your personal dashboard.</div>
                 <div className="demo-image demo-10"></div>
                 <div className="demo-prompt">Bloom allows you to set your own rewards for success. What do you like to do to unwind? Go for a walk? Play video games? Drink some boba?
-                 Choose how you want to compensate yourself for your tasks you complete, and how many petals that reward will cost!</div>                
+                 Choose how you want to compensate yourself for the tasks you complete, and how many petals that reward will cost!</div>                
                 <div className="demo-image demo-12"></div>
                 <div className="demo-prompt">When you have accumulated enough petals to reward yourself, you can click on the jar to use your petals the way you like.</div>
                 <div className="demo-image demo-13"></div>
