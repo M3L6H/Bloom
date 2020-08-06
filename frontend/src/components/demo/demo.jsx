@@ -26,6 +26,9 @@ const Demo = ({ location }) => {
   const modalDetails = {};
 
   switch(location.pathname) {
+    case "/":
+      trigger = null;
+      break;
     case "/landing":
       modalDetails.title = "Home Help";
       modalDetails.image = demoLanding;

@@ -10,7 +10,7 @@ import RewardsUse from '../rewards_use';
 import {CreateRewards, EditReward} from '../reward_forms';
 import SortingModal from "../loading_screens/sorting_modal";
 import CreateHabitTask from "../task/create_habit_task_container";
-
+import { Intro } from '../demo';
 
 function Modal({ modal, closeModal }) {
 
@@ -49,6 +49,9 @@ function Modal({ modal, closeModal }) {
         case "createHabitTask":
             component = <CreateHabitTask action={modal.object}/>
             break; 
+        case "demo":
+            component = <Intro />
+            break;
         default:
             return null;
     }
