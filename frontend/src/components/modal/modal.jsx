@@ -12,6 +12,8 @@ import SortingModal from "../loading_screens/sorting_modal";
 import CreateHabitTask from "../task/create_habit_task_container";
 import { Intro } from '../demo';
 
+import { Icon } from 'semantic-ui-react';
+
 function Modal({ modal, closeModal }) {
 
     if (!modal) return null;
@@ -59,6 +61,7 @@ function Modal({ modal, closeModal }) {
     return(
         <div className="modal-background" onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
+                <Icon name="close" className="close-modal" link color="red" onClick={ closeModal } />
                 { component }
             </div>
         </div>

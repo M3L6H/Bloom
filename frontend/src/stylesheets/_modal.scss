@@ -10,3 +10,13 @@
   justify-content: center;
   align-items: center;
 }
+
+.modal-child {
+  position: relative;
+
+  .icon.close-modal {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+  }
+}
