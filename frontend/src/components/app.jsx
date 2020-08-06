@@ -5,6 +5,7 @@ import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 //Componenents
+import Demo from './demo';
 import Main from './main';
 import Modal from './modal/modal';
 import CreateHabit from './habit';
@@ -22,6 +23,7 @@ const App = () => (
   <div className="test">
     <Fireworks />
     <Modal />
+    <Demo />
     <Switch>
       <ProtectedRoute path="/dashboard" component={()=><></>}/>
       <ProtectedRoute path="/" component={NavBar} />

@@ -1,9 +1,10 @@
+$dashboard-width: 500px;
 
 .dashboard-container{
-    max-width: 500px;
     margin:0px auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-image: linear-gradient(#013A65, #D4C7E5);
     height:100vh;
     padding: 36px;
@@ -16,6 +17,8 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1rem;
+      width: 100%;
+      max-width: $dashboard-width;
 
       h1 {
         margin: 0;
@@ -32,6 +35,9 @@
 }
 
 .lifetime-petals {
+  width: 100%;
+  max-width: $dashboard-width;
+
   .petals-earned, .petals-used {
     color: white;
     font-size: 1.125rem;
@@ -45,9 +51,11 @@
 }
 
 .rewards-options{
-    height:85%;
     display: flex;
     flex-direction: column;
+    max-width: $dashboard-width;
+    width: 100%;
+    flex: 1 1 auto;
     
     h2{
         margin-bottom: 5px;

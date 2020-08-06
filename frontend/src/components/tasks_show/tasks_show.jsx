@@ -1,14 +1,15 @@
 import React from 'react';
 import DraggableTask from './draggable_task';
-import { Button } from 'semantic-ui-react';
+import { Button, Dimmer, Loader } from 'semantic-ui-react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+
 class TasksShow extends React.Component {
     constructor(props){
         super(props);
         
         this.state = {
           loaded: false,
-          taskOrder: null
+          taskOrder: []
         }; 
 
         //Function bindings
@@ -65,11 +66,7 @@ class TasksShow extends React.Component {
 
     render(){
         const { tasks, habits , updatePetals , updateTask } = this.props;
-
-        //Check for relevent props before rendering
-        if(!this.state.loaded){
-            return null; 
-        }
+        const { loaded } = this.state;
 
         return(
             <div className="background">
@@ -95,6 +92,11 @@ class TasksShow extends React.Component {
                                     {...provided.droppableProps}
                                     ref = {provided.innerRef}
                                 >
+                                  <Dimmer inverted active={ !loaded } >
+                                    <Loader>
+                                      Loading
+                                    </Loader>
+                                  </Dimmer>
                                         {this.state.taskOrder.map((taskId, idx) => (
                                             <DraggableTask 
                                               key={taskId} 

@@ -1,5 +1,6 @@
 import React from 'react';
 import HabitIndexItem from './habit_index_item';
+import { Dimmer, Loader } from 'semantic-ui-react';
 import { DragDropContext, Droppable} from "react-beautiful-dnd";
 
 class HabitIndex extends React.Component {
@@ -10,7 +11,8 @@ class HabitIndex extends React.Component {
       // Init state
       this.state = {
         loaded: false,
-        taskOrder: null
+        taskOrder: null,
+        habitList: []
       }; 
 
       //Function bindings
@@ -57,12 +59,8 @@ class HabitIndex extends React.Component {
     }
     render() {
         const { habits,  deleteHabit, openModal } = this.props;
+        const { loaded } = this.state;
         
-       //Check for relevent props before rendering
-        if(!this.state.loaded){
-            return null ;
-       } 
-
         return (
           <div className="background-index-habit">
             <DragDropContext onDragEnd={this.dragEnd}>
@@ -84,6 +82,11 @@ class HabitIndex extends React.Component {
                     {...provided.droppableProps}
                     ref={provided.innerRef} 
                   >
+                    <Dimmer inverted active={ !loaded } >
+                      <Loader>
+                        Loading
+                      </Loader>
+                    </Dimmer>
                     {this.state.habitList.map((habitId, idx) => (
                       <HabitIndexItem 
                         openModal={openModal}

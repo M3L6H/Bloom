@@ -7,31 +7,24 @@ class DraggableTask extends TaskItemShow {
     render(){
         const { task, habit, openModal, index } = this.props;
         if(!task || !habit) return null;
-        let completed;
         let completedT;
         const complete = this.state.complete ? "check-" : "";
 
         if (task.numTimesDone === task.periodNum) {
-            completed = "COMPLETE";
             completedT = "title-completed"
-        } else {
-            completed = "";
         }
 
         return(
             <Draggable draggableId={task._id} index={index}>
                 { (provided) =>(
                     
-                    <div className={`taskshow-container ${ completed }`} 
+                    <div className={`taskshow-container${ this.state.complete ? " complete" : "" }`} 
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                       ref={provided.innerRef} 
                       onClick={ () => openModal("editTask", task) }
                     >
-                      { !completed && 
-                        <div className="task-complete"><i className={`far fa-${complete}square`} onClick={this.completeTask}></i></div>
-                      }
-                      <div className="taskshow-completion">{completed}</div>
+                      <div className="task-complete"><i className={`far fa-${complete}square`} onClick={ this.completeTask }></i></div>
                       <div className={`taskshow-title ${completedT}`}>{task.title} <span>- {habit.title}</span></div>
                       <div className="taskshow-detail">
                           <div className="frequency-and-petals">

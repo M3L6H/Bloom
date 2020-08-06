@@ -1,12 +1,15 @@
+$task_width: 414px;
+
 .task-item-show-container {
-    background-color: rgba($color: white, $alpha: 0.6);
-    border: 1px solid white;
-    border-radius: 8px;
-    width: 74%;
-    margin: 15px auto;
-    padding: 8px;
-    color: grey;
-    position: relative;
+  background-color: rgba($color: white, $alpha: 0.6);
+  border: 1px solid white;
+  border-radius: 8px;
+  width: 86%;
+  max-width: $task_width;
+  margin: 15px auto;
+  padding: 8px;
+  color: grey;
+  position: relative;
 }
 
 .frequency-and-petals {
@@ -15,13 +18,14 @@
 }
 
 .task-item-title {
-    font-weight: 700;
-    color: #2E1F47;
+  font-weight: 700;
+  color: #2E1F47;
+  margin-right: 1rem;
 }
 
 .task-item-title span {
-    color: grey;
-    font-weight: 500;
+  color: grey;
+  font-weight: 500;
 }
 
 .task-complete {

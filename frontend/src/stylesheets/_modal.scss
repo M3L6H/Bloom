@@ -4,9 +4,20 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.modal-child {
+  position: relative;
+
+  .icon.close-modal {
+    position: fixed;
+    top: 2rem;
+    right: 1rem;
+    z-index: 11;
+  }
 }

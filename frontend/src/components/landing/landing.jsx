@@ -2,7 +2,7 @@ import React from 'react';
 import TaskItemShow from './task_item_show';
 import Jar from '../jar';
 
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Dimmer, Loader } from 'semantic-ui-react';
 
 function truncate(str, len) {
   return str.length < len ? str : str.slice(0, len - 3) + "...";
@@ -33,22 +33,21 @@ class Landing extends React.Component {
   }
 
   render(){
-    const { habit } = this.state;
+    const { habit, loaded } = this.state;
     const { tasks, habits, updateTask, user, updatePetals } = this.props;
-    if(!this.state.loaded) return null;
 
     let index = 0;
     const currentTasks = [];
     const options = [{ key: "All Habits", value: null, text: "All Habits" }];
     const habitsHash = {};
 
-    while (index < user.dailyTaskList.length) {
+    while (loaded && index < user.dailyTaskList.length) {
       const task = tasks[user.dailyTaskList[index]];
-      if (task && task.numTimesDone < task.periodNum && (!habit || habits[task.habit].title === habit)) {
+      if (!task) continue;
+
+      if (task.numTimesDone < task.periodNum && (!habit || habits[task.habit].title === habit)) {
         currentTasks.push(task);
       }
-
-      if (!task) continue;
       
       const title = habits[task.habit].title;
       
@@ -67,8 +66,11 @@ class Landing extends React.Component {
 
     return(
         <div className="background">
-            <Jar user={user}/>
+            <Jar user={user} petals={ loaded ? user.petals : 0 } />
             <div className="landing-tasks-container">
+              <Dimmer active={ !loaded } inverted>
+                <Loader>Loading</Loader>
+              </Dimmer>
                 <div className="redirect-add-habit" onClick={() => this.props.history.push("/habit")}>
                   <i className="fas fa-plus"></i>
                 </div>
@@ -88,7 +90,7 @@ class Landing extends React.Component {
                 </Dropdown>
                 <div className="label-primary-tasks">Your Current Primary Tasks</div>
                 <div className="tasks">
-                  {currentTasks.map((task, idx) => <TaskItemShow key={idx} task={task} habit={habits[task.habit]} updateTask={updateTask} updatePetals={updatePetals} user={user}/> )}
+                  {currentTasks.map((task) => <TaskItemShow key={task._id} task={ task } habit={habits[task.habit]} updateTask={updateTask} updatePetals={updatePetals} user={user}/> )}
                 </div>
                 { currentTasks.length === 0 && 
                 <div className="message">
