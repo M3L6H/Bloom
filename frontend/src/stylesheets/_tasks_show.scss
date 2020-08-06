@@ -9,6 +9,7 @@ $task_width: 414px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .show-tasks-container > .fa-times {
@@ -67,6 +68,7 @@ $task_width: 414px;
 
 .shows-tasks-all {
     min-width: 320px;
+    max-width: 500px;
     width: 100%;
     padding-bottom: 1rem;
     margin: 0 auto;
