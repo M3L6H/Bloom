@@ -8,10 +8,11 @@ import CreateTaskContainer from '../task/create_task_container';
 import DeleteHabitContainer from '../habit/delete_habit_container';
 import RewardsUse from '../rewards_use';
 import {CreateRewards, EditReward} from '../reward_forms';
-import Demo from '../demo';
 import SortingModal from "../loading_screens/sorting_modal";
 import CreateHabitTask from "../task/create_habit_task_container";
+import { Intro } from '../demo';
 
+import { Icon } from 'semantic-ui-react';
 
 function Modal({ modal, closeModal }) {
 
@@ -51,7 +52,7 @@ function Modal({ modal, closeModal }) {
             component = <CreateHabitTask action={modal.object}/>
             break; 
         case "demo":
-            component = <Demo />
+            component = <Intro />
             break;
         default:
             return null;
@@ -60,6 +61,7 @@ function Modal({ modal, closeModal }) {
     return(
         <div className="modal-background" onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
+                <Icon name="close" className="close-modal" link color="red" onClick={ closeModal } size="big" />
                 { component }
             </div>
         </div>
