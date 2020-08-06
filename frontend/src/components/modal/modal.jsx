@@ -61,8 +61,10 @@ function Modal({ modal, closeModal }) {
     return(
         <div className="modal-background" onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
+                
                 <Icon name="close" className="close-modal" link color="red" onClick={ closeModal } size="big" />
                 { component }
+                
             </div>
         </div>
     )

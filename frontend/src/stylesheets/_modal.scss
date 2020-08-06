@@ -13,11 +13,15 @@
 
 .modal-child {
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   .icon.close-modal {
-    position: fixed;
-    top: 2rem;
-    right: 1rem;
+    align-self: flex-end;
     z-index: 11;
+  }
+
+  .ui.grid{
+    margin: 0px;
   }
 }
