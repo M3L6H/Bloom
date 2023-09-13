@@ -1,8 +1,7 @@
 <h1 style="center">Bloom</h1>
 <img src="./readme_images/Bloom.jpg">
 
-A positive reinforcement habit builder with a growth mindset. Find the live demo
-here: [bloom](https://bl00m.herokuapp.com/).
+A positive reinforcement habit builder with a growth mindset.
 
 This app is designed to provide an intuitive and encouraging way to build habits
 and achieve personal goals. We are already hard enough on ourselves as it is.
